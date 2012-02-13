@@ -1,0 +1,501 @@
+#include <linux/config.h>
+#include "rtl865x/rtl_types.h"
+#include "flashdrv.h"
+
+#ifdef __linux__
+#include <linux/netdevice.h>
+#include <linux/interrupt.h>
+#include <linux/skbuff.h>
+#endif
+#include "rtl865x/rtl8651_tblDrv.h"
+
+	/*command line engine supported*/
+#include "cle/rtl_cle.h"
+#include "swNic2.h"
+#ifdef CONFIG_RTL865X_MULTILAYER_BSP
+//CLE commands for Multilayer BSP
+#include "rtl865x/rtl8651_tblDrv_cmd.h"
+#include "rtl865x/rtl8651_tblDrvFwd_cmd.h"
+#include "rtl865x/rtl8651_tblAsicDrv_cmd.h"
+#endif
+#ifdef CONFIG_RTL8305S
+#include "rtl865x/rtl8305s_cmd.h"
+#endif
+
+
+#ifdef CONFIG_RTL865x_SWPUBKEY
+#include "crypto/rtl_crypt_cmd.h"
+#endif
+
+#ifdef CONFIG_RTL865XB_EXP_CRYPTOENGINE
+//CLE commands for Crypto engine
+#include "crypto/865xb/cryptoCmd.h"
+
+
+#define CRYPTO_MEMCPY_TEST
+#ifdef CRYPTO_MEMCPY_TEST
+extern unsigned long volatile jiffies;
+static int8 *cryptKey, *cryptIv;
+static int8 dummyBuffer[8192];
+static int8 tmpBuffer[8192];
+int32 maxPoll=0;
+int32 cryptoMemcpyInit=0;
+#endif
+
+static int32 _rtl8651_cryptMemcpyCmd(uint32 userId,  int32 argc,int8 **saved){
+	int8 *nextToken;
+	int32 size;
+	uint32 start, length,cryptCopyBytes,iteration;
+	int32 i;
+#ifdef CRYPTO_MEMCPY_TEST
+	#define UNCACHED_MALLOC(x)  (void *) (0xa0000000 | (uint32) rtlglue_malloc(x))
+	if(cryptoMemcpyInit==0){
+		rtl8651b_cryptoEngine_init(4, TRUE);
+		cryptKey = (int8 *) UNCACHED_MALLOC(24);
+		cryptIv = (int8 *) UNCACHED_MALLOC(8);
+		for(i=0; i<24; i++)
+			cryptKey[i] = 0x01;
+		for(i=0; i<8; i++)
+			cryptIv[i] = 0x01;
+		cryptoMemcpyInit=1;
+		memset(dummyBuffer, 1, sizeof(dummyBuffer));
+		memset(tmpBuffer, 1, sizeof(tmpBuffer));		
+	}
+	cle_getNextCmdToken(&nextToken,&size,saved); 
+	length = U32_value(nextToken);
+	if(length>sizeof(dummyBuffer))
+		length=sizeof(dummyBuffer);
+	cle_getNextCmdToken(&nextToken,&size,saved); 
+	cryptCopyBytes = U32_value(nextToken);
+	cle_getNextCmdToken(&nextToken,&size,saved); 
+	iteration = U32_value(nextToken);
+	maxPoll=0;
+	start = jiffies;
+	for(i=0;i<iteration;i++){
+		if(cryptCopyBytes&7){
+			cryptCopyBytes&=~7;
+			cryptCopyBytes+=8;
+		}
+		if(length>cryptCopyBytes){
+			int32 poll;
+			if(cryptCopyBytes>0){
+				if(FAILED==rtl8651b_cryptoEngine_des(0xc, (void *)(0x20000000|((uint32)&dummyBuffer[0])),cryptCopyBytes, cryptKey, cryptIv))
+					printk("(Nonblock)cryptCopyBytes:%uB  crypto:%u, memcpy:%u FAILED\n", (uint32)length, (uint32)cryptCopyBytes,(uint32) length- cryptCopyBytes);
+			}
+			if(length-cryptCopyBytes>0){
+				//always copy to uncached.
+				memcpy((void *)(0x20000000|((uint32)&dummyBuffer[cryptCopyBytes])), &tmpBuffer[cryptCopyBytes],length-cryptCopyBytes);
+			}
+			if(cryptCopyBytes>0){
+				#if 0
+				/* patch for sdk062-2 + romeDrv3.3 */
+				poll=rtl8651b_cryptoEngine_des_poll();				
+				#else
+				poll=0;
+				#endif
+				if(poll<0){
+					if(-poll>maxPoll){
+						printk("Poll: %d, max:%d\n", -poll, maxPoll);					
+						maxPoll=-poll;
+					}
+				}
+			}
+		}else{
+			memcpy((void *)(0x20000000|((uint32)&dummyBuffer[0])), &tmpBuffer[0],length);
+		}		
+	}
+	printk("Copy %d * %d times. Total %d bytes, %d ms.  %u KBps\n", length, iteration, (uint32)(length*iteration),(uint32)((jiffies-start)*10), (uint32)((length*iteration))/(10*((uint32)(jiffies-start))));
+#endif
+	return SUCCESS;
+}
+
+#endif
+
+#ifdef CONFIG_RTL865X_MULTILAYER_BSP
+static int32 _rtl8651_debugCmd(uint32 userId,  int32 argc,int8 **saved){
+	int8 *nextToken;
+	int32 size, level;
+	cle_getNextCmdToken(&nextToken,&size,saved); 
+	if(size){
+		level = U32_value(nextToken);
+	}else if(strcmp(nextToken, "on") == 0) 
+		level=1;
+	else
+		level=0;
+	wlan_acc_debug=level;
+	return SUCCESS;
+}
+
+static int32	_rtl8651_resetCmd(uint32 userId,  int32 argc,int8 **saved){
+	return rtl8651_tblDrvReset();
+}
+#endif /*CONFIG_RTL865X_MULTILAYER_BSP*/
+
+static int32	cmdPci(uint32 userId,  int32 argc,int8 **saved){
+	int8 *nextToken;
+	int32 size;
+	uint32 *startaddr;
+	uint32 value,value2;
+	cle_getNextCmdToken(&nextToken,&size,saved); 
+	if(strcmp(nextToken, "read") == 0) {
+		cle_getNextCmdToken(&nextToken,&size,saved); //base address
+		startaddr = (uint32*)U32_value(nextToken);
+		cle_getNextCmdToken(&nextToken,&size,saved); //length
+
+		value = (uint32)U32_value(nextToken);
+		
+		if(value==1)
+		{
+			u8 val;
+			val=rtl865x_pci_ioread8((uint32)startaddr);
+			printk("REG8(%x)=%02x\n",(uint32)startaddr,val);			
+		}
+		else if(value==2)
+		{
+			u16 val;
+			val=rtl865x_pci_ioread16((uint32)startaddr);
+			printk("REG16(%x)=%04x\n",(uint32)startaddr,val);			
+		}
+		else if(value==4)
+		{
+			u32 val;
+			val=rtl865x_pci_ioread32((uint32)startaddr);
+			printk("REG32(%x)=%08x\n",(uint32)startaddr,val);			
+		}
+		
+		
+
+
+	}else {
+
+		cle_getNextCmdToken(&nextToken,&size,saved); //base address
+		startaddr = (uint32 *)U32_value(nextToken);
+		
+		cle_getNextCmdToken(&nextToken,&size,saved);
+		value = (uint32)U32_value(nextToken);
+
+		cle_getNextCmdToken(&nextToken,&size,saved);
+		value2 = (uint32)U32_value(nextToken);
+		
+
+		
+		if(value2==1)
+		{
+			u8 val;
+			rtl865x_pci_iowrite8((uint32)startaddr,value);
+			val=rtl865x_pci_ioread8((uint32)startaddr);
+			printk("REG8(%x)=%02x\n",(uint32)startaddr,val);			
+		}
+		else if(value2==2)
+		{
+			u16 val;
+			rtl865x_pci_iowrite16((uint32)startaddr,value);
+			val=rtl865x_pci_ioread16((uint32)startaddr);
+			printk("REG16(%x)=%04x\n",(uint32)startaddr,val);			
+		}
+		else if(value2==4)
+		{
+			u32 val;
+			rtl865x_pci_iowrite32((uint32)startaddr,value);
+			val=rtl865x_pci_ioread32((uint32)startaddr);
+			printk("REG32(%x)=%08x\n",(uint32)startaddr,val);			
+		}		
+		
+	}
+
+	return SUCCESS;
+}
+static int32	_rtl8651_memdump(uint32 userId,  int32 argc,int8 **saved){
+	int8 *nextToken;
+	int32 size;
+	uint32 *startaddr, *addr;
+	uint32 len, value;
+	cle_getNextCmdToken(&nextToken,&size,saved); 
+	if(strcmp(nextToken, "read") == 0) {
+		cle_getNextCmdToken(&nextToken,&size,saved); //base address
+		startaddr = (uint32*)U32_value(nextToken);
+		cle_getNextCmdToken(&nextToken,&size,saved); //length
+		len=U32_value(nextToken);
+
+	}else {
+		len=0;
+		cle_getNextCmdToken(&nextToken,&size,saved); //base address
+		addr=startaddr = (uint32 *)U32_value(nextToken);
+		//while(
+		cle_getNextCmdToken(&nextToken,&size,saved);// !=FAILED){
+			value = (uint32)U32_value(nextToken);
+			*addr=value;
+			len+=4;
+			addr++;
+		//}
+	}
+	memDump(startaddr, len, "Result");
+	return SUCCESS;
+}
+
+#ifdef CONFIG_RTL8185
+bdinfo_t currentBdInfo;
+static int32	_rtl8651_8185flashCfgCmd(uint32 userId,  int32 argc,int8 **saved){
+	int8 *nextToken;
+	int32 size, i;
+	uint32 value;
+	uint32 cardIndex;
+	int chIndex;
+	cle_getNextCmdToken(&nextToken,&size,saved); 
+	cardIndex = U32_value(nextToken);
+	cle_getNextCmdToken(&nextToken,&size,saved); 
+	flashdrv_read((void *)&currentBdInfo, (void *)flashdrv_getBoardInfoAddr(), sizeof(bdinfo_t));
+
+	if(!strcmp(nextToken, "default")) {
+		int32 i;
+		bdinfo_wlan_t def = {
+			type: 0x81,
+			version: 0x85,
+			len: sizeof(bdinfo_wlan_t),
+			rxChargePump:3,
+			txChargePump:6,
+		};
+		for(i=0;i< BDINFO_RTL8225_11bCHANNELS;i++){
+			//802.11g
+			def.txPower[i][0]=18;
+			def.txPower[i][1]=17;
+			def.txPower[i][2]=16;
+			def.txPower[i][3]=15;
+			def.cckTxPower[i][0]=12;
+			def.cckTxPower[i][1]=12;
+			def.cckTxPower[i][2]=11;
+			def.cckTxPower[i][3]=11;
+		}
+		for(i=BDINFO_RTL8225_11bCHANNELS;i< BDINFO_RTL8225_11bCHANNELS+BDINFO_RTL8255_11aCHANNELS;i++){
+			//802.11a
+			def.txPower[i][0]=12;
+			def.txPower[i][1]=12;
+			def.txPower[i][2]=12;
+			def.txPower[i][3]=12;
+		}			
+		memcpy(&currentBdInfo.wlan[cardIndex], &def, sizeof(bdinfo_wlan_t));
+		memcpy(&currentBdInfo.wlan[cardIndex].mac[0], &currentBdInfo.mac[0], 6);
+		flashdrv_updateBdInfo(&currentBdInfo);		
+	}else if(!strcmp(nextToken, "get")) {
+		//get flash info
+		printk("MAC: %x:%x:%x:%x:%x:%x, ",currentBdInfo.mac[0],currentBdInfo.mac[1],currentBdInfo.mac[2],currentBdInfo.mac[3],currentBdInfo.mac[4],currentBdInfo.mac[5]);
+		printk("RAM:%08x, ",  currentBdInfo.ramStartAddress);
+		printk("Root:%08x\n",  currentBdInfo.rootStartOffset);
+		memDump(&currentBdInfo, sizeof(bdinfo_t),"Raw data");
+	}else{
+		//write cfg to flash
+		do{
+			if (strcmp(nextToken, "mac") ==0 ) {
+				cle_getNextCmdToken(&nextToken,&size,saved); 
+				  *((ether_addr_t *)currentBdInfo.wlan[cardIndex].mac) = *((ether_addr_t *)nextToken);
+			}else if (strcmp(nextToken, "rxcp")==0) {
+				cle_getNextCmdToken(&nextToken,&size,saved); 
+				value = U32_value(nextToken);
+				currentBdInfo.wlan[cardIndex].rxChargePump = value;
+			}else if (strcmp(nextToken, "txcp") ==0 ) {
+				cle_getNextCmdToken(&nextToken,&size,saved); 
+				value = U32_value(nextToken);
+				currentBdInfo.wlan[cardIndex].rxChargePump = value;
+			}else{
+				if (strcmp(nextToken, "A") ==0 ) 
+					chIndex=14;
+				else 
+					chIndex=0;
+				cle_getNextCmdToken(&nextToken,&size,saved); 
+				value = U32_value(nextToken);
+				if(chIndex)
+					chIndex+=(value-36)/4;
+				else
+					chIndex=value-1;
+				for(i=0;i<4;i++){
+					cle_getNextCmdToken(&nextToken,&size,saved); 
+					currentBdInfo.wlan[cardIndex].txPower[chIndex][i] = U32_value(nextToken);
+				}
+			}
+		}while(cle_getNextCmdToken(&nextToken,&size,saved) !=FAILED);
+		flashdrv_updateBdInfo(&currentBdInfo);
+	}
+	return SUCCESS;
+}
+#endif
+
+static cle_exec_t _initCmdList[] = {
+#ifdef CONFIG_RTL8185
+	{	"8185",
+		"rtl8185 MP flash read/write command",
+		" %d'WLAN card index' { default'Set default cfg to flash' | get'Get card config from flash' | { [ mac'Write MAC to flash' %mac'MAC address in XX:XX:XX:XX:XX:XX format' ] "
+		"[ rxcp'Write Rx charge pump cfg to flash' %d'0~7 for 200mA~550mA' ] [ txcp'Write Tx charge pump cfg to flash' %d'0~7 for 200~550mA' ] "
+		"[ { A'Select 802.11a band...' %d'select channel (36~64)...' | B'Select 802.11b/g band...' %d'select channel (1~14)' } %d'tx pwr(Max)' %d'tx pwr(2)' %d'tx pwr(3)' %d'tx pwr(min)' ] } }",
+		_rtl8651_8185flashCfgCmd,
+		CLE_USECISCOCMDPARSER,	
+		0,
+		NULL
+	},
+#endif
+	
+#ifdef CONFIG_RTL865X_MULTILAYER_BSP
+	{	"debug",
+		"Display debug info",
+		"{ on | off  | %d'Debug level' }",
+		_rtl8651_debugCmd,
+		CLE_USECISCOCMDPARSER,	
+		0,
+		NULL
+	},
+	{	"reset",
+		"Reset to code default. Flush all tables & settings.",
+		"",
+		_rtl8651_resetCmd,
+		CLE_USECISCOCMDPARSER,	
+		0,
+		NULL
+	},	
+#endif
+
+	{	"memory",
+		"read/write memory",
+		"{ read'read memory from specified base address' %d'base address' %d'Length' | write'write memory from specified base address' %d'base address' %d'4 byte value' } ",
+		_rtl8651_memdump,
+		CLE_USECISCOCMDPARSER,	
+		0,
+		NULL
+	},	
+#ifdef CONFIG_RTL865XB_EXP_CRYPTOENGINE	
+	{	"cryptMemcpy",
+		"Memcpy test",
+		" %d'Pktlen' %d'# of bytes copy by crypto engine' %d'iteration' ",
+		_rtl8651_cryptMemcpyCmd,
+		CLE_USECISCOCMDPARSER,	
+		0,
+		NULL
+	},	
+#endif
+	{	"pci",
+		"read/write io address",
+		"{ read'read memory from specified base address' %d'base address' %d '1:byte,2:word,4:dword' | write'write memory from specified base address' %d'base address' %d'value' %d' 1:byte,2:word,4:dword' } ",
+		cmdPci,
+		CLE_USECISCOCMDPARSER,	
+		0,
+		NULL
+	},		
+
+};
+
+
+static cle_grp_t _initCmdGrpList[] = {
+#ifdef CONFIG_RTL865X_MULTILAYER_BSP	
+	{
+		"drv",							//cmdStr
+		"Config RTL8651 high level driver",			//cmdDesc
+		NULL,							//cmdPrompt
+		rtl8651_tblDrv_cmds,	    			//exec array
+		NULL,		        				//group array
+		CMD_RTL8651_TBLDRV_CMD_NUM,		//exec number
+		0,		            					//group number
+		0,		            					//access level
+	},
+	{
+		"fwd",			    			//cmdStr
+		"Config RTL8651 forwarding engine",	//cmdDesc
+		NULL,							//cmdPrompt
+		rtl8651_tblDrvFwd_cmds,		    	//exec array
+		NULL,		        				//group array
+		CMD_RTL8651_TBLDRVFWD_CMD_NUM,		//exec number
+		0,		            					//group number
+		0,		            					//access level
+	},
+	{
+		"asic",			    				//cmdStr
+		"Config RTL8651 ASIC driver",			//cmdDesc
+		NULL,							//cmdPrompt
+		rtl8651_tblAsicDrv_cmds,	   			 //exec array
+		NULL,		        				//group array
+		CMD_RTL8651_TBLASICDRV_CMD_NUM,		//exec number
+		0,		            					//group number
+		0,		            					//access level
+	},
+	{
+		"nic",			    				//cmdStr
+		"RTL8651 NIC config & status",			//cmdDesc
+		NULL,							//cmdPrompt
+		swNic_cmds,	   			 //exec array
+		NULL,		        				//group array
+		CMD_RTL8651_SWNIC_CMD_NUM,		//exec number
+		0,		            					//group number
+		0,		            					//access level
+	},	
+#endif /*CONFIG_RTL865X_MULTILAYER_BSP*/
+#ifdef CONFIG_RTL865x_SWPUBKEY
+	{
+		"pubkey",			    				//cmdStr
+		"Using rtl865x software public key driver",			//cmdDesc
+		NULL,							//cmdPrompt
+		rtl865x_pubkey_cmds,	   			 //exec array
+		NULL,		        				//group array
+		CMD_RTL865x_PUBKEY_CMD_NUM,		//exec number
+		0,		            					//group number
+		0,		            					//access level
+	},
+#endif
+#ifdef CONFIG_RTL865XB_EXP_CRYPTOENGINE
+	{
+		"crypto",			    				//cmdStr
+		"Using rtl865xB hardware cryptography engine",			//cmdDesc
+		NULL,							//cmdPrompt
+		rtl865x_crypt_cmds,	   			 //exec array
+		NULL,		        				//group array
+		CMD_RTL865XB_CRYPT_CMD_NUM,		//exec number
+		0,		            					//group number
+		0,		            					//access level
+	},
+#endif
+#ifdef CONFIG_RTL8305S
+	{
+		"8305s",			    				//cmdStr
+		"Control the MII/GPIO controlled 8305SB/8305SB",			//cmdDesc
+		NULL,							//cmdPrompt
+		rtl8305s_cmds,	   			 //exec array
+		NULL,		        				//group array
+		CMD_RTL8305S_CMD_NUM,		//exec number
+		0,		            					//group number
+		0,		            					//access level
+	},
+#endif
+
+	/* more ...... */
+};
+
+
+cle_grp_t cle_newCmdRoot[] = {
+	{
+		"rtl8651",								//cmdStr
+		"RTL8651 command line interface",	//cmdDesc
+		"rtl8651",								//cmdPrompt
+		_initCmdList,					//List of commands in this layer
+		_initCmdGrpList,						//List of child command groups
+		sizeof(_initCmdList)/sizeof(cle_exec_t),		//Number of commands in this layer
+		sizeof(_initCmdGrpList)/sizeof(cle_grp_t),	//Number of child command groups
+		0,									//access level
+	}
+	/* more ...... */
+};
+
+#ifdef CONFIG_RTL8185
+//glue function for 8185 iwpriv ioctl to call our own CLE engine.
+void rtl8651_8185flashCfg(int8 *cmd, uint32 cmdLen){
+	int i, ret,total=sizeof(_initCmdList)/sizeof(cle_exec_t);
+	cle_exec_t *CmdFmt=NULL;
+	for(i=0;i<total;i++){
+		if(strcmp(_initCmdList[i].cmdStr, "8185")==0){
+			CmdFmt=&_initCmdList[i];
+			break;
+		}
+	}
+	ret=cle_cmdParser(cmd, CmdFmt,"/,= ");
+	if(ret<1)
+		printk("Cmd failed, ret=%d\n", ret);
+}
+EXPORT_SYMBOL(rtl8651_8185flashCfg);
+
+#endif
+

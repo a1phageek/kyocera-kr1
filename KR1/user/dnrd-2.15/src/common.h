@@ -1,0 +1,131 @@
+/*
+ * common.h
+ *
+ * This file contains definitions useful in all sorts of places.
+ *
+ * Copyright (C) 1998 Brad M. Garcia <garsh@home.com>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ */
+
+#ifndef _DNRD_COMMON_H_
+#define _DNRD_COMMON_H_
+
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <syslog.h>
+#include <semaphore.h>
+#include "domnode.h"
+
+/* default chroot path. this might be redefined in compile time */ 
+#ifndef CHROOT_PATH
+#define CHROOT_PATH "/etc/dnrd"
+#endif 
+
+/* Set the default timeout value for select in seconds */
+#ifndef SELECT_TIMEOUT
+#define SELECT_TIMEOUT 1
+#endif
+
+/* Set the default timeout value for forward DNS. If we get no
+ * response from a DNS server within forward_timeout, deactivate the
+ * server.  note that if select_timeout is greater than this, the
+ * forward timeout *might* increase to select_timeout. This value
+ * should be >= SELECT_TIMEOUT
+ */
+#ifndef FORWARD_TIMEOUT
+#define FORWARD_TIMEOUT 5
+#endif
+
+/*
+	current dnrd version
+*/
+#define PACKAGE_VERSION	"2.15"
+
+/* only check if any server are to be reactivated every
+ * REACTIVATE_INTERVAL seconds
+ */
+#define REACTIVATE_INTERVAL 7
+
+struct dnssrv_t {
+  int                    sock;      /* for communication with server */
+  struct sockaddr_in     addr;      /* IP address of server */
+  char*                  domain;    /* optional domain to match.  Set to
+					 zero for a default server */
+  
+};
+
+
+extern const char*         version;   /* the version number for this program */
+extern const char*         progname;  /* the name of this program */
+extern int                 opt_debug; /* debugging option */
+extern const char*         pid_file; /* File containing current daemon's PID */
+extern const char*         serv_file; /* File containing current daemon's server list */
+extern int                 isock;     /* for communication with clients */
+extern int                 tcpsock;   /* same as isock, but for tcp requests */
+extern int                 select_timeout; /* select timeout in seconds */
+extern int                 forward_timeout; /* timeout for forward DNS */
+extern struct sockaddr_in  recv_addr; /* address on which we receive queries */
+extern uid_t               daemonuid; /* to switch to once daemonised */
+extern gid_t               daemongid; /* to switch to once daemonised */
+extern int                 gotterminal;
+extern char		   master_param[200];
+extern sem_t               dnrd_sem;  /* Used for all thread synchronization */
+
+extern char                chroot_path[512];
+extern domnode_t           *domain_list;
+
+extern int                 reactivate_interval;
+extern int                 ignore_inactive_cache_hits; 
+extern int			load_balance;
+
+
+/* kill any currently running copies of dnrd */
+int kill_current();
+
+#ifndef EMBED
+void log_msg(int type, const char *fmt, ...);	/* print messages to stderr or syslog */
+void log_debug(const char *fmt, ...);		/* same, but only if debugging is turned on */
+#else
+#define log_msg(fmt,args...);			do{} while(0);
+#define log_debug(fmt,args...);		do{} while(0);
+#endif
+
+#ifdef USERAPP_NOMMU
+/* cleanup eveything */
+void cleanall();
+
+/* remove pid/servlist file */
+void rmFile();
+#endif
+
+/* cleanup everything and exit */
+void cleanexit(int status);
+
+/* Reads in the domain name as a string, allocates space for the CNAME
+   version of it */
+char* make_cname(const char *text, const int maxlen);
+void sprintf_cname(const char *cname, int namesize, char *buf, int bufsize);
+
+char *cname2asc(const char *cname);
+
+
+/* Dumping DNS packets */
+int dump_dnspacket(char *type, unsigned char *packet, int len);
+
+/* parse server file and reset server list */
+void parse_serfile(void);
+
+#endif  /* _DNRD_COMMON_H_ */

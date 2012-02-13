@@ -1,0 +1,13 @@
+/ar5312.h/1.5/Thu Oct 21 20:31:19 2004//
+/ar5312_attach.c/1.13/Fri Dec 10 05:36:26 2004//
+/ar5312_bsp.c/1.4/Fri Aug 20 17:19:24 2004//
+/ar5312_eeprom.c/1.2/Thu Oct 21 20:31:19 2004//
+/ar5312_gpio.c/1.2/Thu Oct 21 20:31:19 2004//
+/ar5312_interrupts.c/1.2/Tue Jun  8 21:22:30 2004//
+/ar5312_misc.c/1.4/Thu Oct 21 20:31:19 2004//
+/ar5312_power.c/1.2/Tue Jun  8 21:22:30 2004//
+/ar5312_reset.c/1.10/Thu Dec  9 00:00:09 2004//
+/ar5312phy.h/1.3/Sat Oct 23 00:14:18 2004//
+/ar5312reg.h/1.2/Tue Jun  8 21:22:31 2004//
+/cvtatheros/1.1/Wed May  5 00:59:43 2004//
+D

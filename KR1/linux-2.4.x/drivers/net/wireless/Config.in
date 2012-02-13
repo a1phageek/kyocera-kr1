@@ -1,0 +1,51 @@
+#
+# Wireless LAN device configuration
+#
+
+if [ "$CONFIG_ISA" = "y" -o "$CONFIG_PCI" = "y" ]; then
+   tristate '  Cisco/Aironet 34X/35X/4500/4800 ISA and PCI cards' CONFIG_AIRO
+fi
+
+tristate '  Hermes chipset 802.11b support (Orinoco/Prism2/Symbol)' CONFIG_HERMES
+
+if [ "$CONFIG_ALL_PPC" = "y" ]; then
+   dep_tristate '    Apple Airport support (built-in)' CONFIG_APPLE_AIRPORT $CONFIG_HERMES
+fi
+
+
+if [ "$CONFIG_NET_PCI" = "y" ]; then
+	tristate '  Host AP support for Prism2/2.5/3 IEEE 802.11b' CONFIG_HOSTAP
+	dep_tristate '  Host AP driver for Prism2/2.5/3 in PLX9052 based PCI adaptors' CONFIG_HOSTAP_PLX $CONFIG_HOSTAP
+	 dep_tristate '  Host AP driver for Prism2.5 PCI adaptors' CONFIG_HOSTAP_PCI $CONFIG_HOSTAP
+	dep_tristate '  RTL8185 802.11a/b/g PCI NIC support' CONFIG_RTL8185 $CONFIG_NET_PCI 
+      if [ "$CONFIG_RTL8185" = "y" -o "$CONFIG_RTL8185" = "m" ]; then
+         dep_bool '        Enable RTL865X L3/4 hw acceleration' CONFIG_RTL8185_HWACCEL  $CONFIG_RTL865X $CONFIG_EXPERIMENTAL
+	 if [ "$CONFIG_RTL8185_HWACCEL" = "y" ]; then
+	    hex '        vlan id used by RTL8185' CONFIG_RTL8185_VID
+	 fi
+      fi
+	dep_tristate '  Vendor IXXX 802.11g NIC support' CONFIG_INPRO2220 $CONFIG_NET_PCI 
+      if [ "$CONFIG_INPRO2220" = "y" -o "$CONFIG_INPRO2220" = "m" ]; then
+         dep_bool '        Enable RTL865X L3/4 hw acceleration' CONFIG_INPRO2220_HWACCEL  $CONFIG_RTL865X $CONFIG_EXPERIMENTAL
+	 if [ "$CONFIG_INPRO2220_HWACCEL" = "y" ]; then
+	    hex '        vlan id used by Inpro2220' CONFIG_INPRO2220_VID
+	 fi
+      fi
+
+fi
+
+# If Pcmcia is compiled in, offer Pcmcia cards...
+if [ "$CONFIG_PCMCIA" != "n" ]; then
+   comment 'Wireless Pcmcia cards support' 
+
+   dep_tristate '  Hermes PCMCIA card support' CONFIG_PCMCIA_HERMES $CONFIG_HERMES
+   tristate '  Cisco/Aironet 34X/35X/4500/4800 PCMCIA cards' CONFIG_AIRO_CS
+fi
+
+# yes, this works even when no drivers are selected
+if [ "$CONFIG_ISA" = "y" -o "$CONFIG_PCI" = "y" -o \
+     "$CONFIG_ALL_PPC" = "y" -o "$CONFIG_PCMCIA" != "n" ]; then
+   define_bool CONFIG_NET_WIRELESS y
+else
+   define_bool CONFIG_NET_WIRELESS n
+fi

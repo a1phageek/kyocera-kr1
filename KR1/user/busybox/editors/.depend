@@ -1,0 +1,62 @@
+awk.o: awk.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/math.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/math.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/ctype.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/ctype.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/getopt.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/getopt.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/regex.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/regex.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/awk/math.h)
+patch.o: patch.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/getopt.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/getopt.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h)
+sed.o: sed.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/regex.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/regex.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/ctype.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/ctype.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/clean/up.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/sed/embeded/newline.h)
+vi.o: vi.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/termios.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/termios.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/time.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/types.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/types.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/stat.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/stat.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/signal.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/signal.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/setjmp.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/setjmp.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/regex.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/regex.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/ctype.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/ctype.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/assert.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/assert.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/locale/support.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/vi/optimize/cursor.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/vi/use/signals.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/vi/crashme.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/vi/win/resize.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/vi/dot/cmd.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/vi/yankmark.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/vi/readonly.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/vi/search.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/vi/colon.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/vi/setopts.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/vi/set.h)

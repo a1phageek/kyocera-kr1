@@ -1,0 +1,22 @@
+#!/bin/sh
+HOSTAPD_DIR="$(pwd)/hostapd-0.3.7"
+USER_DIR="$(pwd)/../../../../../user/hostapd"
+rm -f $USER_DIR
+ln -s $HOSTAPD_DIR $USER_DIR
+cp -f $HOSTAPD_DIR/config.GST $HOSTAPD_DIR/.config
+#if [ ! -d $USER_DIR ]; then
+#	ln -s $(pwd)/hostapd-0.3.7 $USER_DIR
+#fi
+make clean
+rm -f ./module/*.o
+rm -f 1.log
+make 2>&1|tee 1.log
+cp ./madwifi/ath_hal/ath_hal.o ./module/.
+cp ./madwifi/ath/ath_pci.o ./module/.
+cp ./ratectrl/ath_rate_atheros.o ./module/.
+cp ./madwifi/net80211/wlan_acl.o ./module/.
+cp ./madwifi/net80211/wlan_ccmp.o ./module/.
+cp ./madwifi/net80211/wlan.o ./module/.
+cp ./madwifi/net80211/wlan_tkip.o ./module/.
+cp ./madwifi/net80211/wlan_wep.o ./module/.
+cp ./madwifi/net80211/wlan_xauth.o ./module/.

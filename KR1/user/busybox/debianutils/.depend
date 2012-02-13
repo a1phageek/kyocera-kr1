@@ -1,0 +1,34 @@
+mktemp.o: mktemp.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h)
+readlink.o: readlink.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/clean/up.h)
+run_parts.o: run_parts.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/getopt.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/getopt.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h)
+start_stop_daemon.o: start_stop_daemon.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/signal.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/signal.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/stat.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/stat.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/dirent.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/dirent.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/getopt.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/getopt.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/pwd_.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/pwd_.h)
+which.o: which.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h)

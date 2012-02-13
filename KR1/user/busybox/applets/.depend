@@ -1,0 +1,30 @@
+applets.o: applets.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/applets.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/applets.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/suid.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/suid/config.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/stat.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/stat.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/ctype.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/ctype.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/pwd_.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/pwd_.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/grp_.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/grp_.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/suid/config/quiet.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/file.h)
+busybox.o: busybox.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/locale/support.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/locale.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/locale.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/installer.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/init.h)
+usage.o: usage.c \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/usage.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/usage.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/applets.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/applets.h)

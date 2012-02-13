@@ -1,0 +1,504 @@
+#!/bin/sh
+
+# AP Configuration scripts
+CONFIG_PATH=/etc/wlan
+DEFAULT_CONFIG_PATH=$CONFIG_PATH/default
+DUAL_AP=0
+VAP=0
+VLAN=0
+VLAN_ID=0
+VLAN_IP_ADDR=0
+VLAN_IP_MASK=0
+JS=0
+JS_PASSWD=""
+
+# Function to get the VLAN ID of current BSS
+get_vlan_id()
+{
+    local TMP_PVID=/tmp/pvid.$1.$2
+
+    get pvid > $TMP_PVID
+    read NAME VLAN_ID < $TMP_PVID
+    rm -f $TMP_PVID
+}
+
+# Function to get the VLAN ip address of current BSS
+get_vlan_ip_addr()
+{
+    local TMP_VIPADDR=/tmp/vipaddr.$1.$2
+
+    get vlan_ipaddr > $TMP_VIPADDR
+    read NAME VLAN_IP_ADDR < $TMP_VIPADDR
+    rm -f $TMP_VIPADDR
+}
+
+# Function to get the VLAN ip netmask of current BSS
+get_vlan_ip_netmask()
+{
+    local TMP_VIPMASK=/tmp/vipmask.$1.$2
+
+    get vlan_ipmask > $TMP_VIPMASK
+    read NAME VLAN_IP_MASK < $TMP_VIPMASK
+    rm -f $TMP_VIPMASK
+}
+
+# Function to get the ip address of the system
+get_ip_addr()
+{
+    local TMP_IPADDR=/tmp/ipaddr.$1.$2
+
+    get ipaddr > $TMP_IPADDR
+    read NAME IP_ADDR < $TMP_IPADDR
+    rm -f $TMP_IPADDR
+}
+
+# Function to get the ip mask of the system
+get_ip_netmask()
+{
+    local TMP_IPMASK=/tmp/ipmask.$1.$2
+
+    get ipmask > $TMP_IPMASK
+    read NAME IP_MASK < $TMP_IPMASK
+    rm -f $TMP_IPMASK
+}
+
+# Function to get the Jumpstart state
+get_js()
+{
+    local TMP_JS=/tmp/js.$1.$2
+    get jumpstart > $TMP_JS
+    read NAME JS < $TMP_JS
+    rm -f $TMP_JS
+}
+
+# Function to get the Jumpstart password
+get_js_passwd()
+{
+    local TMP_JS_PASSWD=/tmp/jspasswd.$1.$2
+    get js_password > $TMP_JS_PASSWD
+    read NAME JS_PASSWD < $TMP_JS_PASSWD
+    rm -f $TMP_JS_PASSWD
+}
+
+# Function to stop hostapd instance of a BSS
+# $1 = Radio Index, $2 = BSS Index. They must NOT be empty
+stop_hostapd()
+{
+    local TMP_CONFIG=/tmp/hostapd.conf.$1.$2
+    local TMP_PS=/tmp/hostapd.ps
+    local JS_P1_CONFIG=$CONFIG_PATH/js.conf
+    local JS_P2_CONFIG=$CONFIG_PATH/js_p2.conf
+    ps > $TMP_PS
+
+    while read PID UID VMSIZE STAT CMD ARG1 ARG2
+    do
+      if [ "$ARG2" = "$TMP_CONFIG" -o "$ARG2" = "$JS_P1_CONFIG" -o "$ARG2" = "$JS_P2_CONFIG" ]; then
+	  kill -9 $PID
+	  break
+      fi
+    done < $TMP_PS
+
+    rm -f $TMP_PS
+    rm -f $TMP_CONFIG
+}
+
+# Function to start hostapd instance of a BSS
+# $1 = Radio Index, $2 = BSS Index. They must NOT be empty
+start_hostapd()
+{
+    local IFACE
+    local CONFIG_FILE=$CONFIG_PATH/hostapd.conf.$1.$2
+    local DUMP_FILE=/tmp/hostapd.dump.$1.$2
+    local TMP_CONFIG=/tmp/hostapd.conf.$1.$2
+
+    if [ -f $CONFIG_FILE ]; then
+	config wlan $1 bss $2
+	if [ $? -eq 0 ]; then
+	    IFACE=`get interface`
+
+	    get_vlan_id
+
+	    # generate hostapd config file
+	    echo "interface=$IFACE" > $TMP_CONFIG
+	    if [ $VLAN -eq 0 ]; then
+		echo "bridge=br0" >> $TMP_CONFIG
+	    elif [ $VLAN_ID -ne 0 ]; then
+		echo "bridge=br$VLAN_ID" >> $TMP_CONFIG
+	    fi
+
+	    cat $DEFAULT_CONFIG_PATH/hostapd.fixed >> $TMP_CONFIG
+
+	    echo >> $TMP_CONFIG
+	    echo "dump_file=$DUMP_FILE" >> $TMP_CONFIG
+	    cat $CONFIG_FILE >> $TMP_CONFIG
+
+	    # start hostpad daemon
+	    hostapd -B $TMP_CONFIG
+	fi
+    fi
+}
+
+# Function to bring down a BSS
+# $1 = Radio Index, $2 = BSS Index. They must NOT be empty
+stop_bss()
+{
+    local IFACE
+
+    config wlan $1 bss $2
+    if [ $? -eq 0 ]; then
+	IFACE=`get interface`
+
+	get_vlan_id
+
+	if [ $VLAN -eq 0 ]; then
+	    brctl delif br0 $IFACE > /dev/null 2>&1
+	elif [ $VLAN_ID -ne 0 ]; then
+	    ifconfig br$VLAN_ID > /dev/null 2>&1
+	    if [ $? -eq 0 ]; then
+		ifconfig br$VLAN_ID down > /dev/null 2>&1
+		brctl delbr br$VLAN_ID
+	    fi
+
+	    ifconfig eth0.$VLAN_ID > /dev/null 2>&1
+	    if [ $? -eq 0 ]; then
+		vconfig rem eth0.$VLAN_ID
+	    fi
+	    vconfig rem $IFACE.$VLAN_ID
+	fi
+
+	stop_hostapd $1 $2
+    fi
+}
+
+# Function to bring up a BSS
+# $1 = Radio Index, $2 = BSS Index. They must NOT be empty
+start_bss()
+{
+    local IFACE
+    local CONFIG_FILE=$CONFIG_PATH/wlanconfig.$1.$2
+    local DEFAULT_FILE=$DEFAULT_CONFIG_PATH/wlanconfig.$1.$2
+    local TMP_WLANSTATE=/tmp/wlanstate.$1.$2
+    
+    config wlan $1 bss $2
+    if [ $? -eq 0 ]; then
+	IFACE=`get interface`
+
+	if [ -f $CONFIG_FILE ]; then
+	    . $CONFIG_FILE
+	elif [ -f $DEFAULT_FILE ]; then
+	    echo "$CONFIG_FILE not found. Use default settings."
+	    . $DEFAULT_FILE
+	else
+	    return 1
+	fi
+
+	# check the startup wlanstate
+	get wlanstate > $TMP_WLANSTATE
+	read NAME WLANSTATE < $TMP_WLANSTATE
+	rm -f $TMP_WLANSTATE
+
+	if [ $WLANSTATE = "Enable" -o $WLANSTATE = "enable" ]; then
+	    	
+	    get_vlan_id
+
+	    if [ $VLAN -eq 0 ]; then
+		brctl addif br0 $IFACE > /dev/null 2>&1
+		ifconfig $IFACE 0.0.0.0 up
+		
+		# XXX Divy. Jumpstart conf file is set for ath0 only today
+		if [ $IFACE = "ath0" ]; then
+            	    get_js $1 $2
+	    	    if [ $JS = "Enable" -o $JS = "enable" ]; then
+			if [ -e $CONFIG_PATH/js_p2.conf ]; then
+				/sbin/hostapd -B $CONFIG_PATH/js_p2.conf
+			else
+				get_js_passwd $1 $2
+				if [ -n "$JS_PASSWD" ]; then
+					/sbin/hostapd -j "$JS_PASSWD" -B $CONFIG_PATH/js.conf
+				else
+					/sbin/hostapd -B $CONFIG_PATH/js.conf
+				fi
+			fi
+		   else
+		       # Clean up any existing P2 conf file
+		       /bin/rm -Rf $CONFIG_PATH/js_p2.conf
+		       start_hostapd $1 $2
+		   fi
+		else
+			start_hostapd $1 $2
+		fi
+	    elif [ $VLAN_ID -ne 0 ]; then
+	        # get ip address and netmask
+		get_vlan_ip_addr
+		get_vlan_ip_netmask
+		
+		# Each VLAN has its own bridge
+		ifconfig br$VLAN_ID > /dev/null 2>&1
+		if [ $? -ne 0 ]; then
+		    brctl addbr br$VLAN_ID
+		    brctl setfd br$VLAN_ID 1
+		fi
+
+		# Add vlan interface for ethernet interface
+		ifconfig eth0.$VLAN_ID > /dev/null 2>&1
+		if [ $? -ne 0 ]; then
+		    vconfig add eth0 $VLAN_ID
+		    brctl addif br$VLAN_ID eth0.$VLAN_ID
+		fi
+
+		# Add vlan interface for wireless interface
+		ifconfig $IFACE 0.0.0.0 up
+		vconfig add $IFACE $VLAN_ID
+		brctl addif br$VLAN_ID $IFACE.$VLAN_ID
+
+		start_hostapd $1 $2
+
+		# Bring up interface and bridge after 
+		# authenticator to avoid security breach
+		ifconfig eth0.$VLAN_ID 0.0.0.0 up
+		ifconfig $IFACE.$VLAN_ID 0.0.0.0 up
+		# WAR Set mtu to 1472 when VLAN is enabled
+		ifconfig br$VLAN_ID $VLAN_IP_ADDR netmask $VLAN_IP_MASK mtu 1472 up
+
+		# WAR for 17107 and 17115
+		# send out an ARP to update neighbor's cache
+		arping -c 3 -U -I br$VLAN_ID -s $VLAN_IP_ADDR 255.255.255.255 > /dev/null
+	    fi
+	fi
+    fi
+}
+
+# Function to restart a BSS
+# $1 = Radio Index, $2 = BSS Index. They must NOT be empty
+restart_bss()
+{
+    stop_bss $1 $2
+    start_bss $1 $2
+}
+
+# Function to bring down a radio
+# $1 = Radio Index. It must NOT be empty
+stop_radio()
+{
+    local BSS_INDEX
+
+    config wlan $1
+    if [ $? -eq 0 ]; then
+	for BSS_INDEX in `get bss`; do
+	  stop_bss $1 $BSS_INDEX
+	done
+
+	del bss all
+    fi
+}
+
+# Function to bring up a radio
+# $1 = Radio Index. It must NOT be empty
+start_radio()
+{
+    local BSS_INDEX
+    local CONFIG_FILE=$CONFIG_PATH/wlanconfig.$1
+    local BACKUP_FILE=$CONFIG_PATH/wlanconfig.bak.$1
+    local DEFAULT_FILE=$DEFAULT_CONFIG_PATH/wlanconfig.$1
+
+    config wlan $1
+    if [ $? -eq 0 ]; then
+	if [ -f $CONFIG_FILE ]; then
+	    . $CONFIG_FILE
+	elif [ -f $BACKUP_FILE ]; then
+	    echo "$CONFIG_FILE not found. Use backup file $BACKUP_FILE instead."
+	    . $BACKUP_FILE
+	elif [ -f $DEFAULT_FILE ]; then
+	    echo "$CONFIG_FILE not found. Use default settings."
+	    . $DEFAULT_FILE
+	else
+	    echo "Error: Can not found wlanconfig.$1."
+	    return 1
+	fi
+
+	# BSS should be created by now
+	for BSS_INDEX in `get bss`; do
+	  start_bss $1 $BSS_INDEX
+	done
+    fi
+}
+
+# Function to restart a Radio
+# $1 = Radio Index. It must NOT be empty
+restart_radio()
+{
+    stop_radio $1
+    start_radio $1
+}
+
+# Test for dualap. It should be called after module loading
+test_dualap()
+{
+    # Test for VAP
+    ifconfig wifi0 > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+	VAP=1
+    fi
+
+    # Test for dual AP
+    if [ $VAP -eq 1 ]; then
+	ifconfig wifi1 > /dev/null 2>&1
+    else
+	ifconfig ath1 > /dev/null 2>&1
+    fi
+    
+    if [ $? -eq 0 ]; then
+	DUAL_AP=1
+    fi
+}
+
+# Test if VLAN is enabled
+test_vlan()
+{
+    local TMP_VLAN=/tmp/vlan_state
+
+    get vlan > $TMP_VLAN
+    read NAME VLAN_ENABLED < $TMP_VLAN
+    rm -f $TMP_VLAN
+
+    if [ $VLAN_ENABLED = "Enable" -o $VLAN_ENABLED = "enable" ]; then
+	VLAN=1
+    else
+	VLAN=0
+    fi
+}
+
+# Function to stop AP.
+stop_ap()
+{
+    test_dualap
+    test_vlan
+
+    stop_radio 0
+    if [ $DUAL_AP -eq 1 ]; then
+	stop_radio 1
+    fi
+
+    ifconfig br0 > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+	ifconfig br0 down > /dev/null 2>&1
+	brctl delif br0 eth0 > /dev/null 2>&1
+	ifconfig eth0 down > /dev/null 2>&1
+	brctl delbr br0 > /dev/null 2>&1
+    fi
+
+    modprobe -r wlan_acl
+    modprobe -r wlan_scan_ap
+    modprobe -r ath_ahb
+}
+
+# Function to start AP.
+start_ap()
+{
+    local CONFIG_FILE=$CONFIG_PATH/wlanconfig
+    local BACKUP_FILE=$CONFIG_PATH/wlanconfig.bak
+    local DEFAULT_FILE=$DEFAULT_CONFIG_PATH/wlanconfig
+
+    if [ -f $CONFIG_FILE ]; then
+	. $CONFIG_FILE
+    elif [ -f $BACKUP_FILE ]; then
+	echo "$CONFIG_FILE not found. Use backup file $BACKUP_FILE instead."
+	. $BACKUP_FILE
+    elif [ -f $DEFAULT_FILE ]; then
+	echo "$CONFIG_FILE not found. Use default settings."
+	. $DEFAULT_FILE
+    else
+	echo "Error: Can not found wlanconfig."
+	return 1
+    fi
+
+    # load driver module here
+    if [ $COUNTRY_CODE ]; then
+	modprobe ath_ahb countrycode=$COUNTRY_CODE
+    else
+	modprobe ath_ahb
+    fi
+
+    test_dualap
+    test_vlan
+
+    # eth0 must be bring up to allow vlan configuration
+    ifconfig eth0 0.0.0.0 up
+    
+    # if VLAN is not enabled, create default bridge here.
+    if [ $VLAN -eq 0 ]; then
+	brctl addbr br0
+	brctl addif br0 eth0 > /dev/null 2>&1
+	brctl setfd br0 1 > /dev/null 2>&1
+    fi
+
+    start_radio 0
+    if [ $DUAL_AP -eq 1 ]; then
+	start_radio 1
+    fi
+
+    # Get global ip address and netmask
+    get_ip_addr
+    get_ip_netmask
+    
+    if [ $VLAN -eq 0 ]; then
+        ifconfig br0 $IP_ADDR netmask $IP_MASK up
+
+        # WAR for 17107 and 17115
+        # send out an ARP to update neighbor's cache
+        echo "Updating neighbor's ARP cache ..."
+        arping -c 3 -U -I br0 -s $IP_ADDR 255.255.255.255 > /dev/null
+	route add default br0
+    else
+        ifconfig eth0 $IP_ADDR netmask $IP_MASK up
+	route add default eth0
+    fi
+    
+}
+
+restart_ap()
+{
+    stop_ap
+    start_ap
+}
+
+usage()
+{
+    echo "ap_service <start|stop|restart> [wlan <radio_index> [bss <bss_index>]]"
+    exit 1
+}
+
+# Test for user input
+case $1 in
+    start) OP=$1 ;;
+    stop) OP=$1 ;;
+    restart) OP=$1 ;;
+    *) usage ;;
+esac
+
+if [ $# -eq 3 ]; then
+    if [ $2 = "wlan" ]; then
+	UNIT=$3
+    else
+	usage
+    fi
+elif [ $# -eq 5 ]; then
+    if [ $2 = "wlan" -a $4 = "bss" ]; then
+	UNIT=$3
+	BSS=$4
+    else
+	usage
+    fi
+fi
+
+# Start/Stop/Restart Operations
+if [ $BSS ]; then
+    OPERAND=_bss
+    $OP$OPERAND $UNIT $BSS
+elif [ $UNIT ]; then
+    OPERAND=_radio
+    $OP$OPERAND $UNIT
+else
+    OPERAND=_ap
+    $OP$OPERAND
+fi

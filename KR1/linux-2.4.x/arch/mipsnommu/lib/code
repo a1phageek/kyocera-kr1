@@ -1,0 +1,847 @@
+
+memcpy.o:     file format elf32-tradbigmips
+memcpy.o
+architecture: mips:3000, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 3: [no abi set] [mips1] [not 32bitmode]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000320  00000000  00000000  00000040  2**5
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000360  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000360  2**4
+                  ALLOC
+  3 .reginfo      00000018  00000000  00000000  00000360  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, LINK_ONCE_SAME_SIZE
+  4 .pdr          00000060  00000000  00000000  00000378  2**2
+                  CONTENTS, RELOC, READONLY
+  5 __ex_table    000001a8  00000000  00000000  000003d8  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  6 .debug_line   000000f2  00000000  00000000  00000580  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  7 .debug_info   0000005d  00000000  00000000  00000672  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  8 .debug_abbrev 00000014  00000000  00000000  000006cf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_aranges 00000020  00000000  00000000  000006e8  2**3
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 memcpy.S
+00000000 l    df *ABS*	00000000 /opt/323/mips/include/asm/regdef.h
+00000000 l    df *ABS*	00000000 memcpy.S
+00000000 l    df *ABS*	00000000 /opt/323/mips/include/asm/offset.h
+00000000 l    df *ABS*	00000000 memcpy.S
+00000000 l    df *ABS*	00000000 /opt/323/mips/include/asm/asm.h
+00000000 l    df *ABS*	00000000 /opt/323/mips/include/asm/sgidefs.h
+00000000 l    df *ABS*	00000000 /opt/323/mips/include/asm/asm.h
+00000000 l    df *ABS*	00000000 memcpy.S
+00000000 l    df *ABS*	00000000 /opt/323/mips/include/linux/config.h
+00000000 l    df *ABS*	00000000 /opt/323/mips/include/linux/autoconf.h
+00000000 l    df *ABS*	00000000 /opt/323/mips/include/linux/config.h
+00000000 l    df *ABS*	00000000 memcpy.S
+00000000 l    df *ABS*	00000000 <command line>
+00000000 l    df *ABS*	00000000 <built-in>
+00000000 l    df *ABS*	00000000 memcpy.S
+00000000 l    d  .text	00000000 
+00000000 l    d  .data	00000000 
+00000000 l    d  .bss	00000000 
+00000004 l       .text	00000000 __memcpy
+000001ac l       .text	00000000 copy_bytes_checklen
+0000010c l       .text	00000000 dst_unaligned
+00000138 l       .text	00000000 src_unaligned_dst_aligned
+00000020 l       .text	00000000 both_aligned
+00000084 l       .text	00000000 cleanup_both_aligned
+00000000 l    d  __ex_table	00000000 
+00000204 l       .text	00000000 l_exc
+000001ec l       .text	00000000 l_exc_copy
+00000238 l       .text	00000000 s_exc_p8u
+00000240 l       .text	00000000 s_exc_p7u
+00000248 l       .text	00000000 s_exc_p6u
+00000250 l       .text	00000000 s_exc_p5u
+00000258 l       .text	00000000 s_exc_p4u
+00000260 l       .text	00000000 s_exc_p3u
+00000268 l       .text	00000000 s_exc_p2u
+00000270 l       .text	00000000 s_exc_p1u
+000001e4 l       .text	00000000 done
+000000c4 l       .text	00000000 less_than_4units
+000001b4 l       .text	00000000 copy_bytes
+00000280 l       .text	00000000 s_exc
+00000184 l       .text	00000000 cleanup_src_unaligned
+00000278 l       .text	00000000 s_exc_p1
+000002ec l       .text	00000000 r_out
+000002f4 l       .text	00000000 r_end_bytes_up
+000002d4 l       .text	00000000 r_end_bytes
+00000000 l    d  .debug_info	00000000 
+00000000 l    d  .debug_abbrev	00000000 
+00000000 l    d  .debug_line	00000000 
+00000000 l    d  .reginfo	00000000 
+00000000 l    d  .pdr	00000000 
+00000000 l    d  .debug_aranges	00000000 
+00000000 g     F .text	000001ec memcpy
+00000004 g     F .text	00000000 __copy_user
+000002a0 g     F .text	00000020 memmove
+000002c0 g     F .text	00000054 __rmemcpy
+
+
+Disassembly of section .text:
+
+00000000 <memcpy>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:250
+ * memcpy sets v0 to dst.
+ */
+	.align	5
+LEAF(memcpy)					/* a0=dst a1=src a2=len */
+	move	v0, dst				/* return value */
+   0:	00801021 	move	v0,a0
+
+00000004 <__copy_user>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:268
+__memcpy:
+FEXPORT(__copy_user)
+	/*
+	 * Note: dst & src may be unaligned, len may be 0
+	 * Temps
+	 */
+#define rem t8
+
+	/*
+	 * The "issue break"s below are very approximate.
+	 * Issue delays for dcache fills will perturb the schedule, as will
+	 * load queue full replay traps, etc.
+	 *
+	 * If len < NBYTES use byte operations.
+	 */
+	PREF(	0, 0(src) )
+	PREF(	1, 0(dst) )
+	sltu	t2, len, NBYTES
+   4:	2cca0004 	sltiu	t2,a2,4
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:269
+	and	t1, dst, ADDRMASK
+   8:	30890003 	andi	t1,a0,0x3
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:272
+	PREF(	0, 1*32(src) )
+	PREF(	1, 1*32(dst) )
+	bnez	t2, copy_bytes_checklen
+   c:	15400067 	bnez	t2,1ac <copy_bytes_checklen>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:273
+	 and	t0, src, ADDRMASK
+  10:	30a80003 	andi	t0,a1,0x3
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:276
+	PREF(	0, 2*32(src) )
+	PREF(	1, 2*32(dst) )
+	bnez	t1, dst_unaligned
+  14:	1520003d 	bnez	t1,10c <dst_unaligned>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:277
+	 nop
+  18:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:278
+	bnez	t0, src_unaligned_dst_aligned
+  1c:	15000046 	bnez	t0,138 <src_unaligned_dst_aligned>
+
+00000020 <both_aligned>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:284
+	/*
+	 * use delay slot for fall-through
+	 * src and dst are aligned; need to compute rem
+	 */
+both_aligned:
+	 SRL	t0, len, LOG_NBYTES+3    # +3 for 8 units/iter
+  20:	00064142 	srl	t0,a2,0x5
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:285
+	beqz	t0, cleanup_both_aligned # len < 8*NBYTES
+  24:	11000017 	beqz	t0,84 <cleanup_both_aligned>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:286
+	 and	rem, len, (8*NBYTES-1)	 # rem = len % (8*NBYTES)
+  28:	30d8001f 	andi	t8,a2,0x1f
+  2c:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:291
+	PREF(	0, 3*32(src) )
+	PREF(	1, 3*32(dst) )
+	.align	4
+1:
+EXC(	LOAD	t0, UNIT(0)(src),	l_exc)
+  30:	8ca80000 	lw	t0,0(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:292
+EXC(	LOAD	t1, UNIT(1)(src),	l_exc_copy)
+  34:	8ca90004 	lw	t1,4(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:293
+EXC(	LOAD	t2, UNIT(2)(src),	l_exc_copy)
+  38:	8caa0008 	lw	t2,8(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:294
+EXC(	LOAD	t3, UNIT(3)(src),	l_exc_copy)
+  3c:	8cab000c 	lw	t3,12(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:295
+	SUB	len, len, 8*NBYTES
+  40:	24c6ffe0 	addiu	a2,a2,-32
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:296
+EXC(	LOAD	t4, UNIT(4)(src),	l_exc_copy)
+  44:	8cac0010 	lw	t4,16(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:297
+EXC(	LOAD	t7, UNIT(5)(src),	l_exc_copy)
+  48:	8caf0014 	lw	t7,20(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:298
+EXC(	STORE	t0, UNIT(0)(dst),	s_exc_p8u)
+  4c:	ac880000 	sw	t0,0(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:299
+EXC(	STORE	t1, UNIT(1)(dst),	s_exc_p7u)
+  50:	ac890004 	sw	t1,4(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:300
+EXC(	LOAD	t0, UNIT(6)(src),	l_exc_copy)
+  54:	8ca80018 	lw	t0,24(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:301
+EXC(	LOAD	t1, UNIT(7)(src),	l_exc_copy)
+  58:	8ca9001c 	lw	t1,28(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:302
+	ADD	src, src, 8*NBYTES
+  5c:	24a50020 	addiu	a1,a1,32
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:303
+	ADD	dst, dst, 8*NBYTES
+  60:	24840020 	addiu	a0,a0,32
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:304
+EXC(	STORE	t2, UNIT(-6)(dst),	s_exc_p6u)
+  64:	ac8affe8 	sw	t2,-24(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:305
+EXC(	STORE	t3, UNIT(-5)(dst),	s_exc_p5u)
+  68:	ac8bffec 	sw	t3,-20(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:306
+EXC(	STORE	t4, UNIT(-4)(dst),	s_exc_p4u)
+  6c:	ac8cfff0 	sw	t4,-16(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:307
+EXC(	STORE	t7, UNIT(-3)(dst),	s_exc_p3u)
+  70:	ac8ffff4 	sw	t7,-12(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:308
+EXC(	STORE	t0, UNIT(-2)(dst),	s_exc_p2u)
+  74:	ac88fff8 	sw	t0,-8(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:309
+EXC(	STORE	t1, UNIT(-1)(dst),	s_exc_p1u)
+  78:	ac89fffc 	sw	t1,-4(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:312
+	PREF(	0, 8*32(src) )
+	PREF(	1, 8*32(dst) )
+	bne	len, rem, 1b
+  7c:	14d8ffec 	bne	a2,t8,30 <both_aligned+0x10>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:313
+	 nop
+  80:	00000000 	nop
+
+00000084 <cleanup_both_aligned>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:319
+
+	/*
+	 * len == rem == the number of bytes left to copy < 8*NBYTES
+	 */
+cleanup_both_aligned:
+	beqz	len, done
+  84:	10c00057 	beqz	a2,1e4 <done>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:320
+	 sltu	t0, len, 4*NBYTES
+  88:	2cc80010 	sltiu	t0,a2,16
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:321
+	bnez	t0, less_than_4units
+  8c:	1500000d 	bnez	t0,c4 <less_than_4units>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:322
+	 and	rem, len, (NBYTES-1)	# rem = len % NBYTES
+  90:	30d80003 	andi	t8,a2,0x3
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:326
+	/*
+	 * len >= 4*NBYTES
+	 */
+EXC(	LOAD	t0, UNIT(0)(src),	l_exc)
+  94:	8ca80000 	lw	t0,0(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:327
+EXC(	LOAD	t1, UNIT(1)(src),	l_exc_copy)
+  98:	8ca90004 	lw	t1,4(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:328
+EXC(	LOAD	t2, UNIT(2)(src),	l_exc_copy)
+  9c:	8caa0008 	lw	t2,8(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:329
+EXC(	LOAD	t3, UNIT(3)(src),	l_exc_copy)
+  a0:	8cab000c 	lw	t3,12(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:330
+	SUB	len, len, 4*NBYTES
+  a4:	24c6fff0 	addiu	a2,a2,-16
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:331
+	ADD	src, src, 4*NBYTES
+  a8:	24a50010 	addiu	a1,a1,16
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:332
+EXC(	STORE	t0, UNIT(0)(dst),	s_exc_p4u)
+  ac:	ac880000 	sw	t0,0(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:333
+EXC(	STORE	t1, UNIT(1)(dst),	s_exc_p3u)
+  b0:	ac890004 	sw	t1,4(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:334
+EXC(	STORE	t2, UNIT(2)(dst),	s_exc_p2u)
+  b4:	ac8a0008 	sw	t2,8(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:335
+EXC(	STORE	t3, UNIT(3)(dst),	s_exc_p1u)
+  b8:	ac8b000c 	sw	t3,12(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:336
+	beqz	len, done
+  bc:	10c00049 	beqz	a2,1e4 <done>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:337
+	 ADD	dst, dst, 4*NBYTES
+  c0:	24840010 	addiu	a0,a0,16
+
+000000c4 <less_than_4units>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:342
+less_than_4units:
+	/*
+	 * rem = len % NBYTES
+	 */
+	beq	rem, len, copy_bytes
+  c4:	1306003b 	beq	t8,a2,1b4 <copy_bytes>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:343
+	 nop
+  c8:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:345
+1:
+EXC(	LOAD	 t0, 0(src),		l_exc)
+  cc:	8ca80000 	lw	t0,0(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:346
+	ADD	src, src, NBYTES
+  d0:	24a50004 	addiu	a1,a1,4
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:347
+	SUB	len, len, NBYTES
+  d4:	24c6fffc 	addiu	a2,a2,-4
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:348
+EXC(	STORE	t0, 0(dst),		s_exc)
+  d8:	ac880000 	sw	t0,0(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:349
+	bne	rem, len, 1b
+  dc:	1706fffb 	bne	t8,a2,cc <less_than_4units+0x8>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:350
+	 ADD	dst, dst, NBYTES
+  e0:	24840004 	addiu	a0,a0,4
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:364
+
+	/*
+	 * src and dst are aligned, need to copy rem bytes (rem < NBYTES)
+	 * A loop would do only a byte at a time with possible branch
+	 * mispredicts.  Can't do an explicit LOAD dst,mask,or,STORE
+	 * because can't assume read-access to dst.  Instead, use
+	 * STREST dst, which doesn't require read access to dst.
+	 *
+	 * This code should perform better than a simple loop on modern,
+	 * wide-issue mips processors because the code has fewer branches and
+	 * more instruction-level parallelism.
+	 */
+#define bits t2
+	beqz	len, done
+  e4:	10c0003f 	beqz	a2,1e4 <done>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:365
+	 ADD	t1, dst, len	# t1 is just past last byte of dst
+  e8:	00864821 	addu	t1,a0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:366
+	li	bits, 8*NBYTES
+  ec:	240a0020 	li	t2,32
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:367
+	SLL	rem, len, 3	# rem = number of bits to keep
+  f0:	0006c0c0 	sll	t8,a2,0x3
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:368
+EXC(	LOAD	t0, 0(src),		l_exc)
+  f4:	8ca80000 	lw	t0,0(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:369
+	SUB	bits, bits, rem	# bits = number of bits to discard
+  f8:	01585023 	subu	t2,t2,t8
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:370
+	SHIFT_DISCARD t0, t0, bits
+  fc:	01484006 	srlv	t0,t0,t2
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:371
+EXC(	STREST	t0, -1(t1),		s_exc)
+ 100:	b928ffff 	swr	t0,-1(t1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:372
+	jr	ra
+ 104:	03e00008 	jr	ra
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:373
+	 move	len, zero
+ 108:	00003021 	move	a2,zero
+
+0000010c <dst_unaligned>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:385
+dst_unaligned:
+	/*
+	 * dst is unaligned
+	 * t0 = src & ADDRMASK
+	 * t1 = dst & ADDRMASK; T1 > 0
+	 * len >= NBYTES
+	 *
+	 * Copy enough bytes to align dst
+	 * Set match = (src and dst have same alignment)
+	 */
+#define match rem
+EXC(	LDFIRST	t3, FIRST(0)(src),	l_exc)
+ 10c:	88ab0000 	lwl	t3,0(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:386
+	ADD	t2, zero, NBYTES
+ 110:	240a0004 	li	t2,4
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:387
+EXC(	LDREST	t3, REST(0)(src),	l_exc_copy)
+ 114:	98ab0003 	lwr	t3,3(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:388
+	SUB	t2, t2, t1	# t2 = number of bytes copied
+ 118:	01495023 	subu	t2,t2,t1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:389
+	xor	match, t0, t1
+ 11c:	0109c026 	xor	t8,t0,t1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:390
+EXC(	STFIRST t3, FIRST(0)(dst),	s_exc)
+ 120:	a88b0000 	swl	t3,0(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:391
+	beq	len, t2, done
+ 124:	10ca002f 	beq	a2,t2,1e4 <done>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:392
+	 SUB	len, len, t2
+ 128:	00ca3023 	subu	a2,a2,t2
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:393
+	ADD	dst, dst, t2
+ 12c:	008a2021 	addu	a0,a0,t2
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:394
+	beqz	match, both_aligned
+ 130:	1300ffbb 	beqz	t8,20 <both_aligned>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:395
+	 ADD	src, src, t2
+ 134:	00aa2821 	addu	a1,a1,t2
+
+00000138 <src_unaligned_dst_aligned>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:398
+
+src_unaligned_dst_aligned:
+	SRL	t0, len, LOG_NBYTES+2    # +2 for 4 units/iter
+ 138:	00064102 	srl	t0,a2,0x4
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:400
+	PREF(	0, 3*32(src) )
+	beqz	t0, cleanup_src_unaligned
+ 13c:	11000011 	beqz	t0,184 <cleanup_src_unaligned>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:401
+	 and	rem, len, (4*NBYTES-1)   # rem = len % 4*NBYTES
+ 140:	30d8000f 	andi	t8,a2,0xf
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:410
+	PREF(	1, 3*32(dst) )
+1:
+/*
+ * Avoid consecutive LD*'s to the same register since some mips
+ * implementations can't issue them in the same cycle.
+ * It's OK to load FIRST(N+1) before REST(N) because the two addresses
+ * are to the same unit (unless src is aligned, but it's not).
+ */
+EXC(	LDFIRST	t0, FIRST(0)(src),	l_exc)
+ 144:	88a80000 	lwl	t0,0(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:411
+EXC(	LDFIRST	t1, FIRST(1)(src),	l_exc_copy)
+ 148:	88a90004 	lwl	t1,4(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:412
+	SUB     len, len, 4*NBYTES
+ 14c:	24c6fff0 	addiu	a2,a2,-16
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:413
+EXC(	LDREST	t0, REST(0)(src),	l_exc_copy)
+ 150:	98a80003 	lwr	t0,3(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:414
+EXC(	LDREST	t1, REST(1)(src),	l_exc_copy)
+ 154:	98a90007 	lwr	t1,7(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:415
+EXC(	LDFIRST	t2, FIRST(2)(src),	l_exc_copy)
+ 158:	88aa0008 	lwl	t2,8(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:416
+EXC(	LDFIRST	t3, FIRST(3)(src),	l_exc_copy)
+ 15c:	88ab000c 	lwl	t3,12(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:417
+EXC(	LDREST	t2, REST(2)(src),	l_exc_copy)
+ 160:	98aa000b 	lwr	t2,11(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:418
+EXC(	LDREST	t3, REST(3)(src),	l_exc_copy)
+ 164:	98ab000f 	lwr	t3,15(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:420
+	PREF(	0, 9*32(src) )	   	# 0 is PREF_LOAD  (not streamed)
+	ADD	src, src, 4*NBYTES
+ 168:	24a50010 	addiu	a1,a1,16
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:424
+#ifdef CONFIG_CPU_SB1
+	nop			   	# improves slotting
+#endif
+EXC(	STORE	t0, UNIT(0)(dst),	s_exc_p4u)
+ 16c:	ac880000 	sw	t0,0(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:425
+EXC(	STORE	t1, UNIT(1)(dst),	s_exc_p3u)
+ 170:	ac890004 	sw	t1,4(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:426
+EXC(	STORE	t2, UNIT(2)(dst),	s_exc_p2u)
+ 174:	ac8a0008 	sw	t2,8(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:427
+EXC(	STORE	t3, UNIT(3)(dst),	s_exc_p1u)
+ 178:	ac8b000c 	sw	t3,12(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:429
+	PREF(	1, 9*32(dst) )     	# 1 is PREF_STORE (not streamed)
+	bne	len, rem, 1b
+ 17c:	14d8fff1 	bne	a2,t8,144 <src_unaligned_dst_aligned+0xc>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:430
+	 ADD	dst, dst, 4*NBYTES
+ 180:	24840010 	addiu	a0,a0,16
+
+00000184 <cleanup_src_unaligned>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:433
+
+cleanup_src_unaligned:
+	beqz	len, done
+ 184:	10c00017 	beqz	a2,1e4 <done>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:434
+	 and	rem, len, NBYTES-1  # rem = len % NBYTES
+ 188:	30d80003 	andi	t8,a2,0x3
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:435
+	beq	rem, len, copy_bytes
+ 18c:	13060009 	beq	t8,a2,1b4 <copy_bytes>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:437
+1:
+EXC(	 LDFIRST t0, FIRST(0)(src),	l_exc)
+ 190:	88a80000 	lwl	t0,0(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:438
+EXC(	LDREST	t0, REST(0)(src),	l_exc_copy)
+ 194:	98a80003 	lwr	t0,3(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:439
+	ADD	src, src, NBYTES
+ 198:	24a50004 	addiu	a1,a1,4
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:440
+	SUB	len, len, NBYTES
+ 19c:	24c6fffc 	addiu	a2,a2,-4
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:441
+EXC(	STORE	t0, 0(dst),		s_exc_p1u)
+ 1a0:	ac880000 	sw	t0,0(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:442
+	bne	len, rem, 1b
+ 1a4:	14d8fffa 	bne	a2,t8,190 <cleanup_src_unaligned+0xc>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:443
+	 ADD	dst, dst, NBYTES
+ 1a8:	24840004 	addiu	a0,a0,4
+
+000001ac <copy_bytes_checklen>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:446
+
+copy_bytes_checklen:
+	beqz	len, done
+ 1ac:	10c0000d 	beqz	a2,1e4 <done>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:447
+	 nop
+ 1b0:	00000000 	nop
+
+000001b4 <copy_bytes>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:456
+copy_bytes:
+	/* 0 < len < NBYTES  */
+#define COPY_BYTE(N)			\
+EXC(	lb	t0, N(src), l_exc);	\
+	SUB	len, len, 1;		\
+	beqz	len, done;		\
+EXC(	 sb	t0, N(dst), s_exc_p1)
+
+	COPY_BYTE(0)
+ 1b4:	80a80000 	lb	t0,0(a1)
+ 1b8:	24c6ffff 	addiu	a2,a2,-1
+ 1bc:	10c00009 	beqz	a2,1e4 <done>
+ 1c0:	a0880000 	sb	t0,0(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:457
+	COPY_BYTE(1)
+ 1c4:	80a80001 	lb	t0,1(a1)
+ 1c8:	24c6ffff 	addiu	a2,a2,-1
+ 1cc:	10c00005 	beqz	a2,1e4 <done>
+ 1d0:	a0880001 	sb	t0,1(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:464
+#ifdef USE_DOUBLE
+	COPY_BYTE(2)
+	COPY_BYTE(3)
+	COPY_BYTE(4)
+	COPY_BYTE(5)
+#endif
+EXC(	lb	t0, NBYTES-2(src), l_exc)
+ 1d4:	80a80002 	lb	t0,2(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:465
+	SUB	len, len, 1
+ 1d8:	24c6ffff 	addiu	a2,a2,-1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:466
+	jr	ra
+ 1dc:	03e00008 	jr	ra
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:467
+EXC(	 sb	t0, NBYTES-2(dst), s_exc_p1)
+ 1e0:	a0880002 	sb	t0,2(a0)
+
+000001e4 <done>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:469
+done:
+	jr	ra
+ 1e4:	03e00008 	jr	ra
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:470
+	 nop
+ 1e8:	00000000 	nop
+
+000001ec <l_exc_copy>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:484
+	END(memcpy)
+
+l_exc_copy:
+	/*
+	 * Copy bytes from src until faulting load address (or until a
+	 * lb faults)
+	 *
+	 * When reached by a faulting LDFIRST/LDREST, THREAD_BUADDR($28)
+	 * may be more than a byte beyond the last address.
+	 * Hence, the lb below may get an exception.
+	 *
+	 * Assumes src < THREAD_BUADDR($28)
+	 */
+	lw	t0, THREAD_BUADDR($28)
+ 1ec:	8f8803a4 	lw	t0,932(gp)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:486
+1:
+EXC(	lb	t1, 0(src),	l_exc)
+ 1f0:	80a90000 	lb	t1,0(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:487
+	ADD	src, src, 1
+ 1f4:	24a50001 	addiu	a1,a1,1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:488
+	sb	t1, 0(dst)	# can't fault -- we're copy_from_user
+ 1f8:	a0890000 	sb	t1,0(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:489
+	bne	src, t0, 1b
+ 1fc:	14a8fffc 	bne	a1,t0,1f0 <l_exc_copy+0x4>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:490
+	 ADD	dst, dst, 1
+ 200:	24840001 	addiu	a0,a0,1
+
+00000204 <l_exc>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:492
+l_exc:
+	lw	t0, THREAD_BUADDR($28)	# t0 is just past last good address
+ 204:	8f8803a4 	lw	t0,932(gp)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:493
+	 nop
+ 208:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:494
+	subu	len, AT, t0		# len number of uncopied bytes
+ 20c:	00283023 	subu	a2,at,t0
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:500
+	/*
+	 * Here's where we rely on src and dst being incremented in tandem,
+	 *   See (3) above.
+	 * dst += (fault addr - src) to put dst at first byte to clear
+	 */
+	addu	dst, t0			# compute start address in a1
+ 210:	00882021 	addu	a0,a0,t0
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:501
+	subu	dst, src
+ 214:	00852023 	subu	a0,a0,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:506
+	/*
+	 * Clear len bytes starting at dst.  Can't call __bzero because it
+	 * might modify len.  An inefficient loop for these rare times...
+	 */
+	beqz	len, done
+ 218:	10c0fff2 	beqz	a2,1e4 <done>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:507
+	 SUB	src, len, 1
+ 21c:	24c5ffff 	addiu	a1,a2,-1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:508
+1:	sb	zero, 0(dst)
+ 220:	a0800000 	sb	zero,0(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:509
+	ADD	dst, dst, 1
+ 224:	24840001 	addiu	a0,a0,1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:510
+	bnez	src, 1b
+ 228:	14a0fffd 	bnez	a1,220 <l_exc+0x1c>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:511
+	 SUB	src, src, 1
+ 22c:	24a5ffff 	addiu	a1,a1,-1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:512
+	jr	ra
+ 230:	03e00008 	jr	ra
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:513
+	 nop
+ 234:	00000000 	nop
+
+00000238 <s_exc_p8u>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:521
+
+
+#define SEXC(n)				\
+s_exc_p ## n ## u:			\
+	jr	ra;			\
+	 ADD	len, len, n*NBYTES
+
+SEXC(8)
+ 238:	03e00008 	jr	ra
+ 23c:	24c60020 	addiu	a2,a2,32
+
+00000240 <s_exc_p7u>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:522
+SEXC(7)
+ 240:	03e00008 	jr	ra
+ 244:	24c6001c 	addiu	a2,a2,28
+
+00000248 <s_exc_p6u>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:523
+SEXC(6)
+ 248:	03e00008 	jr	ra
+ 24c:	24c60018 	addiu	a2,a2,24
+
+00000250 <s_exc_p5u>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:524
+SEXC(5)
+ 250:	03e00008 	jr	ra
+ 254:	24c60014 	addiu	a2,a2,20
+
+00000258 <s_exc_p4u>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:525
+SEXC(4)
+ 258:	03e00008 	jr	ra
+ 25c:	24c60010 	addiu	a2,a2,16
+
+00000260 <s_exc_p3u>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:526
+SEXC(3)
+ 260:	03e00008 	jr	ra
+ 264:	24c6000c 	addiu	a2,a2,12
+
+00000268 <s_exc_p2u>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:527
+SEXC(2)
+ 268:	03e00008 	jr	ra
+ 26c:	24c60008 	addiu	a2,a2,8
+
+00000270 <s_exc_p1u>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:528
+SEXC(1)
+ 270:	03e00008 	jr	ra
+ 274:	24c60004 	addiu	a2,a2,4
+
+00000278 <s_exc_p1>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:531
+
+s_exc_p1:
+	jr	ra
+ 278:	03e00008 	jr	ra
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:532
+	 ADD	len, len, 1
+ 27c:	24c60001 	addiu	a2,a2,1
+
+00000280 <s_exc>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:534
+s_exc:
+	jr	ra
+ 280:	03e00008 	jr	ra
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:535
+	 nop
+ 284:	00000000 	nop
+	...
+
+000002a0 <memmove>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:539
+
+	.align	5
+LEAF(memmove)
+	addu	t0, a0, a2
+ 2a0:	00864021 	addu	t0,a0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:540
+	addu	t1, a1, a2
+ 2a4:	00a64821 	addu	t1,a1,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:541
+	sltu	t0, a1, t0			# dst + len <= src -> memcpy
+ 2a8:	00a8402b 	sltu	t0,a1,t0
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:542
+	sltu	t1, a0, t1			# dst >= src + len -> memcpy
+ 2ac:	0089482b 	sltu	t1,a0,t1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:543
+	and	t0, t1
+ 2b0:	01094024 	and	t0,t0,t1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:544
+	beqz	t0, __memcpy
+ 2b4:	1100ff53 	beqz	t0,4 <__copy_user>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:545
+	 move	v0, a0				/* return value */
+ 2b8:	00801021 	move	v0,a0
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:546
+	beqz	a2, r_out
+ 2bc:	10c0000b 	beqz	a2,2ec <r_out>
+
+000002c0 <__rmemcpy>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:551
+	END(memmove)
+
+	/* fall through to __rmemcpy */
+LEAF(__rmemcpy)					/* a0=dst a1=src a2=len */
+	 sltu	t0, a1, a0
+ 2c0:	00a4402b 	sltu	t0,a1,a0
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:552
+	beqz	t0, r_end_bytes_up		# src >= dst
+ 2c4:	1100000b 	beqz	t0,2f4 <r_end_bytes_up>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:553
+	 nop
+ 2c8:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:554
+	addu	a0, a2				# dst = dst + len
+ 2cc:	00862021 	addu	a0,a0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:555
+	addu	a1, a2				# src = src + len
+ 2d0:	00a62821 	addu	a1,a1,a2
+
+000002d4 <r_end_bytes>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:558
+
+r_end_bytes:
+	lb	t0, -1(a1)
+ 2d4:	80a8ffff 	lb	t0,-1(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:559
+	subu	a2, a2, 0x1
+ 2d8:	24c6ffff 	addiu	a2,a2,-1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:560
+	sb	t0, -1(a0)
+ 2dc:	a088ffff 	sb	t0,-1(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:561
+	subu	a1, a1, 0x1
+ 2e0:	24a5ffff 	addiu	a1,a1,-1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:562
+	bnez	a2, r_end_bytes
+ 2e4:	14c0fffb 	bnez	a2,2d4 <r_end_bytes>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:563
+	 subu	a0, a0, 0x1
+ 2e8:	2484ffff 	addiu	a0,a0,-1
+
+000002ec <r_out>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:566
+
+r_out:
+	jr	ra
+ 2ec:	03e00008 	jr	ra
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:567
+	 move	a2, zero
+ 2f0:	00003021 	move	a2,zero
+
+000002f4 <r_end_bytes_up>:
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:570
+
+r_end_bytes_up:
+	lb	t0, (a1)
+ 2f4:	80a80000 	lb	t0,0(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:571
+	subu	a2, a2, 0x1
+ 2f8:	24c6ffff 	addiu	a2,a2,-1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:572
+	sb	t0, (a0)
+ 2fc:	a0880000 	sb	t0,0(a0)
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:573
+	addu	a1, a1, 0x1
+ 300:	24a50001 	addiu	a1,a1,1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:574
+	bnez	a2, r_end_bytes_up
+ 304:	14c0fffb 	bnez	a2,2f4 <r_end_bytes_up>
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:575
+	 addu	a0, a0, 0x1
+ 308:	24840001 	addiu	a0,a0,1
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:577
+
+	jr	ra
+ 30c:	03e00008 	jr	ra
+/home/mips/linux-2.4.x/arch/mipsnommu/lib/memcpy.S:578
+	 move	a2, zero
+ 310:	00003021 	move	a2,zero
+	...

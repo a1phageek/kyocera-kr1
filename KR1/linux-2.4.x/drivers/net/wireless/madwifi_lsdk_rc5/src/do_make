@@ -1,0 +1,27 @@
+#!/bin/sh
+
+rm -rf log
+mkdir log
+chmod 777 log
+
+rm -rf modules
+mkdir modules
+chmod 777 modules
+
+make hal_build 2>&1|tee log/hal.log
+make madwifi_build 2>&1|tee log/madwifi.log
+make wireless_tools 2>&1|tee log/wireless_tools.log
+make hostapd 2>&1|tee log/hostapd.log
+
+cp ./802_11/madwifi/madwifi/ath_hal/ath_hal.o ./modules/.
+cp ./802_11/madwifi/madwifi/net80211/wlan.o ./modules/.
+cp ./802_11/madwifi/madwifi/net80211/wlan_wep.o ./modules/.
+cp ./802_11/madwifi/madwifi/net80211/wlan_acl.o ./modules/.
+cp ./802_11/madwifi/madwifi/net80211/wlan_ccmp.o ./modules/.
+cp ./802_11/madwifi/madwifi/net80211/wlan_tkip.o ./modules/.
+cp ./802_11/madwifi/madwifi/net80211/wlan_scan_ap.o ./modules/.
+cp ./802_11/madwifi/madwifi/net80211/wlan_xauth.o ./modules/.
+cp ./802_11/madwifi/ratectrl/ath_rate_atheros.o ./modules/.
+cp ./802_11/madwifi/madwifi/ath/ath_pci.o ./modules/.
+cp ../apps/wpa/hostapd-0.3.7/hostapd   $(ROOTDIR)/romfs/bin/hostapd
+

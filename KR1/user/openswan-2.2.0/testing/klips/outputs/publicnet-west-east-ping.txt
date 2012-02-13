@@ -1,0 +1,4 @@
+IP 192.1.2.23 > 192.1.2.45: icmp 64: echo request seq 0
+IP 192.1.2.45 > 192.1.2.23: icmp 64: echo reply seq 0
+IP 192.1.2.23 > 192.1.2.45: icmp 64: echo request seq 0
+IP 192.1.2.45 > 192.1.2.23: icmp 64: echo reply seq 0

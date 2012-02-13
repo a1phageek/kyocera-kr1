@@ -1,0 +1,2 @@
+# */1 * * * * /etc/ppp/pingDNS.sh &
+*/1 * * * * /etc/ppp/CheckingPPP.sh &

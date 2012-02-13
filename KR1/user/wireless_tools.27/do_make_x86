@@ -1,0 +1,1 @@
+make 2>&1|tee x86.log

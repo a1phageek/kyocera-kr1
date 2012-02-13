@@ -1,0 +1,26 @@
+# RTL865XB
+mount -t proc proc /proc
+mount -t ramfs ramfs  /var
+mount -t usbdevfs none /proc/bus/usb
+mkdir /var/tmp
+mkdir /var/ppp
+mkdir /var/log
+mkdir /var/run
+mkdir /var/lock
+mkdir /var/usb1
+mkdir /var/usb2
+
+# enable WLAN
+busybox insmod wlan
+busybox insmod wlan_wep
+busybox insmod wlan_acl
+busybox insmod wlan_ccmp
+busybox insmod wlan_tkip
+busybox insmod wlan_scan_ap
+busybox insmod wlan_xauth
+busybox insmod ath_hal
+busybox insmod ath_rate_atheros
+busybox insmod ath_pci
+
+
+

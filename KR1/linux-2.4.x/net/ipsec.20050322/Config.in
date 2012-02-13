@@ -1,0 +1,55 @@
+#
+# IPSEC configuration
+# Copyright (C) 1998, 1999, 2000,2001  Richard Guy Briggs.
+# 
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2 of the License, or (at your
+# option) any later version.  See <http://www.fsf.org/copyleft/gpl.txt>.
+# 
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+# or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+# for more details.
+#
+# RCSID $Id: Config.in,v 1.1 2004/08/02 02:09:58 rupert Exp $
+
+comment 'IPSec options (FreeS/WAN)'
+
+bool '    HMAC-MD5 authentication algorithm' CONFIG_KLIPS_AUTH_HMAC_MD5
+bool '    HMAC-SHA1 authentication algorithm' CONFIG_KLIPS_AUTH_HMAC_SHA1
+bool '    3DES encryption algorithm' CONFIG_KLIPS_ENC_3DES
+
+comment ' ESP always enabled with tunnel mode'
+
+bool '   IPSEC: IP Compression' CONFIG_KLIPS_IPCOMP
+bool '   IPSEC Debugging Option' CONFIG_KLIPS_DEBUG
+
+#
+#
+# $Log: Config.in,v $
+# Revision 1.1  2004/08/02 02:09:58  rupert
+# +: Add Freeswan IPSec 2.06
+#
+# Revision 1.29  2004/02/24 17:17:04  mcr
+# 	s/CONFIG_IPSEC/CONFIG_KLIPS/ as 26sec uses "CONFIG_IPSEC" to
+# 	turn it on/off as well.
+#
+# Revision 1.28  2003/12/15 15:42:27  mcr
+# 	make sure that ESP is always on, and AH is no more.
+#
+# Revision 1.27  2003/12/13 04:09:21  mcr
+# 	AH transform removed.
+#
+# Revision 1.26  2002/04/24 07:36:26  mcr
+# Moved from ./klips/net/ipsec/Config.in,v
+#
+# Revision 1.25  2002/02/21 19:55:12  mcr
+# 	removed all traces of IPSEC_CONFIG_REGRESS because it
+# 	screwed up 2.2's "make menuconfig" scripts.
+#
+# Revision 1.24  2002/01/28 20:24:31  mcr
+# 	commented out IPSEC_REGRESS option from user visible config.
+#
+#
+

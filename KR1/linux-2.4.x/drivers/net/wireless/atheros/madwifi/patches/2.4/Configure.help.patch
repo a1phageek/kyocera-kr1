@@ -1,0 +1,39 @@
+--- /usr/src/linux-2.4.24/Documentation/Configure.help	2004-02-10 22:38:15.000000000 -0800
++++ Configure.help	2004-02-10 22:40:31.000000000 -0800
+@@ -6445,6 +6445,16 @@
+   Support COPS compatible cards with Tangent style firmware (Tangent
+   ATB_II, Novell NL-1000, Daystar Digital LT-200.
+ 
++CONFIG_WLAN
++  802.11 is the protocol used for wireless local area network
++  communication.  This software implements the framework used by
++  a variety of wireless network drivers.  If your Linux box is
++  connected to a wireless network and you wish to connect to it,
++  say Y.  
++
++  To compile this driver as a module, choose M here: the module will be
++  called wlan.  If unsure, say N.
++
+ Amateur Radio support
+ CONFIG_HAMRADIO
+   If you want to connect your Linux box to an amateur radio, answer Y
+@@ -10218,6 +10228,19 @@
+   as a module, say M here and read <file:Documentation/modules.txt>.
+   If unsure, say N.
+ 
++Atheros wireless support
++CONFIG_ATHEROS
++  Say Y here if you intend to attach an Atheros Cardbus or PCI
++  wireless Ethernet networking card to your computer.  This driver
++  support the standard Linux Wireless Extensions.
++
++  You will also very likely also need the Wireless Tools in order to
++  configure your card and that /etc/pcmcia/wireless.opts works:
++  <http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html>.
++
++  To compile this driver as a module, choose M here: the module will
++  be called ath_pci.o  If unsure, say N.
++
+ PLIP (parallel port) support
+ CONFIG_PLIP
+   PLIP (Parallel Line Internet Protocol) is used to create a

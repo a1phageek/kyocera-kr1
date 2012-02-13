@@ -1,0 +1,7 @@
+Build Loader in uClinux
+1. Copy loader_srcroot.tar.gz to your home directory.
+2. Change directory to your home directory
+3. Enter `tar -zxvf load_srcroot.tar.gz` to uncompress archive.
+4. Change directory to the product directory, e.g. `cd ~/loader_srcroot`.
+5. Enter `make` to make Loader.
+6. Download ldr.bix to the target board.

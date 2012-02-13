@@ -1,0 +1,42 @@
+LINUXDIR = linux-2.4.x
+ROOTDIR  = $(shell pwd)
+RE865xNICDRVDIR=$(ROOTDIR)/$(LINUXDIR)/drivers/net/re865x/
+LIB=$(ROOTDIR)/lib/rtl865x
+
+all:
+	@echo "*************************************************"
+	@echo "You must run 'make ok' , 'make step1' ..."
+	@echo "*************************************************"
+.PHONY: OK
+OK: ok
+ok:
+	find -name CVS | xargs rm -rf
+	find -name ".#*" | xargs rm -f 
+	rm -rf  $(ROOTDIR)/$(LINUXDIR)/drivers/net/wireless/inpro2220
+	rm -rf  $(ROOTDIR)/$(LINUXDIR)/drivers/net/wireless/rtl8180/
+	rm -rf  $(ROOTDIR)/$(LINUXDIR)/drivers/net/wireless/re8180
+	rm -rf  $(RE865xNICDRVDIR)/rtl86xx_tbl/865xTest
+	make -f Makefile 
+	mkdir -p $(LIB)
+	cp -f $(RE865xNICDRVDIR)/rtl86xx_tbl/*.o $(LIB)
+	rm -f  $(RE865xNICDRVDIR)/rtl86xx_tbl/*.c
+	cp -f $(RE865xNICDRVDIR)/cle/*.o $(LIB)
+	rm -f  $(RE865xNICDRVDIR)/cle/*.c
+	make mrproper
+
+.PHONY: step1
+step1:
+	mkdir -p $(LIB)
+	cp -f $(RE865xNICDRVDIR)/cle/*.o $(LIB)
+	cp -f $(RE865xNICDRVDIR)/rtl86xx_tbl/*.o $(LIB)
+
+
+
+.PHONY: step2
+step2:
+	mkdir -p $(LIB)
+	cp -f $(RE865xNICDRVDIR)/cle/*.o $(LIB)
+	cp -f $(RE865xNICDRVDIR)/rtl86xx_tbl/*.o $(LIB)
+	rm -f  $(RE865xNICDRVDIR)/cle/*.[co]
+	rm -f  $(RE865xNICDRVDIR)/rtl86xx_tbl/*.[co]
+

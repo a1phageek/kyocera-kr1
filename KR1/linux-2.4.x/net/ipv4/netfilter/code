@@ -1,0 +1,1878 @@
+
+ip_nat_helper.o:     file format elf32-tradbigmips
+ip_nat_helper.o
+architecture: mips:3000, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 1001: [abi=O32] [mips1] [not 32bitmode]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000bf0  00000000  00000000  00000040  2**4
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000c30  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000c30  2**4
+                  ALLOC
+  3 .reginfo      00000018  00000000  00000000  00000c30  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, LINK_ONCE_SAME_SIZE
+  4 .pdr          000000e0  00000000  00000000  00000c48  2**2
+                  CONTENTS, RELOC, READONLY
+  5 .mdebug.abi32 00000000  00000000  00000000  00000d28  2**0
+                  CONTENTS, READONLY
+  6 .debug_abbrev 0000059f  00000000  00000000  00000d28  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   00016481  00000000  00000000  000012c7  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  8 .debug_line   0000264a  00000000  00000000  00017748  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .rodata       000000a0  00000000  00000000  00019da0  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 10 .debug_frame  000000fc  00000000  00000000  00019e40  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_pubnames 000000ab  00000000  00000000  00019f3c  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 12 .debug_aranges 00000020  00000000  00000000  00019fe7  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 13 .debug_str    0000c14a  00000000  00000000  0001a007  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .comment      00000012  00000000  00000000  00026151  2**0
+                  CONTENTS, READONLY
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 ip_nat_helper.c
+00000000 l    d  .text	00000000 
+00000000 l    d  .data	00000000 
+00000000 l    d  .bss	00000000 
+00000000 l    d  .mdebug.abi32	00000000 
+00000000 l    d  .debug_abbrev	00000000 
+00000000 l    d  .debug_info	00000000 
+00000000 l    d  .debug_line	00000000 
+000009b0 l     F .text	00000000 ip_nat_resize_packet
+00000870 l     F .text	00000000 kill_helper
+00000000 l    d  .debug_frame	00000000 
+00000000 l    d  .debug_pubnames	00000000 
+00000000 l    d  .debug_aranges	00000000 
+00000000 l    d  .debug_str	00000000 
+00000000 l    d  .rodata	00000000 
+00000000 l    d  .reginfo	00000000 
+00000000 l    d  .pdr	00000000 
+00000000 l    d  .comment	00000000 
+00000000 g     O .data	00000000 ip_nat_seqofs_lock
+00000000       O *UND*	00000000 memcpy
+00000000 g     F .text	00000000 ip_nat_mangle_tcp_packet
+00000000         *UND*	00000000 net_ratelimit
+00000000         *UND*	00000000 skb_copy
+00000000         *UND*	00000000 printk
+00000000         *UND*	00000000 sock_wfree
+00000000         *UND*	00000000 __kfree_skb
+00000000         *UND*	00000000 memmove
+00000000         *UND*	00000000 __out_of_line_bug
+00000000         *UND*	00000000 skb_over_panic
+00000000         *UND*	00000000 ___pskb_trim
+00000000         *UND*	00000000 csum_partial
+00000000         *UND*	00000000 ip_send_check
+000004a4 g     F .text	00000000 ip_nat_seq_adjust
+00000000         *UND*	00000000 ip_nat_cheat_check
+000005c4 g     F .text	00000000 ip_nat_delete_sack
+000006e4 g     F .text	00000000 ip_nat_helper_register
+00000000         *UND*	00000000 irq_stat
+00000000         *UND*	00000000 helpers
+00000000         *UND*	00000000 do_softirq
+000008e4 g     F .text	00000000 ip_nat_helper_unregister
+00000000         *UND*	00000000 ip_ct_selective_cleanup
+00000000         *UND*	00000000 skb_copy_expand
+
+
+Disassembly of section .text:
+
+00000000 <ip_nat_mangle_tcp_packet>:
+ip_nat_mangle_tcp_packet():
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:122
+			 unsigned int match_offset,
+			 unsigned int match_len,
+			 char *rep_buffer,
+			 unsigned int rep_len)
+{
+   0:	27bdffc0 	addiu	sp,sp,-64
+   4:	afbf003c 	sw	ra,60(sp)
+   8:	afbe0038 	sw	s8,56(sp)
+   c:	afb70034 	sw	s7,52(sp)
+  10:	afb60030 	sw	s6,48(sp)
+  14:	afb5002c 	sw	s5,44(sp)
+  18:	afb40028 	sw	s4,40(sp)
+  1c:	afb30024 	sw	s3,36(sp)
+  20:	afb20020 	sw	s2,32(sp)
+  24:	afb1001c 	sw	s1,28(sp)
+  28:	afb00018 	sw	s0,24(sp)
+  2c:	0080a021 	move	s4,a0
+  30:	8fb70050 	lw	s7,80(sp)
+  34:	8fb60058 	lw	s6,88(sp)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:123
+	struct iphdr *iph = (*skb)->nh.iph;
+  38:	8c820000 	lw	v0,0(a0)
+  3c:	00000000 	nop
+  40:	8c520020 	lw	s2,32(v0)
+  44:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:128
+	struct tcphdr *tcph;
+	unsigned char *data;
+	u_int32_t tcplen, newlen, newtcplen;
+
+	tcplen = (*skb)->len - iph->ihl*4;
+  48:	92430000 	lbu	v1,0(s2)
+  4c:	00000000 	nop
+  50:	3063000f 	andi	v1,v1,0xf
+  54:	00031880 	sll	v1,v1,0x2
+  58:	8c42005c 	lw	v0,92(v0)
+  5c:	00000000 	nop
+  60:	00431023 	subu	v0,v0,v1
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:129
+	newtcplen = tcplen - match_len + rep_len;
+  64:	0057a823 	subu	s5,v0,s7
+  68:	02b6a821 	addu	s5,s5,s6
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:130
+	newlen = iph->ihl*4 + newtcplen;
+  6c:	00758821 	addu	s1,v1,s5
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:132
+
+	if (newlen > 65535) {
+  70:	3402ffff 	li	v0,0xffff
+  74:	0051102b 	sltu	v0,v0,s1
+  78:	10400008 	beqz	v0,9c <ip_nat_mangle_tcp_packet+0x9c>
+  7c:	00e0f021 	move	s8,a3
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:133
+		if (net_ratelimit())
+  80:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			80: R_MIPS_26	net_ratelimit
+  84:	00000000 	nop
+  88:	3c040000 	lui	a0,0x0
+			88: R_MIPS_HI16	.rodata
+  8c:	14400028 	bnez	v0,130 <ip_nat_mangle_tcp_packet+0x130>
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:136
+			printk("ip_nat_mangle_tcp_packet: nat'ed packet "
+				"exceeds maximum packet size\n");
+		return 0;
+  90:	24840000 	addiu	a0,a0,0
+			90: R_MIPS_LO16	.rodata
+  94:	0800011d 	j	474 <ip_nat_mangle_tcp_packet+0x474>
+			94: R_MIPS_26	.text
+  98:	00001021 	move	v0,zero
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:139
+	}
+
+	if ((*skb)->len != newlen) {
+  9c:	8c820000 	lw	v0,0(a0)
+  a0:	00000000 	nop
+  a4:	8c42005c 	lw	v0,92(v0)
+  a8:	00000000 	nop
+  ac:	10510006 	beq	v0,s1,c8 <ip_nat_mangle_tcp_packet+0xc8>
+  b0:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:140
+		if (!ip_nat_resize_packet(skb, ct, ctinfo, newlen)) {
+  b4:	0c00026c 	jal	9b0 <ip_nat_resize_packet>
+			b4: R_MIPS_26	.text
+  b8:	02203821 	move	a3,s1
+  bc:	3c040000 	lui	a0,0x0
+			bc: R_MIPS_HI16	.rodata
+  c0:	1040001b 	beqz	v0,130 <ip_nat_mangle_tcp_packet+0x130>
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:142
+			printk("resize_packet failed!!\n");
+			return 0;
+  c4:	24840048 	addiu	a0,a0,72
+			c4: R_MIPS_LO16	.rodata
+/home/mips/linux-2.4.x/include/linux/skbuff.h:312
+ *	shared data so must not be written to under normal circumstances.
+ */
+
+static inline int skb_cloned(struct sk_buff *skb)
+{
+  c8:	8e830000 	lw	v1,0(s4)
+  cc:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:313
+	return skb->cloned && atomic_read(&skb_shinfo(skb)->dataref) != 1;
+  d0:	90620069 	lbu	v0,105(v1)
+  d4:	00000000 	nop
+  d8:	10400008 	beqz	v0,fc <ip_nat_mangle_tcp_packet+0xfc>
+  dc:	00002021 	move	a0,zero
+  e0:	8c620088 	lw	v0,136(v1)
+  e4:	00000000 	nop
+  e8:	8c430000 	lw	v1,0(v0)
+  ec:	24020001 	li	v0,1
+  f0:	10620002 	beq	v1,v0,fc <ip_nat_mangle_tcp_packet+0xfc>
+  f4:	00000000 	nop
+  f8:	24040001 	li	a0,1
+/home/mips/linux-2.4.x/include/linux/skbuff.h:312
+  fc:	10800068 	beqz	a0,2a0 <ip_nat_mangle_tcp_packet+0x2a0>
+ 100:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:149
+		}
+	}
+
+	/* Alexey says: if a hook changes _data_ ... it can break
+	   original packet sitting in tcp queue and this is fatal */
+	if (skb_cloned(*skb)) {
+		struct sk_buff *nskb = skb_copy(*skb, GFP_ATOMIC);
+ 104:	8e840000 	lw	a0,0(s4)
+ 108:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			108: R_MIPS_26	skb_copy
+ 10c:	24050020 	li	a1,32
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:150
+		if (!nskb) {
+ 110:	1440000b 	bnez	v0,140 <ip_nat_mangle_tcp_packet+0x140>
+ 114:	00408021 	move	s0,v0
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:151
+			if (net_ratelimit())
+ 118:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			118: R_MIPS_26	net_ratelimit
+ 11c:	00000000 	nop
+ 120:	10400005 	beqz	v0,138 <ip_nat_mangle_tcp_packet+0x138>
+ 124:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:152
+				printk("Out of memory cloning TCP packet\n");
+ 128:	3c040000 	lui	a0,0x0
+			128: R_MIPS_HI16	.rodata
+ 12c:	24840060 	addiu	a0,a0,96
+			12c: R_MIPS_LO16	.rodata
+ 130:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			130: R_MIPS_26	printk
+ 134:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:153
+			return 0;
+ 138:	0800011d 	j	474 <ip_nat_mangle_tcp_packet+0x474>
+			138: R_MIPS_26	.text
+ 13c:	00001021 	move	v0,zero
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:157
+		}
+		/* Rest of kernel will get very unhappy if we pass it
+		   a suddenly-orphaned skbuff */
+		if ((*skb)->sk)
+ 140:	8e820000 	lw	v0,0(s4)
+ 144:	00000000 	nop
+ 148:	8c45000c 	lw	a1,12(v0)
+ 14c:	00000000 	nop
+ 150:	10a00032 	beqz	a1,21c <ip_nat_mangle_tcp_packet+0x21c>
+ 154:	00000000 	nop
+/home/mips/linux-2.4.x/include/asm/atomic.h:62
+extern __inline__ void atomic_add(int i, atomic_t * v)
+{
+	int	flags;
+
+	save_flags(flags);
+ 158:	40036000 	mfc0	v1,$12
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+ 15c:	40016000 	mfc0	at,$12
+ 160:	00000000 	nop
+ 164:	34210001 	ori	at,at,0x1
+ 168:	38210001 	xori	at,at,0x1
+ 16c:	40816000 	mtc0	at,$12
+ 170:	00000040 	sll	zero,zero,0x1
+ 174:	00000040 	sll	zero,zero,0x1
+ 178:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/include/asm/atomic.h:64
+	int	flags;
+
+	save_flags(flags);
+	cli();
+	v->counter += i;
+ 17c:	8ca20028 	lw	v0,40(a1)
+ 180:	00000000 	nop
+ 184:	24420001 	addiu	v0,v0,1
+ 188:	aca20028 	sw	v0,40(a1)
+/home/mips/linux-2.4.x/include/asm/atomic.h:65
+	restore_flags(flags);
+ 18c:	40016000 	mfc0	at,$12
+ 190:	30630001 	andi	v1,v1,0x1
+ 194:	34210001 	ori	at,at,0x1
+ 198:	38210001 	xori	at,at,0x1
+ 19c:	00611825 	or	v1,v1,at
+ 1a0:	40836000 	mtc0	v1,$12
+ 1a4:	00000040 	sll	zero,zero,0x1
+ 1a8:	00000040 	sll	zero,zero,0x1
+ 1ac:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/include/net/sock.h:1134
+
+static inline void skb_set_owner_w(struct sk_buff *skb, struct sock *sk)
+{
+	sock_hold(sk);
+	skb->sk = sk;
+ 1b0:	ae05000c 	sw	a1,12(s0)
+/home/mips/linux-2.4.x/include/net/sock.h:1135
+	skb->destructor = sock_wfree;
+ 1b4:	3c020000 	lui	v0,0x0
+			1b4: R_MIPS_HI16	sock_wfree
+ 1b8:	24420000 	addiu	v0,v0,0
+			1b8: R_MIPS_LO16	sock_wfree
+ 1bc:	ae02008c 	sw	v0,140(s0)
+/home/mips/linux-2.4.x/include/asm/atomic.h:59
+ * Atomically adds @i to @v.  Note that the guaranteed useful range
+ * of an atomic_t is only 24 bits.
+ */
+extern __inline__ void atomic_add(int i, atomic_t * v)
+{
+ 1c0:	8e030078 	lw	v1,120(s0)
+/home/mips/linux-2.4.x/include/asm/atomic.h:62
+	int	flags;
+
+	save_flags(flags);
+ 1c4:	40046000 	mfc0	a0,$12
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+ 1c8:	40016000 	mfc0	at,$12
+ 1cc:	00000000 	nop
+ 1d0:	34210001 	ori	at,at,0x1
+ 1d4:	38210001 	xori	at,at,0x1
+ 1d8:	40816000 	mtc0	at,$12
+ 1dc:	00000040 	sll	zero,zero,0x1
+ 1e0:	00000040 	sll	zero,zero,0x1
+ 1e4:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/include/asm/atomic.h:64
+	int	flags;
+
+	save_flags(flags);
+	cli();
+	v->counter += i;
+ 1e8:	8ca20054 	lw	v0,84(a1)
+ 1ec:	00000000 	nop
+ 1f0:	00621821 	addu	v1,v1,v0
+ 1f4:	aca30054 	sw	v1,84(a1)
+/home/mips/linux-2.4.x/include/asm/atomic.h:65
+	restore_flags(flags);
+ 1f8:	40016000 	mfc0	at,$12
+ 1fc:	30840001 	andi	a0,a0,0x1
+ 200:	34210001 	ori	at,at,0x1
+ 204:	38210001 	xori	at,at,0x1
+ 208:	00812025 	or	a0,a0,at
+ 20c:	40846000 	mtc0	a0,$12
+ 210:	00000040 	sll	zero,zero,0x1
+ 214:	00000040 	sll	zero,zero,0x1
+ 218:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/include/linux/skbuff.h:290
+ *	hit zero.
+ */
+ 
+static inline void kfree_skb(struct sk_buff *skb)
+{
+ 21c:	8e840000 	lw	a0,0(s4)
+ 220:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:291
+	if (atomic_read(&skb->users) == 1 || atomic_dec_and_test(&skb->users))
+ 224:	8c830070 	lw	v1,112(a0)
+ 228:	24020001 	li	v0,1
+ 22c:	10620019 	beq	v1,v0,294 <ip_nat_mangle_tcp_packet+0x294>
+ 230:	00000000 	nop
+/home/mips/linux-2.4.x/include/asm/atomic.h:104
+extern __inline__ int atomic_sub_return(int i, atomic_t * v)
+{
+	int	temp, flags;
+
+	save_flags(flags);
+ 234:	40036000 	mfc0	v1,$12
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+ 238:	40016000 	mfc0	at,$12
+ 23c:	00000000 	nop
+ 240:	34210001 	ori	at,at,0x1
+ 244:	38210001 	xori	at,at,0x1
+ 248:	40816000 	mtc0	at,$12
+ 24c:	00000040 	sll	zero,zero,0x1
+ 250:	00000040 	sll	zero,zero,0x1
+ 254:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/include/asm/atomic.h:106
+	int	temp, flags;
+
+	save_flags(flags);
+	cli();
+	temp = v->counter;
+ 258:	8c820070 	lw	v0,112(a0)
+ 25c:	00000000 	nop
+/home/mips/linux-2.4.x/include/asm/atomic.h:107
+	temp -= i;
+ 260:	2442ffff 	addiu	v0,v0,-1
+/home/mips/linux-2.4.x/include/asm/atomic.h:108
+	v->counter = temp;
+ 264:	ac820070 	sw	v0,112(a0)
+/home/mips/linux-2.4.x/include/asm/atomic.h:109
+	restore_flags(flags);
+ 268:	40016000 	mfc0	at,$12
+ 26c:	30630001 	andi	v1,v1,0x1
+ 270:	34210001 	ori	at,at,0x1
+ 274:	38210001 	xori	at,at,0x1
+ 278:	00611825 	or	v1,v1,at
+ 27c:	40836000 	mtc0	v1,$12
+ 280:	00000040 	sll	zero,zero,0x1
+ 284:	00000040 	sll	zero,zero,0x1
+ 288:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/include/asm/atomic.h:101
+ 28c:	14400003 	bnez	v0,29c <ip_nat_mangle_tcp_packet+0x29c>
+ 290:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:292
+ 
+static inline void kfree_skb(struct sk_buff *skb)
+{
+	if (atomic_read(&skb->users) == 1 || atomic_dec_and_test(&skb->users))
+		__kfree_skb(skb);
+ 294:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			294: R_MIPS_26	__kfree_skb
+ 298:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:160
+			skb_set_owner_w(nskb, (*skb)->sk);
+		kfree_skb(*skb);
+		*skb = nskb;
+ 29c:	ae900000 	sw	s0,0(s4)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:164
+	}
+
+	/* skb may be copied !! */
+	iph = (*skb)->nh.iph;
+ 2a0:	8e830000 	lw	v1,0(s4)
+ 2a4:	00000000 	nop
+ 2a8:	8c720020 	lw	s2,32(v1)
+ 2ac:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:165
+	tcph = (void *)iph + iph->ihl*4;
+ 2b0:	92420000 	lbu	v0,0(s2)
+ 2b4:	00000000 	nop
+ 2b8:	3042000f 	andi	v0,v0,0xf
+ 2bc:	00021080 	sll	v0,v0,0x2
+ 2c0:	02429821 	addu	s3,s2,v0
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:166
+	data = (void *)tcph + tcph->doff*4;
+ 2c4:	8e70000c 	lw	s0,12(s3)
+ 2c8:	00000000 	nop
+ 2cc:	00108702 	srl	s0,s0,0x1c
+ 2d0:	00108080 	sll	s0,s0,0x2
+ 2d4:	02708021 	addu	s0,s3,s0
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:169
+
+	/* move post-replacement */
+	memmove(data + match_offset + rep_len,
+ 2d8:	021e8021 	addu	s0,s0,s8
+ 2dc:	02162021 	addu	a0,s0,s6
+ 2e0:	02172821 	addu	a1,s0,s7
+ 2e4:	8c660084 	lw	a2,132(v1)
+ 2e8:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			2e8: R_MIPS_26	memmove
+ 2ec:	00c53023 	subu	a2,a2,a1
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:174
+		 data + match_offset + match_len,
+		 (*skb)->tail - (data + match_offset + match_len));
+
+	/* insert data from buffer */
+	memcpy(data + match_offset, rep_buffer, rep_len);
+ 2f0:	02002021 	move	a0,s0
+ 2f4:	8fa50054 	lw	a1,84(sp)
+ 2f8:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			2f8: R_MIPS_26	memcpy
+ 2fc:	02c03021 	move	a2,s6
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:177
+
+	/* update skb info */
+	if (newlen > (*skb)->len) {
+ 300:	8e840000 	lw	a0,0(s4)
+ 304:	00000000 	nop
+ 308:	8c83005c 	lw	v1,92(a0)
+ 30c:	00000000 	nop
+ 310:	0071102b 	sltu	v0,v1,s1
+ 314:	10400019 	beqz	v0,37c <ip_nat_mangle_tcp_packet+0x37c>
+ 318:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:751
+}
+
+static inline int skb_is_nonlinear(const struct sk_buff *skb)
+{
+	return skb->data_len;
+ 31c:	8c820060 	lw	v0,96(a0)
+ 320:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:750
+ 324:	10400003 	beqz	v0,334 <ip_nat_mangle_tcp_packet+0x334>
+ 328:	02232823 	subu	a1,s1,v1
+/home/mips/linux-2.4.x/include/linux/skbuff.h:789
+}
+
+static inline int skb_headlen(const struct sk_buff *skb)
+{
+	return skb->len - skb->data_len;
+}
+
+#define SKB_PAGE_ASSERT(skb) do { if (skb_shinfo(skb)->nr_frags) out_of_line_bug(); } while (0)
+#define SKB_FRAG_ASSERT(skb) do { if (skb_shinfo(skb)->frag_list) out_of_line_bug(); } while (0)
+#define SKB_LINEAR_ASSERT(skb) do { if (skb_is_nonlinear(skb)) out_of_line_bug(); } while (0)
+
+/*
+ *	Add data to an sk_buff
+ */
+ 
+static inline unsigned char *__skb_put(struct sk_buff *skb, unsigned int len)
+{
+	unsigned char *tmp=skb->tail;
+	SKB_LINEAR_ASSERT(skb);
+	skb->tail+=len;
+	skb->len+=len;
+	return tmp;
+}
+
+/**
+ *	skb_put - add data to a buffer
+ *	@skb: buffer to use 
+ *	@len: amount of data to add
+ *
+ *	This function extends the used data area of the buffer. If this would
+ *	exceed the total buffer size the kernel will panic. A pointer to the
+ *	first byte of the extra data is returned.
+ */
+ 
+static inline unsigned char *skb_put(struct sk_buff *skb, unsigned int len)
+{
+	unsigned char *tmp=skb->tail;
+	SKB_LINEAR_ASSERT(skb);
+ 32c:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			32c: R_MIPS_26	__out_of_line_bug
+ 330:	24040315 	li	a0,789
+/home/mips/linux-2.4.x/include/linux/skbuff.h:790
+	skb->tail+=len;
+ 334:	8c820084 	lw	v0,132(a0)
+ 338:	00000000 	nop
+ 33c:	00a21021 	addu	v0,a1,v0
+ 340:	ac820084 	sw	v0,132(a0)
+/home/mips/linux-2.4.x/include/linux/skbuff.h:791
+	skb->len+=len;
+ 344:	8c83005c 	lw	v1,92(a0)
+ 348:	00000000 	nop
+ 34c:	00a31821 	addu	v1,a1,v1
+ 350:	ac83005c 	sw	v1,92(a0)
+/home/mips/linux-2.4.x/include/linux/skbuff.h:792
+	if(skb->tail>skb->end) {
+ 354:	8c830088 	lw	v1,136(a0)
+ 358:	00000000 	nop
+ 35c:	0062182b 	sltu	v1,v1,v0
+ 360:	10600017 	beqz	v1,3c0 <ip_nat_mangle_tcp_packet+0x3c0>
+ 364:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:793
+		skb_over_panic(skb, len, current_text_addr());
+ 368:	3c060000 	lui	a2,0x0
+			368: R_MIPS_HI16	.text
+ 36c:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			36c: R_MIPS_26	skb_over_panic
+ 370:	24c60368 	addiu	a2,a2,872
+			370: R_MIPS_LO16	.text
+/home/mips/linux-2.4.x/include/linux/skbuff.h:787
+ 374:	080000f1 	j	3c4 <ip_nat_mangle_tcp_packet+0x3c4>
+			374: R_MIPS_26	.text
+ 378:	a6510002 	sh	s1,2(s2)
+/home/mips/linux-2.4.x/include/linux/skbuff.h:940
+	}
+	return tmp;
+}
+
+static inline unsigned char *__skb_push(struct sk_buff *skb, unsigned int len)
+{
+	skb->data-=len;
+	skb->len+=len;
+	return skb->data;
+}
+
+/**
+ *	skb_push - add data to the start of a buffer
+ *	@skb: buffer to use 
+ *	@len: amount of data to add
+ *
+ *	This function extends the used data area of the buffer at the buffer
+ *	start. If this would exceed the total buffer headroom the kernel will
+ *	panic. A pointer to the first byte of the extra data is returned.
+ */
+
+static inline unsigned char *skb_push(struct sk_buff *skb, unsigned int len)
+{
+	skb->data-=len;
+	skb->len+=len;
+	if(skb->data<skb->head) {
+		skb_under_panic(skb, len, current_text_addr());
+	}
+	return skb->data;
+}
+
+static inline char *__skb_pull(struct sk_buff *skb, unsigned int len)
+{
+	skb->len-=len;
+	if (skb->len < skb->data_len)
+		out_of_line_bug();
+	return 	skb->data+=len;
+}
+
+/**
+ *	skb_pull - remove data from the start of a buffer
+ *	@skb: buffer to use 
+ *	@len: amount of data to remove
+ *
+ *	This function removes data from the start of a buffer, returning
+ *	the memory to the headroom. A pointer to the next data in the buffer
+ *	is returned. Once the data has been pulled future pushes will overwrite
+ *	the old data.
+ */
+
+static inline unsigned char * skb_pull(struct sk_buff *skb, unsigned int len)
+{	
+	if (len > skb->len)
+		return NULL;
+	return __skb_pull(skb,len);
+}
+
+extern unsigned char * __pskb_pull_tail(struct sk_buff *skb, int delta);
+
+static inline char *__pskb_pull(struct sk_buff *skb, unsigned int len)
+{
+	if (len > skb_headlen(skb) &&
+	    __pskb_pull_tail(skb, len-skb_headlen(skb)) == NULL)
+		return NULL;
+	skb->len -= len;
+	return 	skb->data += len;
+}
+
+static inline unsigned char * pskb_pull(struct sk_buff *skb, unsigned int len)
+{	
+	if (len > skb->len)
+		return NULL;
+	return __pskb_pull(skb,len);
+}
+
+static inline int pskb_may_pull(struct sk_buff *skb, unsigned int len)
+{
+	if (len <= skb_headlen(skb))
+		return 1;
+	if (len > skb->len)
+		return 0;
+	return (__pskb_pull_tail(skb, len-skb_headlen(skb)) != NULL);
+}
+
+/**
+ *	skb_headroom - bytes at buffer head
+ *	@skb: buffer to check
+ *
+ *	Return the number of bytes of free space at the head of an &sk_buff.
+ */
+ 
+static inline int skb_headroom(const struct sk_buff *skb)
+{
+	return skb->data-skb->head;
+}
+
+/**
+ *	skb_tailroom - bytes at buffer end
+ *	@skb: buffer to check
+ *
+ *	Return the number of bytes of free space at the tail of an sk_buff
+ */
+
+static inline int skb_tailroom(const struct sk_buff *skb)
+{
+	return skb_is_nonlinear(skb) ? 0 : skb->end-skb->tail;
+}
+
+/**
+ *	skb_reserve - adjust headroom
+ *	@skb: buffer to alter
+ *	@len: bytes to move
+ *
+ *	Increase the headroom of an empty &sk_buff by reducing the tail
+ *	room. This is only allowed for an empty buffer.
+ */
+
+static inline void skb_reserve(struct sk_buff *skb, unsigned int len)
+{
+	skb->data+=len;
+	skb->tail+=len;
+}
+
+extern int ___pskb_trim(struct sk_buff *skb, unsigned int len, int realloc);
+
+static inline void __skb_trim(struct sk_buff *skb, unsigned int len)
+{
+	if (!skb->data_len) {
+		skb->len = len;
+		skb->tail = skb->data+len;
+	} else {
+		___pskb_trim(skb, len, 0);
+	}
+}
+
+/**
+ *	skb_trim - remove end from a buffer
+ *	@skb: buffer to alter
+ *	@len: new length
+ *
+ *	Cut the length of a buffer down by removing data from the tail. If
+ *	the buffer is already under the length specified it is not modified.
+ */
+
+static inline void skb_trim(struct sk_buff *skb, unsigned int len)
+{
+	if (skb->len > len) {
+ 37c:	8c82005c 	lw	v0,92(a0)
+ 380:	00000000 	nop
+ 384:	0222102b 	sltu	v0,s1,v0
+ 388:	1040000d 	beqz	v0,3c0 <ip_nat_mangle_tcp_packet+0x3c0>
+ 38c:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:921
+ 390:	8c820060 	lw	v0,96(a0)
+ 394:	00000000 	nop
+ 398:	14400007 	bnez	v0,3b8 <ip_nat_mangle_tcp_packet+0x3b8>
+ 39c:	02202821 	move	a1,s1
+/home/mips/linux-2.4.x/include/linux/skbuff.h:922
+ 3a0:	ac91005c 	sw	s1,92(a0)
+/home/mips/linux-2.4.x/include/linux/skbuff.h:923
+ 3a4:	8c820080 	lw	v0,128(a0)
+ 3a8:	00000000 	nop
+ 3ac:	02221021 	addu	v0,s1,v0
+ 3b0:	080000f0 	j	3c0 <ip_nat_mangle_tcp_packet+0x3c0>
+			3b0: R_MIPS_26	.text
+ 3b4:	ac820084 	sw	v0,132(a0)
+/home/mips/linux-2.4.x/include/linux/skbuff.h:925
+ 3b8:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			3b8: R_MIPS_26	___pskb_trim
+ 3bc:	00003021 	move	a2,zero
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:189
+		DEBUGP("ip_nat_mangle_tcp_packet: Extending packet by "
+			"%u to %u bytes\n", newlen - (*skb)->len, newlen);
+		skb_put(*skb, newlen - (*skb)->len);
+	} else {
+		DEBUGP("ip_nat_mangle_tcp_packet: Shrinking packet from "
+			"%u to %u bytes\n", (*skb)->len, newlen);
+		skb_trim(*skb, newlen);
+	}
+
+	/* fix checksum information */
+
+	iph->tot_len = htons(newlen);
+ 3c0:	a6510002 	sh	s1,2(s2)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:190
+	(*skb)->csum = csum_partial((char *)tcph + tcph->doff*4,
+ 3c4:	8e900000 	lw	s0,0(s4)
+ 3c8:	8e65000c 	lw	a1,12(s3)
+ 3cc:	00000000 	nop
+ 3d0:	00052f02 	srl	a1,a1,0x1c
+ 3d4:	00052880 	sll	a1,a1,0x2
+ 3d8:	02652021 	addu	a0,s3,a1
+ 3dc:	02a52823 	subu	a1,s5,a1
+ 3e0:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			3e0: R_MIPS_26	csum_partial
+ 3e4:	00003021 	move	a2,zero
+ 3e8:	ae020064 	sw	v0,100(s0)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:193
+				    newtcplen - tcph->doff*4, 0);
+
+	tcph->check = 0;
+ 3ec:	a6600010 	sh	zero,16(s3)
+/home/mips/linux-2.4.x/include/net/tcp.h:1292
+ */
+static __inline__ u16 tcp_v4_check(struct tcphdr *th, int len,
+				   unsigned long saddr, unsigned long daddr, 
+				   unsigned long base)
+{
+ 3f0:	8e51000c 	lw	s1,12(s2)
+ 3f4:	8e500010 	lw	s0,16(s2)
+ 3f8:	8e65000c 	lw	a1,12(s3)
+ 3fc:	00000000 	nop
+ 400:	00052f02 	srl	a1,a1,0x1c
+ 404:	00052880 	sll	a1,a1,0x2
+ 408:	8e820000 	lw	v0,0(s4)
+ 40c:	00000000 	nop
+ 410:	8c460064 	lw	a2,100(v0)
+ 414:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			414: R_MIPS_26	csum_partial
+ 418:	02602021 	move	a0,s3
+/home/mips/linux-2.4.x/include/asm/checksum.h:185
+						   unsigned long daddr,
+						   unsigned short len,
+						   unsigned short proto,
+						   unsigned int sum)
+{
+ 41c:	32a3ffff 	andi	v1,s5,0xffff
+/home/mips/linux-2.4.x/include/asm/checksum.h:150
+ 420:	3c010006 	lui	at,0x6
+ 424:	00231821 	addu	v1,at,v1
+ 428:	02118021 	addu	s0,s0,s1
+ 42c:	0211082b 	sltu	at,s0,s1
+ 430:	02018021 	addu	s0,s0,at
+ 434:	02038021 	addu	s0,s0,v1
+ 438:	0203082b 	sltu	at,s0,v1
+ 43c:	02018021 	addu	s0,s0,at
+ 440:	02028021 	addu	s0,s0,v0
+ 444:	0202082b 	sltu	at,s0,v0
+ 448:	02018021 	addu	s0,s0,at
+/home/mips/linux-2.4.x/include/asm/checksum.h:73
+ 44c:	00100c00 	sll	at,s0,0x10
+ 450:	02018021 	addu	s0,s0,at
+ 454:	0201082b 	sltu	at,s0,at
+ 458:	00108402 	srl	s0,s0,0x10
+ 45c:	02018021 	addu	s0,s0,at
+ 460:	3a10ffff 	xori	s0,s0,0xffff
+/home/mips/linux-2.4.x/include/net/tcp.h:1292
+ */
+static __inline__ u16 tcp_v4_check(struct tcphdr *th, int len,
+				   unsigned long saddr, unsigned long daddr, 
+				   unsigned long base)
+{
+ 464:	a6700010 	sh	s0,16(s3)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:197
+	tcph->check = tcp_v4_check(tcph, newtcplen, iph->saddr, iph->daddr,
+				   csum_partial((char *)tcph, tcph->doff*4,
+					   (*skb)->csum));
+	ip_send_check(iph);
+ 468:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			468: R_MIPS_26	ip_send_check
+ 46c:	02402021 	move	a0,s2
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:199
+
+	return 1;
+ 470:	24020001 	li	v0,1
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:200
+}
+ 474:	8fbf003c 	lw	ra,60(sp)
+ 478:	8fbe0038 	lw	s8,56(sp)
+ 47c:	8fb70034 	lw	s7,52(sp)
+ 480:	8fb60030 	lw	s6,48(sp)
+ 484:	8fb5002c 	lw	s5,44(sp)
+ 488:	8fb40028 	lw	s4,40(sp)
+ 48c:	8fb30024 	lw	s3,36(sp)
+ 490:	8fb20020 	lw	s2,32(sp)
+ 494:	8fb1001c 	lw	s1,28(sp)
+ 498:	8fb00018 	lw	s0,24(sp)
+ 49c:	03e00008 	jr	ra
+ 4a0:	27bd0040 	addiu	sp,sp,64
+
+000004a4 <ip_nat_seq_adjust>:
+ip_nat_seq_adjust():
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:207
+
+/* TCP sequence number adjustment */
+int 
+ip_nat_seq_adjust(struct sk_buff *skb, 
+		  struct ip_conntrack *ct, 
+		  enum ip_conntrack_info ctinfo)
+{
+ 4a4:	27bdffe0 	addiu	sp,sp,-32
+ 4a8:	afbf001c 	sw	ra,28(sp)
+ 4ac:	afb20018 	sw	s2,24(sp)
+ 4b0:	afb10014 	sw	s1,20(sp)
+ 4b4:	afb00010 	sw	s0,16(sp)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:213
+	struct iphdr *iph;
+	struct tcphdr *tcph;
+	int dir, newseq, newack;
+	struct ip_nat_seq *this_way, *other_way;	
+	
+	iph = skb->nh.iph;
+ 4b8:	8c830020 	lw	v1,32(a0)
+ 4bc:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:214
+	tcph = (void *)iph + iph->ihl*4;
+ 4c0:	90620000 	lbu	v0,0(v1)
+ 4c4:	00000000 	nop
+ 4c8:	3042000f 	andi	v0,v0,0xf
+ 4cc:	00021080 	sll	v0,v0,0x2
+ 4d0:	00628021 	addu	s0,v1,v0
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:216
+
+	dir = CTINFO2DIR(ctinfo);
+ 4d4:	2cc60003 	sltiu	a2,a2,3
+ 4d8:	38c60001 	xori	a2,a2,0x1
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:218
+
+	this_way = &ct->nat.info.seq[dir];
+ 4dc:	00061040 	sll	v0,a2,0x1
+ 4e0:	00461021 	addu	v0,v0,a2
+ 4e4:	00021080 	sll	v0,v0,0x2
+ 4e8:	00a22021 	addu	a0,a1,v0
+ 4ec:	24840140 	addiu	a0,a0,320
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:219
+	other_way = &ct->nat.info.seq[!dir];
+ 4f0:	14c00002 	bnez	a2,4fc <ip_nat_seq_adjust+0x58>
+ 4f4:	24a70140 	addiu	a3,a1,320
+ 4f8:	24a7014c 	addiu	a3,a1,332
+/home/mips/linux-2.4.x/include/net/tcp.h:607
+        return (__s32)(seq1-seq2) < 0;
+}
+
+extern __inline int after(__u32 seq1, __u32 seq2)
+{
+ 4fc:	8e030004 	lw	v1,4(s0)
+ 500:	8c820000 	lw	v0,0(a0)
+ 504:	00000000 	nop
+/home/mips/linux-2.4.x/include/net/tcp.h:608
+	return (__s32)(seq2-seq1) < 0;
+ 508:	00431023 	subu	v0,v0,v1
+/home/mips/linux-2.4.x/include/net/tcp.h:607
+ 50c:	04410004 	bgez	v0,520 <ip_nat_seq_adjust+0x7c>
+ 510:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:222
+	
+	if (after(ntohl(tcph->seq), this_way->correction_pos))
+		newseq = ntohl(tcph->seq) + this_way->offset_after;
+ 514:	8c820008 	lw	v0,8(a0)
+ 518:	0800014b 	j	52c <ip_nat_seq_adjust+0x88>
+			518: R_MIPS_26	.text
+ 51c:	00629021 	addu	s2,v1,v0
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:224
+	else
+		newseq = ntohl(tcph->seq) + this_way->offset_before;
+ 520:	8c820004 	lw	v0,4(a0)
+ 524:	00000000 	nop
+ 528:	00629021 	addu	s2,v1,v0
+/home/mips/linux-2.4.x/include/net/tcp.h:607
+        return (__s32)(seq1-seq2) < 0;
+}
+
+extern __inline int after(__u32 seq1, __u32 seq2)
+{
+ 52c:	8e050008 	lw	a1,8(s0)
+ 530:	8ce30004 	lw	v1,4(a3)
+ 534:	00000000 	nop
+ 538:	00a31823 	subu	v1,a1,v1
+ 53c:	8ce20000 	lw	v0,0(a3)
+ 540:	00000000 	nop
+/home/mips/linux-2.4.x/include/net/tcp.h:608
+	return (__s32)(seq2-seq1) < 0;
+ 544:	00431023 	subu	v0,v0,v1
+/home/mips/linux-2.4.x/include/net/tcp.h:607
+ 548:	04410004 	bgez	v0,55c <ip_nat_seq_adjust+0xb8>
+ 54c:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:229
+	newseq = htonl(newseq);
+
+	if (after(ntohl(tcph->ack_seq) - other_way->offset_before,
+		  other_way->correction_pos))
+		newack = ntohl(tcph->ack_seq) - other_way->offset_after;
+ 550:	8ce20008 	lw	v0,8(a3)
+ 554:	0800015b 	j	56c <ip_nat_seq_adjust+0xc8>
+			554: R_MIPS_26	.text
+ 558:	00a28823 	subu	s1,a1,v0
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:231
+	else
+		newack = ntohl(tcph->ack_seq) - other_way->offset_before;
+ 55c:	8e030008 	lw	v1,8(s0)
+ 560:	8ce20004 	lw	v0,4(a3)
+ 564:	00000000 	nop
+ 568:	00628823 	subu	s1,v1,v0
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:234
+	newack = htonl(newack);
+
+	tcph->check = ip_nat_cheat_check(~tcph->seq, newseq,
+ 56c:	8e040008 	lw	a0,8(s0)
+ 570:	00000000 	nop
+ 574:	00042027 	nor	a0,zero,a0
+ 578:	96060010 	lhu	a2,16(s0)
+ 57c:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			57c: R_MIPS_26	ip_nat_cheat_check
+ 580:	02202821 	move	a1,s1
+ 584:	8e040004 	lw	a0,4(s0)
+ 588:	00000000 	nop
+ 58c:	00042027 	nor	a0,zero,a0
+ 590:	02402821 	move	a1,s2
+ 594:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			594: R_MIPS_26	ip_nat_cheat_check
+ 598:	00403021 	move	a2,v0
+ 59c:	a6020010 	sh	v0,16(s0)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:243
+					 ip_nat_cheat_check(~tcph->ack_seq, 
+					 		    newack, 
+							    tcph->check));
+
+	DEBUGP("Adjusting sequence number from %u->%u, ack from %u->%u\n",
+		ntohl(tcph->seq), ntohl(newseq), ntohl(tcph->ack_seq),
+		ntohl(newack));
+
+	tcph->seq = newseq;
+ 5a0:	ae120004 	sw	s2,4(s0)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:244
+	tcph->ack_seq = newack;
+ 5a4:	ae110008 	sw	s1,8(s0)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:247
+
+	return 0;
+}
+ 5a8:	00001021 	move	v0,zero
+ 5ac:	8fbf001c 	lw	ra,28(sp)
+ 5b0:	8fb20018 	lw	s2,24(sp)
+ 5b4:	8fb10014 	lw	s1,20(sp)
+ 5b8:	8fb00010 	lw	s0,16(sp)
+ 5bc:	03e00008 	jr	ra
+ 5c0:	27bd0020 	addiu	sp,sp,32
+
+000005c4 <ip_nat_delete_sack>:
+ip_nat_delete_sack():
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:253
+
+/* Grrr... SACK.  Fuck me even harder.  Don't want to fix it on the
+   fly, so blow it away. */
+void
+ip_nat_delete_sack(struct sk_buff *skb, struct tcphdr *tcph)
+{
+ 5c4:	27bdffe0 	addiu	sp,sp,-32
+ 5c8:	afbf0018 	sw	ra,24(sp)
+ 5cc:	afb10014 	sw	s1,20(sp)
+ 5d0:	afb00010 	sw	s0,16(sp)
+ 5d4:	00a08021 	move	s0,a1
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:259
+	unsigned int i;
+	u_int8_t *opt = (u_int8_t *)tcph;
+
+	DEBUGP("Seeking SACKPERM in SYN packet (doff = %u).\n",
+	       tcph->doff * 4);
+	for (i = sizeof(struct tcphdr); i < tcph->doff * 4;) {
+ 5d8:	24030014 	li	v1,20
+ 5dc:	8ca2000c 	lw	v0,12(a1)
+ 5e0:	00000000 	nop
+ 5e4:	00021702 	srl	v0,v0,0x1c
+ 5e8:	00021080 	sll	v0,v0,0x2
+ 5ec:	0062102b 	sltu	v0,v1,v0
+ 5f0:	10400037 	beqz	v0,6d0 <ip_nat_delete_sack+0x10c>
+ 5f4:	00a02021 	move	a0,a1
+ 5f8:	24070004 	li	a3,4
+ 5fc:	8ca2000c 	lw	v0,12(a1)
+ 600:	00000000 	nop
+ 604:	00021702 	srl	v0,v0,0x1c
+ 608:	00023080 	sll	a2,v0,0x2
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:261
+		DEBUGP("%u ", opt[i]);
+		switch (opt[i]) {
+ 60c:	00831021 	addu	v0,a0,v1
+ 610:	90450000 	lbu	a1,0(v0)
+ 614:	00000000 	nop
+ 618:	04a00009 	bltz	a1,640 <ip_nat_delete_sack+0x7c>
+ 61c:	28a20002 	slti	v0,a1,2
+ 620:	14400005 	bnez	v0,638 <ip_nat_delete_sack+0x74>
+ 624:	00000000 	nop
+ 628:	10a70011 	beq	a1,a3,670 <ip_nat_delete_sack+0xac>
+ 62c:	00831021 	addu	v0,a0,v1
+ 630:	08000191 	j	644 <ip_nat_delete_sack+0x80>
+			630: R_MIPS_26	.text
+ 634:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:265
+		case TCPOPT_NOP:
+		case TCPOPT_EOL:
+			i++;
+			break;
+ 638:	08000197 	j	65c <ip_nat_delete_sack+0x98>
+			638: R_MIPS_26	.text
+ 63c:	24630001 	addiu	v1,v1,1
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:272
+
+		case TCPOPT_SACK_PERM:
+			goto found_opt;
+
+		default:
+			/* Worst that can happen: it will take us over. */
+			i += opt[i+1] ?: 1;
+ 640:	00831021 	addu	v0,a0,v1
+ 644:	90420001 	lbu	v0,1(v0)
+ 648:	00000000 	nop
+ 64c:	14400002 	bnez	v0,658 <ip_nat_delete_sack+0x94>
+ 650:	00622821 	addu	a1,v1,v0
+ 654:	24650001 	addiu	a1,v1,1
+ 658:	00a01821 	move	v1,a1
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:259
+ 65c:	0066102b 	sltu	v0,v1,a2
+ 660:	1040001b 	beqz	v0,6d0 <ip_nat_delete_sack+0x10c>
+ 664:	00831021 	addu	v0,a0,v1
+ 668:	08000184 	j	610 <ip_nat_delete_sack+0x4c>
+			668: R_MIPS_26	.text
+ 66c:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:283
+		}
+	}
+	DEBUGP("\n");
+	return;
+
+ found_opt:
+	DEBUGP("\n");
+	DEBUGP("Found SACKPERM at offset %u.\n", i);
+
+	/* Must be within TCP header, and valid SACK perm. */
+	if (i + opt[i+1] <= tcph->doff*4 && opt[i+1] == 2) {
+ 670:	00838821 	addu	s1,a0,v1
+ 674:	92240001 	lbu	a0,1(s1)
+ 678:	00000000 	nop
+ 67c:	00641821 	addu	v1,v1,a0
+ 680:	8e02000c 	lw	v0,12(s0)
+ 684:	00000000 	nop
+ 688:	00021702 	srl	v0,v0,0x1c
+ 68c:	00021080 	sll	v0,v0,0x2
+ 690:	0043102b 	sltu	v0,v0,v1
+ 694:	1440000e 	bnez	v0,6d0 <ip_nat_delete_sack+0x10c>
+ 698:	24020002 	li	v0,2
+ 69c:	1482000c 	bne	a0,v0,6d0 <ip_nat_delete_sack+0x10c>
+ 6a0:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:285
+		/* Replace with NOPs. */
+		tcph->check
+ 6a4:	96240000 	lhu	a0,0(s1)
+ 6a8:	00000000 	nop
+ 6ac:	00042027 	nor	a0,zero,a0
+ 6b0:	3084ffff 	andi	a0,a0,0xffff
+ 6b4:	96060010 	lhu	a2,16(s0)
+ 6b8:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			6b8: R_MIPS_26	ip_nat_cheat_check
+ 6bc:	24050101 	li	a1,257
+ 6c0:	a6020010 	sh	v0,16(s0)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:288
+			= ip_nat_cheat_check(*((u_int16_t *)(opt + i))^0xFFFF,
+					     (TCPOPT_NOP<<8)|TCPOPT_NOP, tcph->check);
+		opt[i] = opt[i+1] = TCPOPT_NOP;
+ 6c4:	24020001 	li	v0,1
+ 6c8:	a2220001 	sb	v0,1(s1)
+ 6cc:	a2220000 	sb	v0,0(s1)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:291
+	}
+	else DEBUGP("Something wrong with SACK_PERM.\n");
+}
+ 6d0:	8fbf0018 	lw	ra,24(sp)
+ 6d4:	8fb10014 	lw	s1,20(sp)
+ 6d8:	8fb00010 	lw	s0,16(sp)
+ 6dc:	03e00008 	jr	ra
+ 6e0:	27bd0020 	addiu	sp,sp,32
+
+000006e4 <ip_nat_helper_register>:
+ip_nat_helper_register():
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:301
+
+static inline int
+helper_cmp(const struct ip_nat_helper *helper,
+	   const struct ip_conntrack_tuple *tuple)
+{
+	return ip_ct_tuple_mask_cmp(tuple, &helper->tuple, &helper->mask);
+}
+
+int ip_nat_helper_register(struct ip_nat_helper *me)
+{
+ 6e4:	27bdffe8 	addiu	sp,sp,-24
+ 6e8:	afbf0014 	sw	ra,20(sp)
+ 6ec:	afb00010 	sw	s0,16(sp)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:302
+	int ret = 0;
+ 6f0:	00008021 	move	s0,zero
+/home/mips/linux-2.4.x/include/asm/softirq.h:18
+#include <asm/hardirq.h>
+
+static inline void cpu_bh_disable(int cpu)
+{
+	local_bh_count(cpu)++;
+ 6f4:	3c030000 	lui	v1,0x0
+			6f4: R_MIPS_HI16	irq_stat
+ 6f8:	24630008 	addiu	v1,v1,8
+			6f8: R_MIPS_LO16	irq_stat
+ 6fc:	8c620000 	lw	v0,0(v1)
+ 700:	00000000 	nop
+ 704:	24420001 	addiu	v0,v0,1
+ 708:	ac620000 	sw	v0,0(v1)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:305
+
+	WRITE_LOCK(&ip_nat_lock);
+	if (LIST_FIND(&helpers, helper_cmp, struct ip_nat_helper *,&me->tuple))
+ 70c:	3c050000 	lui	a1,0x0
+			70c: R_MIPS_HI16	helpers
+ 710:	24a50000 	addiu	a1,a1,0
+			710: R_MIPS_LO16	helpers
+ 714:	00a05021 	move	t2,a1
+ 718:	8ca50000 	lw	a1,0(a1)
+ 71c:	00000000 	nop
+ 720:	10aa0037 	beq	a1,t2,800 <ip_nat_helper_register+0x11c>
+ 724:	24860008 	addiu	a2,a0,8
+/home/mips/linux-2.4.x/include/linux/netfilter_ipv4/ip_conntrack_tuple.h:122
+
+static inline int ip_ct_tuple_mask_cmp(const struct ip_conntrack_tuple *t,
+				       const struct ip_conntrack_tuple *tuple,
+				       const struct ip_conntrack_tuple *mask)
+{
+ 728:	24a70008 	addiu	a3,a1,8
+ 72c:	24a80018 	addiu	t0,a1,24
+/home/mips/linux-2.4.x/include/linux/netfilter_ipv4/ip_conntrack_tuple.h:123
+	return !(((t->src.ip ^ tuple->src.ip) & mask->src.ip)
+ 730:	8c820008 	lw	v0,8(a0)
+ 734:	8ca30008 	lw	v1,8(a1)
+ 738:	00000000 	nop
+ 73c:	00431026 	xor	v0,v0,v1
+ 740:	8ca30018 	lw	v1,24(a1)
+ 744:	00000000 	nop
+ 748:	00431024 	and	v0,v0,v1
+ 74c:	14400026 	bnez	v0,7e8 <ip_nat_helper_register+0x104>
+ 750:	00004821 	move	t1,zero
+ 754:	8cc20008 	lw	v0,8(a2)
+ 758:	8ce30008 	lw	v1,8(a3)
+ 75c:	00000000 	nop
+ 760:	00431026 	xor	v0,v0,v1
+ 764:	8d030008 	lw	v1,8(t0)
+ 768:	00000000 	nop
+ 76c:	00431024 	and	v0,v0,v1
+ 770:	1440001d 	bnez	v0,7e8 <ip_nat_helper_register+0x104>
+ 774:	00000000 	nop
+ 778:	94c20004 	lhu	v0,4(a2)
+ 77c:	94e30004 	lhu	v1,4(a3)
+ 780:	00000000 	nop
+ 784:	00431026 	xor	v0,v0,v1
+ 788:	95030004 	lhu	v1,4(t0)
+ 78c:	00000000 	nop
+ 790:	00431024 	and	v0,v0,v1
+ 794:	14400014 	bnez	v0,7e8 <ip_nat_helper_register+0x104>
+ 798:	00000000 	nop
+ 79c:	94c2000c 	lhu	v0,12(a2)
+ 7a0:	94e3000c 	lhu	v1,12(a3)
+ 7a4:	00000000 	nop
+ 7a8:	00431026 	xor	v0,v0,v1
+ 7ac:	9503000c 	lhu	v1,12(t0)
+ 7b0:	00000000 	nop
+ 7b4:	00431024 	and	v0,v0,v1
+ 7b8:	1440000b 	bnez	v0,7e8 <ip_nat_helper_register+0x104>
+ 7bc:	00000000 	nop
+ 7c0:	94c2000e 	lhu	v0,14(a2)
+ 7c4:	94e3000e 	lhu	v1,14(a3)
+ 7c8:	00000000 	nop
+ 7cc:	00431026 	xor	v0,v0,v1
+ 7d0:	9503000e 	lhu	v1,14(t0)
+ 7d4:	00000000 	nop
+ 7d8:	00431024 	and	v0,v0,v1
+ 7dc:	14400002 	bnez	v0,7e8 <ip_nat_helper_register+0x104>
+ 7e0:	00000000 	nop
+ 7e4:	24090001 	li	t1,1
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:296
+ 7e8:	1120ffcb 	beqz	t1,718 <ip_nat_helper_register+0x34>
+ 7ec:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:305
+ 7f0:	10a00005 	beqz	a1,808 <ip_nat_helper_register+0x124>
+ 7f4:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:306
+		ret = -EBUSY;
+ 7f8:	0800020a 	j	828 <ip_nat_helper_register+0x144>
+			7f8: R_MIPS_26	.text
+ 7fc:	2410fff0 	li	s0,-16
+ 800:	080001fc 	j	7f0 <ip_nat_helper_register+0x10c>
+			800: R_MIPS_26	.text
+ 804:	00002821 	move	a1,zero
+/home/mips/linux-2.4.x/include/linux/netfilter_ipv4/listhelp.h:77
+
+/* Prepend. */
+static inline void
+list_prepend(struct list_head *head, void *new)
+{
+ 808:	3c020000 	lui	v0,0x0
+			808: R_MIPS_HI16	helpers
+ 80c:	24420000 	addiu	v0,v0,0
+			80c: R_MIPS_LO16	helpers
+/home/mips/linux-2.4.x/include/linux/list.h:40
+ */
+static __inline__ void __list_add(struct list_head * new,
+	struct list_head * prev,
+	struct list_head * next)
+{
+ 810:	8c430000 	lw	v1,0(v0)
+ 814:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/list.h:41
+	next->prev = new;
+ 818:	ac640004 	sw	a0,4(v1)
+/home/mips/linux-2.4.x/include/linux/list.h:42
+	new->next = next;
+ 81c:	ac830000 	sw	v1,0(a0)
+/home/mips/linux-2.4.x/include/linux/list.h:43
+	new->prev = prev;
+ 820:	ac820004 	sw	v0,4(a0)
+/home/mips/linux-2.4.x/include/linux/list.h:44
+	prev->next = new;
+ 824:	ac440000 	sw	a0,0(v0)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:311
+	else {
+		list_prepend(&helpers, me);
+		MOD_INC_USE_COUNT;
+	}
+	WRITE_UNLOCK(&ip_nat_lock);
+ 828:	3c030000 	lui	v1,0x0
+			828: R_MIPS_HI16	irq_stat
+ 82c:	24630008 	addiu	v1,v1,8
+			82c: R_MIPS_LO16	irq_stat
+ 830:	8c620000 	lw	v0,0(v1)
+ 834:	00000000 	nop
+ 838:	2442ffff 	addiu	v0,v0,-1
+ 83c:	14400007 	bnez	v0,85c <ip_nat_helper_register+0x178>
+ 840:	ac620000 	sw	v0,0(v1)
+ 844:	8c62fff8 	lw	v0,-8(v1)
+ 848:	00000000 	nop
+ 84c:	10400004 	beqz	v0,860 <ip_nat_helper_register+0x17c>
+ 850:	02001021 	move	v0,s0
+ 854:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			854: R_MIPS_26	do_softirq
+ 858:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:314
+
+	return ret;
+}
+ 85c:	02001021 	move	v0,s0
+ 860:	8fbf0014 	lw	ra,20(sp)
+ 864:	8fb00010 	lw	s0,16(sp)
+ 868:	03e00008 	jr	ra
+ 86c:	27bd0018 	addiu	sp,sp,24
+
+00000870 <kill_helper>:
+kill_helper():
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:318
+
+static int
+kill_helper(const struct ip_conntrack *i, void *helper)
+{
+ 870:	27bdffe8 	addiu	sp,sp,-24
+ 874:	afbf0014 	sw	ra,20(sp)
+ 878:	afb00010 	sw	s0,16(sp)
+/home/mips/linux-2.4.x/include/asm/softirq.h:18
+#include <asm/hardirq.h>
+
+static inline void cpu_bh_disable(int cpu)
+{
+	local_bh_count(cpu)++;
+ 87c:	3c030000 	lui	v1,0x0
+			87c: R_MIPS_HI16	irq_stat
+ 880:	24630008 	addiu	v1,v1,8
+			880: R_MIPS_LO16	irq_stat
+ 884:	8c620000 	lw	v0,0(v1)
+ 888:	00000000 	nop
+ 88c:	24420001 	addiu	v0,v0,1
+ 890:	ac620000 	sw	v0,0(v1)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:322
+	int ret;
+
+	READ_LOCK(&ip_nat_lock);
+	ret = (i->nat.info.helper == helper);
+ 894:	8c82013c 	lw	v0,316(a0)
+ 898:	00000000 	nop
+ 89c:	00451026 	xor	v0,v0,a1
+ 8a0:	2c500001 	sltiu	s0,v0,1
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:323
+	READ_UNLOCK(&ip_nat_lock);
+ 8a4:	8c620000 	lw	v0,0(v1)
+ 8a8:	00000000 	nop
+ 8ac:	2442ffff 	addiu	v0,v0,-1
+ 8b0:	14400007 	bnez	v0,8d0 <kill_helper+0x60>
+ 8b4:	ac620000 	sw	v0,0(v1)
+ 8b8:	8c62fff8 	lw	v0,-8(v1)
+ 8bc:	00000000 	nop
+ 8c0:	10400004 	beqz	v0,8d4 <kill_helper+0x64>
+ 8c4:	02001021 	move	v0,s0
+ 8c8:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			8c8: R_MIPS_26	do_softirq
+ 8cc:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:326
+
+	return ret;
+}
+ 8d0:	02001021 	move	v0,s0
+ 8d4:	8fbf0014 	lw	ra,20(sp)
+ 8d8:	8fb00010 	lw	s0,16(sp)
+ 8dc:	03e00008 	jr	ra
+ 8e0:	27bd0018 	addiu	sp,sp,24
+
+000008e4 <ip_nat_helper_unregister>:
+ip_nat_helper_unregister():
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:329
+
+void ip_nat_helper_unregister(struct ip_nat_helper *me)
+{
+ 8e4:	27bdffe8 	addiu	sp,sp,-24
+ 8e8:	afbf0014 	sw	ra,20(sp)
+ 8ec:	afb00010 	sw	s0,16(sp)
+ 8f0:	00808021 	move	s0,a0
+/home/mips/linux-2.4.x/include/asm/softirq.h:18
+#include <asm/hardirq.h>
+
+static inline void cpu_bh_disable(int cpu)
+{
+	local_bh_count(cpu)++;
+ 8f4:	3c040000 	lui	a0,0x0
+			8f4: R_MIPS_HI16	irq_stat
+ 8f8:	24840008 	addiu	a0,a0,8
+			8f8: R_MIPS_LO16	irq_stat
+ 8fc:	8c820000 	lw	v0,0(a0)
+ 900:	00000000 	nop
+ 904:	24420001 	addiu	v0,v0,1
+ 908:	ac820000 	sw	v0,0(a0)
+/home/mips/linux-2.4.x/include/linux/list.h:82
+ * the prev/next entries already!
+ */
+static __inline__ void __list_del(struct list_head * prev,
+				  struct list_head * next)
+{
+ 90c:	8e030004 	lw	v1,4(s0)
+ 910:	8e020000 	lw	v0,0(s0)
+ 914:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/list.h:83
+	next->prev = prev;
+ 918:	ac430004 	sw	v1,4(v0)
+/home/mips/linux-2.4.x/include/linux/list.h:84
+	prev->next = next;
+ 91c:	ac620000 	sw	v0,0(v1)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:332
+	WRITE_LOCK(&ip_nat_lock);
+	LIST_DELETE(&helpers, me);
+	WRITE_UNLOCK(&ip_nat_lock);
+ 920:	8c820000 	lw	v0,0(a0)
+ 924:	00000000 	nop
+ 928:	2442ffff 	addiu	v0,v0,-1
+ 92c:	14400007 	bnez	v0,94c <ip_nat_helper_unregister+0x68>
+ 930:	ac820000 	sw	v0,0(a0)
+ 934:	8c82fff8 	lw	v0,-8(a0)
+ 938:	00000000 	nop
+ 93c:	10400003 	beqz	v0,94c <ip_nat_helper_unregister+0x68>
+ 940:	00000000 	nop
+ 944:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			944: R_MIPS_26	do_softirq
+ 948:	00000000 	nop
+/home/mips/linux-2.4.x/include/asm/softirq.h:18
+#include <asm/hardirq.h>
+
+static inline void cpu_bh_disable(int cpu)
+{
+	local_bh_count(cpu)++;
+ 94c:	3c030000 	lui	v1,0x0
+			94c: R_MIPS_HI16	irq_stat
+ 950:	24630008 	addiu	v1,v1,8
+			950: R_MIPS_LO16	irq_stat
+ 954:	8c620000 	lw	v0,0(v1)
+ 958:	00000000 	nop
+ 95c:	24420001 	addiu	v0,v0,1
+ 960:	ac620000 	sw	v0,0(v1)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:336
+
+	/* Someone could be still looking at the helper in a bh. */
+	br_write_lock_bh(BR_NETPROTO_LOCK);
+	br_write_unlock_bh(BR_NETPROTO_LOCK);
+ 964:	8c620000 	lw	v0,0(v1)
+ 968:	00000000 	nop
+ 96c:	2442ffff 	addiu	v0,v0,-1
+ 970:	14400007 	bnez	v0,990 <ip_nat_helper_unregister+0xac>
+ 974:	ac620000 	sw	v0,0(v1)
+ 978:	8c62fff8 	lw	v0,-8(v1)
+ 97c:	00000000 	nop
+ 980:	10400003 	beqz	v0,990 <ip_nat_helper_unregister+0xac>
+ 984:	00000000 	nop
+ 988:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			988: R_MIPS_26	do_softirq
+ 98c:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:345
+
+	/* Find anything using it, and umm, kill them.  We can't turn
+	   them into normal connections: if we've adjusted SYNs, then
+	   they'll ackstorm.  So we just drop it.  We used to just
+	   bump module count when a connection existed, but that
+	   forces admins to gen fake RSTs or bounce box, either of
+	   which is just a long-winded way of making things
+	   worse. --RR */
+	ip_ct_selective_cleanup(kill_helper, me);
+ 990:	3c040000 	lui	a0,0x0
+			990: R_MIPS_HI16	.text
+ 994:	24840870 	addiu	a0,a0,2160
+			994: R_MIPS_LO16	.text
+ 998:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			998: R_MIPS_26	ip_ct_selective_cleanup
+ 99c:	02002821 	move	a1,s0
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:348
+
+	MOD_DEC_USE_COUNT;
+}
+ 9a0:	8fbf0014 	lw	ra,20(sp)
+ 9a4:	8fb00010 	lw	s0,16(sp)
+ 9a8:	03e00008 	jr	ra
+ 9ac:	27bd0018 	addiu	sp,sp,24
+
+000009b0 <ip_nat_resize_packet>:
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:43
+ 9b0:	27bdffd8 	addiu	sp,sp,-40
+ 9b4:	afbf0020 	sw	ra,32(sp)
+ 9b8:	afb3001c 	sw	s3,28(sp)
+ 9bc:	afb20018 	sw	s2,24(sp)
+ 9c0:	afb10014 	sw	s1,20(sp)
+ 9c4:	afb00010 	sw	s0,16(sp)
+ 9c8:	00808821 	move	s1,a0
+ 9cc:	00e09821 	move	s3,a3
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:57
+ 9d0:	2cc60003 	sltiu	a2,a2,3
+ 9d4:	38c60001 	xori	a2,a2,0x1
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:59
+ 9d8:	00061040 	sll	v0,a2,0x1
+ 9dc:	00461021 	addu	v0,v0,a2
+ 9e0:	00021080 	sll	v0,v0,0x2
+ 9e4:	00a28021 	addu	s0,a1,v0
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:62
+ 9e8:	8c840000 	lw	a0,0(a0)
+ 9ec:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:751
+}
+
+static inline int skb_is_nonlinear(const struct sk_buff *skb)
+{
+	return skb->data_len;
+ 9f0:	8c820060 	lw	v0,96(a0)
+ 9f4:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:750
+ 9f8:	14400005 	bnez	v0,a10 <ip_nat_resize_packet+0x60>
+ 9fc:	26100140 	addiu	s0,s0,320
+ a00:	8c830088 	lw	v1,136(a0)
+ a04:	8c820084 	lw	v0,132(a0)
+ a08:	08000285 	j	a14 <ip_nat_resize_packet+0x64>
+			a08: R_MIPS_26	.text
+ a0c:	00621823 	subu	v1,v1,v0
+ a10:	00001821 	move	v1,zero
+/home/mips/linux-2.4.x/include/linux/skbuff.h:898
+}
+
+static inline int skb_headlen(const struct sk_buff *skb)
+{
+	return skb->len - skb->data_len;
+}
+
+#define SKB_PAGE_ASSERT(skb) do { if (skb_shinfo(skb)->nr_frags) out_of_line_bug(); } while (0)
+#define SKB_FRAG_ASSERT(skb) do { if (skb_shinfo(skb)->frag_list) out_of_line_bug(); } while (0)
+#define SKB_LINEAR_ASSERT(skb) do { if (skb_is_nonlinear(skb)) out_of_line_bug(); } while (0)
+
+/*
+ *	Add data to an sk_buff
+ */
+ 
+static inline unsigned char *__skb_put(struct sk_buff *skb, unsigned int len)
+{
+	unsigned char *tmp=skb->tail;
+	SKB_LINEAR_ASSERT(skb);
+	skb->tail+=len;
+	skb->len+=len;
+	return tmp;
+}
+
+/**
+ *	skb_put - add data to a buffer
+ *	@skb: buffer to use 
+ *	@len: amount of data to add
+ *
+ *	This function extends the used data area of the buffer. If this would
+ *	exceed the total buffer size the kernel will panic. A pointer to the
+ *	first byte of the extra data is returned.
+ */
+ 
+static inline unsigned char *skb_put(struct sk_buff *skb, unsigned int len)
+{
+	unsigned char *tmp=skb->tail;
+	SKB_LINEAR_ASSERT(skb);
+	skb->tail+=len;
+	skb->len+=len;
+	if(skb->tail>skb->end) {
+		skb_over_panic(skb, len, current_text_addr());
+	}
+	return tmp;
+}
+
+static inline unsigned char *__skb_push(struct sk_buff *skb, unsigned int len)
+{
+	skb->data-=len;
+	skb->len+=len;
+	return skb->data;
+}
+
+/**
+ *	skb_push - add data to the start of a buffer
+ *	@skb: buffer to use 
+ *	@len: amount of data to add
+ *
+ *	This function extends the used data area of the buffer at the buffer
+ *	start. If this would exceed the total buffer headroom the kernel will
+ *	panic. A pointer to the first byte of the extra data is returned.
+ */
+
+static inline unsigned char *skb_push(struct sk_buff *skb, unsigned int len)
+{
+	skb->data-=len;
+	skb->len+=len;
+	if(skb->data<skb->head) {
+		skb_under_panic(skb, len, current_text_addr());
+	}
+	return skb->data;
+}
+
+static inline char *__skb_pull(struct sk_buff *skb, unsigned int len)
+{
+	skb->len-=len;
+	if (skb->len < skb->data_len)
+		out_of_line_bug();
+	return 	skb->data+=len;
+}
+
+/**
+ *	skb_pull - remove data from the start of a buffer
+ *	@skb: buffer to use 
+ *	@len: amount of data to remove
+ *
+ *	This function removes data from the start of a buffer, returning
+ *	the memory to the headroom. A pointer to the next data in the buffer
+ *	is returned. Once the data has been pulled future pushes will overwrite
+ *	the old data.
+ */
+
+static inline unsigned char * skb_pull(struct sk_buff *skb, unsigned int len)
+{	
+	if (len > skb->len)
+		return NULL;
+	return __skb_pull(skb,len);
+}
+
+extern unsigned char * __pskb_pull_tail(struct sk_buff *skb, int delta);
+
+static inline char *__pskb_pull(struct sk_buff *skb, unsigned int len)
+{
+	if (len > skb_headlen(skb) &&
+	    __pskb_pull_tail(skb, len-skb_headlen(skb)) == NULL)
+		return NULL;
+	skb->len -= len;
+	return 	skb->data += len;
+}
+
+static inline unsigned char * pskb_pull(struct sk_buff *skb, unsigned int len)
+{	
+	if (len > skb->len)
+		return NULL;
+	return __pskb_pull(skb,len);
+}
+
+static inline int pskb_may_pull(struct sk_buff *skb, unsigned int len)
+{
+	if (len <= skb_headlen(skb))
+		return 1;
+	if (len > skb->len)
+		return 0;
+	return (__pskb_pull_tail(skb, len-skb_headlen(skb)) != NULL);
+}
+
+/**
+ *	skb_headroom - bytes at buffer head
+ *	@skb: buffer to check
+ *
+ *	Return the number of bytes of free space at the head of an &sk_buff.
+ */
+ 
+static inline int skb_headroom(const struct sk_buff *skb)
+{
+	return skb->data-skb->head;
+}
+
+/**
+ *	skb_tailroom - bytes at buffer end
+ *	@skb: buffer to check
+ *
+ *	Return the number of bytes of free space at the tail of an sk_buff
+ */
+
+static inline int skb_tailroom(const struct sk_buff *skb)
+{
+ a14:	8c82005c 	lw	v0,92(a0)
+ a18:	00000000 	nop
+ a1c:	00621021 	addu	v0,v1,v0
+ a20:	0053102b 	sltu	v0,v0,s3
+ a24:	10400034 	beqz	v0,af8 <ip_nat_resize_packet+0x148>
+ a28:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:886
+ a2c:	8e240000 	lw	a0,0(s1)
+ a30:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:887
+ a34:	8c850080 	lw	a1,128(a0)
+ a38:	8c82007c 	lw	v0,124(a0)
+ a3c:	00000000 	nop
+ a40:	00a22823 	subu	a1,a1,v0
+/home/mips/linux-2.4.x/include/linux/skbuff.h:886
+ a44:	8c86005c 	lw	a2,92(a0)
+ a48:	00000000 	nop
+ a4c:	02663023 	subu	a2,s3,a2
+ a50:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			a50: R_MIPS_26	skb_copy_expand
+ a54:	24070020 	li	a3,32
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:68
+ a58:	14400006 	bnez	v0,a74 <ip_nat_resize_packet+0xc4>
+ a5c:	00409021 	move	s2,v0
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:69
+ a60:	3c040000 	lui	a0,0x0
+			a60: R_MIPS_HI16	.rodata
+ a64:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			a64: R_MIPS_26	printk
+ a68:	24840084 	addiu	a0,a0,132
+			a68: R_MIPS_LO16	.rodata
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:70
+ a6c:	080002f3 	j	bcc <ip_nat_resize_packet+0x21c>
+			a6c: R_MIPS_26	.text
+ a70:	00001021 	move	v0,zero
+/home/mips/linux-2.4.x/include/linux/skbuff.h:290
+ *	hit zero.
+ */
+ 
+static inline void kfree_skb(struct sk_buff *skb)
+{
+ a74:	8e240000 	lw	a0,0(s1)
+ a78:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:291
+	if (atomic_read(&skb->users) == 1 || atomic_dec_and_test(&skb->users))
+ a7c:	8c830070 	lw	v1,112(a0)
+ a80:	24020001 	li	v0,1
+ a84:	10620019 	beq	v1,v0,aec <ip_nat_resize_packet+0x13c>
+ a88:	00000000 	nop
+/home/mips/linux-2.4.x/include/asm/atomic.h:104
+extern __inline__ int atomic_sub_return(int i, atomic_t * v)
+{
+	int	temp, flags;
+
+	save_flags(flags);
+ a8c:	40036000 	mfc0	v1,$12
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+ a90:	40016000 	mfc0	at,$12
+ a94:	00000000 	nop
+ a98:	34210001 	ori	at,at,0x1
+ a9c:	38210001 	xori	at,at,0x1
+ aa0:	40816000 	mtc0	at,$12
+ aa4:	00000040 	sll	zero,zero,0x1
+ aa8:	00000040 	sll	zero,zero,0x1
+ aac:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/include/asm/atomic.h:106
+	int	temp, flags;
+
+	save_flags(flags);
+	cli();
+	temp = v->counter;
+ ab0:	8c820070 	lw	v0,112(a0)
+ ab4:	00000000 	nop
+/home/mips/linux-2.4.x/include/asm/atomic.h:107
+	temp -= i;
+ ab8:	2442ffff 	addiu	v0,v0,-1
+/home/mips/linux-2.4.x/include/asm/atomic.h:108
+	v->counter = temp;
+ abc:	ac820070 	sw	v0,112(a0)
+/home/mips/linux-2.4.x/include/asm/atomic.h:109
+	restore_flags(flags);
+ ac0:	40016000 	mfc0	at,$12
+ ac4:	30630001 	andi	v1,v1,0x1
+ ac8:	34210001 	ori	at,at,0x1
+ acc:	38210001 	xori	at,at,0x1
+ ad0:	00611825 	or	v1,v1,at
+ ad4:	40836000 	mtc0	v1,$12
+ ad8:	00000040 	sll	zero,zero,0x1
+ adc:	00000040 	sll	zero,zero,0x1
+ ae0:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/include/asm/atomic.h:101
+ ae4:	14400003 	bnez	v0,af4 <ip_nat_resize_packet+0x144>
+ ae8:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/skbuff.h:292
+ 
+static inline void kfree_skb(struct sk_buff *skb)
+{
+	if (atomic_read(&skb->users) == 1 || atomic_dec_and_test(&skb->users))
+		__kfree_skb(skb);
+ aec:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			aec: R_MIPS_26	__kfree_skb
+ af0:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:73
+ af4:	ae320000 	sw	s2,0(s1)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:77
+ af8:	8e220000 	lw	v0,0(s1)
+ afc:	00000000 	nop
+ b00:	8c430020 	lw	v1,32(v0)
+ b04:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:78
+ b08:	90620000 	lbu	v0,0(v1)
+ b0c:	00000000 	nop
+ b10:	3042000f 	andi	v0,v0,0xf
+ b14:	00021080 	sll	v0,v0,0x2
+ b18:	00622021 	addu	a0,v1,v0
+/home/mips/linux-2.4.x/include/asm/softirq.h:18
+#include <asm/hardirq.h>
+
+static inline void cpu_bh_disable(int cpu)
+{
+	local_bh_count(cpu)++;
+ b1c:	3c030000 	lui	v1,0x0
+			b1c: R_MIPS_HI16	irq_stat
+ b20:	24630008 	addiu	v1,v1,8
+			b20: R_MIPS_LO16	irq_stat
+ b24:	8c620000 	lw	v0,0(v1)
+ b28:	00000000 	nop
+ b2c:	24420001 	addiu	v0,v0,1
+ b30:	ac620000 	sw	v0,0(v1)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:90
+ b34:	8e030004 	lw	v1,4(s0)
+ b38:	8e020008 	lw	v0,8(s0)
+ b3c:	00000000 	nop
+ b40:	10620007 	beq	v1,v0,b60 <ip_nat_resize_packet+0x1b0>
+ b44:	00000000 	nop
+/home/mips/linux-2.4.x/include/net/tcp.h:602
+ * and worry about wraparound (automatic with unsigned arithmetic).
+ */
+
+extern __inline int before(__u32 seq1, __u32 seq2)
+{
+ b48:	8e020000 	lw	v0,0(s0)
+ b4c:	8c830004 	lw	v1,4(a0)
+ b50:	00000000 	nop
+/home/mips/linux-2.4.x/include/net/tcp.h:603
+        return (__s32)(seq1-seq2) < 0;
+ b54:	00431023 	subu	v0,v0,v1
+/home/mips/linux-2.4.x/include/net/tcp.h:602
+ b58:	0441000e 	bgez	v0,b94 <ip_nat_resize_packet+0x1e4>
+ b5c:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:92
+ b60:	8c820004 	lw	v0,4(a0)
+ b64:	00000000 	nop
+ b68:	ae020000 	sw	v0,0(s0)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:93
+ b6c:	8e020008 	lw	v0,8(s0)
+ b70:	00000000 	nop
+ b74:	ae020004 	sw	v0,4(s0)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:94
+ b78:	02621021 	addu	v0,s3,v0
+ b7c:	8e230000 	lw	v1,0(s1)
+ b80:	00000000 	nop
+ b84:	8c63005c 	lw	v1,92(v1)
+ b88:	00000000 	nop
+ b8c:	00431023 	subu	v0,v0,v1
+ b90:	ae020008 	sw	v0,8(s0)
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:98
+ b94:	3c030000 	lui	v1,0x0
+			b94: R_MIPS_HI16	irq_stat
+ b98:	24630008 	addiu	v1,v1,8
+			b98: R_MIPS_LO16	irq_stat
+ b9c:	8c620000 	lw	v0,0(v1)
+ ba0:	00000000 	nop
+ ba4:	2442ffff 	addiu	v0,v0,-1
+ ba8:	14400007 	bnez	v0,bc8 <ip_nat_resize_packet+0x218>
+ bac:	ac620000 	sw	v0,0(v1)
+ bb0:	8c62fff8 	lw	v0,-8(v1)
+ bb4:	00000000 	nop
+ bb8:	10400004 	beqz	v0,bcc <ip_nat_resize_packet+0x21c>
+ bbc:	24020001 	li	v0,1
+ bc0:	0c000000 	jal	0 <ip_nat_mangle_tcp_packet>
+			bc0: R_MIPS_26	do_softirq
+ bc4:	00000000 	nop
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:103
+ bc8:	24020001 	li	v0,1
+/home/mips/linux-2.4.x/net/ipv4/netfilter/ip_nat_helper.c:104
+ bcc:	8fbf0020 	lw	ra,32(sp)
+ bd0:	8fb3001c 	lw	s3,28(sp)
+ bd4:	8fb20018 	lw	s2,24(sp)
+ bd8:	8fb10014 	lw	s1,20(sp)
+ bdc:	8fb00010 	lw	s0,16(sp)
+ be0:	03e00008 	jr	ra
+ be4:	27bd0028 	addiu	sp,sp,40
+	...

@@ -1,0 +1,316 @@
+rm -f /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/madwifi/ath/if_ath_phyerr.c
+ln -s /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/phyerr/if_ath_phyerr.c \
+      /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/madwifi/ath/if_ath_phyerr.c
+cd /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/madwifi && make clean \
+&&  make && sudo make install
+make[1]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi'
+for i in ./ath_hal /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/ratectrl ./net80211 ./ath ; do \
+	(cd $i; make clean); \
+done
+make[2]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal'
+rm -f *~ *.o *.ko *.mod.c
+rm -f .depend .version .*.o.flags .*.o.d .*.o.cmd .*.ko.cmd
+rm -f ah_osdep.c opt_ah.h hal.o
+make[2]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal'
+make[2]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl'
+rm -f *~ *.o *.ko *.mod.c
+rm -f .depend .version .*.o.flags .*.o.d .*.o.cmd .*.ko.cmd
+make[2]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl'
+make[2]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211'
+rm -f *~ *.o *.ko *.mod.c
+rm -f .depend .version .*.o.flags .*.o.d .*.o.cmd .*.ko.cmd
+make[2]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211'
+make[2]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath'
+rm -f *~ *.o *.ko *.mod.c
+rm -f .depend .version .*.o.flags .*.o.d .*.o.cmd .*.ko.cmd
+make[2]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath'
+make[1]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi'
+make[1]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi'
+for i in ./ath_hal /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/ratectrl ./net80211 ./ath ; do \
+	(cd $i; make) || exit 1; \
+done
+make[2]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal'
+cp -f /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/public/mips1-be-elf.opt_ah.h opt_ah.h
+cp -f /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux/ah_osdep.c ah_osdep.c
+uudecode /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/public/mips1-be-elf.hal.o.uu
+make -C /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../../../../../../linux-2.4.x SUBDIRS=/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal modules
+make[3]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+make -C  /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal CFLAGS="-D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls" MAKING_MODULES=1 modules
+make[4]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal'
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ah_osdep  -DEXPORT_SYMTAB -c ah_osdep.c
+uudecode /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/public/mips1-be-elf.hal.o.uu
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o ath_hal.o -r ah_osdep.o hal.o
+make[4]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal'
+make[3]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+make[2]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal'
+make[2]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl'
+make -C /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../../../../../../linux-2.4.x SUBDIRS=/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl modules
+make[3]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+make -C  /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl CFLAGS="-D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls" MAKING_MODULES=1 modules
+make[4]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl'
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../madwifi/include/compat.h -I./../madwifi/include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../madwifi/ath -I./../madwifi/net80211 -I./../madwifi -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=linux  -DEXPORT_SYMTAB -c linux.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../madwifi/include/compat.h -I./../madwifi/include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../madwifi/ath -I./../madwifi/net80211 -I./../madwifi -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ratectrl  -c -o ratectrl.o ratectrl.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../madwifi/include/compat.h -I./../madwifi/include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../madwifi/ath -I./../madwifi/net80211 -I./../madwifi -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ar5212Phy  -c -o ar5212Phy.o ar5212Phy.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../madwifi/include/compat.h -I./../madwifi/include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../madwifi/ath -I./../madwifi/net80211 -I./../madwifi -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ar5211Phy  -c -o ar5211Phy.o ar5211Phy.c
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o ath_rate_atheros.o -r linux.o ratectrl.o ar5212Phy.o ar5211Phy.o
+make[4]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl'
+make[3]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+make[2]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl'
+make[2]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211'
+make -C /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../../../../../../linux-2.4.x SUBDIRS=/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211 modules
+make[3]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+make -C  /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211 CFLAGS="-D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls" MAKING_MODULES=1 modules
+make[4]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211'
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=if_media  -DEXPORT_SYMTAB -c if_media.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211  -DEXPORT_SYMTAB -c ieee80211.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_beacon  -DEXPORT_SYMTAB -c ieee80211_beacon.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_crypto  -DEXPORT_SYMTAB -c ieee80211_crypto.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_crypto_none  -DEXPORT_SYMTAB -c ieee80211_crypto_none.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_input  -DEXPORT_SYMTAB -c ieee80211_input.c
+ieee80211_input.c: In function `ieee80211_deliver_data':
+ieee80211_input.c:1099: warning: implicit declaration of function `rtl8651_fwdEngineExtPortRecv'
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_node  -DEXPORT_SYMTAB -c ieee80211_node.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_output  -DEXPORT_SYMTAB -c ieee80211_output.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_power  -DEXPORT_SYMTAB -c ieee80211_power.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_proto  -DEXPORT_SYMTAB -c ieee80211_proto.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_scan  -DEXPORT_SYMTAB -c ieee80211_scan.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_wireless  -DEXPORT_SYMTAB -c ieee80211_wireless.c
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_linux  -DEXPORT_SYMTAB -c ieee80211_linux.c
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan.o -r if_media.o ieee80211.o ieee80211_beacon.o ieee80211_crypto.o ieee80211_crypto_none.o ieee80211_input.o ieee80211_node.o ieee80211_output.o ieee80211_power.o ieee80211_proto.o ieee80211_scan.o ieee80211_wireless.o ieee80211_linux.o
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_crypto_wep  -DEXPORT_SYMTAB -c ieee80211_crypto_wep.c
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_wep.o -r ieee80211_crypto_wep.o
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_crypto_tkip  -DEXPORT_SYMTAB -c ieee80211_crypto_tkip.c
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_tkip.o -r ieee80211_crypto_tkip.o
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_crypto_ccmp  -DEXPORT_SYMTAB -c ieee80211_crypto_ccmp.c
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_ccmp.o -r ieee80211_crypto_ccmp.o
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_acl  -c -o ieee80211_acl.o ieee80211_acl.c
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_acl.o -r ieee80211_acl.o
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_xauth  -DEXPORT_SYMTAB -c ieee80211_xauth.c
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_xauth.o -r ieee80211_xauth.o
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_scan_sta  -DEXPORT_SYMTAB -c ieee80211_scan_sta.c
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_scan_sta.o -r ieee80211_scan_sta.o
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=ieee80211_scan_ap  -DEXPORT_SYMTAB -c ieee80211_scan_ap.c
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_scan_ap.o -r ieee80211_scan_ap.o
+make[4]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211'
+make[3]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+make[2]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211'
+make[2]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath'
+make -C /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../../../../../../linux-2.4.x SUBDIRS=/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath modules
+make[3]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+make -C  /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath CFLAGS="-D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls" MAKING_MODULES=1 modules
+make[4]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath'
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -DATH_PCI -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=if_ath  -c -o if_ath.o if_ath.c
+if_ath.c: In function `ath_vap_create':
+if_ath.c:1081: warning: implicit declaration of function `devglue_regExtDevice'
+if_ath.c: In function `ath_vap_delete':
+if_ath.c:1112: warning: implicit declaration of function `devglue_unregExtDevice'
+/RSDK_LINUX/rcc/bin/mips-linux-gcc -D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls -include ./../include/compat.h -I./../include -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/linux -I./../ath_hal -I./../net80211 -I./.. -DATH_PCI -Wall -DAH_BYTE_ORDER=AH_BIG_ENDIAN -G 0 -EB -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+ -finhibit-lt -finhibit-st -mno-abicalls -pipe -fno-pic -march=5280 -finline-limit=100000 -Wa,--trap -fno-strict-aliasing -fno-common -fomit-frame-pointer -mlong-calls -DATH_SUPERG_FF=1 -DATH_SUPERG_DYNTURBO=1 -DATH_TURBO_SCAN=1 -DATH_SUPERG_XR=1 -nostdinc -iwithprefix include -DKBUILD_BASENAME=if_ath_pci  -DEXPORT_SYMTAB -c if_ath_pci.c
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o ath_pci.o -r if_ath.o if_ath_pci.o
+make[4]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath'
+make[3]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+make[2]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath'
+make[1]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi'
+make[1]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi'
+for i in ./ath_hal /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/ratectrl ./net80211 ./ath ; do \
+	(cd $i; make install) || exit 1; \
+done
+make[2]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal'
+make -C /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../../../../../../linux-2.4.x SUBDIRS=/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal modules
+make[3]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+make -C  /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal CFLAGS="-D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls" MAKING_MODULES=1 modules
+make[4]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal'
+uudecode /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../src/802_11/madwifi/hal/main/public/mips1-be-elf.hal.o.uu
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o ath_hal.o -r ah_osdep.o hal.o
+make[4]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal'
+make[3]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+test -d //home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules || mkdir -p //home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules
+/RSDK_LINUX/rcc/bin/mips-linux-strip -S ath_hal.o
+cp ath_hal.o //home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules
+make[2]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath_hal'
+make[2]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl'
+make -C /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../../../../../../linux-2.4.x SUBDIRS=/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl modules
+make[3]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+make -C  /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl CFLAGS="-D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls" MAKING_MODULES=1 modules
+make[4]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl'
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o ath_rate_atheros.o -r linux.o ratectrl.o ar5212Phy.o ar5211Phy.o
+make[4]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl'
+make[3]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+test -d //home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules || mkdir -p //home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules
+/RSDK_LINUX/rcc/bin/mips-linux-strip -S ath_rate_atheros.o
+cp ath_rate_atheros.o //home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules
+make[2]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/ratectrl'
+make[2]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211'
+make -C /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../../../../../../linux-2.4.x SUBDIRS=/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211 modules
+make[3]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+make -C  /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211 CFLAGS="-D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls" MAKING_MODULES=1 modules
+make[4]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211'
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan.o -r if_media.o ieee80211.o ieee80211_beacon.o ieee80211_crypto.o ieee80211_crypto_none.o ieee80211_input.o ieee80211_node.o ieee80211_output.o ieee80211_power.o ieee80211_proto.o ieee80211_scan.o ieee80211_wireless.o ieee80211_linux.o
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_wep.o -r ieee80211_crypto_wep.o
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_tkip.o -r ieee80211_crypto_tkip.o
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_ccmp.o -r ieee80211_crypto_ccmp.o
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_acl.o -r ieee80211_acl.o
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_xauth.o -r ieee80211_xauth.o
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_scan_sta.o -r ieee80211_scan_sta.o
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o wlan_scan_ap.o -r ieee80211_scan_ap.o
+make[4]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211'
+make[3]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+test -d //home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules || mkdir -p //home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules
+for i in wlan.o wlan_wep.o wlan_tkip.o wlan_ccmp.o wlan_acl.o wlan_xauth.o wlan_scan_sta.o wlan_scan_ap.o; do \
+	f=`basename $i .o`; \
+	/RSDK_LINUX/rcc/bin/mips-linux-strip -S $f.o; \
+	cp $f.o //home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules; \
+done
+make[2]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/net80211'
+make[2]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath'
+make -C /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/../../../../../../linux-2.4.x SUBDIRS=/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath modules
+make[3]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+make -C  /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath CFLAGS="-D__KERNEL__ -I/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gstabs+  -finhibit-lt -finhibit-st  -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -march=5280  -DMODULE -mlong-calls" MAKING_MODULES=1 modules
+make[4]: Entering directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath'
+/RSDK_LINUX/rcc/bin/mips-linux-ld -EB -o ath_pci.o -r if_ath.o if_ath_pci.o
+make[4]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath'
+make[3]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x'
+test -d //home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules || mkdir -p //home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules
+/RSDK_LINUX/rcc/bin/mips-linux-strip -S ath_pci.o
+cp ath_pci.o //home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules
+make[2]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/ath'
+(export MODULEPATH=/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi/../../../../../../linux-2.4.x/drivers/net/wireless/madwifi_lsdk_beta/src/modules; depmod -ae)
+depmod: *** Unresolved symbols in /lib/modules/2.4.20-8/net/ath_hal.o
+depmod: 	vsnprintf
+depmod: 	__udelay
+depmod: 	snprintf
+depmod: 	kmalloc
+depmod: 	proc_dointvec
+depmod: 	unregister_sysctl_table
+depmod: 	kfree
+depmod: 	jiffies
+depmod: 	printk
+depmod: 	register_sysctl_table
+depmod: *** Unresolved symbols in /lib/modules/2.4.20-8/net/ath_pci.o
+depmod: 	pci_write_config_byte
+depmod: 	__kfree_skb
+depmod: 	alloc_skb
+depmod: 	pci_register_driver
+depmod: 	__generic_copy_from_user
+depmod: 	__release_region
+depmod: 	ether_setup
+depmod: 	skb_under_panic
+depmod: 	kmalloc
+depmod: 	pci_free_consistent
+depmod: 	pci_enable_device
+depmod: 	__tasklet_schedule
+depmod: 	pci_read_config_byte
+depmod: 	pci_disable_device
+depmod: 	boot_cpu_data
+depmod: 	cpu_raise_softirq
+depmod: 	free_irq
+depmod: 	unregister_netdev
+depmod: 	__out_of_line_bug
+depmod: 	pci_read_config_dword
+depmod: 	iounmap
+depmod: 	pci_alloc_consistent
+depmod: 	__ioremap
+depmod: 	proc_dointvec
+depmod: 	unregister_sysctl_table
+depmod: 	del_timer
+depmod: 	register_netdev
+depmod: 	mod_timer
+depmod: 	iomem_resource
+depmod: 	pci_set_dma_mask
+depmod: 	kfree
+depmod: 	___pskb_trim
+depmod: 	request_irq
+depmod: 	netif_rx
+depmod: 	__verify_write
+depmod: 	pci_unregister_driver
+depmod: 	skb_over_panic
+depmod: 	pci_set_master
+depmod: 	pci_write_config_dword
+depmod: 	jiffies
+depmod: 	tasklet_init
+depmod: 	softnet_data
+depmod: 	proc_dointvec_minmax
+depmod: 	__request_region
+depmod: 	printk
+depmod: 	add_timer
+depmod: 	irq_stat
+depmod: 	__const_udelay
+depmod: 	register_sysctl_table
+depmod: 	do_softirq
+depmod: 	__generic_copy_to_user
+depmod: *** Unresolved symbols in /lib/modules/2.4.20-8/net/ath_rate_atheros.o
+depmod: 	kmalloc
+depmod: 	kfree
+depmod: 	printk
+depmod: *** Unresolved symbols in /lib/modules/2.4.20-8/net/wlan.o
+depmod: 	__netdev_watchdog_up
+depmod: 	__kfree_skb
+depmod: 	alloc_skb
+depmod: 	vsnprintf
+depmod: 	pskb_expand_head
+depmod: 	snprintf
+depmod: 	skb_under_panic
+depmod: 	kmalloc
+depmod: 	skb_realloc_headroom
+depmod: 	_ctype
+depmod: 	boot_cpu_data
+depmod: 	skb_copy
+depmod: 	wireless_send_event
+depmod: 	netif_receive_skb
+depmod: 	__out_of_line_bug
+depmod: 	panic
+depmod: 	get_random_bytes
+depmod: 	request_module
+depmod: 	proc_dointvec
+depmod: 	unregister_sysctl_table
+depmod: 	del_timer
+depmod: 	dev_queue_xmit
+depmod: 	kfree
+depmod: 	___pskb_trim
+depmod: 	netif_rx
+depmod: 	__verify_write
+depmod: 	skb_over_panic
+depmod: 	skb_clone
+depmod: 	sprintf
+depmod: 	jiffies
+depmod: 	printk
+depmod: 	add_timer
+depmod: 	irq_stat
+depmod: 	register_sysctl_table
+depmod: 	do_softirq
+depmod: 	skb_copy_expand
+depmod: 	__generic_copy_to_user
+depmod: *** Unresolved symbols in /lib/modules/2.4.20-8/net/wlan_acl.o
+depmod: 	kmalloc
+depmod: 	kfree
+depmod: 	printk
+depmod: 	irq_stat
+depmod: 	do_softirq
+depmod: *** Unresolved symbols in /lib/modules/2.4.20-8/net/wlan_ccmp.o
+depmod: 	crypto_alloc_tfm
+depmod: 	skb_under_panic
+depmod: 	kmalloc
+depmod: 	__out_of_line_bug
+depmod: 	kfree
+depmod: 	___pskb_trim
+depmod: 	skb_over_panic
+depmod: 	crypto_free_tfm
+depmod: 	mem_map
+depmod: 	printk
+depmod: *** Unresolved symbols in /lib/modules/2.4.20-8/net/wlan_tkip.o
+depmod: 	skb_under_panic
+depmod: 	kmalloc
+depmod: 	__out_of_line_bug
+depmod: 	kfree
+depmod: 	___pskb_trim
+depmod: 	skb_over_panic
+depmod: 	printk
+depmod: *** Unresolved symbols in /lib/modules/2.4.20-8/net/wlan_wep.o
+depmod: 	skb_under_panic
+depmod: 	kmalloc
+depmod: 	__out_of_line_bug
+depmod: 	get_random_bytes
+depmod: 	kfree
+depmod: 	___pskb_trim
+depmod: 	skb_over_panic
+depmod: 	printk
+make[1]: Leaving directory `/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/wireless/madwifi_lsdk_rc5/src/802_11/madwifi/madwifi'

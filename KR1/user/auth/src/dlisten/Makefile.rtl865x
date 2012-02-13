@@ -1,0 +1,30 @@
+WPA_ROOT_DIR = ../..
+RTL8185_SRC=n
+CFLAGS += -I${WPA_ROOT_DIR}/include \
+	-I${WPA_ROOT_DIR}/Package/Libnet-1.0.2a/include \
+	-I${WPA_ROOT_DIR}/Package/libpcap-0.7.2 \
+	-I${WPA_ROOT_DIR}/Package/openssl-0.9.7b/include\
+	-DGLIBC22_HEADERS\
+	-Wall -Os
+
+IWCTRLEXEC = iwcontrol
+IWCTRLBIN = iwcontrol-$(WLANDRVPKG_VERSION).obj
+IWCTRLOBJS = iwcontrol.o iwconfig.o iwcommon.o iwreq.o
+
+all: $(IWCTRLEXEC)
+
+$(IWCTRLEXEC): $(IWCTRLBIN)
+	cp $(IWCTRLBIN) $(IWCTRLEXEC)
+	chmod 755 $(IWCTRLEXEC)
+
+ifeq ($(RTL8185_SRC),y)
+$(IWCTRLBIN): $(IWCTRLOBJS)
+	$(CC) $(LDFLAGS) -o $@ $(IWCTRLOBJS) $(LDLIBS$(LDLIBS-$(@)))
+endif
+
+romfs:
+	$(ROMFSINST) -e CONFIG_RTL8185       /bin/iwcontrol
+
+clean:
+	-rm -f $(IWCTRLEXEC) *.elf *.gdb *.o
+

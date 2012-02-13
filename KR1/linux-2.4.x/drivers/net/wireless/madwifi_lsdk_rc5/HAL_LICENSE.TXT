@@ -1,0 +1,30 @@
+
+Appendix A Addendum
+
+
+All versions of the Atheros HAL Souce Code License Agreement include
+an Appendix A that lists specific files in the device driver that are
+subject to the terms and conditions of the Agreement.  The Agreement
+also applies to updates to the listed files.  This distribution is an
+update to the files listed in Appendix A (and any previous updates)
+which, by using, you acknowledge is covered by the Agreement.
+
+
+The source distribution is organized into open-source or protected-source
+directories.  The "madwifi" directory and everything within it are
+open-source, copyrighted, and covered by the BSD license although it
+can be licensed in turn under the GPL, at the discretion of the user.
+The "wpa" directory and its subdirectories are also dual-licensed
+as described within the files.  These are the only two open-source
+directories included in this distribution.
+
+
+All other directories at the same level as "madwifi" and "wpa",
+including but not limited to "hal", "ratectrl", "phyerr", and "tx99", are
+protected-source directories which are subject to the terms and conditions
+of the Agreement.  The files in these directories may not be distributed
+as source code, may not be sub-licensed without an additional specific
+licensing agreement directly with Atheros, and may only be distributed
+in products as binary loadable kernel object modules, as described and
+permitted in the Agreement.
+

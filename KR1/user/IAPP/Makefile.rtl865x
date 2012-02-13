@@ -1,0 +1,35 @@
+
+#CFLAGS = -s -Wall -c -Os
+#LDFLAGS = -s -Wall
+
+#ifeq ($(SLINK),1)
+#CFLAGS  += -ffunction-sections -fdata-sections
+#LDFLAGS += --static -Wl,--gc-sections
+#endif
+
+
+IAPPEXEC = iapp
+IAPPBIN = iapp-$(WLANDRVPKG_VERSION).obj
+
+IAPPOBJS = iapp.o version.o
+
+
+all: $(IAPPEXEC)
+
+$(IAPPEXEC): $(IAPPBIN)
+	cp $(IAPPBIN) $(IAPPEXEC)
+	chmod 755 $(IAPPEXEC)
+
+RTL8185_SRC=n
+ifeq ($(RTL8185_SRC),y)
+$(IAPPBIN): $(IAPPOBJS)
+	$(CC) $(LDFLAGS) -o $@ $(IAPPOBJS) $(LDLIBS$(LDLIBS-$(@)))
+endif
+
+
+romfs:
+	$(ROMFSINST) -e CONFIG_RTL8185       /bin/iapp
+
+clean:
+	-rm -f $(IAPPEXEC) *.elf *.gdb *.o
+

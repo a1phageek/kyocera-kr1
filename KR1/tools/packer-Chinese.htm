@@ -1,0 +1,232 @@
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=big5">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=big5">
+<META content="MSHTML 6.00.2800.1400" name=GENERATOR>
+<STYLE></STYLE>
+</HEAD>
+<BODY bgColor=#ffffff>
+<DIV><FONT face=Fixedsys size=2>packer 主要的目地是用來產生燒錄器使用的 image 檔案. 目前我們的 flash 
+規劃是長成這樣:</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2><U>&nbsp; 
+offset&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp; </U></FONT></DIV>
+<DIV><FONT face=Fixedsys>&nbsp; 0x00000- &nbsp; <FONT 
+color=#0000ff>Loader</FONT>(第一段)</FONT></DIV>
+<DIV><FONT size=2><FONT face=Fixedsys>&nbsp; 0x04000-&nbsp;&nbsp; <FONT 
+color=#800000>BDINFO</FONT></FONT></FONT></DIV>
+<DIV><FONT size=2><FONT face=Fixedsys>&nbsp; 0x06000-&nbsp;&nbsp; <FONT 
+color=#008080>CCFG</FONT></FONT></FONT></DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp; 0x08000-&nbsp;&nbsp; <FONT 
+color=#0000ff>Loader</FONT>(第二段)</FONT></DIV>
+<DIV><FONT size=2><FONT face=Fixedsys>&nbsp; 0x20000-&nbsp;&nbsp; <FONT 
+color=#808000>Runtime Code</FONT></FONT></FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>也就是說, packer 的目地有以下各項 (依重要性排列):</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp; 1. 把 loader 切成兩段, 一段放在 0x00000 開始的地方, 
+另一段放在 0x08000 的地方. </FONT></DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp; 2. 將 MAC address, Web出廠預設值(CCFG),&nbsp;及 
+runtime code ... 等, 一起包裝在 image 檔中.</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp; 3. 作 byte swap (for燒錄)</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>packer 目前是放在 uClinux-dist/tools/ 底下, 這是一個 .c 檔, 
+使用前需要編譯(compile).</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2>有關編譯的問題請看 Appendix.</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys 
+size=2>========================================================================================</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>了解 packer 的用途之後, 底下就來為大家示範 packer 的幾個典型用法 (執行 
+tools/packer 可以看到使用說明):</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp; <U>1. 只燒 loader:</U></FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp;&nbsp;&nbsp; a. 首先進入 loader 的目錄, 將 ldr.bin 
+檔 build 出來.</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;% cd 
+loader_srcroot; make clean; make; cd ..</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp;&nbsp;&nbsp; b. 再來, 使用 packer 將 loader 
+切成兩個部份, 第一個部份放在 0x00000, 第二部份放在 0x08000:</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % 
+tools/packer -2 images/massprod.bin \</FONT></DIV>
+<DIV><FONT face=Fixedsys 
+size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x00000=loader_srcroot/ldr.bin,0x0,0x4000 
+\</FONT></DIV>
+<DIV><FONT face=Fixedsys 
+size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x08000=loader_srcroot/ldr.bin,0x4000,0x18000</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp;&nbsp;&nbsp; c. 解釋一下, '-2' 是代表最後做出來的檔案要做 
+byte swap;</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+'images/massprod.bin' 是最後做出來的檔案名稱;</FONT></DIV>
+<DIV><FONT face=Fixedsys 
+size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'0x00000=loader_srcroot/ldr.bin,0x0,0x4000' 
+這一行的意思是:</FONT></DIV>
+<DIV><FONT size=2><FONT 
+face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <U><FONT 
+color=#ff0000>把 loader_srcroot/ldr.bin 的 offset 0x0 到 0x3FFF 之間的 16K 內容, 放到 
+images/massprod.bin 的 0x00000 的位置.</FONT></U></FONT></FONT></DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+最後一行的意思則是:</FONT></DIV>
+<DIV><FONT size=2><FONT 
+face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <U><FONT 
+color=#ff0000>把 loader_srcroot/ldr.bin 的 offset 0x4000 到 0x17FFF 之間的內容, 放到 
+images/massprod.bin 的 0x08000 的位置.</FONT></U></FONT></FONT></DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 也就是把 loader 
+拆成兩段.</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp; 
+...........................................................................</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp; <U>2. 指定出廠設定值</U></FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp;&nbsp;&nbsp; a. 首先將 loader 
+準備好</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp;&nbsp;&nbsp; b. 再來將 packer 將 loader 
+及出廠設定值包起來:</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+<DIV><FONT size=2>
+<DIV><FONT face=Fixedsys size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % 
+tools/packer -2 images/massprod.bin \</FONT></DIV>
+<DIV><FONT face=Fixedsys 
+size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x00000=loader_srcroot/ldr.bin,0x0,0x4000 
+\</FONT></DIV>
+<DIV><FONT face=Fixedsys 
+size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x08000=loader_srcroot/ldr.bin,0x4000,0x18000 
+\</FONT></DIV>
+<DIV><FONT face=Fixedsys 
+color=#0000ff>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0x04000=01:02:03:04:05:06 \</FONT></DIV>
+<DIV><FONT face=Fixedsys 
+color=#0000ff>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0x06000=CCFG.bin</FONT></DIV>
+<DIV><FONT face=Fixedsys color=#0000ff></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;c. 解釋一下: 前半段跟 1. 一樣, 是 loader 
+的部份, </FONT></DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增的兩行是直接指定 
+images/massprod.bin 的 0x04000 位置要依序擺入 01:02:03:04:05:06 一共 6 bytes 
+的值.</FONT></DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0x06000 的值則設由 
+CCFG.bin 這個檔案提供 (長度為 CCFG.bin 的檔案大小).</FONT></DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(註: 0x04000 
+現在規劃給 BDINFO 使用, 其中前 6 bytes 為 MAC address)</FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV>
+<DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp; 
+...........................................................................</FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV></DIV>
+<DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp; <U>3. 量產時為每一張板子設定唯一的 MAC 
+address.</U></FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp; a. 首先做出一個模板檔案.</FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys>&nbsp;<FONT size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+% tools/packer -2 images/massprod.bin \</FONT></FONT>
+<DIV><FONT face=Fixedsys 
+size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x00000=loader_srcroot/ldr.bin,0x0,0x4000 
+\</FONT></DIV>
+<DIV><FONT face=Fixedsys 
+size=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x08000=loader_srcroot/ldr.bin,0x4000,0x18000 
+\</FONT></DIV>
+<DIV><FONT 
+face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0x04000=BDINFO.bin \</FONT></DIV>
+<DIV><FONT 
+face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0x06000=CCFG.bin \</FONT></DIV>
+<DIV><FONT face=Fixedsys 
+color=#0000ff>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0x20000=images/run.bix</FONT></DIV></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;b. 再來, 使用 shell script 
+或其它程式語言產生迴圈, 其中 ${MAC} 為每次都唯一的 MAC address 字串(xx:yy:zz:ww:tt:ss格式).</FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;% cp 
+images/massprod.bin images/massprod.bin.${MAC}</FONT></DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % <FONT 
+color=#0000ff>tools/packer -e images/massprod.bin.${MAC}&nbsp;</FONT><FONT 
+color=#0000ff>0x04000=${MAC}</FONT></FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp; c. 解釋一下, '-e' 代表輸出的時候只更改部份內容, 不要 
+overwrite 整個檔案.</FONT></DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+'images/massprod.bin.${MAC}' 是要被修改的檔案,</FONT></DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '0x04000=${MAC}' 
+則是修改 MAC address 成新的值.</FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp; d. 最後, 就會產生一堆 massprod.bin.* 
+檔來供燒錄了.</FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp; e. 如果嫌這個方法太占硬碟空間, 
+可參考下列方法:</FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % tools/packer -e 
+images/massprod.bin&nbsp;\</FONT></DIV>
+<DIV><FONT face=Fixedsys 
+color=#0000ff>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+0x00000=images/massprod.bin \</FONT></DIV>
+<DIV><FONT face=Fixedsys><FONT 
+color=#0000ff>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</FONT><FONT color=#000000>0x04000=${MAC}</FONT></FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV></DIV>
+<DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp; 
+...........................................................................</FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV></FONT><FONT 
+size=2></FONT></DIV></DIV>
+<DIV><FONT face=Fixedsys size=2>&nbsp; Appendix:</FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV><FONT size=2>
+<DIV><FONT face=Fixedsys size=2>&nbsp;&nbsp;&nbsp; A. 編譯 packer 
+的程序:</FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % cd 
+uClinux-dist</FONT></DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % cc -o 
+tools/packer tools/packer.c</FONT></DIV>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;註: SDK-0.5.8 
+所附的 packer.c 有兩個地方並沒有依照 ANSI C 的規定撰寫, </FONT></DIV>
+<DIV><FONT 
+face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+將會造成某些平台上的編譯失敗(如: gcc 2.x),</FONT><FONT 
+face=Fixedsys>&nbsp;請依照下列方式修改後即可編譯:</FONT></DIV>
+<DIV><FONT 
+face=Fixedsys>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 
+第236行移到第238行: szFilename = 
+"/tmp/packer.tmp";<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;2. 第351行移到第288行: int nRemind;<BR></DIV></FONT>
+<DIV><FONT face=Fixedsys></FONT>&nbsp;</DIV>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp; B. 如果檔案不存在, packer 會自動跳過, 
+將該區留下空白(0xFF).</FONT></FONT><BR></DIV><BR>
+<DIV><FONT face=Fixedsys>&nbsp;&nbsp;&nbsp; C. 不同 flash 大小的寫法:<BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 1MB/2MB/4MB flash: <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % tools/packer -2 images/massprod.bin \ <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0x000000=loader_srcroot/ldr.bin,0x0,0x4000 \ <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0x008000=loader_srcroot/ldr.bin,0x4000,0x18000  <BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 8MB flash: <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % tools/packer -2 images/massprod.bin \ <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0x000000=loader_srcroot/ldr.bin,0x0,0x4000 \ <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0x008000=loader_srcroot/ldr.bin,0x4000,0x18000 \ <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0x400000=0B:80:00:00:00:00:00:00 <BR>
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 16MB flash: <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % tools/packer -2 images/massprod.bin \ <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0x000000=loader_srcroot/ldr.bin,0x0,0x4000 \ <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0x008000=loader_srcroot/ldr.bin,0x4000,0x18000 \ <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0xC00000=0B:80:00:00:00:00:00:00 <BR>
+<BR>
+</FONT></FONT></DIV>
+<DIV><FONT face=Fixedsys size=2></FONT>&nbsp;</DIV>
+
+<DIV><FONT face=Fixedsys size=2>
+---------------------------------------------------------------------------------------------<BR>
+$Header: /home/cvsroot/uClinux-dist/tools/packer-Chinese.htm,v 1.3 2004/09/30 02:54:38 yjlou Exp $<BR>
+$Author: yjlou $<BR>
+</FONT></DIV></BODY></HTML>

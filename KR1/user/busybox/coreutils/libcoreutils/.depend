@@ -1,0 +1,16 @@
+cp_mv_stat.o: cp_mv_stat.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/stat.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/stat.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h) \
+ coreutils.h $(dep_coreutils.h)
+getopt_mk_fifo_nod.o: getopt_mk_fifo_nod.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/types.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/types.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/stat.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/stat.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h) \
+ coreutils.h $(dep_coreutils.h)
+xgetoptfile_sort_uniq.o: xgetoptfile_sort_uniq.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h) \
+ coreutils.h $(dep_coreutils.h)

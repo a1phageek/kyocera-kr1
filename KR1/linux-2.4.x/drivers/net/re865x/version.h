@@ -1,0 +1,2 @@
+#define PKG_VERSION "0.6.5-2"
+#define ROMEDRIVER_VERSION "3.6"

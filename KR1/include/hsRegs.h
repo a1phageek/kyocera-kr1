@@ -1,0 +1,1 @@
+/home/EVDO/RTL8651B/evdo-KR1/linux-2.4.x/drivers/net/re865x/rtl865x//hsRegs.h

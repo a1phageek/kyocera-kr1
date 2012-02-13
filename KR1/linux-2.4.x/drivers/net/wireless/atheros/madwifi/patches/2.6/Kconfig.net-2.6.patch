@@ -1,0 +1,22 @@
+--- /usr/src/linux-2.6.0/net/Kconfig	2004-01-22 08:11:55.869677752 -0800
++++ Kconfig.net	2004-01-22 08:09:48.811993456 -0800
+@@ -420,6 +420,19 @@
+ 
+ source "drivers/net/appletalk/Kconfig"
+ 
++config WLAN
++	tristate "IEEE 802.11 protocol support"
++	depends on EXPERIMENTAL && INET
++	---help---
++	  802.11 is the protocol used for wireless local area network
++	  communication.  This software implements the framework used by
++	  a variety of wireless network drivers.  If your Linux box is
++	  connected to a wireless network and you wish to connect to it,
++	  say Y.  
++
++	  To compile this driver as a module, choose M here: the module will be
++	  called wlan.  If unsure, say N.
++
+ config X25
+ 	tristate "CCITT X.25 Packet Layer (EXPERIMENTAL)"
+ 	depends on EXPERIMENTAL

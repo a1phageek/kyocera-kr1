@@ -1,0 +1,15 @@
+name pptp
+lock
+debug 
+
+noauth 
+#require-mschap-v2
+#require-mppe-128
+
+noccp 
+novj 
+novjccomp 
+nopcomp 
+noaccomp
+
+

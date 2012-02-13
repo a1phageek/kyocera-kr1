@@ -1,0 +1,26 @@
+[global]
+workgroup = Workgroup
+server string = Share Server
+load printers = no
+log file = /var/log/samba/%m.log
+max log size = 0
+security = share
+socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
+interfaces = 192.168.1.111/24
+bind interfaces only = yes
+dns proxy = no 
+guest account = root 
+guest ok = yes
+guest only = yes
+netbios name = Share Server
+include = /home/smb.folder
+posix locking = no
+
+------------------------------------------------------------
+[Home]
+comment = Home Files
+path = /home
+browsable = no
+writeable = no
+public = no
+guest ok = yes

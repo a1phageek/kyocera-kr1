@@ -1,0 +1,149 @@
+Content-type: text/html
+
+<HTML><HEAD><TITLE>Manpage of IPSEC_STARTER</TITLE>
+</HEAD><BODY>
+<H1>IPSEC_STARTER</H1>
+Section: Maintenance Commands (8)<BR>Updated: 23 Oct 2001<BR><A HREF="#index">Index</A>
+<A HREF="http://localhost/cgi-bin/man/man2html">Return to Main Contents</A><HR>
+
+
+
+
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+ipsec starter - crank up the IPsec keying daemon and environment
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<B>ipsec</B>
+
+<B>starter</B>
+
+[
+<B>--debug</B>
+
+]
+[
+<B>--auto_reload</B>
+
+seconds ]
+<P>
+
+Openswan Starter is aimed to replace all the scripts which are used to
+start and stop Openswan and to do that in a quicker and a smarter way.
+<P>
+
+It can also reload the configuration file (kill --HUP or periodicaly) and
+apply the changes.
+<P>
+
+What it will do:
+<P>
+
+Load and unload klips (ipsec kernel module)
+<P>
+
+Launch and monitor pluto.
+<P>
+
+Add, initiate, route and delete connections
+<P>
+
+Attach and detach interfaces according to config file
+<P>
+
+kill -HUP can be used to reload the config file. New connections will be
+added, old ones will be removed and modified ones will be reloaded.
+Interfaces/Klips/Pluto will be reloaded if necessary.
+<P>
+
+Upon startup, starter will save its pid to the file /var/run/starter.pid
+<P>
+
+Upon reloading, dynamic DNS addr will be resolved and reloaded. 
+Use --auto_reload to periodicaly check dynamic DNS changes.
+<P>
+
+kill -USR1 can be used to reload all connections (delete then add and
+route/initiate).
+<P>
+
+/var/run/dynip/xxxx can be used to use a virtual interface name in
+ipsec.conf. By example, when adsl can be ppp0, ppp1, or some such, one
+can do
+<B>ipsec.conf:             interfaces=ipsec0=adsl</B>
+
+And use /etc/ppp/ip-up to create /var/run/dynip/adsl
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;/var/run/dynip/adsl:&nbsp;&nbsp;&nbsp;&nbsp;IP_PHYS=ppp0
+<P>
+
+%auto can be used to automaticaly name the connections
+<P>
+
+kill -TERM can be used to stop FS. pluto will be stopped and klips unloaded
+(if it has been loaded). 
+<P>
+
+<BR>&nbsp;&nbsp;seconds.
+<P>
+<A NAME="lbAD">&nbsp;</A>
+<H2>FILES</H2>
+
+/etc/ipsec.conf
+<A NAME="lbAE">&nbsp;</A>
+<H2>SEE ALSO</H2>
+
+<A HREF="ipsec.8.html">ipsec</A>(8), <A HREF="ipsec_tncfg.8.html">ipsec_tncfg</A>(8), <A HREF="ipsec_pluto.8.html">ipsec_pluto</A>(8)
+<A NAME="lbAF">&nbsp;</A>
+<H2>HISTORY</H2>
+
+Original by <A HREF="mailto:mlafon@arkoon.net">mlafon@arkoon.net</A> for Arkoon Network Security. Updated for
+FreeS/WAN version 2 by Michael Richardson &lt;<A HREF="mailto:mcr@sandelman.ottawa.on.ca">mcr@sandelman.ottawa.on.ca</A>&gt;.
+Merged into Openswan 2.2 by Xelerance Corporation
+<A NAME="lbAG">&nbsp;</A>
+<H2>TODO/BUGS</H2>
+
+<P>
+
+handle wildcards in include lines -- use glob() fct ex: include /etc/ipsec.*.conf
+<P>
+
+handle duplicates keywords and sections
+<P>
+
+
+<P>
+
+add unsupported keywords
+<P>
+
+manually keyed connections
+<P>
+
+%defaultroute
+<P>
+
+IPv6
+<P>
+
+<P>
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">FILES</A><DD>
+<DT><A HREF="#lbAE">SEE ALSO</A><DD>
+<DT><A HREF="#lbAF">HISTORY</A><DD>
+<DT><A HREF="#lbAG">TODO/BUGS</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="http://localhost/cgi-bin/man/man2html">man2html</A>,
+using the manual pages.<BR>
+Time: 05:56:13 GMT, December 23, 2004
+</BODY>
+</HTML>

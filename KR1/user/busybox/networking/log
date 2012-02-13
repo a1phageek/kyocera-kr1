@@ -1,0 +1,51 @@
+/tmp/ccwIsq8N.o: In function `parse_conf':
+/tmp/ccwIsq8N.o(.text+0xfc): undefined reference to `bb_strlen'
+/tmp/ccwIsq8N.o(.text+0x12f): undefined reference to `bb_msg_memory_exhausted'
+/tmp/ccwIsq8N.o(.text+0x134): undefined reference to `bb_error_msg_and_die'
+/tmp/ccwIsq8N.o(.text+0x1a8): undefined reference to `bb_perror_msg_and_die'
+/tmp/ccwIsq8N.o(.text+0x37e): undefined reference to `bb_strlen'
+/tmp/ccwIsq8N.o(.text+0x38e): undefined reference to `bb_strlen'
+/tmp/ccwIsq8N.o(.text+0x505): undefined reference to `bb_strlen'
+/tmp/ccwIsq8N.o(.text+0x6a8): undefined reference to `bb_strlen'
+/tmp/ccwIsq8N.o(.text+0x6e2): undefined reference to `bb_strlen'
+/tmp/ccwIsq8N.o(.text+0x7a9): more undefined references to `bb_strlen' follow
+/tmp/ccwIsq8N.o: In function `openServer':
+/tmp/ccwIsq8N.o(.text+0xd19): undefined reference to `bb_perror_msg_and_die'
+/tmp/ccwIsq8N.o(.text+0xd29): undefined reference to `bb_perror_msg_and_die'
+/tmp/ccwIsq8N.o: In function `sendHeaders':
+/tmp/ccwIsq8N.o(.text+0xf70): undefined reference to `bb_full_write'
+/tmp/ccwIsq8N.o: In function `sendCgi':
+/tmp/ccwIsq8N.o(.text+0x1170): undefined reference to `is_directory'
+/tmp/ccwIsq8N.o(.text+0x11f5): undefined reference to `bb_strlen'
+/tmp/ccwIsq8N.o(.text+0x1205): undefined reference to `bb_strlen'
+/tmp/ccwIsq8N.o(.text+0x14c9): undefined reference to `bb_full_write'
+/tmp/ccwIsq8N.o(.text+0x15e1): undefined reference to `bb_error_msg'
+/tmp/ccwIsq8N.o(.text+0x1655): undefined reference to `bb_error_msg'
+/tmp/ccwIsq8N.o(.text+0x168c): undefined reference to `bb_full_read'
+/tmp/ccwIsq8N.o(.text+0x16e6): undefined reference to `bb_full_write'
+/tmp/ccwIsq8N.o(.text+0x171d): undefined reference to `bb_full_write'
+/tmp/ccwIsq8N.o(.text+0x173f): undefined reference to `bb_full_write'
+/tmp/ccwIsq8N.o: In function `sendFile':
+/tmp/ccwIsq8N.o(.text+0x17e0): undefined reference to `bb_strlen'
+/tmp/ccwIsq8N.o(.text+0x18df): undefined reference to `bb_full_read'
+/tmp/ccwIsq8N.o(.text+0x1919): undefined reference to `bb_full_write'
+/tmp/ccwIsq8N.o(.text+0x193e): undefined reference to `bb_perror_msg'
+/tmp/ccwIsq8N.o: In function `checkPerm':
+/tmp/ccwIsq8N.o(.text+0x1a45): undefined reference to `bb_strlen'
+/tmp/ccwIsq8N.o(.text+0x1a8f): undefined reference to `bb_strlen'
+/tmp/ccwIsq8N.o(.text+0x1b84): undefined reference to `pw_encrypt'
+/tmp/ccwIsq8N.o: In function `handleIncoming':
+/tmp/ccwIsq8N.o(.text+0x1d4d): undefined reference to `bb_strlen'
+/tmp/ccwIsq8N.o(.text+0x1e90): undefined reference to `is_directory'
+/tmp/ccwIsq8N.o(.text+0x1f4c): undefined reference to `is_directory'
+/tmp/ccwIsq8N.o(.text+0x2224): undefined reference to `bb_full_read'
+/tmp/ccwIsq8N.o: In function `miniHttpd':
+/tmp/ccwIsq8N.o(.text+0x256a): undefined reference to `bb_error_msg'
+/tmp/ccwIsq8N.o: In function `main':
+/tmp/ccwIsq8N.o(.text+0x2693): undefined reference to `xcalloc'
+/tmp/ccwIsq8N.o(.text+0x2709): undefined reference to `bb_getopt_ulflags'
+/tmp/ccwIsq8N.o(.text+0x279a): undefined reference to `pw_encrypt'
+/tmp/ccwIsq8N.o(.text+0x27d3): undefined reference to `bb_xgetlarg'
+/tmp/ccwIsq8N.o(.text+0x282f): undefined reference to `my_getpwnam'
+/tmp/ccwIsq8N.o(.text+0x285b): undefined reference to `bb_perror_msg_and_die'
+collect2: ld returned 1 exit status

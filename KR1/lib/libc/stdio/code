@@ -1,0 +1,117 @@
+
+printf.o:     file format elf32-tradbigmips
+printf.o
+architecture: mips:3000, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 3: [no abi set] [mips1] [not 32bitmode]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000070  00000000  00000000  00000040  2**4
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  000000b0  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  000000b0  2**4
+                  ALLOC
+  3 .reginfo      00000018  00000000  00000000  000000b0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, LINK_ONCE_SAME_SIZE
+  4 .pdr          00000020  00000000  00000000  000000c8  2**2
+                  CONTENTS, RELOC, READONLY
+  5 .mdebug.abi32 00000000  00000000  00000000  000000e8  2**0
+                  CONTENTS, READONLY
+  6 .debug_abbrev 000001e9  00000000  00000000  000000e8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   0000173e  00000000  00000000  000002d1  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  8 .debug_line   0000030d  00000000  00000000  00001a0f  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_frame  0000002c  00000000  00000000  00001d1c  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_pubnames 0000001d  00000000  00000000  00001d48  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_aranges 00000020  00000000  00000000  00001d65  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 12 .debug_str    00001592  00000000  00000000  00001d85  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .comment      00000012  00000000  00000000  00003317  2**0
+                  CONTENTS, READONLY
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 printf.c
+00000000 l    d  .text	00000000 
+00000000 l    d  .data	00000000 
+00000000 l    d  .bss	00000000 
+00000000 l    d  .mdebug.abi32	00000000 
+00000000 l    d  .debug_abbrev	00000000 
+00000000 l    d  .debug_info	00000000 
+00000000 l    d  .debug_line	00000000 
+00000000 l    d  .debug_frame	00000000 
+00000000 l    d  .debug_pubnames	00000000 
+00000000 l    d  .debug_aranges	00000000 
+00000000 l    d  .debug_str	00000000 
+00000000 l    d  .reginfo	00000000 
+00000000 l    d  .pdr	00000000 
+00000000 l    d  .comment	00000000 
+00000000 g     F .text	00000000 printf
+00000000       O *UND*	00000000 _gp_disp
+00000000         *UND*	00000000 stdout
+00000000         *UND*	00000000 vfprintf
+
+
+Disassembly of section .text:
+
+00000000 <printf>:
+printf():
+/home/mips/uClinux-dist/uClibc-0.9.15/libc/stdio/printf.c:1603
+#endif
+/**********************************************************************/
+#ifdef L_printf
+int printf(const char * __restrict format, ...)
+{
+   0:	3c1c0000 	lui	gp,0x0
+			0: R_MIPS_HI16	_gp_disp
+   4:	279c0000 	addiu	gp,gp,0
+			4: R_MIPS_LO16	_gp_disp
+   8:	0399e021 	addu	gp,gp,t9
+   c:	27bdffe0 	addiu	sp,sp,-32
+  10:	afbc0010 	sw	gp,16(sp)
+  14:	afa40020 	sw	a0,32(sp)
+  18:	afa50024 	sw	a1,36(sp)
+  1c:	00802821 	move	a1,a0
+/home/mips/uClinux-dist/uClibc-0.9.15/libc/stdio/printf.c:1608
+	va_list arg;
+	int rv;
+
+	va_start(arg, format);
+	rv = vfprintf(stdout, format, arg);
+  20:	8f840000 	lw	a0,0(gp)
+			20: R_MIPS_GOT16	stdout
+  24:	00000000 	nop
+  28:	8c840000 	lw	a0,0(a0)
+/home/mips/uClinux-dist/uClibc-0.9.15/libc/stdio/printf.c:1603
+  2c:	afa60028 	sw	a2,40(sp)
+/home/mips/uClinux-dist/uClibc-0.9.15/libc/stdio/printf.c:1608
+  30:	27a60024 	addiu	a2,sp,36
+/home/mips/uClinux-dist/uClibc-0.9.15/libc/stdio/printf.c:1603
+  34:	afbf001c 	sw	ra,28(sp)
+  38:	afa7002c 	sw	a3,44(sp)
+  3c:	afbc0018 	sw	gp,24(sp)
+/home/mips/uClinux-dist/uClibc-0.9.15/libc/stdio/printf.c:1608
+  40:	8f990000 	lw	t9,0(gp)
+			40: R_MIPS_CALL16	vfprintf
+  44:	00000000 	nop
+  48:	0320f809 	jalr	t9
+  4c:	00000000 	nop
+  50:	8fbc0010 	lw	gp,16(sp)
+  54:	8fbf001c 	lw	ra,28(sp)
+  58:	00000000 	nop
+  5c:	03e00008 	jr	ra
+  60:	27bd0020 	addiu	sp,sp,32
+	...
+Disassembly of section .data:
+Disassembly of section .reginfo:
+
+00000000 <.reginfo>:
+/home/mips/uClinux-dist/uClibc-0.9.15/libc/stdio/printf.c:1603
+   0:	b20000f0 	0xb20000f0
+	...

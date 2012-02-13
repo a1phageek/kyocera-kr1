@@ -1,0 +1,122 @@
+ip_parse_common_args.o: ip_parse_common_args.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ utils.h $(dep_utils.h) \
+ ip_common.h $(dep_ip_common.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h)
+ipaddress.o: ipaddress.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fnmatch.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fnmatch.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if_arp.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if_arp.h) \
+ rt_names.h $(dep_rt_names.h) \
+ utils.h $(dep_utils.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h)
+iplink.o: iplink.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/version.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/version.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if_packet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if_packet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netpacket/packet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netpacket/packet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/ethernet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/ethernet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_ether.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_ether.h) \
+ rt_names.h $(dep_rt_names.h) \
+ utils.h $(dep_utils.h) \
+ ip_common.h $(dep_ip_common.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h)
+iproute.o: iproute.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ rt_names.h $(dep_rt_names.h) \
+ utils.h $(dep_utils.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h)
+iptunnel.o: iptunnel.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/ip.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/ip.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if_arp.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if_arp.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/asm/types.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/asm/types.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_tunnel.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_tunnel.h) \
+ rt_names.h $(dep_rt_names.h) \
+ utils.h $(dep_utils.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h)
+libnetlink.o: libnetlink.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/uio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/uio.h) \
+ libnetlink.h $(dep_libnetlink.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h)
+dep_libnetlink.h += \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/asm/types.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/asm/types.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/netlink.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/netlink.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/rtnetlink.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/rtnetlink.h)
+ll_addr.o: ll_addr.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if_arp.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if_arp.h) \
+ utils.h $(dep_utils.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h)
+ll_map.o: ll_map.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h) \
+ libnetlink.h $(dep_libnetlink.h)
+ll_proto.o: ll_proto.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ utils.h $(dep_utils.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/ethernet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/ethernet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_ether.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_ether.h)
+ll_types.o: ll_types.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_arp.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_arp.h)
+rt_names.o: rt_names.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdint.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdint.h)
+dep_rt_names.h += \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdint.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdint.h)
+rtm_map.o: rtm_map.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ rt_names.h $(dep_rt_names.h) \
+ utils.h $(dep_utils.h)
+utils.o: utils.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ utils.h $(dep_utils.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h)
+dep_utils.h += \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/asm/types.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/asm/types.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/resolv.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/resolv.h) \
+ libnetlink.h $(dep_libnetlink.h) \
+ ll_map.h $(dep_ll_map.h) \
+ rtm_map.h $(dep_rtm_map.h)

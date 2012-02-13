@@ -1,0 +1,26 @@
+#! /bin/sh
+
+AUTHD=/bin/wlan_authd
+
+#sysctl -w net.wlan0.debug=0x00f00400
+sysctl -w net.wlan0.debug=0x10000000
+#sysctl -w dev.ath.debug=0x8000
+
+#iwpriv ath0 inact 0		# turn off inactivity timeout
+iwpriv ath0 inact 30
+iwpriv ath0 mode 3
+iwconfig ath0 mode master essid wpa-test freq 11
+
+#
+# Configure the bridge.
+#
+#modprobe bridge			# statically compiled in the kernel
+brctl addbr br0
+brctl addif br0 eth0
+brctl addif br0 ath0
+ifconfig ath0 up
+ifconfig eth0 0.0.0.0
+ifconfig ath0 0.0.0.0
+ifconfig br0 up
+
+exec $AUTHD -dd hostapd.conf

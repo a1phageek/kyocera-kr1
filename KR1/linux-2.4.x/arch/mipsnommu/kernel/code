@@ -1,0 +1,5991 @@
+
+signal.o:     file format elf32-tradbigmips
+signal.o
+architecture: mips:3000, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 1001: [abi=O32] [mips1] [not 32bitmode]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00002050  00000000  00000000  00000040  2**4
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00002090  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00002090  2**4
+                  ALLOC
+  3 .reginfo      00000018  00000000  00000000  00002090  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA, LINK_ONCE_SAME_SIZE
+  4 .pdr          00000240  00000000  00000000  000020a8  2**2
+                  CONTENTS, RELOC, READONLY
+  5 .mdebug.abi32 00000000  00000000  00000000  000022e8  2**0
+                  CONTENTS, READONLY
+  6 .debug_abbrev 0000051f  00000000  00000000  000022e8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   0001256a  00000000  00000000  00002807  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  8 .debug_line   00001d64  00000000  00000000  00014d71  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .fixup        0000077c  00000000  00000000  00016ad5  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+ 10 __ex_table    00000978  00000000  00000000  00017254  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 11 .rodata       00000080  00000000  00000000  00017bd0  2**4
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+ 12 .debug_frame  000001cc  00000000  00000000  00017c50  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 13 .debug_pubnames 00000086  00000000  00000000  00017e1c  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 14 .debug_aranges 00000020  00000000  00000000  00017ea2  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 15 .debug_str    00008077  00000000  00000000  00017ec2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 16 .comment      00000012  00000000  00000000  0001ff39  2**0
+                  CONTENTS, READONLY
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 signal.c
+00000000 l    d  .text	00000000 
+00000000 l    d  .data	00000000 
+00000000 l    d  .bss	00000000 
+00000000 l    d  .mdebug.abi32	00000000 
+00000000 l    d  .debug_abbrev	00000000 
+00000000 l    d  .debug_info	00000000 
+00000000 l    d  .debug_line	00000000 
+00000000 l    d  .fixup	00000000 
+00000000 l    d  __ex_table	00000000 
+0000011c l     F .text	00000000 _sys_sigsuspend
+000002e0 l     F .text	00000000 _sys_rt_sigsuspend
+00000620 l     F .text	00000000 restore_sigcontext
+00001278 l     F .text	00000000 restore_thread_fp_context
+00001710 l     F .text	00000000 setup_rt_frame
+00001594 l     F .text	00000000 setup_frame
+00001194 l     F .text	00000000 sigorsets
+00001204 l     F .text	00000000 has_pending_signals
+00001918 l     F .text	00000000 setup_sigcontext
+00001d2c l     F .text	00000000 save_thread_fp_context
+00000000 l    d  .debug_frame	00000000 
+00000000 l    d  .debug_pubnames	00000000 
+00000000 l    d  .debug_aranges	00000000 
+00000000 l    d  .debug_str	00000000 
+00000000 l    d  .rodata	00000000 
+00000000 l    d  .reginfo	00000000 
+00000000 l    d  .pdr	00000000 
+00000000 l    d  .comment	00000000 
+00000000 g     F .text	00000000 copy_siginfo_to_user
+00000000         *UND*	00000000 __copy_user
+000000f8 g     F .text	00000024 sys_sigsuspend
+00000000         *UND*	00000000 schedule
+00000c94 g     F .text	00000000 do_signal
+000002bc g     F .text	00000024 sys_rt_sigsuspend
+00000494 g     F .text	00000000 sys_sigaction
+00000000         *UND*	00000000 memset
+00000000         *UND*	00000000 do_sigaction
+000005e4 g     F .text	00000000 sys_sigaltstack
+00000000         *UND*	00000000 do_sigaltstack
+00000000         *UND*	00000000 restore_fp_context
+00000000         *UND*	00000000 last_task_used_math
+00000970 g     F .text	00000000 sys_sigreturn
+00000000         *UND*	00000000 syscall_trace
+00000000         *UND*	00000000 ret_from_sys_call
+00000000         *UND*	00000000 force_sig
+00000af8 g     F .text	00000000 sys_rt_sigreturn
+00000000         *UND*	00000000 dequeue_signal
+00000000         *UND*	00000000 notify_parent
+00000000         *UND*	00000000 send_sig_info
+00000000         *UND*	00000000 sys_wait4
+00000000         *UND*	00000000 is_orphaned_pgrp
+00000000         *UND*	00000000 do_coredump
+00000000         *UND*	00000000 do_exit
+00000000         *UND*	00000000 _flush_cache_sigtramp
+00000000         *UND*	00000000 save_fp_context
+
+
+Disassembly of section .text:
+
+00000000 <copy_siginfo_to_user>:
+copy_siginfo_to_user():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:43
+
+extern asmlinkage void syscall_trace(void);
+
+int copy_siginfo_to_user(siginfo_t *to, siginfo_t *from)
+{
+       0:	27bdffe8 	addiu	sp,sp,-24
+       4:	afbf0010 	sw	ra,16(sp)
+       8:	00801821 	move	v1,a0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:46
+	if (!access_ok (VERIFY_WRITE, to, sizeof(siginfo_t)))
+		return -EFAULT;
+	if (from->si_code < 0)
+       c:	8ca20004 	lw	v0,4(a1)
+      10:	00000000 	nop
+      14:	04410006 	bgez	v0,30 <copy_siginfo_to_user+0x30>
+      18:	00a03821 	move	a3,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:47
+		return __copy_to_user(to, from, sizeof(siginfo_t));
+      1c:	24060080 	li	a2,128
+      20:	0c000000 	jal	0 <copy_siginfo_to_user>
+			20: R_MIPS_26	__copy_user
+      24:	00000000 	nop
+      28:	0800003a 	j	e8 <copy_siginfo_to_user+0xe8>
+			28: R_MIPS_26	.text
+      2c:	00c01021 	move	v0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:56
+	else {
+		int err;
+
+		/* If you change siginfo_t structure, please be sure
+		   this code is fixed accordingly.
+		   It should never copy any pad contained in the structure
+		   to avoid security leaks, but must copy the generic
+		   3 ints plus the relevant union member.  */
+		err = __put_user(from->si_signo, &to->si_signo);
+      30:	8ca20000 	lw	v0,0(a1)
+      34:	00000000 	nop
+      38:	ac820000 	sw	v0,0(a0)
+      3c:	00003021 	move	a2,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:57
+		err |= __put_user(from->si_errno, &to->si_errno);
+      40:	8ca20008 	lw	v0,8(a1)
+      44:	00000000 	nop
+      48:	ac820008 	sw	v0,8(a0)
+      4c:	00001021 	move	v0,zero
+      50:	00c23025 	or	a2,a2,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:58
+		err |= __put_user((short)from->si_code, &to->si_code);
+      54:	84a20006 	lh	v0,6(a1)
+      58:	00000000 	nop
+      5c:	ac820004 	sw	v0,4(a0)
+      60:	00001021 	move	v0,zero
+      64:	00c23025 	or	a2,a2,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:60
+		/* First 32bits of unions are always present.  */
+		err |= __put_user(from->si_pid, &to->si_pid);
+      68:	8ca2000c 	lw	v0,12(a1)
+      6c:	00000000 	nop
+      70:	ac82000c 	sw	v0,12(a0)
+      74:	00001021 	move	v0,zero
+      78:	00c23025 	or	a2,a2,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:61
+		switch (from->si_code >> 16) {
+      7c:	84a40004 	lh	a0,4(a1)
+      80:	24020003 	li	v0,3
+      84:	10820017 	beq	a0,v0,e4 <copy_siginfo_to_user+0xe4>
+      88:	24020004 	li	v0,4
+      8c:	14820010 	bne	a0,v0,d0 <copy_siginfo_to_user+0xd0>
+      90:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:65
+		case __SI_FAULT >> 16:
+			break;
+		case __SI_CHLD >> 16:
+			err |= __put_user(from->si_utime, &to->si_utime);
+      94:	8ca20014 	lw	v0,20(a1)
+      98:	00000000 	nop
+      9c:	ac620014 	sw	v0,20(v1)
+      a0:	00001021 	move	v0,zero
+      a4:	00c23025 	or	a2,a2,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:66
+			err |= __put_user(from->si_stime, &to->si_stime);
+      a8:	8ca2001c 	lw	v0,28(a1)
+      ac:	00000000 	nop
+      b0:	ac62001c 	sw	v0,28(v1)
+      b4:	00001021 	move	v0,zero
+      b8:	00c23025 	or	a2,a2,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:67
+			err |= __put_user(from->si_status, &to->si_status);
+      bc:	8ca20018 	lw	v0,24(a1)
+      c0:	00000000 	nop
+      c4:	ac620018 	sw	v0,24(v1)
+      c8:	00001021 	move	v0,zero
+      cc:	00c23025 	or	a2,a2,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:69
+		default:
+			err |= __put_user(from->si_uid, &to->si_uid);
+      d0:	8ce20010 	lw	v0,16(a3)
+      d4:	00000000 	nop
+      d8:	ac620010 	sw	v0,16(v1)
+      dc:	00001021 	move	v0,zero
+      e0:	00c23025 	or	a2,a2,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:73
+			break;
+		/* case __SI_RT: This is not generated by the kernel as of now.  */
+		}
+		return err;
+      e4:	00c01021 	move	v0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:75
+	}
+}
+      e8:	8fbf0010 	lw	ra,16(sp)
+      ec:	00000000 	nop
+      f0:	03e00008 	jr	ra
+      f4:	27bd0018 	addiu	sp,sp,24
+
+000000f8 <sys_sigsuspend>:
+      f8:	afb00058 	sw	s0,88(sp)
+      fc:	afb1005c 	sw	s1,92(sp)
+     100:	afb20060 	sw	s2,96(sp)
+     104:	afb30064 	sw	s3,100(sp)
+     108:	afb40068 	sw	s4,104(sp)
+     10c:	afb5006c 	sw	s5,108(sp)
+     110:	afb60070 	sw	s6,112(sp)
+     114:	afb70074 	sw	s7,116(sp)
+     118:	afbe0090 	sw	s8,144(sp)
+
+0000011c <_sys_sigsuspend>:
+_sys_sigsuspend():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:82
+
+/*
+ * Atomically swap in the new signal mask, and wait for a signal.
+ */
+save_static_function(sys_sigsuspend);
+static_unused int _sys_sigsuspend(struct pt_regs regs)
+{
+     11c:	27bdffc8 	addiu	sp,sp,-56
+     120:	afbf0034 	sw	ra,52(sp)
+     124:	afb00030 	sw	s0,48(sp)
+     128:	afa40038 	sw	a0,56(sp)
+     12c:	afa5003c 	sw	a1,60(sp)
+     130:	afa60040 	sw	a2,64(sp)
+     134:	afa70044 	sw	a3,68(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:86
+	sigset_t *uset, saveset, newset;
+
+	uset = (sigset_t *) regs.regs[4];
+	if (copy_from_user(&newset, uset, sizeof(sigset_t)))
+     138:	27a40020 	addiu	a0,sp,32
+     13c:	8fa50060 	lw	a1,96(sp)
+     140:	24060010 	li	a2,16
+     144:	0c000000 	jal	0 <copy_siginfo_to_user>
+			144: R_MIPS_26	__copy_user
+     148:	00a60821 	addu	at,a1,a2
+     14c:	14c00057 	bnez	a2,2ac <_sys_sigsuspend+0x190>
+     150:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/include/linux/signal.h:180
+}
+
+static inline void sigdelsetmask(sigset_t *set, unsigned long mask)
+{
+	set->sig[0] &= ~mask;
+     154:	3c03ffbf 	lui	v1,0xffbf
+     158:	3463feff 	ori	v1,v1,0xfeff
+     15c:	8fa20020 	lw	v0,32(sp)
+     160:	00000000 	nop
+     164:	00431024 	and	v0,v0,v1
+     168:	afa20020 	sw	v0,32(sp)
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+     16c:	40016000 	mfc0	at,$12
+     170:	00000000 	nop
+     174:	34210001 	ori	at,at,0x1
+     178:	38210001 	xori	at,at,0x1
+     17c:	40816000 	mtc0	at,$12
+     180:	00000040 	sll	zero,zero,0x1
+     184:	00000040 	sll	zero,zero,0x1
+     188:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:91
+		return -EFAULT;
+	sigdelsetmask(&newset, ~_BLOCKABLE);
+
+	spin_lock_irq(&current->sigmask_lock);
+	saveset = current->blocked;
+     18c:	8f8203d0 	lw	v0,976(gp)
+     190:	00000000 	nop
+     194:	afa20010 	sw	v0,16(sp)
+     198:	8f8203d4 	lw	v0,980(gp)
+     19c:	00000000 	nop
+     1a0:	afa20014 	sw	v0,20(sp)
+     1a4:	8f8203d8 	lw	v0,984(gp)
+     1a8:	00000000 	nop
+     1ac:	afa20018 	sw	v0,24(sp)
+     1b0:	8f8203dc 	lw	v0,988(gp)
+     1b4:	00000000 	nop
+     1b8:	afa2001c 	sw	v0,28(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:92
+	current->blocked = newset;
+     1bc:	8fa20020 	lw	v0,32(sp)
+     1c0:	00000000 	nop
+     1c4:	af8203d0 	sw	v0,976(gp)
+     1c8:	8fa20024 	lw	v0,36(sp)
+     1cc:	00000000 	nop
+     1d0:	af8203d4 	sw	v0,980(gp)
+     1d4:	8fa20028 	lw	v0,40(sp)
+     1d8:	00000000 	nop
+     1dc:	af8203d8 	sw	v0,984(gp)
+     1e0:	8fa2002c 	lw	v0,44(sp)
+     1e4:	00000000 	nop
+     1e8:	af8203dc 	sw	v0,988(gp)
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ * Re-calculate pending state from the set of locally pending
+ * signals, globally pending signals, and blocked signals.
+ */
+static inline int has_pending_signals(sigset_t *signal, sigset_t *blocked)
+{
+     1ec:	278603e8 	addiu	a2,gp,1000
+     1f0:	278503d0 	addiu	a1,gp,976
+/home/mips/linux-2.4.x/include/linux/sched.h:715
+	unsigned long ready;
+	long i;
+
+	switch (_NSIG_WORDS) {
+	default:
+		for (i = _NSIG_WORDS, ready = 0; --i >= 0 ;)
+			ready |= signal->sig[i] &~ blocked->sig[i];
+		break;
+
+	case 4: ready  = signal->sig[3] &~ blocked->sig[3];
+     1f4:	8ca3000c 	lw	v1,12(a1)
+     1f8:	00000000 	nop
+     1fc:	00031827 	nor	v1,zero,v1
+     200:	8cc2000c 	lw	v0,12(a2)
+     204:	00000000 	nop
+     208:	00621824 	and	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:716
+		ready |= signal->sig[2] &~ blocked->sig[2];
+     20c:	8ca20008 	lw	v0,8(a1)
+     210:	00000000 	nop
+     214:	00021027 	nor	v0,zero,v0
+     218:	8cc40008 	lw	a0,8(a2)
+     21c:	00000000 	nop
+     220:	00441024 	and	v0,v0,a0
+     224:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:717
+		ready |= signal->sig[1] &~ blocked->sig[1];
+     228:	8ca20004 	lw	v0,4(a1)
+     22c:	00000000 	nop
+     230:	00021027 	nor	v0,zero,v0
+     234:	8cc40004 	lw	a0,4(a2)
+     238:	00000000 	nop
+     23c:	00441024 	and	v0,v0,a0
+     240:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:718
+		ready |= signal->sig[0] &~ blocked->sig[0];
+     244:	8ca20000 	lw	v0,0(a1)
+     248:	00000000 	nop
+     24c:	00021027 	nor	v0,zero,v0
+     250:	8cc40000 	lw	a0,0(a2)
+     254:	00000000 	nop
+     258:	00441024 	and	v0,v0,a0
+     25c:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:726
+		break;
+
+	case 2: ready  = signal->sig[1] &~ blocked->sig[1];
+		ready |= signal->sig[0] &~ blocked->sig[0];
+		break;
+
+	case 1: ready  = signal->sig[0] &~ blocked->sig[0];
+	}
+     260:	0003182b 	sltu	v1,zero,v1
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+     264:	af830008 	sw	v1,8(gp)
+/home/mips/linux-2.4.x/include/asm/system.h:39
+
+extern __inline__ void
+__sti(void)
+{
+	__asm__ __volatile__(
+     268:	40016000 	mfc0	at,$12
+     26c:	00000000 	nop
+     270:	3421001f 	ori	at,at,0x1f
+     274:	3821001e 	xori	at,at,0x1e
+     278:	40816000 	mtc0	at,$12
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:96
+	recalc_sigpending(current);
+	spin_unlock_irq(&current->sigmask_lock);
+
+	regs.regs[2] = EINTR;
+     27c:	24020004 	li	v0,4
+     280:	afa20058 	sw	v0,88(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:97
+	regs.regs[7] = 1;
+     284:	24020001 	li	v0,1
+     288:	afa2006c 	sw	v0,108(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:98
+	while (1) {
+     28c:	24100001 	li	s0,1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:99
+		current->state = TASK_INTERRUPTIBLE;
+     290:	0c000000 	jal	0 <copy_siginfo_to_user>
+			290: R_MIPS_26	schedule
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:100
+		schedule();
+     294:	af900000 	sw	s0,0(gp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:101
+		if (do_signal(&saveset, &regs))
+     298:	27a40010 	addiu	a0,sp,16
+     29c:	0c000000 	jal	0 <copy_siginfo_to_user>
+			29c: R_MIPS_26	do_signal
+     2a0:	27a50038 	addiu	a1,sp,56
+     2a4:	1040fffa 	beqz	v0,290 <_sys_sigsuspend+0x174>
+     2a8:	2402fffc 	li	v0,-4
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:104
+			return -EINTR;
+	}
+}
+     2ac:	8fbf0034 	lw	ra,52(sp)
+     2b0:	8fb00030 	lw	s0,48(sp)
+     2b4:	03e00008 	jr	ra
+     2b8:	27bd0038 	addiu	sp,sp,56
+
+000002bc <sys_rt_sigsuspend>:
+     2bc:	afb00058 	sw	s0,88(sp)
+     2c0:	afb1005c 	sw	s1,92(sp)
+     2c4:	afb20060 	sw	s2,96(sp)
+     2c8:	afb30064 	sw	s3,100(sp)
+     2cc:	afb40068 	sw	s4,104(sp)
+     2d0:	afb5006c 	sw	s5,108(sp)
+     2d4:	afb60070 	sw	s6,112(sp)
+     2d8:	afb70074 	sw	s7,116(sp)
+     2dc:	afbe0090 	sw	s8,144(sp)
+
+000002e0 <_sys_rt_sigsuspend>:
+_sys_rt_sigsuspend():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:108
+
+save_static_function(sys_rt_sigsuspend);
+static_unused int _sys_rt_sigsuspend(struct pt_regs regs)
+{
+     2e0:	27bdffc8 	addiu	sp,sp,-56
+     2e4:	afbf0034 	sw	ra,52(sp)
+     2e8:	afb00030 	sw	s0,48(sp)
+     2ec:	afa40038 	sw	a0,56(sp)
+     2f0:	afa5003c 	sw	a1,60(sp)
+     2f4:	afa60040 	sw	a2,64(sp)
+     2f8:	afa70044 	sw	a3,68(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:114
+	sigset_t *unewset, saveset, newset;
+        size_t sigsetsize;
+
+	/* XXX Don't preclude handling different sized sigset_t's.  */
+	sigsetsize = regs.regs[5];
+	if (sigsetsize != sizeof(sigset_t))
+     2fc:	8fa30064 	lw	v1,100(sp)
+     300:	24020010 	li	v0,16
+     304:	1462005e 	bne	v1,v0,480 <_sys_rt_sigsuspend+0x1a0>
+     308:	2404ffea 	li	a0,-22
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:118
+		return -EINVAL;
+
+	unewset = (sigset_t *) regs.regs[4];
+	if (copy_from_user(&newset, unewset, sizeof(newset)))
+     30c:	27a40020 	addiu	a0,sp,32
+     310:	8fa50060 	lw	a1,96(sp)
+     314:	24060010 	li	a2,16
+     318:	0c000000 	jal	0 <copy_siginfo_to_user>
+			318: R_MIPS_26	__copy_user
+     31c:	00a60821 	addu	at,a1,a2
+     320:	14c00057 	bnez	a2,480 <_sys_rt_sigsuspend+0x1a0>
+     324:	2404fff2 	li	a0,-14
+/home/mips/linux-2.4.x/include/linux/signal.h:180
+}
+
+static inline void sigdelsetmask(sigset_t *set, unsigned long mask)
+{
+	set->sig[0] &= ~mask;
+     328:	3c03ffbf 	lui	v1,0xffbf
+     32c:	3463feff 	ori	v1,v1,0xfeff
+     330:	8fa20020 	lw	v0,32(sp)
+     334:	00000000 	nop
+     338:	00431024 	and	v0,v0,v1
+     33c:	afa20020 	sw	v0,32(sp)
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+     340:	40016000 	mfc0	at,$12
+     344:	00000000 	nop
+     348:	34210001 	ori	at,at,0x1
+     34c:	38210001 	xori	at,at,0x1
+     350:	40816000 	mtc0	at,$12
+     354:	00000040 	sll	zero,zero,0x1
+     358:	00000040 	sll	zero,zero,0x1
+     35c:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:123
+		return -EFAULT;
+	sigdelsetmask(&newset, ~_BLOCKABLE);
+
+	spin_lock_irq(&current->sigmask_lock);
+	saveset = current->blocked;
+     360:	8f8203d0 	lw	v0,976(gp)
+     364:	00000000 	nop
+     368:	afa20010 	sw	v0,16(sp)
+     36c:	8f8203d4 	lw	v0,980(gp)
+     370:	00000000 	nop
+     374:	afa20014 	sw	v0,20(sp)
+     378:	8f8203d8 	lw	v0,984(gp)
+     37c:	00000000 	nop
+     380:	afa20018 	sw	v0,24(sp)
+     384:	8f8203dc 	lw	v0,988(gp)
+     388:	00000000 	nop
+     38c:	afa2001c 	sw	v0,28(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:124
+	current->blocked = newset;
+     390:	8fa20020 	lw	v0,32(sp)
+     394:	00000000 	nop
+     398:	af8203d0 	sw	v0,976(gp)
+     39c:	8fa20024 	lw	v0,36(sp)
+     3a0:	00000000 	nop
+     3a4:	af8203d4 	sw	v0,980(gp)
+     3a8:	8fa20028 	lw	v0,40(sp)
+     3ac:	00000000 	nop
+     3b0:	af8203d8 	sw	v0,984(gp)
+     3b4:	8fa2002c 	lw	v0,44(sp)
+     3b8:	00000000 	nop
+     3bc:	af8203dc 	sw	v0,988(gp)
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ * Re-calculate pending state from the set of locally pending
+ * signals, globally pending signals, and blocked signals.
+ */
+static inline int has_pending_signals(sigset_t *signal, sigset_t *blocked)
+{
+     3c0:	278603e8 	addiu	a2,gp,1000
+     3c4:	278503d0 	addiu	a1,gp,976
+/home/mips/linux-2.4.x/include/linux/sched.h:715
+	unsigned long ready;
+	long i;
+
+	switch (_NSIG_WORDS) {
+	default:
+		for (i = _NSIG_WORDS, ready = 0; --i >= 0 ;)
+			ready |= signal->sig[i] &~ blocked->sig[i];
+		break;
+
+	case 4: ready  = signal->sig[3] &~ blocked->sig[3];
+     3c8:	8ca3000c 	lw	v1,12(a1)
+     3cc:	00000000 	nop
+     3d0:	00031827 	nor	v1,zero,v1
+     3d4:	8cc2000c 	lw	v0,12(a2)
+     3d8:	00000000 	nop
+     3dc:	00621824 	and	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:716
+		ready |= signal->sig[2] &~ blocked->sig[2];
+     3e0:	8ca20008 	lw	v0,8(a1)
+     3e4:	00000000 	nop
+     3e8:	00021027 	nor	v0,zero,v0
+     3ec:	8cc40008 	lw	a0,8(a2)
+     3f0:	00000000 	nop
+     3f4:	00441024 	and	v0,v0,a0
+     3f8:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:717
+		ready |= signal->sig[1] &~ blocked->sig[1];
+     3fc:	8ca20004 	lw	v0,4(a1)
+     400:	00000000 	nop
+     404:	00021027 	nor	v0,zero,v0
+     408:	8cc40004 	lw	a0,4(a2)
+     40c:	00000000 	nop
+     410:	00441024 	and	v0,v0,a0
+     414:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:718
+		ready |= signal->sig[0] &~ blocked->sig[0];
+     418:	8ca20000 	lw	v0,0(a1)
+     41c:	00000000 	nop
+     420:	00021027 	nor	v0,zero,v0
+     424:	8cc40000 	lw	a0,0(a2)
+     428:	00000000 	nop
+     42c:	00441024 	and	v0,v0,a0
+     430:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:726
+		break;
+
+	case 2: ready  = signal->sig[1] &~ blocked->sig[1];
+		ready |= signal->sig[0] &~ blocked->sig[0];
+		break;
+
+	case 1: ready  = signal->sig[0] &~ blocked->sig[0];
+	}
+     434:	0003182b 	sltu	v1,zero,v1
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+     438:	af830008 	sw	v1,8(gp)
+/home/mips/linux-2.4.x/include/asm/system.h:39
+
+extern __inline__ void
+__sti(void)
+{
+	__asm__ __volatile__(
+     43c:	40016000 	mfc0	at,$12
+     440:	00000000 	nop
+     444:	3421001f 	ori	at,at,0x1f
+     448:	3821001e 	xori	at,at,0x1e
+     44c:	40816000 	mtc0	at,$12
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:128
+        recalc_sigpending(current);
+	spin_unlock_irq(&current->sigmask_lock);
+
+	regs.regs[2] = EINTR;
+     450:	24020004 	li	v0,4
+     454:	afa20058 	sw	v0,88(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:129
+	regs.regs[7] = 1;
+     458:	24020001 	li	v0,1
+     45c:	afa2006c 	sw	v0,108(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:130
+	while (1) {
+     460:	24100001 	li	s0,1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:131
+		current->state = TASK_INTERRUPTIBLE;
+     464:	0c000000 	jal	0 <copy_siginfo_to_user>
+			464: R_MIPS_26	schedule
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:132
+		schedule();
+     468:	af900000 	sw	s0,0(gp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:133
+		if (do_signal(&saveset, &regs))
+     46c:	27a40010 	addiu	a0,sp,16
+     470:	0c000000 	jal	0 <copy_siginfo_to_user>
+			470: R_MIPS_26	do_signal
+     474:	27a50038 	addiu	a1,sp,56
+     478:	1040fffa 	beqz	v0,464 <_sys_rt_sigsuspend+0x184>
+     47c:	2404fffc 	li	a0,-4
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:136
+			return -EINTR;
+	}
+}
+     480:	00801021 	move	v0,a0
+     484:	8fbf0034 	lw	ra,52(sp)
+     488:	8fb00030 	lw	s0,48(sp)
+     48c:	03e00008 	jr	ra
+     490:	27bd0038 	addiu	sp,sp,56
+
+00000494 <sys_sigaction>:
+sys_sigaction():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:140
+
+asmlinkage int sys_sigaction(int sig, const struct sigaction *act,
+	struct sigaction *oact)
+{
+     494:	27bdff98 	addiu	sp,sp,-104
+     498:	afbf0060 	sw	ra,96(sp)
+     49c:	afb3005c 	sw	s3,92(sp)
+     4a0:	afb20058 	sw	s2,88(sp)
+     4a4:	afb10054 	sw	s1,84(sp)
+     4a8:	afb00050 	sw	s0,80(sp)
+     4ac:	00809821 	move	s3,a0
+     4b0:	00a08021 	move	s0,a1
+     4b4:	00c09021 	move	s2,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:145
+	struct k_sigaction new_ka, old_ka;
+	int ret;
+	int err = 0;
+
+	if (act) {
+     4b8:	10a00019 	beqz	a1,520 <sys_sigaction+0x8c>
+     4bc:	00008821 	move	s1,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:150
+		old_sigset_t mask;
+
+		if (!access_ok(VERIFY_READ, act, sizeof(*act)))
+			return -EFAULT;
+		err |= __get_user(new_ka.sa.sa_handler, &act->sa_handler);
+     4c0:	8ca20004 	lw	v0,4(a1)
+     4c4:	00001821 	move	v1,zero
+     4c8:	afa20014 	sw	v0,20(sp)
+     4cc:	00608821 	move	s1,v1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:151
+		err |= __get_user(new_ka.sa.sa_flags, &act->sa_flags);
+     4d0:	8ca20000 	lw	v0,0(a1)
+     4d4:	00001821 	move	v1,zero
+     4d8:	afa20010 	sw	v0,16(sp)
+     4dc:	02238825 	or	s1,s1,v1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:152
+		err |= __get_user(mask, &act->sa_mask.sig[0]);
+     4e0:	8ca40008 	lw	a0,8(a1)
+     4e4:	00001021 	move	v0,zero
+     4e8:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:153
+		err |= __get_user(new_ka.sa.sa_restorer, &act->sa_restorer);
+     4ec:	8ca20018 	lw	v0,24(a1)
+     4f0:	00001821 	move	v1,zero
+     4f4:	afa20028 	sw	v0,40(sp)
+     4f8:	02238825 	or	s1,s1,v1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:154
+		if (err)
+     4fc:	16200032 	bnez	s1,5c8 <sys_sigaction+0x134>
+     500:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/include/linux/signal.h:190
+}
+
+static inline void siginitset(sigset_t *set, unsigned long mask)
+{
+	set->sig[0] = mask;
+     504:	afa40018 	sw	a0,24(sp)
+/home/mips/linux-2.4.x/include/linux/signal.h:193
+	switch (_NSIG_WORDS) {
+	default:
+		memset(&set->sig[1], 0, sizeof(long)*(_NSIG_WORDS-1));
+     508:	27a4001c 	addiu	a0,sp,28
+     50c:	00002821 	move	a1,zero
+     510:	0c000000 	jal	0 <copy_siginfo_to_user>
+			510: R_MIPS_26	memset
+     514:	2406000c 	li	a2,12
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:160
+			return -EFAULT;
+
+		siginitset(&new_ka.sa.sa_mask, mask);
+	}
+
+	ret = do_sigaction(sig, act ? &new_ka : NULL, oact ? &old_ka : NULL);
+     518:	16000002 	bnez	s0,524 <sys_sigaction+0x90>
+     51c:	27a50010 	addiu	a1,sp,16
+     520:	00002821 	move	a1,zero
+     524:	16400002 	bnez	s2,530 <sys_sigaction+0x9c>
+     528:	27a60030 	addiu	a2,sp,48
+     52c:	00003021 	move	a2,zero
+     530:	0c000000 	jal	0 <copy_siginfo_to_user>
+			530: R_MIPS_26	do_sigaction
+     534:	02602021 	move	a0,s3
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:162
+
+	if (!ret && oact) {
+     538:	14400022 	bnez	v0,5c4 <sys_sigaction+0x130>
+     53c:	00401821 	move	v1,v0
+     540:	12400020 	beqz	s2,5c4 <sys_sigaction+0x130>
+     544:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:165
+		if (!access_ok(VERIFY_WRITE, oact, sizeof(*oact)))
+                        return -EFAULT;
+		err |= __put_user(old_ka.sa.sa_flags, &oact->sa_flags);
+     548:	8fa20030 	lw	v0,48(sp)
+     54c:	00000000 	nop
+     550:	ae420000 	sw	v0,0(s2)
+     554:	00001021 	move	v0,zero
+     558:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:166
+		err |= __put_user(old_ka.sa.sa_handler, &oact->sa_handler);
+     55c:	8fa20034 	lw	v0,52(sp)
+     560:	00000000 	nop
+     564:	ae420004 	sw	v0,4(s2)
+     568:	00001021 	move	v0,zero
+     56c:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:167
+		err |= __put_user(old_ka.sa.sa_mask.sig[0], oact->sa_mask.sig);
+     570:	8fa20038 	lw	v0,56(sp)
+     574:	00000000 	nop
+     578:	ae420008 	sw	v0,8(s2)
+     57c:	00001021 	move	v0,zero
+     580:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:168
+                err |= __put_user(0, &oact->sa_mask.sig[1]);
+     584:	ae43000c 	sw	v1,12(s2)
+     588:	00001021 	move	v0,zero
+     58c:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:169
+                err |= __put_user(0, &oact->sa_mask.sig[2]);
+     590:	ae430010 	sw	v1,16(s2)
+     594:	00001021 	move	v0,zero
+     598:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:170
+                err |= __put_user(0, &oact->sa_mask.sig[3]);
+     59c:	ae430014 	sw	v1,20(s2)
+     5a0:	00001021 	move	v0,zero
+     5a4:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:171
+		err |= __put_user(old_ka.sa.sa_restorer, &oact->sa_restorer);
+     5a8:	8fa20048 	lw	v0,72(sp)
+     5ac:	00000000 	nop
+     5b0:	ae420018 	sw	v0,24(s2)
+     5b4:	00001021 	move	v0,zero
+     5b8:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:172
+                if (err)
+     5bc:	16200002 	bnez	s1,5c8 <sys_sigaction+0x134>
+     5c0:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:176
+			return -EFAULT;
+	}
+
+	return ret;
+     5c4:	00601021 	move	v0,v1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:177
+}
+     5c8:	8fbf0060 	lw	ra,96(sp)
+     5cc:	8fb3005c 	lw	s3,92(sp)
+     5d0:	8fb20058 	lw	s2,88(sp)
+     5d4:	8fb10054 	lw	s1,84(sp)
+     5d8:	8fb00050 	lw	s0,80(sp)
+     5dc:	03e00008 	jr	ra
+     5e0:	27bd0068 	addiu	sp,sp,104
+
+000005e4 <sys_sigaltstack>:
+sys_sigaltstack():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:180
+
+asmlinkage int sys_sigaltstack(struct pt_regs regs)
+{
+     5e4:	27bdffe8 	addiu	sp,sp,-24
+     5e8:	afbf0010 	sw	ra,16(sp)
+     5ec:	afa40018 	sw	a0,24(sp)
+     5f0:	afa5001c 	sw	a1,28(sp)
+     5f4:	afa60020 	sw	a2,32(sp)
+     5f8:	afa70024 	sw	a3,36(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:185
+	const stack_t *uss = (const stack_t *) regs.regs[4];
+	stack_t *uoss = (stack_t *) regs.regs[5];
+	unsigned long usp = regs.regs[29];
+
+	return do_sigaltstack(uss, uoss, usp);
+     5fc:	8fa40040 	lw	a0,64(sp)
+     600:	8fa50044 	lw	a1,68(sp)
+     604:	8fa600a4 	lw	a2,164(sp)
+     608:	0c000000 	jal	0 <copy_siginfo_to_user>
+			608: R_MIPS_26	do_sigaltstack
+     60c:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:186
+}
+     610:	8fbf0010 	lw	ra,16(sp)
+     614:	00000000 	nop
+     618:	03e00008 	jr	ra
+     61c:	27bd0018 	addiu	sp,sp,24
+
+00000620 <restore_sigcontext>:
+restore_sigcontext():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:239
+
+static inline int restore_thread_fp_context(struct sigcontext *sc)
+{
+	u64 *pfreg = &current->thread.fpu.soft.regs[0];
+	int err = 0;
+
+	/* 
+	 * Copy all 32 64-bit values, for two reasons.  First, the R3000 and
+	 * R4000/MIPS32 kernels use the thread FP register storage differently,
+	 * such that a full copy is essentially necessary to support both.
+	 */
+
+#define restore_fpr(i) 						\
+	do { err |= __get_user(pfreg[i], &sc->sc_fpregs[i]); } while(0)
+
+	restore_fpr( 0); restore_fpr( 1); restore_fpr( 2); restore_fpr( 3);
+	restore_fpr( 4); restore_fpr( 5); restore_fpr( 6); restore_fpr( 7);
+	restore_fpr( 8); restore_fpr( 9); restore_fpr(10); restore_fpr(11);
+	restore_fpr(12); restore_fpr(13); restore_fpr(14); restore_fpr(15);
+	restore_fpr(16); restore_fpr(17); restore_fpr(18); restore_fpr(19);
+	restore_fpr(20); restore_fpr(21); restore_fpr(22); restore_fpr(23);
+	restore_fpr(24); restore_fpr(25); restore_fpr(26); restore_fpr(27);
+	restore_fpr(28); restore_fpr(29); restore_fpr(30); restore_fpr(31);
+
+	err |= __get_user(current->thread.fpu.soft.sr, &sc->sc_fpc_csr);
+
+	return err;
+}
+
+static inline int save_thread_fp_context(struct sigcontext *sc)
+{
+	u64 *pfreg = &current->thread.fpu.soft.regs[0];
+	int err = 0;
+
+#define save_fpr(i) 							\
+	do { err |= __put_user(pfreg[i], &sc->sc_fpregs[i]); } while(0)
+
+	save_fpr( 0); save_fpr( 1); save_fpr( 2); save_fpr( 3);
+	save_fpr( 4); save_fpr( 5); save_fpr( 6); save_fpr( 7);
+	save_fpr( 8); save_fpr( 9); save_fpr(10); save_fpr(11);
+	save_fpr(12); save_fpr(13); save_fpr(14); save_fpr(15);
+	save_fpr(16); save_fpr(17); save_fpr(18); save_fpr(19);
+	save_fpr(20); save_fpr(21); save_fpr(22); save_fpr(23);
+	save_fpr(24); save_fpr(25); save_fpr(26); save_fpr(27);
+	save_fpr(28); save_fpr(29); save_fpr(30); save_fpr(31);
+
+	err |= __put_user(current->thread.fpu.soft.sr, &sc->sc_fpc_csr);
+
+	return err;
+}
+
+static int restore_sigcontext(struct pt_regs *regs, struct sigcontext *sc)
+{
+     620:	27bdffe8 	addiu	sp,sp,-24
+     624:	afbf0014 	sw	ra,20(sp)
+     628:	afb00010 	sw	s0,16(sp)
+     62c:	00803021 	move	a2,a0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:244
+	int owned_fp;
+	int err = 0;
+	u64 reg;
+
+	err |= __get_user(regs->cp0_epc, &sc->sc_pc);
+     630:	8ca20008 	lw	v0,8(a1)
+     634:	8ca3000c 	lw	v1,12(a1)
+     638:	00002021 	move	a0,zero
+     63c:	acc300a0 	sw	v1,160(a2)
+     640:	00808021 	move	s0,a0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:246
+
+	err |= __get_user(reg, &sc->sc_mdhi);
+     644:	8ca20228 	lw	v0,552(a1)
+     648:	8ca3022c 	lw	v1,556(a1)
+     64c:	00002021 	move	a0,zero
+     650:	02048025 	or	s0,s0,a0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:247
+	regs->hi = (int) reg;
+     654:	acc3009c 	sw	v1,156(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:248
+	err |= __get_user(reg, &sc->sc_mdlo);
+     658:	8ca20230 	lw	v0,560(a1)
+     65c:	8ca30234 	lw	v1,564(a1)
+     660:	00002021 	move	a0,zero
+     664:	02048025 	or	s0,s0,a0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:249
+	regs->lo = (int) reg;
+     668:	acc30098 	sw	v1,152(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:255
+
+#define restore_gp_reg(i) do {						\
+	err |= __get_user(reg, &sc->sc_regs[i]);			\
+	regs->regs[i] = reg;						\
+} while(0)
+	restore_gp_reg( 1); restore_gp_reg( 2); restore_gp_reg( 3);
+     66c:	8ca20018 	lw	v0,24(a1)
+     670:	8ca3001c 	lw	v1,28(a1)
+     674:	00002021 	move	a0,zero
+     678:	02048025 	or	s0,s0,a0
+     67c:	acc3001c 	sw	v1,28(a2)
+     680:	8ca20020 	lw	v0,32(a1)
+     684:	8ca30024 	lw	v1,36(a1)
+     688:	00002021 	move	a0,zero
+     68c:	02048025 	or	s0,s0,a0
+     690:	acc30020 	sw	v1,32(a2)
+     694:	8ca20028 	lw	v0,40(a1)
+     698:	8ca3002c 	lw	v1,44(a1)
+     69c:	00002021 	move	a0,zero
+     6a0:	02048025 	or	s0,s0,a0
+     6a4:	acc30024 	sw	v1,36(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:256
+	restore_gp_reg( 4); restore_gp_reg( 5); restore_gp_reg( 6);
+     6a8:	8ca20030 	lw	v0,48(a1)
+     6ac:	8ca30034 	lw	v1,52(a1)
+     6b0:	00002021 	move	a0,zero
+     6b4:	02048025 	or	s0,s0,a0
+     6b8:	acc30028 	sw	v1,40(a2)
+     6bc:	8ca20038 	lw	v0,56(a1)
+     6c0:	8ca3003c 	lw	v1,60(a1)
+     6c4:	00002021 	move	a0,zero
+     6c8:	02048025 	or	s0,s0,a0
+     6cc:	acc3002c 	sw	v1,44(a2)
+     6d0:	8ca20040 	lw	v0,64(a1)
+     6d4:	8ca30044 	lw	v1,68(a1)
+     6d8:	00002021 	move	a0,zero
+     6dc:	02048025 	or	s0,s0,a0
+     6e0:	acc30030 	sw	v1,48(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:257
+	restore_gp_reg( 7); restore_gp_reg( 8); restore_gp_reg( 9);
+     6e4:	8ca20048 	lw	v0,72(a1)
+     6e8:	8ca3004c 	lw	v1,76(a1)
+     6ec:	00002021 	move	a0,zero
+     6f0:	02048025 	or	s0,s0,a0
+     6f4:	acc30034 	sw	v1,52(a2)
+     6f8:	8ca20050 	lw	v0,80(a1)
+     6fc:	8ca30054 	lw	v1,84(a1)
+     700:	00002021 	move	a0,zero
+     704:	02048025 	or	s0,s0,a0
+     708:	acc30038 	sw	v1,56(a2)
+     70c:	8ca20058 	lw	v0,88(a1)
+     710:	8ca3005c 	lw	v1,92(a1)
+     714:	00002021 	move	a0,zero
+     718:	02048025 	or	s0,s0,a0
+     71c:	acc3003c 	sw	v1,60(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:258
+	restore_gp_reg(10); restore_gp_reg(11); restore_gp_reg(12);
+     720:	8ca20060 	lw	v0,96(a1)
+     724:	8ca30064 	lw	v1,100(a1)
+     728:	00002021 	move	a0,zero
+     72c:	02048025 	or	s0,s0,a0
+     730:	acc30040 	sw	v1,64(a2)
+     734:	8ca20068 	lw	v0,104(a1)
+     738:	8ca3006c 	lw	v1,108(a1)
+     73c:	00002021 	move	a0,zero
+     740:	02048025 	or	s0,s0,a0
+     744:	acc30044 	sw	v1,68(a2)
+     748:	8ca20070 	lw	v0,112(a1)
+     74c:	8ca30074 	lw	v1,116(a1)
+     750:	00002021 	move	a0,zero
+     754:	02048025 	or	s0,s0,a0
+     758:	acc30048 	sw	v1,72(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:259
+	restore_gp_reg(13); restore_gp_reg(14); restore_gp_reg(15);
+     75c:	8ca20078 	lw	v0,120(a1)
+     760:	8ca3007c 	lw	v1,124(a1)
+     764:	00002021 	move	a0,zero
+     768:	02048025 	or	s0,s0,a0
+     76c:	acc3004c 	sw	v1,76(a2)
+     770:	8ca20080 	lw	v0,128(a1)
+     774:	8ca30084 	lw	v1,132(a1)
+     778:	00002021 	move	a0,zero
+     77c:	02048025 	or	s0,s0,a0
+     780:	acc30050 	sw	v1,80(a2)
+     784:	8ca20088 	lw	v0,136(a1)
+     788:	8ca3008c 	lw	v1,140(a1)
+     78c:	00002021 	move	a0,zero
+     790:	02048025 	or	s0,s0,a0
+     794:	acc30054 	sw	v1,84(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:260
+	restore_gp_reg(16); restore_gp_reg(17); restore_gp_reg(18);
+     798:	8ca20090 	lw	v0,144(a1)
+     79c:	8ca30094 	lw	v1,148(a1)
+     7a0:	00002021 	move	a0,zero
+     7a4:	02048025 	or	s0,s0,a0
+     7a8:	acc30058 	sw	v1,88(a2)
+     7ac:	8ca20098 	lw	v0,152(a1)
+     7b0:	8ca3009c 	lw	v1,156(a1)
+     7b4:	00002021 	move	a0,zero
+     7b8:	02048025 	or	s0,s0,a0
+     7bc:	acc3005c 	sw	v1,92(a2)
+     7c0:	8ca200a0 	lw	v0,160(a1)
+     7c4:	8ca300a4 	lw	v1,164(a1)
+     7c8:	00002021 	move	a0,zero
+     7cc:	02048025 	or	s0,s0,a0
+     7d0:	acc30060 	sw	v1,96(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:261
+	restore_gp_reg(19); restore_gp_reg(20); restore_gp_reg(21);
+     7d4:	8ca200a8 	lw	v0,168(a1)
+     7d8:	8ca300ac 	lw	v1,172(a1)
+     7dc:	00002021 	move	a0,zero
+     7e0:	02048025 	or	s0,s0,a0
+     7e4:	acc30064 	sw	v1,100(a2)
+     7e8:	8ca200b0 	lw	v0,176(a1)
+     7ec:	8ca300b4 	lw	v1,180(a1)
+     7f0:	00002021 	move	a0,zero
+     7f4:	02048025 	or	s0,s0,a0
+     7f8:	acc30068 	sw	v1,104(a2)
+     7fc:	8ca200b8 	lw	v0,184(a1)
+     800:	8ca300bc 	lw	v1,188(a1)
+     804:	00002021 	move	a0,zero
+     808:	02048025 	or	s0,s0,a0
+     80c:	acc3006c 	sw	v1,108(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:262
+	restore_gp_reg(22); restore_gp_reg(23); restore_gp_reg(24);
+     810:	8ca200c0 	lw	v0,192(a1)
+     814:	8ca300c4 	lw	v1,196(a1)
+     818:	00002021 	move	a0,zero
+     81c:	02048025 	or	s0,s0,a0
+     820:	acc30070 	sw	v1,112(a2)
+     824:	8ca200c8 	lw	v0,200(a1)
+     828:	8ca300cc 	lw	v1,204(a1)
+     82c:	00002021 	move	a0,zero
+     830:	02048025 	or	s0,s0,a0
+     834:	acc30074 	sw	v1,116(a2)
+     838:	8ca200d0 	lw	v0,208(a1)
+     83c:	8ca300d4 	lw	v1,212(a1)
+     840:	00002021 	move	a0,zero
+     844:	02048025 	or	s0,s0,a0
+     848:	acc30078 	sw	v1,120(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:263
+	restore_gp_reg(25); restore_gp_reg(26); restore_gp_reg(27);
+     84c:	8ca200d8 	lw	v0,216(a1)
+     850:	8ca300dc 	lw	v1,220(a1)
+     854:	00002021 	move	a0,zero
+     858:	02048025 	or	s0,s0,a0
+     85c:	acc3007c 	sw	v1,124(a2)
+     860:	8ca200e0 	lw	v0,224(a1)
+     864:	8ca300e4 	lw	v1,228(a1)
+     868:	00002021 	move	a0,zero
+     86c:	02048025 	or	s0,s0,a0
+     870:	acc30080 	sw	v1,128(a2)
+     874:	8ca200e8 	lw	v0,232(a1)
+     878:	8ca300ec 	lw	v1,236(a1)
+     87c:	00002021 	move	a0,zero
+     880:	02048025 	or	s0,s0,a0
+     884:	acc30084 	sw	v1,132(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:264
+	restore_gp_reg(28); restore_gp_reg(29); restore_gp_reg(30);
+     888:	8ca200f0 	lw	v0,240(a1)
+     88c:	8ca300f4 	lw	v1,244(a1)
+     890:	00002021 	move	a0,zero
+     894:	02048025 	or	s0,s0,a0
+     898:	acc30088 	sw	v1,136(a2)
+     89c:	8ca200f8 	lw	v0,248(a1)
+     8a0:	8ca300fc 	lw	v1,252(a1)
+     8a4:	00002021 	move	a0,zero
+     8a8:	02048025 	or	s0,s0,a0
+     8ac:	acc3008c 	sw	v1,140(a2)
+     8b0:	8ca20100 	lw	v0,256(a1)
+     8b4:	8ca30104 	lw	v1,260(a1)
+     8b8:	00002021 	move	a0,zero
+     8bc:	02048025 	or	s0,s0,a0
+     8c0:	acc30090 	sw	v1,144(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:265
+	restore_gp_reg(31);
+     8c4:	8ca20108 	lw	v0,264(a1)
+     8c8:	8ca3010c 	lw	v1,268(a1)
+     8cc:	00002021 	move	a0,zero
+     8d0:	02048025 	or	s0,s0,a0
+     8d4:	acc30094 	sw	v1,148(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:268
+#undef restore_gp_reg
+
+	err |= __get_user(owned_fp, &sc->sc_ownedfp);
+     8d8:	8ca40210 	lw	a0,528(a1)
+     8dc:	00001021 	move	v0,zero
+     8e0:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:269
+	err |= __get_user(current->used_math, &sc->sc_used_math);
+     8e4:	8ca2021c 	lw	v0,540(a1)
+     8e8:	00001821 	move	v1,zero
+     8ec:	a782023c 	sh	v0,572(gp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:271
+
+	if (owned_fp) {
+     8f0:	10800008 	beqz	a0,914 <restore_sigcontext+0x2f4>
+     8f4:	02038025 	or	s0,s0,v1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:272
+		err |= restore_fp_context(sc);
+     8f8:	3c020000 	lui	v0,0x0
+			8f8: R_MIPS_HI16	restore_fp_context
+     8fc:	8c420000 	lw	v0,0(v0)
+			8fc: R_MIPS_LO16	restore_fp_context
+     900:	00000000 	nop
+     904:	0040f809 	jalr	v0
+     908:	00a02021 	move	a0,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:273
+		goto out;
+     90c:	08000257 	j	95c <restore_sigcontext+0x33c>
+			90c: R_MIPS_26	.text
+     910:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:276
+	}
+
+	if (current == last_task_used_math) {
+     914:	3c020000 	lui	v0,0x0
+			914: R_MIPS_HI16	last_task_used_math
+     918:	8c420000 	lw	v0,0(v0)
+			918: R_MIPS_LO16	last_task_used_math
+     91c:	00000000 	nop
+     920:	17820007 	bne	gp,v0,940 <restore_sigcontext+0x320>
+     924:	3c02dfff 	lui	v0,0xdfff
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:278
+		/* Signal handler acquired FPU - give it back */
+		last_task_used_math = NULL;
+     928:	3c010000 	lui	at,0x0
+			928: R_MIPS_HI16	last_task_used_math
+     92c:	ac200000 	sw	zero,0(at)
+			92c: R_MIPS_LO16	last_task_used_math
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:279
+		regs->cp0_status &= ~ST0_CU1;
+     930:	8cc300a8 	lw	v1,168(a2)
+     934:	3442ffff 	ori	v0,v0,0xffff
+     938:	00621824 	and	v1,v1,v0
+     93c:	acc300a8 	sw	v1,168(a2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:281
+	}
+	if (current->used_math) {
+     940:	9782023c 	lhu	v0,572(gp)
+     944:	00000000 	nop
+     948:	10400005 	beqz	v0,960 <restore_sigcontext+0x340>
+     94c:	02001021 	move	v0,s0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:283
+		/* Undo possible contamination of thread state */
+		err |= restore_thread_fp_context(sc);
+     950:	0c00049e 	jal	1278 <restore_thread_fp_context>
+			950: R_MIPS_26	.text
+     954:	00a02021 	move	a0,a1
+     958:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:288
+	}
+
+out:
+	return err;
+}
+     95c:	02001021 	move	v0,s0
+     960:	8fbf0014 	lw	ra,20(sp)
+     964:	8fb00010 	lw	s0,16(sp)
+     968:	03e00008 	jr	ra
+     96c:	27bd0018 	addiu	sp,sp,24
+
+00000970 <sys_sigreturn>:
+sys_sigreturn():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:305
+
+struct sigframe {
+	u32 sf_ass[4];			/* argument save space for o32 */
+	u32 sf_code[2];			/* signal trampoline */
+	struct sigcontext sf_sc;
+	sigset_t sf_mask;
+};
+
+struct rt_sigframe {
+	u32 rs_ass[4];			/* argument save space for o32 */
+	u32 rs_code[2];			/* signal trampoline */
+	struct siginfo rs_info;
+	struct ucontext rs_uc;
+};
+
+asmlinkage void sys_sigreturn(struct pt_regs regs)
+{
+     970:	27bdffd8 	addiu	sp,sp,-40
+     974:	afbf0020 	sw	ra,32(sp)
+     978:	afa40028 	sw	a0,40(sp)
+     97c:	afa5002c 	sw	a1,44(sp)
+     980:	afa60030 	sw	a2,48(sp)
+     984:	afa70034 	sw	a3,52(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:309
+	struct sigframe *frame;
+	sigset_t blocked;
+
+	frame = (struct sigframe *) regs.regs[29];
+     988:	8fad00b4 	lw	t5,180(sp)
+     98c:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:312
+	if (!access_ok(VERIFY_READ, frame, sizeof(*frame)))
+		goto badframe;
+	if (__copy_from_user(&blocked, &frame->sf_mask, sizeof(blocked)))
+     990:	25a50268 	addiu	a1,t5,616
+     994:	27a40010 	addiu	a0,sp,16
+     998:	24060010 	li	a2,16
+     99c:	0c000000 	jal	0 <copy_siginfo_to_user>
+			99c: R_MIPS_26	__copy_user
+     9a0:	00a60821 	addu	at,a1,a2
+     9a4:	14c0004d 	bnez	a2,adc <sys_sigreturn+0x16c>
+     9a8:	3c03ffbf 	lui	v1,0xffbf
+/home/mips/linux-2.4.x/include/linux/signal.h:180
+}
+
+static inline void sigdelsetmask(sigset_t *set, unsigned long mask)
+{
+	set->sig[0] &= ~mask;
+     9ac:	3463feff 	ori	v1,v1,0xfeff
+     9b0:	8fa20010 	lw	v0,16(sp)
+     9b4:	00000000 	nop
+     9b8:	00431024 	and	v0,v0,v1
+     9bc:	afa20010 	sw	v0,16(sp)
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+     9c0:	40016000 	mfc0	at,$12
+     9c4:	00000000 	nop
+     9c8:	34210001 	ori	at,at,0x1
+     9cc:	38210001 	xori	at,at,0x1
+     9d0:	40816000 	mtc0	at,$12
+     9d4:	00000040 	sll	zero,zero,0x1
+     9d8:	00000040 	sll	zero,zero,0x1
+     9dc:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:317
+		goto badframe;
+
+	sigdelsetmask(&blocked, ~_BLOCKABLE);
+	spin_lock_irq(&current->sigmask_lock);
+	current->blocked = blocked;
+     9e0:	8fa20010 	lw	v0,16(sp)
+     9e4:	00000000 	nop
+     9e8:	af8203d0 	sw	v0,976(gp)
+     9ec:	8fa20014 	lw	v0,20(sp)
+     9f0:	00000000 	nop
+     9f4:	af8203d4 	sw	v0,980(gp)
+     9f8:	8fa20018 	lw	v0,24(sp)
+     9fc:	00000000 	nop
+     a00:	af8203d8 	sw	v0,984(gp)
+     a04:	8fa2001c 	lw	v0,28(sp)
+     a08:	00000000 	nop
+     a0c:	af8203dc 	sw	v0,988(gp)
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ * Re-calculate pending state from the set of locally pending
+ * signals, globally pending signals, and blocked signals.
+ */
+static inline int has_pending_signals(sigset_t *signal, sigset_t *blocked)
+{
+     a10:	278603e8 	addiu	a2,gp,1000
+     a14:	278503d0 	addiu	a1,gp,976
+/home/mips/linux-2.4.x/include/linux/sched.h:715
+	unsigned long ready;
+	long i;
+
+	switch (_NSIG_WORDS) {
+	default:
+		for (i = _NSIG_WORDS, ready = 0; --i >= 0 ;)
+			ready |= signal->sig[i] &~ blocked->sig[i];
+		break;
+
+	case 4: ready  = signal->sig[3] &~ blocked->sig[3];
+     a18:	8ca3000c 	lw	v1,12(a1)
+     a1c:	00000000 	nop
+     a20:	00031827 	nor	v1,zero,v1
+     a24:	8cc2000c 	lw	v0,12(a2)
+     a28:	00000000 	nop
+     a2c:	00621824 	and	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:716
+		ready |= signal->sig[2] &~ blocked->sig[2];
+     a30:	8ca20008 	lw	v0,8(a1)
+     a34:	00000000 	nop
+     a38:	00021027 	nor	v0,zero,v0
+     a3c:	8cc40008 	lw	a0,8(a2)
+     a40:	00000000 	nop
+     a44:	00441024 	and	v0,v0,a0
+     a48:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:717
+		ready |= signal->sig[1] &~ blocked->sig[1];
+     a4c:	8ca20004 	lw	v0,4(a1)
+     a50:	00000000 	nop
+     a54:	00021027 	nor	v0,zero,v0
+     a58:	8cc40004 	lw	a0,4(a2)
+     a5c:	00000000 	nop
+     a60:	00441024 	and	v0,v0,a0
+     a64:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:718
+		ready |= signal->sig[0] &~ blocked->sig[0];
+     a68:	8ca20000 	lw	v0,0(a1)
+     a6c:	00000000 	nop
+     a70:	00021027 	nor	v0,zero,v0
+     a74:	8cc40000 	lw	a0,0(a2)
+     a78:	00000000 	nop
+     a7c:	00441024 	and	v0,v0,a0
+     a80:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:726
+		break;
+
+	case 2: ready  = signal->sig[1] &~ blocked->sig[1];
+		ready |= signal->sig[0] &~ blocked->sig[0];
+		break;
+
+	case 1: ready  = signal->sig[0] &~ blocked->sig[0];
+	}
+     a84:	0003182b 	sltu	v1,zero,v1
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+     a88:	af830008 	sw	v1,8(gp)
+/home/mips/linux-2.4.x/include/asm/system.h:39
+
+extern __inline__ void
+__sti(void)
+{
+	__asm__ __volatile__(
+     a8c:	40016000 	mfc0	at,$12
+     a90:	00000000 	nop
+     a94:	3421001f 	ori	at,at,0x1f
+     a98:	3821001e 	xori	at,at,0x1e
+     a9c:	40816000 	mtc0	at,$12
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:321
+	recalc_sigpending(current);
+	spin_unlock_irq(&current->sigmask_lock);
+
+	if (restore_sigcontext(&regs, &frame->sf_sc))
+     aa0:	25a50018 	addiu	a1,t5,24
+     aa4:	0c000188 	jal	620 <restore_sigcontext>
+			aa4: R_MIPS_26	.text
+     aa8:	27a40028 	addiu	a0,sp,40
+     aac:	1440000c 	bnez	v0,ae0 <sys_sigreturn+0x170>
+     ab0:	2404000b 	li	a0,11
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:327
+		goto badframe;
+
+	/*
+	 * Don't let your children do this ...
+	 */
+	if (current->ptrace & PT_TRACESYS)
+     ab4:	8f820018 	lw	v0,24(gp)
+     ab8:	00000000 	nop
+     abc:	30420002 	andi	v0,v0,0x2
+     ac0:	10400004 	beqz	v0,ad4 <sys_sigreturn+0x164>
+     ac4:	27a20028 	addiu	v0,sp,40
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:328
+		syscall_trace();
+     ac8:	0c000000 	jal	0 <copy_siginfo_to_user>
+			ac8: R_MIPS_26	syscall_trace
+     acc:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:329
+	__asm__ __volatile__(
+     ad0:	27a20028 	addiu	v0,sp,40
+     ad4:	08000000 	j	0 <copy_siginfo_to_user>
+			ad4: R_MIPS_26	ret_from_sys_call
+     ad8:	0040e821 	move	sp,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:337
+		"move\t$29, %0\n\t"
+		"j\tret_from_sys_call"
+		:/* no outputs */
+		:"r" (&regs));
+	/* Unreached */
+
+badframe:
+	force_sig(SIGSEGV, current);
+     adc:	2404000b 	li	a0,11
+     ae0:	0c000000 	jal	0 <copy_siginfo_to_user>
+			ae0: R_MIPS_26	force_sig
+     ae4:	03802821 	move	a1,gp
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:338
+}
+     ae8:	8fbf0020 	lw	ra,32(sp)
+     aec:	00000000 	nop
+     af0:	03e00008 	jr	ra
+     af4:	27bd0028 	addiu	sp,sp,40
+
+00000af8 <sys_rt_sigreturn>:
+sys_rt_sigreturn():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:341
+
+asmlinkage void sys_rt_sigreturn(struct pt_regs regs)
+{
+     af8:	27bdffc8 	addiu	sp,sp,-56
+     afc:	afbf0034 	sw	ra,52(sp)
+     b00:	afb00030 	sw	s0,48(sp)
+     b04:	afa40038 	sw	a0,56(sp)
+     b08:	afa5003c 	sw	a1,60(sp)
+     b0c:	afa60040 	sw	a2,64(sp)
+     b10:	afa70044 	sw	a3,68(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:346
+	struct rt_sigframe *frame;
+	sigset_t set;
+	stack_t st;
+
+	frame = (struct rt_sigframe *) regs.regs[29];
+     b14:	8fb000c4 	lw	s0,196(sp)
+     b18:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:349
+	if (!access_ok(VERIFY_READ, frame, sizeof(*frame)))
+		goto badframe;
+	if (__copy_from_user(&set, &frame->rs_uc.uc_sigmask, sizeof(set)))
+     b1c:	26050300 	addiu	a1,s0,768
+     b20:	27a40010 	addiu	a0,sp,16
+     b24:	24060010 	li	a2,16
+     b28:	0c000000 	jal	0 <copy_siginfo_to_user>
+			b28: R_MIPS_26	__copy_user
+     b2c:	00a60821 	addu	at,a1,a2
+     b30:	14c00051 	bnez	a2,c78 <sys_rt_sigreturn+0x180>
+     b34:	3c03ffbf 	lui	v1,0xffbf
+/home/mips/linux-2.4.x/include/linux/signal.h:180
+}
+
+static inline void sigdelsetmask(sigset_t *set, unsigned long mask)
+{
+	set->sig[0] &= ~mask;
+     b38:	3463feff 	ori	v1,v1,0xfeff
+     b3c:	8fa20010 	lw	v0,16(sp)
+     b40:	00000000 	nop
+     b44:	00431024 	and	v0,v0,v1
+     b48:	afa20010 	sw	v0,16(sp)
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+     b4c:	40016000 	mfc0	at,$12
+     b50:	00000000 	nop
+     b54:	34210001 	ori	at,at,0x1
+     b58:	38210001 	xori	at,at,0x1
+     b5c:	40816000 	mtc0	at,$12
+     b60:	00000040 	sll	zero,zero,0x1
+     b64:	00000040 	sll	zero,zero,0x1
+     b68:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:354
+		goto badframe;
+
+	sigdelsetmask(&set, ~_BLOCKABLE);
+	spin_lock_irq(&current->sigmask_lock);
+	current->blocked = set;
+     b6c:	8fa20010 	lw	v0,16(sp)
+     b70:	00000000 	nop
+     b74:	af8203d0 	sw	v0,976(gp)
+     b78:	8fa20014 	lw	v0,20(sp)
+     b7c:	00000000 	nop
+     b80:	af8203d4 	sw	v0,980(gp)
+     b84:	8fa20018 	lw	v0,24(sp)
+     b88:	00000000 	nop
+     b8c:	af8203d8 	sw	v0,984(gp)
+     b90:	8fa2001c 	lw	v0,28(sp)
+     b94:	00000000 	nop
+     b98:	af8203dc 	sw	v0,988(gp)
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ * Re-calculate pending state from the set of locally pending
+ * signals, globally pending signals, and blocked signals.
+ */
+static inline int has_pending_signals(sigset_t *signal, sigset_t *blocked)
+{
+     b9c:	278603e8 	addiu	a2,gp,1000
+     ba0:	278503d0 	addiu	a1,gp,976
+/home/mips/linux-2.4.x/include/linux/sched.h:715
+	unsigned long ready;
+	long i;
+
+	switch (_NSIG_WORDS) {
+	default:
+		for (i = _NSIG_WORDS, ready = 0; --i >= 0 ;)
+			ready |= signal->sig[i] &~ blocked->sig[i];
+		break;
+
+	case 4: ready  = signal->sig[3] &~ blocked->sig[3];
+     ba4:	8ca3000c 	lw	v1,12(a1)
+     ba8:	00000000 	nop
+     bac:	00031827 	nor	v1,zero,v1
+     bb0:	8cc2000c 	lw	v0,12(a2)
+     bb4:	00000000 	nop
+     bb8:	00621824 	and	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:716
+		ready |= signal->sig[2] &~ blocked->sig[2];
+     bbc:	8ca20008 	lw	v0,8(a1)
+     bc0:	00000000 	nop
+     bc4:	00021027 	nor	v0,zero,v0
+     bc8:	8cc40008 	lw	a0,8(a2)
+     bcc:	00000000 	nop
+     bd0:	00441024 	and	v0,v0,a0
+     bd4:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:717
+		ready |= signal->sig[1] &~ blocked->sig[1];
+     bd8:	8ca20004 	lw	v0,4(a1)
+     bdc:	00000000 	nop
+     be0:	00021027 	nor	v0,zero,v0
+     be4:	8cc40004 	lw	a0,4(a2)
+     be8:	00000000 	nop
+     bec:	00441024 	and	v0,v0,a0
+     bf0:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:718
+		ready |= signal->sig[0] &~ blocked->sig[0];
+     bf4:	8ca20000 	lw	v0,0(a1)
+     bf8:	00000000 	nop
+     bfc:	00021027 	nor	v0,zero,v0
+     c00:	8cc40000 	lw	a0,0(a2)
+     c04:	00000000 	nop
+     c08:	00441024 	and	v0,v0,a0
+     c0c:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:726
+		break;
+
+	case 2: ready  = signal->sig[1] &~ blocked->sig[1];
+		ready |= signal->sig[0] &~ blocked->sig[0];
+		break;
+
+	case 1: ready  = signal->sig[0] &~ blocked->sig[0];
+	}
+     c10:	0003182b 	sltu	v1,zero,v1
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+     c14:	af830008 	sw	v1,8(gp)
+/home/mips/linux-2.4.x/include/asm/system.h:39
+
+extern __inline__ void
+__sti(void)
+{
+	__asm__ __volatile__(
+     c18:	40016000 	mfc0	at,$12
+     c1c:	00000000 	nop
+     c20:	3421001f 	ori	at,at,0x1f
+     c24:	3821001e 	xori	at,at,0x1e
+     c28:	40816000 	mtc0	at,$12
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:358
+	recalc_sigpending(current);
+	spin_unlock_irq(&current->sigmask_lock);
+
+	if (restore_sigcontext(&regs, &frame->rs_uc.uc_mcontext))
+     c2c:	260500b0 	addiu	a1,s0,176
+     c30:	0c000188 	jal	620 <restore_sigcontext>
+			c30: R_MIPS_26	.text
+     c34:	27a40038 	addiu	a0,sp,56
+     c38:	1440000f 	bnez	v0,c78 <sys_rt_sigreturn+0x180>
+     c3c:	27a20020 	addiu	v0,sp,32
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:361
+		goto badframe;
+
+	if (__copy_from_user(&st, &frame->rs_uc.uc_stack, sizeof(st)))
+     c40:	260500a0 	addiu	a1,s0,160
+     c44:	00402021 	move	a0,v0
+     c48:	2406000c 	li	a2,12
+     c4c:	0c000000 	jal	0 <copy_siginfo_to_user>
+			c4c: R_MIPS_26	__copy_user
+     c50:	00a60821 	addu	at,a1,a2
+     c54:	14c00009 	bnez	a2,c7c <sys_rt_sigreturn+0x184>
+     c58:	2404000b 	li	a0,11
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:365
+		goto badframe;
+	/* It is more difficult to avoid calling this function than to
+	   call it and ignore errors.  */
+	do_sigaltstack(&st, NULL, regs.regs[29]);
+     c5c:	00402021 	move	a0,v0
+     c60:	8fa600c4 	lw	a2,196(sp)
+     c64:	0c000000 	jal	0 <copy_siginfo_to_user>
+			c64: R_MIPS_26	do_sigaltstack
+     c68:	00002821 	move	a1,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:370
+
+	/*
+	 * Don't let your children do this ...
+	 */
+	__asm__ __volatile__(
+     c6c:	27a20038 	addiu	v0,sp,56
+     c70:	08000000 	j	0 <copy_siginfo_to_user>
+			c70: R_MIPS_26	ret_from_sys_call
+     c74:	0040e821 	move	sp,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:378
+		"move\t$29, %0\n\t"
+		"j\tret_from_sys_call"
+		:/* no outputs */
+		:"r" (&regs));
+	/* Unreached */
+
+badframe:
+	force_sig(SIGSEGV, current);
+     c78:	2404000b 	li	a0,11
+     c7c:	0c000000 	jal	0 <copy_siginfo_to_user>
+			c7c: R_MIPS_26	force_sig
+     c80:	03802821 	move	a1,gp
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:379
+}
+     c84:	8fbf0034 	lw	ra,52(sp)
+     c88:	8fb00030 	lw	s0,48(sp)
+     c8c:	03e00008 	jr	ra
+     c90:	27bd0038 	addiu	sp,sp,56
+
+00000c94 <do_signal>:
+do_signal():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:639
+
+static int inline setup_sigcontext(struct pt_regs *regs, struct sigcontext *sc)
+{
+	int owned_fp;
+	int err = 0;
+	u64 reg;
+
+	reg = regs->cp0_epc; err |= __put_user(reg, &sc->sc_pc);
+	err |= __put_user(regs->cp0_status, &sc->sc_status);
+
+#define save_gp_reg(i) {						\
+	reg = regs->regs[i];						\
+	err |= __put_user(reg, &sc->sc_regs[i]);			\
+} while(0)
+	reg = 0; err |= __put_user(reg, &sc->sc_regs[0]);
+	save_gp_reg(1); save_gp_reg(2);
+	save_gp_reg(3); save_gp_reg(4); save_gp_reg(5); save_gp_reg(6);
+	save_gp_reg(7); save_gp_reg(8); save_gp_reg(9); save_gp_reg(10);
+	save_gp_reg(11); save_gp_reg(12); save_gp_reg(13); save_gp_reg(14);
+	save_gp_reg(15); save_gp_reg(16); save_gp_reg(17); save_gp_reg(18);
+	save_gp_reg(19); save_gp_reg(20); save_gp_reg(21); save_gp_reg(22);
+	save_gp_reg(23); save_gp_reg(24); save_gp_reg(25); save_gp_reg(26);
+	save_gp_reg(27); save_gp_reg(28); save_gp_reg(29); save_gp_reg(30);
+	save_gp_reg(31);
+#undef save_gp_reg
+
+	reg = regs->hi; err |= __put_user(reg, &sc->sc_mdhi);
+	reg = regs->lo; err |= __put_user(reg, &sc->sc_mdlo);
+	err |= __put_user(regs->cp0_cause, &sc->sc_cause);
+	err |= __put_user(regs->cp0_badvaddr, &sc->sc_badvaddr);
+
+	owned_fp = (current == last_task_used_math);
+	err |= __put_user(owned_fp, &sc->sc_ownedfp);
+	err |= __put_user(current->used_math, &sc->sc_used_math);
+
+	if (!current->used_math)
+		goto out;
+
+	/* There exists FP thread state that may be trashed by signal */
+	if (owned_fp) {	
+		/* fp is active.  Save context from FPU */
+		err |= save_fp_context(sc);
+		goto out;
+	}
+
+	/* 
+	 * Someone else has FPU. 
+	 * Copy Thread context into signal context 
+	 */
+	err |= save_thread_fp_context(sc);
+
+out:
+	return err;
+}
+
+/*
+ * Determine which stack to use..
+ */
+static inline void * get_sigframe(struct k_sigaction *ka, struct pt_regs *regs,
+	size_t frame_size)
+{
+	unsigned long sp;
+
+	/* Default to using normal stack */
+	sp = regs->regs[29];
+
+	/* 
+ 	 * FPU emulator may have it's own trampoline active just
+ 	 * above the user stack, 16-bytes before the next lowest
+ 	 * 16 byte boundary.  Try to avoid trashing it.
+ 	 */
+ 	sp -= 32;
+
+	/* This is the X/Open sanctioned signal stack switching.  */
+	if ((ka->sa.sa_flags & SA_ONSTACK) && ! on_sig_stack(sp))
+                sp = current->sas_ss_sp + current->sas_ss_size;
+
+	return (void *)((sp - frame_size) & ALMASK);
+}
+
+static void inline setup_frame(struct k_sigaction * ka, struct pt_regs *regs,
+	int signr, sigset_t *set)
+{
+	struct sigframe *frame;
+	int err = 0;
+
+	frame = get_sigframe(ka, regs, sizeof(*frame));
+	if (!access_ok(VERIFY_WRITE, frame, sizeof (*frame)))
+		goto give_sigsegv;
+
+	/* Set up to return from userspace.  If provided, use a stub already
+	   in userspace.  */
+	if (ka->sa.sa_flags & SA_RESTORER)
+		regs->regs[31] = (unsigned long) ka->sa.sa_restorer;
+	else {
+		/*
+		 * Set up the return code ...
+		 *
+		 *         li      v0, __NR_sigreturn
+		 *         syscall
+		 */
+		err |= __put_user(0x24020000 + __NR_sigreturn,
+		                  frame->sf_code + 0);
+		err |= __put_user(0x0000000c                 ,
+		                  frame->sf_code + 1);
+		flush_cache_sigtramp((unsigned long) frame->sf_code);
+	}
+
+	err |= setup_sigcontext(regs, &frame->sf_sc);
+	err |= __copy_to_user(&frame->sf_mask, set, sizeof(*set));
+	if (err)
+		goto give_sigsegv;
+
+	/*
+	 * Arguments to signal handler:
+	 *
+	 *   a0 = signal number
+	 *   a1 = 0 (should be cause)
+	 *   a2 = pointer to struct sigcontext
+	 *
+	 * $25 and c0_epc point to the signal handler, $29 points to the
+	 * struct sigframe.
+	 */
+	regs->regs[ 4] = signr;
+	regs->regs[ 5] = 0;
+	regs->regs[ 6] = (unsigned long) &frame->sf_sc;
+	regs->regs[29] = (unsigned long) frame;
+	regs->regs[31] = (unsigned long) frame->sf_code;
+	regs->cp0_epc = regs->regs[25] = (unsigned long) ka->sa.sa_handler;
+
+#if DEBUG_SIG
+	printk("SIG deliver (%s:%d): sp=0x%p pc=0x%p ra=0x%p\n",
+	       current->comm, current->pid, frame, regs->cp0_epc, frame->code);
+#endif
+        return;
+
+give_sigsegv:
+	if (signr == SIGSEGV)
+		ka->sa.sa_handler = SIG_DFL;
+	force_sig(SIGSEGV, current);
+}
+
+static void inline setup_rt_frame(struct k_sigaction * ka, struct pt_regs *regs,
+	int signr, sigset_t *set, siginfo_t *info)
+{
+	struct rt_sigframe *frame;
+	int err = 0;
+
+	frame = get_sigframe(ka, regs, sizeof(*frame));
+	if (!access_ok(VERIFY_WRITE, frame, sizeof (*frame)))
+		goto give_sigsegv;
+
+	/* Set up to return from userspace.  If provided, use a stub already
+	   in userspace.  */
+	if (ka->sa.sa_flags & SA_RESTORER)
+		regs->regs[31] = (unsigned long) ka->sa.sa_restorer;
+	else {
+		/*
+		 * Set up the return code ...
+		 *
+		 *         li      v0, __NR_rt_sigreturn
+		 *         syscall
+		 */
+		err |= __put_user(0x24020000 + __NR_rt_sigreturn,
+		                  frame->rs_code + 0);
+		err |= __put_user(0x0000000c                 ,
+		                  frame->rs_code + 1);
+		flush_cache_sigtramp((unsigned long) frame->rs_code);
+	}
+
+	/* Create siginfo.  */
+	err |= copy_siginfo_to_user(&frame->rs_info, info);
+
+	/* Create the ucontext.  */
+	err |= __put_user(0, &frame->rs_uc.uc_flags);
+	err |= __put_user(0, &frame->rs_uc.uc_link);
+	err |= __put_user((void *)current->sas_ss_sp,
+	                  &frame->rs_uc.uc_stack.ss_sp);
+	err |= __put_user(sas_ss_flags(regs->regs[29]),
+	                  &frame->rs_uc.uc_stack.ss_flags);
+	err |= __put_user(current->sas_ss_size,
+	                  &frame->rs_uc.uc_stack.ss_size);
+	err |= setup_sigcontext(regs, &frame->rs_uc.uc_mcontext);
+	err |= __copy_to_user(&frame->rs_uc.uc_sigmask, set, sizeof(*set));
+
+	if (err)
+		goto give_sigsegv;
+
+	/*
+	 * Arguments to signal handler:
+	 *
+	 *   a0 = signal number
+	 *   a1 = 0 (should be cause)
+	 *   a2 = pointer to ucontext
+	 *
+	 * $25 and c0_epc point to the signal handler, $29 points to
+	 * the struct rt_sigframe.
+	 */
+	regs->regs[ 4] = signr;
+	regs->regs[ 5] = (unsigned long) &frame->rs_info;
+	regs->regs[ 6] = (unsigned long) &frame->rs_uc;
+	regs->regs[29] = (unsigned long) frame;
+	regs->regs[31] = (unsigned long) frame->rs_code;
+	regs->cp0_epc = regs->regs[25] = (unsigned long) ka->sa.sa_handler;
+
+#if DEBUG_SIG
+	printk("SIG deliver (%s:%d): sp=0x%p pc=0x%p ra=0x%p\n",
+	       current->comm, current->pid, frame, regs->cp0_epc, frame->code);
+#endif
+	return;
+
+give_sigsegv:
+	if (signr == SIGSEGV)
+		ka->sa.sa_handler = SIG_DFL;
+	force_sig(SIGSEGV, current);
+}
+
+static inline void handle_signal(unsigned long sig, struct k_sigaction *ka,
+	siginfo_t *info, sigset_t *oldset, struct pt_regs * regs)
+{
+	if (ka->sa.sa_flags & SA_SIGINFO)
+		setup_rt_frame(ka, regs, sig, oldset, info);
+	else
+		setup_frame(ka, regs, sig, oldset);
+
+	if (ka->sa.sa_flags & SA_ONESHOT)
+		ka->sa.sa_handler = SIG_DFL;
+	if (!(ka->sa.sa_flags & SA_NODEFER)) {
+		spin_lock_irq(&current->sigmask_lock);
+		sigorsets(&current->blocked,&current->blocked,&ka->sa.sa_mask);
+		sigaddset(&current->blocked,sig);
+		recalc_sigpending(current);
+		spin_unlock_irq(&current->sigmask_lock);
+	}
+}
+
+static inline void syscall_restart(struct pt_regs *regs, struct k_sigaction *ka)
+{
+	switch(regs->regs[0]) {
+	case ERESTARTNOHAND:
+		regs->regs[2] = EINTR;
+		break;
+	case ERESTARTSYS:
+		if(!(ka->sa.sa_flags & SA_RESTART)) {
+			regs->regs[2] = EINTR;
+			break;
+		}
+	/* fallthrough */
+	case ERESTARTNOINTR:		/* Userland will reload $v0.  */
+		regs->regs[7] = regs->regs[26];
+		regs->cp0_epc -= 8;
+	}
+
+	regs->regs[0] = 0;		/* Don't deal with this again.  */
+}
+
+extern int do_irix_signal(sigset_t *oldset, struct pt_regs *regs);
+
+asmlinkage int do_signal(sigset_t *oldset, struct pt_regs *regs)
+{
+     c94:	27bdff50 	addiu	sp,sp,-176
+     c98:	afbf00a8 	sw	ra,168(sp)
+     c9c:	afb300a4 	sw	s3,164(sp)
+     ca0:	afb200a0 	sw	s2,160(sp)
+     ca4:	afb1009c 	sw	s1,156(sp)
+     ca8:	afb00098 	sw	s0,152(sp)
+     cac:	00809821 	move	s3,a0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:648
+	struct k_sigaction *ka;
+	siginfo_t info;
+
+#ifdef CONFIG_BINFMT_IRIX
+	if (current->personality != PER_LINUX)
+		return do_irix_signal(oldset, regs);
+#endif
+
+	if (!oldset)
+     cb0:	14800002 	bnez	a0,cbc <do_signal+0x28>
+     cb4:	00a09021 	move	s2,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:649
+		oldset = &current->blocked;
+     cb8:	279303d0 	addiu	s3,gp,976
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+     cbc:	40016000 	mfc0	at,$12
+     cc0:	00000000 	nop
+     cc4:	34210001 	ori	at,at,0x1
+     cc8:	38210001 	xori	at,at,0x1
+     ccc:	40816000 	mtc0	at,$12
+     cd0:	00000040 	sll	zero,zero,0x1
+     cd4:	00000040 	sll	zero,zero,0x1
+     cd8:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:655
+
+	for (;;) {
+		unsigned long signr;
+
+		spin_lock_irq(&current->sigmask_lock);
+		signr = dequeue_signal(&current->blocked, &info);
+     cdc:	278403d0 	addiu	a0,gp,976
+     ce0:	0c000000 	jal	0 <copy_siginfo_to_user>
+			ce0: R_MIPS_26	dequeue_signal
+     ce4:	27a50018 	addiu	a1,sp,24
+     ce8:	00408021 	move	s0,v0
+/home/mips/linux-2.4.x/include/asm/system.h:39
+
+extern __inline__ void
+__sti(void)
+{
+	__asm__ __volatile__(
+     cec:	40016000 	mfc0	at,$12
+     cf0:	00000000 	nop
+     cf4:	3421001f 	ori	at,at,0x1f
+     cf8:	3821001e 	xori	at,at,0x1e
+     cfc:	40816000 	mtc0	at,$12
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:658
+		spin_unlock_irq(&current->sigmask_lock);
+
+		if (!signr)
+     d00:	10400109 	beqz	v0,1128 <do_signal+0x494>
+     d04:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:661
+			break;
+
+		if ((current->ptrace & PT_PTRACED) && signr != SIGKILL) {
+     d08:	8f820018 	lw	v0,24(gp)
+     d0c:	00000000 	nop
+     d10:	30420001 	andi	v0,v0,0x1
+     d14:	10400031 	beqz	v0,ddc <do_signal+0x148>
+     d18:	24020009 	li	v0,9
+     d1c:	1202002f 	beq	s0,v0,ddc <do_signal+0x148>
+     d20:	24020008 	li	v0,8
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:663
+			/* Let the debugger run.  */
+			current->exit_code = signr;
+     d24:	af900068 	sw	s0,104(gp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:664
+			current->state = TASK_STOPPED;
+     d28:	af820000 	sw	v0,0(gp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:665
+			notify_parent(current, SIGCHLD);
+     d2c:	03802021 	move	a0,gp
+     d30:	0c000000 	jal	0 <copy_siginfo_to_user>
+			d30: R_MIPS_26	notify_parent
+     d34:	24050012 	li	a1,18
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:666
+			schedule();
+     d38:	0c000000 	jal	0 <copy_siginfo_to_user>
+			d38: R_MIPS_26	schedule
+     d3c:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:669
+
+			/* We're back.  Did the debugger cancel the sig?  */
+			if (!(signr = current->exit_code))
+     d40:	8f900068 	lw	s0,104(gp)
+     d44:	00000000 	nop
+     d48:	1200ffdc 	beqz	s0,cbc <do_signal+0x28>
+     d4c:	24020017 	li	v0,23
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:674
+				continue;
+			current->exit_code = 0;
+
+			/* The debugger continued.  Ignore SIGSTOP.  */
+			if (signr == SIGSTOP)
+     d50:	1202ffda 	beq	s0,v0,cbc <do_signal+0x28>
+     d54:	af800068 	sw	zero,104(gp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:678
+				continue;
+
+			/* Update the siginfo structure.  Is this good?  */
+			if (signr != info.si_signo) {
+     d58:	8fa20018 	lw	v0,24(sp)
+     d5c:	00000000 	nop
+     d60:	1202000e 	beq	s0,v0,d9c <do_signal+0x108>
+     d64:	2603ffff 	addiu	v1,s0,-1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:679
+				info.si_signo = signr;
+     d68:	afb00018 	sw	s0,24(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:680
+				info.si_errno = 0;
+     d6c:	afa00020 	sw	zero,32(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:681
+				info.si_code = SI_USER;
+     d70:	afa0001c 	sw	zero,28(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:682
+				info.si_pid = current->p_pptr->pid;
+     d74:	8f820098 	lw	v0,152(gp)
+     d78:	00000000 	nop
+     d7c:	8c42007c 	lw	v0,124(v0)
+     d80:	00000000 	nop
+     d84:	afa20024 	sw	v0,36(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:683
+				info.si_uid = current->p_pptr->uid;
+     d88:	8f820098 	lw	v0,152(gp)
+     d8c:	00000000 	nop
+     d90:	8c42012c 	lw	v0,300(v0)
+     d94:	00000000 	nop
+     d98:	afa20028 	sw	v0,40(sp)
+/home/mips/linux-2.4.x/include/linux/signal.h:52
+
+static inline int sigismember(sigset_t *set, int _sig)
+{
+	unsigned long sig = _sig - 1;
+	if (_NSIG_WORDS == 1)
+     d9c:	00031142 	srl	v0,v1,0x5
+     da0:	00021080 	sll	v0,v0,0x2
+     da4:	03821021 	addu	v0,gp,v0
+     da8:	3063001f 	andi	v1,v1,0x1f
+     dac:	8c4203d0 	lw	v0,976(v0)
+     db0:	00000000 	nop
+     db4:	00621006 	srlv	v0,v0,v1
+     db8:	30420001 	andi	v0,v0,0x1
+/home/mips/linux-2.4.x/include/linux/signal.h:50
+     dbc:	10400008 	beqz	v0,de0 <do_signal+0x14c>
+     dc0:	00101940 	sll	v1,s0,0x5
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:688
+			}
+
+			/* If the (new) signal is now blocked, requeue it.  */
+			if (sigismember(&current->blocked, signr)) {
+				send_sig_info(signr, &info, current);
+     dc4:	02002021 	move	a0,s0
+     dc8:	27a50018 	addiu	a1,sp,24
+     dcc:	0c000000 	jal	0 <copy_siginfo_to_user>
+			dcc: R_MIPS_26	send_sig_info
+     dd0:	03803021 	move	a2,gp
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:689
+				continue;
+     dd4:	0800032f 	j	cbc <do_signal+0x28>
+			dd4: R_MIPS_26	.text
+     dd8:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:693
+			}
+		}
+
+		ka = &current->sig->action[signr-1];
+     ddc:	00101940 	sll	v1,s0,0x5
+     de0:	8f8203cc 	lw	v0,972(gp)
+     de4:	00000000 	nop
+     de8:	00622021 	addu	a0,v1,v0
+     dec:	2484ffe4 	addiu	a0,a0,-28
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:694
+		if (ka->sa.sa_handler == SIG_IGN) {
+     df0:	8c830004 	lw	v1,4(a0)
+     df4:	24020001 	li	v0,1
+     df8:	1462000b 	bne	v1,v0,e28 <do_signal+0x194>
+     dfc:	24020012 	li	v0,18
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:695
+			if (signr != SIGCHLD)
+     e00:	1602ffae 	bne	s0,v0,cbc <do_signal+0x28>
+     e04:	2404ffff 	li	a0,-1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:698
+				continue;
+			/* Check for SIGCHLD: it's special.  */
+			while (sys_wait4(-1, NULL, WNOHANG, NULL) > 0)
+     e08:	00002821 	move	a1,zero
+     e0c:	24060001 	li	a2,1
+     e10:	0c000000 	jal	0 <copy_siginfo_to_user>
+			e10: R_MIPS_26	sys_wait4
+     e14:	00003821 	move	a3,zero
+     e18:	1840ffa8 	blez	v0,cbc <do_signal+0x28>
+     e1c:	2404ffff 	li	a0,-1
+     e20:	08000383 	j	e0c <do_signal+0x178>
+			e20: R_MIPS_26	.text
+     e24:	00002821 	move	a1,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:703
+				/* nothing */;
+			continue;
+		}
+
+		if (ka->sa.sa_handler == SIG_DFL) {
+     e28:	8c820004 	lw	v0,4(a0)
+     e2c:	00000000 	nop
+     e30:	1440005d 	bnez	v0,fa8 <do_signal+0x314>
+     e34:	24020001 	li	v0,1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:707
+			int exit_code = signr;
+
+			/* Init gets no signals it doesn't want.  */
+			if (current->pid == 1)
+     e38:	8f83007c 	lw	v1,124(gp)
+     e3c:	00000000 	nop
+     e40:	1062ff9e 	beq	v1,v0,cbc <do_signal+0x28>
+     e44:	02008821 	move	s1,s0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:710
+				continue;
+
+			switch (signr) {
+     e48:	2603fffd 	addiu	v1,s0,-3
+     e4c:	2c62001d 	sltiu	v0,v1,29
+     e50:	10400024 	beqz	v0,ee4 <do_signal+0x250>
+     e54:	00031080 	sll	v0,v1,0x2
+     e58:	3c010000 	lui	at,0x0
+			e58: R_MIPS_HI16	.rodata
+     e5c:	00220821 	addu	at,at,v0
+     e60:	8c220000 	lw	v0,0(at)
+			e60: R_MIPS_LO16	.rodata
+     e64:	00000000 	nop
+     e68:	00400008 	jr	v0
+     e6c:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:715
+			case SIGCONT: case SIGCHLD: case SIGWINCH:
+				continue;
+
+			case SIGTSTP: case SIGTTIN: case SIGTTOU:
+				if (is_orphaned_pgrp(current->pgrp))
+     e70:	8f840080 	lw	a0,128(gp)
+     e74:	0c000000 	jal	0 <copy_siginfo_to_user>
+			e74: R_MIPS_26	is_orphaned_pgrp
+     e78:	00000000 	nop
+     e7c:	1440ff8f 	bnez	v0,cbc <do_signal+0x28>
+     e80:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:720
+					continue;
+				/* FALLTHRU */
+
+			case SIGSTOP:
+				current->state = TASK_STOPPED;
+     e84:	24020008 	li	v0,8
+     e88:	af820000 	sw	v0,0(gp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:721
+				current->exit_code = signr;
+     e8c:	af900068 	sw	s0,104(gp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:722
+				if (!(current->p_pptr->sig->action[SIGCHLD-1].sa.sa_flags & SA_NOCLDSTOP))
+     e90:	8f820098 	lw	v0,152(gp)
+     e94:	00000000 	nop
+     e98:	8c4203cc 	lw	v0,972(v0)
+     e9c:	00000000 	nop
+     ea0:	8c420224 	lw	v0,548(v0)
+     ea4:	00000000 	nop
+     ea8:	30420001 	andi	v0,v0,0x1
+     eac:	14400003 	bnez	v0,ebc <do_signal+0x228>
+     eb0:	03802021 	move	a0,gp
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:723
+					notify_parent(current, SIGCHLD);
+     eb4:	0c000000 	jal	0 <copy_siginfo_to_user>
+			eb4: R_MIPS_26	notify_parent
+     eb8:	24050012 	li	a1,18
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:724
+				schedule();
+     ebc:	0c000000 	jal	0 <copy_siginfo_to_user>
+			ebc: R_MIPS_26	schedule
+     ec0:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:725
+				continue;
+     ec4:	0800032f 	j	cbc <do_signal+0x28>
+			ec4: R_MIPS_26	.text
+     ec8:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:730
+
+			case SIGQUIT: case SIGILL: case SIGTRAP:
+			case SIGABRT: case SIGFPE: case SIGSEGV:
+			case SIGBUS: case SIGSYS: case SIGXCPU: case SIGXFSZ:
+				if (do_coredump(signr, regs))
+     ecc:	02002021 	move	a0,s0
+     ed0:	0c000000 	jal	0 <copy_siginfo_to_user>
+			ed0: R_MIPS_26	do_coredump
+     ed4:	02402821 	move	a1,s2
+     ed8:	10400003 	beqz	v0,ee8 <do_signal+0x254>
+     edc:	278203e8 	addiu	v0,gp,1000
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:731
+					exit_code |= 0x80;
+     ee0:	36110080 	ori	s1,s0,0x80
+/home/mips/linux-2.4.x/include/linux/signal.h:32
+
+/* We don't use <asm/bitops.h> for these because there is no need to
+   be atomic.  */
+static inline void sigaddset(sigset_t *set, int _sig)
+{
+     ee4:	278203e8 	addiu	v0,gp,1000
+/home/mips/linux-2.4.x/include/linux/signal.h:33
+	unsigned long sig = _sig - 1;
+     ee8:	2603ffff 	addiu	v1,s0,-1
+/home/mips/linux-2.4.x/include/linux/signal.h:37
+	if (_NSIG_WORDS == 1)
+		set->sig[0] |= 1UL << sig;
+	else
+		set->sig[sig / _NSIG_BPW] |= 1UL << (sig % _NSIG_BPW);
+     eec:	00032142 	srl	a0,v1,0x5
+     ef0:	00042080 	sll	a0,a0,0x2
+     ef4:	00822021 	addu	a0,a0,v0
+     ef8:	3063001f 	andi	v1,v1,0x1f
+     efc:	24020001 	li	v0,1
+     f00:	00621004 	sllv	v0,v0,v1
+     f04:	8c830000 	lw	v1,0(a0)
+     f08:	00000000 	nop
+     f0c:	00431025 	or	v0,v0,v1
+     f10:	ac820000 	sw	v0,0(a0)
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ * Re-calculate pending state from the set of locally pending
+ * signals, globally pending signals, and blocked signals.
+ */
+static inline int has_pending_signals(sigset_t *signal, sigset_t *blocked)
+{
+     f14:	278603e8 	addiu	a2,gp,1000
+     f18:	278503d0 	addiu	a1,gp,976
+/home/mips/linux-2.4.x/include/linux/sched.h:715
+	unsigned long ready;
+	long i;
+
+	switch (_NSIG_WORDS) {
+	default:
+		for (i = _NSIG_WORDS, ready = 0; --i >= 0 ;)
+			ready |= signal->sig[i] &~ blocked->sig[i];
+		break;
+
+	case 4: ready  = signal->sig[3] &~ blocked->sig[3];
+     f1c:	8ca3000c 	lw	v1,12(a1)
+     f20:	00000000 	nop
+     f24:	00031827 	nor	v1,zero,v1
+     f28:	8cc2000c 	lw	v0,12(a2)
+     f2c:	00000000 	nop
+     f30:	00621824 	and	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:716
+		ready |= signal->sig[2] &~ blocked->sig[2];
+     f34:	8ca20008 	lw	v0,8(a1)
+     f38:	00000000 	nop
+     f3c:	00021027 	nor	v0,zero,v0
+     f40:	8cc40008 	lw	a0,8(a2)
+     f44:	00000000 	nop
+     f48:	00441024 	and	v0,v0,a0
+     f4c:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:717
+		ready |= signal->sig[1] &~ blocked->sig[1];
+     f50:	8ca20004 	lw	v0,4(a1)
+     f54:	00000000 	nop
+     f58:	00021027 	nor	v0,zero,v0
+     f5c:	8cc40004 	lw	a0,4(a2)
+     f60:	00000000 	nop
+     f64:	00441024 	and	v0,v0,a0
+     f68:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:718
+		ready |= signal->sig[0] &~ blocked->sig[0];
+     f6c:	8ca20000 	lw	v0,0(a1)
+     f70:	00000000 	nop
+     f74:	00021027 	nor	v0,zero,v0
+     f78:	8cc40000 	lw	a0,0(a2)
+     f7c:	00000000 	nop
+     f80:	00441024 	and	v0,v0,a0
+     f84:	00621825 	or	v1,v1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:726
+		break;
+
+	case 2: ready  = signal->sig[1] &~ blocked->sig[1];
+		ready |= signal->sig[0] &~ blocked->sig[0];
+		break;
+
+	case 1: ready  = signal->sig[0] &~ blocked->sig[0];
+	}
+     f88:	0003182b 	sltu	v1,zero,v1
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+     f8c:	af830008 	sw	v1,8(gp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:737
+				/* FALLTHRU */
+
+			default:
+				sigaddset(&current->pending.signal, signr);
+				recalc_sigpending(current);
+				current->flags |= PF_SIGNALED;
+     f90:	8f820004 	lw	v0,4(gp)
+     f94:	00000000 	nop
+     f98:	34420400 	ori	v0,v0,0x400
+     f9c:	af820004 	sw	v0,4(gp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:738
+				do_exit(exit_code);
+     fa0:	0c000000 	jal	0 <copy_siginfo_to_user>
+			fa0: R_MIPS_26	do_exit
+     fa4:	02202021 	move	a0,s1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:743
+				/* NOTREACHED */
+			}
+		}
+
+		if (regs->regs[0])
+     fa8:	8e420018 	lw	v0,24(s2)
+     fac:	00000000 	nop
+     fb0:	10400021 	beqz	v0,1038 <do_signal+0x3a4>
+     fb4:	02008821 	move	s1,s0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:618
+     fb8:	00401821 	move	v1,v0
+     fbc:	24020201 	li	v0,513
+     fc0:	10620014 	beq	v1,v0,1014 <do_signal+0x380>
+     fc4:	02402821 	move	a1,s2
+     fc8:	2c620202 	sltiu	v0,v1,514
+     fcc:	10400006 	beqz	v0,fe8 <do_signal+0x354>
+     fd0:	24020202 	li	v0,514
+     fd4:	24020200 	li	v0,512
+     fd8:	10620007 	beq	v1,v0,ff8 <do_signal+0x364>
+     fdc:	3c031000 	lui	v1,0x1000
+     fe0:	0800040e 	j	1038 <do_signal+0x3a4>
+			fe0: R_MIPS_26	.text
+     fe4:	aca00018 	sw	zero,24(a1)
+     fe8:	14620011 	bne	v1,v0,1030 <do_signal+0x39c>
+     fec:	24020004 	li	v0,4
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:621
+     ff0:	0800040c 	j	1030 <do_signal+0x39c>
+			ff0: R_MIPS_26	.text
+     ff4:	aca20020 	sw	v0,32(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:623
+     ff8:	8c820000 	lw	v0,0(a0)
+     ffc:	00000000 	nop
+    1000:	00431024 	and	v0,v0,v1
+    1004:	14400003 	bnez	v0,1014 <do_signal+0x380>
+    1008:	24020004 	li	v0,4
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:625
+    100c:	0800040c 	j	1030 <do_signal+0x39c>
+			100c: R_MIPS_26	.text
+    1010:	aca20020 	sw	v0,32(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:629
+    1014:	8ca20080 	lw	v0,128(a1)
+    1018:	00000000 	nop
+    101c:	aca20034 	sw	v0,52(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:630
+    1020:	8ca200a0 	lw	v0,160(a1)
+    1024:	00000000 	nop
+    1028:	2442fff8 	addiu	v0,v0,-8
+    102c:	aca200a0 	sw	v0,160(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:633
+    1030:	aca00018 	sw	zero,24(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:599
+    1034:	02008821 	move	s1,s0
+    1038:	00808021 	move	s0,a0
+    103c:	02603821 	move	a3,s3
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:600
+    1040:	8c820000 	lw	v0,0(a0)
+    1044:	00000000 	nop
+    1048:	30420008 	andi	v0,v0,0x8
+    104c:	10400007 	beqz	v0,106c <do_signal+0x3d8>
+    1050:	02402821 	move	a1,s2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:601
+    1054:	27a20018 	addiu	v0,sp,24
+    1058:	afa20010 	sw	v0,16(sp)
+    105c:	0c0005c4 	jal	1710 <setup_rt_frame>
+			105c: R_MIPS_26	.text
+    1060:	02203021 	move	a2,s1
+    1064:	0800041d 	j	1074 <do_signal+0x3e0>
+			1064: R_MIPS_26	.text
+    1068:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:603
+    106c:	0c000565 	jal	1594 <setup_frame>
+			106c: R_MIPS_26	.text
+    1070:	02203021 	move	a2,s1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:605
+    1074:	8e020000 	lw	v0,0(s0)
+    1078:	00000000 	nop
+    107c:	04410004 	bgez	v0,1090 <do_signal+0x3fc>
+    1080:	3c034000 	lui	v1,0x4000
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:606
+    1084:	ae000004 	sw	zero,4(s0)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:607
+    1088:	8e020000 	lw	v0,0(s0)
+    108c:	00000000 	nop
+    1090:	00431024 	and	v0,v0,v1
+    1094:	14400022 	bnez	v0,1120 <do_signal+0x48c>
+    1098:	00000000 	nop
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+    109c:	40016000 	mfc0	at,$12
+    10a0:	00000000 	nop
+    10a4:	34210001 	ori	at,at,0x1
+    10a8:	38210001 	xori	at,at,0x1
+    10ac:	40816000 	mtc0	at,$12
+    10b0:	00000040 	sll	zero,zero,0x1
+    10b4:	00000040 	sll	zero,zero,0x1
+    10b8:	00000040 	sll	zero,zero,0x1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:609
+    10bc:	278403d0 	addiu	a0,gp,976
+    10c0:	00802821 	move	a1,a0
+    10c4:	0c000465 	jal	1194 <sigorsets>
+			10c4: R_MIPS_26	.text
+    10c8:	26060008 	addiu	a2,s0,8
+/home/mips/linux-2.4.x/include/linux/signal.h:32
+
+/* We don't use <asm/bitops.h> for these because there is no need to
+   be atomic.  */
+static inline void sigaddset(sigset_t *set, int _sig)
+{
+    10cc:	278203d0 	addiu	v0,gp,976
+/home/mips/linux-2.4.x/include/linux/signal.h:33
+	unsigned long sig = _sig - 1;
+    10d0:	2623ffff 	addiu	v1,s1,-1
+/home/mips/linux-2.4.x/include/linux/signal.h:37
+	if (_NSIG_WORDS == 1)
+		set->sig[0] |= 1UL << sig;
+	else
+		set->sig[sig / _NSIG_BPW] |= 1UL << (sig % _NSIG_BPW);
+    10d4:	00032142 	srl	a0,v1,0x5
+    10d8:	00042080 	sll	a0,a0,0x2
+    10dc:	00822021 	addu	a0,a0,v0
+    10e0:	3063001f 	andi	v1,v1,0x1f
+    10e4:	24020001 	li	v0,1
+    10e8:	00621004 	sllv	v0,v0,v1
+    10ec:	8c830000 	lw	v1,0(a0)
+    10f0:	00000000 	nop
+    10f4:	00431025 	or	v0,v0,v1
+    10f8:	ac820000 	sw	v0,0(a0)
+/home/mips/linux-2.4.x/include/linux/sched.h:736
+   All callers should have t->sigmask_lock.  */
+
+static inline void recalc_sigpending(struct task_struct *t)
+{
+	t->sigpending = has_pending_signals(&t->pending.signal, &t->blocked);
+    10fc:	278403e8 	addiu	a0,gp,1000
+    1100:	0c000481 	jal	1204 <has_pending_signals>
+			1100: R_MIPS_26	.text
+    1104:	278503d0 	addiu	a1,gp,976
+    1108:	af820008 	sw	v0,8(gp)
+/home/mips/linux-2.4.x/include/asm/system.h:39
+
+extern __inline__ void
+__sti(void)
+{
+	__asm__ __volatile__(
+    110c:	40016000 	mfc0	at,$12
+    1110:	00000000 	nop
+    1114:	3421001f 	ori	at,at,0x1f
+    1118:	3821001e 	xori	at,at,0x1e
+    111c:	40816000 	mtc0	at,$12
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:747
+			syscall_restart(regs, ka);
+		/* Whee!  Actually deliver the signal.  */
+		handle_signal(signr, ka, &info, oldset, regs);
+		return 1;
+    1120:	0800045e 	j	1178 <do_signal+0x4e4>
+			1120: R_MIPS_26	.text
+    1124:	24020001 	li	v0,1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:755
+	}
+
+	/*
+	 * Who's code doesn't conform to the restartable syscall convention
+	 * dies here!!!  The li instruction, a single machine instruction,
+	 * must directly be followed by the syscall instruction.
+	 */
+	if (regs->regs[0]) {
+    1128:	8e420018 	lw	v0,24(s2)
+    112c:	00000000 	nop
+    1130:	10400011 	beqz	v0,1178 <do_signal+0x4e4>
+    1134:	00001021 	move	v0,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:756
+		if (regs->regs[2] == ERESTARTNOHAND ||
+    1138:	8e430020 	lw	v1,32(s2)
+    113c:	24020202 	li	v0,514
+    1140:	10620005 	beq	v1,v0,1158 <do_signal+0x4c4>
+    1144:	24020200 	li	v0,512
+    1148:	10620003 	beq	v1,v0,1158 <do_signal+0x4c4>
+    114c:	24020201 	li	v0,513
+    1150:	14620009 	bne	v1,v0,1178 <do_signal+0x4e4>
+    1154:	00001021 	move	v0,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:759
+		    regs->regs[2] == ERESTARTSYS ||
+		    regs->regs[2] == ERESTARTNOINTR) {
+			regs->regs[7] = regs->regs[26];
+    1158:	8e420080 	lw	v0,128(s2)
+    115c:	00000000 	nop
+    1160:	ae420034 	sw	v0,52(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:760
+			regs->cp0_epc -= 8;
+    1164:	8e4200a0 	lw	v0,160(s2)
+    1168:	00000000 	nop
+    116c:	2442fff8 	addiu	v0,v0,-8
+    1170:	ae4200a0 	sw	v0,160(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:763
+		}
+	}
+	return 0;
+    1174:	00001021 	move	v0,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:764
+}
+    1178:	8fbf00a8 	lw	ra,168(sp)
+    117c:	8fb300a4 	lw	s3,164(sp)
+    1180:	8fb200a0 	lw	s2,160(sp)
+    1184:	8fb1009c 	lw	s1,156(sp)
+    1188:	8fb00098 	lw	s0,152(sp)
+    118c:	03e00008 	jr	ra
+    1190:	27bd00b0 	addiu	sp,sp,176
+
+00001194 <sigorsets>:
+/home/mips/linux-2.4.x/include/linux/signal.h:108
+	}								\
+}
+
+#define _sig_or(x,y)	((x) | (y))
+_SIG_SET_BINOP(sigorsets, _sig_or)
+    1194:	00807021 	move	t6,a0
+    1198:	00a06821 	move	t5,a1
+    119c:	00c06021 	move	t4,a2
+    11a0:	00005821 	move	t3,zero
+    11a4:	000b1900 	sll	v1,t3,0x4
+    11a8:	006d1021 	addu	v0,v1,t5
+    11ac:	8c440000 	lw	a0,0(v0)
+    11b0:	8c450004 	lw	a1,4(v0)
+    11b4:	8c460008 	lw	a2,8(v0)
+    11b8:	8c47000c 	lw	a3,12(v0)
+    11bc:	006c1021 	addu	v0,v1,t4
+    11c0:	8c480000 	lw	t0,0(v0)
+    11c4:	8c490004 	lw	t1,4(v0)
+    11c8:	8c4a0008 	lw	t2,8(v0)
+    11cc:	8c42000c 	lw	v0,12(v0)
+    11d0:	006e1821 	addu	v1,v1,t6
+    11d4:	00882025 	or	a0,a0,t0
+    11d8:	ac640000 	sw	a0,0(v1)
+    11dc:	00a92825 	or	a1,a1,t1
+    11e0:	ac650004 	sw	a1,4(v1)
+    11e4:	00ca3025 	or	a2,a2,t2
+    11e8:	ac660008 	sw	a2,8(v1)
+    11ec:	00e23825 	or	a3,a3,v0
+    11f0:	256b0001 	addiu	t3,t3,1
+    11f4:	1160ffeb 	beqz	t3,11a4 <sigorsets+0x10>
+    11f8:	ac67000c 	sw	a3,12(v1)
+    11fc:	03e00008 	jr	ra
+    1200:	00000000 	nop
+
+00001204 <has_pending_signals>:
+/home/mips/linux-2.4.x/include/linux/sched.h:715
+		for (i = _NSIG_WORDS, ready = 0; --i >= 0 ;)
+			ready |= signal->sig[i] &~ blocked->sig[i];
+		break;
+
+	case 4: ready  = signal->sig[3] &~ blocked->sig[3];
+    1204:	8ca2000c 	lw	v0,12(a1)
+    1208:	00000000 	nop
+    120c:	00021027 	nor	v0,zero,v0
+    1210:	8c83000c 	lw	v1,12(a0)
+    1214:	00000000 	nop
+    1218:	00431024 	and	v0,v0,v1
+/home/mips/linux-2.4.x/include/linux/sched.h:716
+		ready |= signal->sig[2] &~ blocked->sig[2];
+    121c:	8ca30008 	lw	v1,8(a1)
+    1220:	00000000 	nop
+    1224:	00031827 	nor	v1,zero,v1
+    1228:	8c860008 	lw	a2,8(a0)
+    122c:	00000000 	nop
+    1230:	00661824 	and	v1,v1,a2
+    1234:	00431025 	or	v0,v0,v1
+/home/mips/linux-2.4.x/include/linux/sched.h:717
+		ready |= signal->sig[1] &~ blocked->sig[1];
+    1238:	8ca30004 	lw	v1,4(a1)
+    123c:	00000000 	nop
+    1240:	00031827 	nor	v1,zero,v1
+    1244:	8c860004 	lw	a2,4(a0)
+    1248:	00000000 	nop
+    124c:	00661824 	and	v1,v1,a2
+    1250:	00431025 	or	v0,v0,v1
+/home/mips/linux-2.4.x/include/linux/sched.h:718
+		ready |= signal->sig[0] &~ blocked->sig[0];
+    1254:	8ca30000 	lw	v1,0(a1)
+    1258:	00000000 	nop
+    125c:	00031827 	nor	v1,zero,v1
+    1260:	8c840000 	lw	a0,0(a0)
+    1264:	00000000 	nop
+    1268:	00641824 	and	v1,v1,a0
+    126c:	00431025 	or	v0,v0,v1
+/home/mips/linux-2.4.x/include/linux/sched.h:728
+		break;
+
+	case 2: ready  = signal->sig[1] &~ blocked->sig[1];
+		ready |= signal->sig[0] &~ blocked->sig[0];
+		break;
+
+	case 1: ready  = signal->sig[0] &~ blocked->sig[0];
+	}
+	return ready !=	0;
+}
+    1270:	03e00008 	jr	ra
+    1274:	0002102b 	sltu	v0,zero,v0
+
+00001278 <restore_thread_fp_context>:
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:189
+    1278:	27bdfff0 	addiu	sp,sp,-16
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:190
+    127c:	27830298 	addiu	v1,gp,664
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:202
+    1280:	8c860110 	lw	a2,272(a0)
+    1284:	8c870114 	lw	a3,276(a0)
+    1288:	00001021 	move	v0,zero
+    128c:	ac660000 	sw	a2,0(v1)
+    1290:	ac670004 	sw	a3,4(v1)
+    1294:	8c860118 	lw	a2,280(a0)
+    1298:	8c87011c 	lw	a3,284(a0)
+    129c:	00002821 	move	a1,zero
+    12a0:	ac660008 	sw	a2,8(v1)
+    12a4:	ac67000c 	sw	a3,12(v1)
+    12a8:	00451025 	or	v0,v0,a1
+    12ac:	8c860120 	lw	a2,288(a0)
+    12b0:	8c870124 	lw	a3,292(a0)
+    12b4:	00002821 	move	a1,zero
+    12b8:	ac660010 	sw	a2,16(v1)
+    12bc:	ac670014 	sw	a3,20(v1)
+    12c0:	00451025 	or	v0,v0,a1
+    12c4:	8c860128 	lw	a2,296(a0)
+    12c8:	8c87012c 	lw	a3,300(a0)
+    12cc:	00002821 	move	a1,zero
+    12d0:	ac660018 	sw	a2,24(v1)
+    12d4:	ac67001c 	sw	a3,28(v1)
+    12d8:	00451025 	or	v0,v0,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:203
+    12dc:	8c860130 	lw	a2,304(a0)
+    12e0:	8c870134 	lw	a3,308(a0)
+    12e4:	00002821 	move	a1,zero
+    12e8:	ac660020 	sw	a2,32(v1)
+    12ec:	ac670024 	sw	a3,36(v1)
+    12f0:	00451025 	or	v0,v0,a1
+    12f4:	8c860138 	lw	a2,312(a0)
+    12f8:	8c87013c 	lw	a3,316(a0)
+    12fc:	00002821 	move	a1,zero
+    1300:	ac660028 	sw	a2,40(v1)
+    1304:	ac67002c 	sw	a3,44(v1)
+    1308:	00451025 	or	v0,v0,a1
+    130c:	8c860140 	lw	a2,320(a0)
+    1310:	8c870144 	lw	a3,324(a0)
+    1314:	00002821 	move	a1,zero
+    1318:	ac660030 	sw	a2,48(v1)
+    131c:	ac670034 	sw	a3,52(v1)
+    1320:	00451025 	or	v0,v0,a1
+    1324:	8c860148 	lw	a2,328(a0)
+    1328:	8c87014c 	lw	a3,332(a0)
+    132c:	00002821 	move	a1,zero
+    1330:	ac660038 	sw	a2,56(v1)
+    1334:	ac67003c 	sw	a3,60(v1)
+    1338:	00451025 	or	v0,v0,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:204
+    133c:	8c860150 	lw	a2,336(a0)
+    1340:	8c870154 	lw	a3,340(a0)
+    1344:	00002821 	move	a1,zero
+    1348:	ac660040 	sw	a2,64(v1)
+    134c:	ac670044 	sw	a3,68(v1)
+    1350:	00451025 	or	v0,v0,a1
+    1354:	8c860158 	lw	a2,344(a0)
+    1358:	8c87015c 	lw	a3,348(a0)
+    135c:	00002821 	move	a1,zero
+    1360:	ac660048 	sw	a2,72(v1)
+    1364:	ac67004c 	sw	a3,76(v1)
+    1368:	00451025 	or	v0,v0,a1
+    136c:	8c860160 	lw	a2,352(a0)
+    1370:	8c870164 	lw	a3,356(a0)
+    1374:	00002821 	move	a1,zero
+    1378:	ac660050 	sw	a2,80(v1)
+    137c:	ac670054 	sw	a3,84(v1)
+    1380:	00451025 	or	v0,v0,a1
+    1384:	8c860168 	lw	a2,360(a0)
+    1388:	8c87016c 	lw	a3,364(a0)
+    138c:	00002821 	move	a1,zero
+    1390:	ac660058 	sw	a2,88(v1)
+    1394:	ac67005c 	sw	a3,92(v1)
+    1398:	00451025 	or	v0,v0,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:205
+    139c:	8c860170 	lw	a2,368(a0)
+    13a0:	8c870174 	lw	a3,372(a0)
+    13a4:	00002821 	move	a1,zero
+    13a8:	ac660060 	sw	a2,96(v1)
+    13ac:	ac670064 	sw	a3,100(v1)
+    13b0:	00451025 	or	v0,v0,a1
+    13b4:	8c860178 	lw	a2,376(a0)
+    13b8:	8c87017c 	lw	a3,380(a0)
+    13bc:	00002821 	move	a1,zero
+    13c0:	ac660068 	sw	a2,104(v1)
+    13c4:	ac67006c 	sw	a3,108(v1)
+    13c8:	00451025 	or	v0,v0,a1
+    13cc:	8c860180 	lw	a2,384(a0)
+    13d0:	8c870184 	lw	a3,388(a0)
+    13d4:	00002821 	move	a1,zero
+    13d8:	ac660070 	sw	a2,112(v1)
+    13dc:	ac670074 	sw	a3,116(v1)
+    13e0:	00451025 	or	v0,v0,a1
+    13e4:	8c860188 	lw	a2,392(a0)
+    13e8:	8c87018c 	lw	a3,396(a0)
+    13ec:	00002821 	move	a1,zero
+    13f0:	ac660078 	sw	a2,120(v1)
+    13f4:	ac67007c 	sw	a3,124(v1)
+    13f8:	00451025 	or	v0,v0,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:206
+    13fc:	8c860190 	lw	a2,400(a0)
+    1400:	8c870194 	lw	a3,404(a0)
+    1404:	00002821 	move	a1,zero
+    1408:	ac660080 	sw	a2,128(v1)
+    140c:	ac670084 	sw	a3,132(v1)
+    1410:	00451025 	or	v0,v0,a1
+    1414:	8c860198 	lw	a2,408(a0)
+    1418:	8c87019c 	lw	a3,412(a0)
+    141c:	00002821 	move	a1,zero
+    1420:	ac660088 	sw	a2,136(v1)
+    1424:	ac67008c 	sw	a3,140(v1)
+    1428:	00451025 	or	v0,v0,a1
+    142c:	8c8601a0 	lw	a2,416(a0)
+    1430:	8c8701a4 	lw	a3,420(a0)
+    1434:	00002821 	move	a1,zero
+    1438:	ac660090 	sw	a2,144(v1)
+    143c:	ac670094 	sw	a3,148(v1)
+    1440:	00451025 	or	v0,v0,a1
+    1444:	8c8601a8 	lw	a2,424(a0)
+    1448:	8c8701ac 	lw	a3,428(a0)
+    144c:	00002821 	move	a1,zero
+    1450:	ac660098 	sw	a2,152(v1)
+    1454:	ac67009c 	sw	a3,156(v1)
+    1458:	00451025 	or	v0,v0,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:207
+    145c:	8c8601b0 	lw	a2,432(a0)
+    1460:	8c8701b4 	lw	a3,436(a0)
+    1464:	00002821 	move	a1,zero
+    1468:	ac6600a0 	sw	a2,160(v1)
+    146c:	ac6700a4 	sw	a3,164(v1)
+    1470:	00451025 	or	v0,v0,a1
+    1474:	8c8601b8 	lw	a2,440(a0)
+    1478:	8c8701bc 	lw	a3,444(a0)
+    147c:	00002821 	move	a1,zero
+    1480:	ac6600a8 	sw	a2,168(v1)
+    1484:	ac6700ac 	sw	a3,172(v1)
+    1488:	00451025 	or	v0,v0,a1
+    148c:	8c8601c0 	lw	a2,448(a0)
+    1490:	8c8701c4 	lw	a3,452(a0)
+    1494:	00002821 	move	a1,zero
+    1498:	ac6600b0 	sw	a2,176(v1)
+    149c:	ac6700b4 	sw	a3,180(v1)
+    14a0:	00451025 	or	v0,v0,a1
+    14a4:	8c8601c8 	lw	a2,456(a0)
+    14a8:	8c8701cc 	lw	a3,460(a0)
+    14ac:	00002821 	move	a1,zero
+    14b0:	ac6600b8 	sw	a2,184(v1)
+    14b4:	ac6700bc 	sw	a3,188(v1)
+    14b8:	00451025 	or	v0,v0,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:208
+    14bc:	8c8601d0 	lw	a2,464(a0)
+    14c0:	8c8701d4 	lw	a3,468(a0)
+    14c4:	00002821 	move	a1,zero
+    14c8:	ac6600c0 	sw	a2,192(v1)
+    14cc:	ac6700c4 	sw	a3,196(v1)
+    14d0:	00451025 	or	v0,v0,a1
+    14d4:	8c8601d8 	lw	a2,472(a0)
+    14d8:	8c8701dc 	lw	a3,476(a0)
+    14dc:	00002821 	move	a1,zero
+    14e0:	ac6600c8 	sw	a2,200(v1)
+    14e4:	ac6700cc 	sw	a3,204(v1)
+    14e8:	00451025 	or	v0,v0,a1
+    14ec:	8c8601e0 	lw	a2,480(a0)
+    14f0:	8c8701e4 	lw	a3,484(a0)
+    14f4:	00002821 	move	a1,zero
+    14f8:	ac6600d0 	sw	a2,208(v1)
+    14fc:	ac6700d4 	sw	a3,212(v1)
+    1500:	00451025 	or	v0,v0,a1
+    1504:	8c8601e8 	lw	a2,488(a0)
+    1508:	8c8701ec 	lw	a3,492(a0)
+    150c:	00002821 	move	a1,zero
+    1510:	ac6600d8 	sw	a2,216(v1)
+    1514:	ac6700dc 	sw	a3,220(v1)
+    1518:	00451025 	or	v0,v0,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:209
+    151c:	8c8601f0 	lw	a2,496(a0)
+    1520:	8c8701f4 	lw	a3,500(a0)
+    1524:	00002821 	move	a1,zero
+    1528:	ac6600e0 	sw	a2,224(v1)
+    152c:	ac6700e4 	sw	a3,228(v1)
+    1530:	00451025 	or	v0,v0,a1
+    1534:	8c8601f8 	lw	a2,504(a0)
+    1538:	8c8701fc 	lw	a3,508(a0)
+    153c:	00002821 	move	a1,zero
+    1540:	ac6600e8 	sw	a2,232(v1)
+    1544:	ac6700ec 	sw	a3,236(v1)
+    1548:	00451025 	or	v0,v0,a1
+    154c:	8c860200 	lw	a2,512(a0)
+    1550:	8c870204 	lw	a3,516(a0)
+    1554:	00002821 	move	a1,zero
+    1558:	ac6600f0 	sw	a2,240(v1)
+    155c:	ac6700f4 	sw	a3,244(v1)
+    1560:	00451025 	or	v0,v0,a1
+    1564:	8c860208 	lw	a2,520(a0)
+    1568:	8c87020c 	lw	a3,524(a0)
+    156c:	00002821 	move	a1,zero
+    1570:	ac6600f8 	sw	a2,248(v1)
+    1574:	ac6700fc 	sw	a3,252(v1)
+    1578:	00451025 	or	v0,v0,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:211
+    157c:	8c830214 	lw	v1,532(a0)
+    1580:	00002021 	move	a0,zero
+    1584:	af830398 	sw	v1,920(gp)
+    1588:	00441025 	or	v0,v0,a0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:214
+    158c:	03e00008 	jr	ra
+    1590:	27bd0010 	addiu	sp,sp,16
+
+00001594 <setup_frame>:
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:462
+    1594:	27bdffd0 	addiu	sp,sp,-48
+    1598:	afbf002c 	sw	ra,44(sp)
+    159c:	afb60028 	sw	s6,40(sp)
+    15a0:	afb50024 	sw	s5,36(sp)
+    15a4:	afb40020 	sw	s4,32(sp)
+    15a8:	afb3001c 	sw	s3,28(sp)
+    15ac:	afb20018 	sw	s2,24(sp)
+    15b0:	afb10014 	sw	s1,20(sp)
+    15b4:	afb00010 	sw	s0,16(sp)
+    15b8:	0080a021 	move	s4,a0
+    15bc:	00a09021 	move	s2,a1
+    15c0:	00c0b021 	move	s6,a2
+    15c4:	00e0a821 	move	s5,a3
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:464
+    15c8:	00008821 	move	s1,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:444
+    15cc:	8ca4008c 	lw	a0,140(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:454
+    15d0:	8e820000 	lw	v0,0(s4)
+    15d4:	3c030800 	lui	v1,0x800
+    15d8:	00431024 	and	v0,v0,v1
+    15dc:	1040000d 	beqz	v0,1614 <setup_frame+0x80>
+    15e0:	2484ffe0 	addiu	a0,a0,-32
+/home/mips/linux-2.4.x/include/linux/sched.h:743
+/* True if we are on the alternate signal stack.  */
+
+static inline int on_sig_stack(unsigned long sp)
+{
+	return (sp - current->sas_ss_sp < current->sas_ss_size);
+    15e4:	8f8203f8 	lw	v0,1016(gp)
+    15e8:	00000000 	nop
+    15ec:	00821023 	subu	v0,a0,v0
+    15f0:	8f8303fc 	lw	v1,1020(gp)
+    15f4:	00000000 	nop
+    15f8:	0043102b 	sltu	v0,v0,v1
+/home/mips/linux-2.4.x/include/linux/sched.h:742
+    15fc:	14400006 	bnez	v0,1618 <setup_frame+0x84>
+    1600:	2483fd88 	addiu	v1,a0,-632
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:455
+    1604:	8f8303f8 	lw	v1,1016(gp)
+    1608:	8f8203fc 	lw	v0,1020(gp)
+    160c:	00000000 	nop
+    1610:	00622021 	addu	a0,v1,v0
+    1614:	2483fd88 	addiu	v1,a0,-632
+    1618:	2402fff8 	li	v0,-8
+    161c:	00628024 	and	s0,v1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:472
+    1620:	8e820000 	lw	v0,0(s4)
+    1624:	3c030400 	lui	v1,0x400
+    1628:	00431024 	and	v0,v0,v1
+    162c:	10400004 	beqz	v0,1640 <setup_frame+0xac>
+    1630:	3c022402 	lui	v0,0x2402
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:473
+    1634:	8e820018 	lw	v0,24(s4)
+    1638:	0800059e 	j	1678 <setup_frame+0xe4>
+			1638: R_MIPS_26	.text
+    163c:	ae420094 	sw	v0,148(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:482
+    1640:	34421017 	ori	v0,v0,0x1017
+    1644:	26040010 	addiu	a0,s0,16
+    1648:	ae020010 	sw	v0,16(s0)
+    164c:	00001021 	move	v0,zero
+    1650:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:484
+    1654:	2402000c 	li	v0,12
+    1658:	ae020014 	sw	v0,20(s0)
+    165c:	00001021 	move	v0,zero
+    1660:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:485
+    1664:	3c020000 	lui	v0,0x0
+			1664: R_MIPS_HI16	_flush_cache_sigtramp
+    1668:	8c420000 	lw	v0,0(v0)
+			1668: R_MIPS_LO16	_flush_cache_sigtramp
+    166c:	00000000 	nop
+    1670:	0040f809 	jalr	v0
+    1674:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:488
+    1678:	26130018 	addiu	s3,s0,24
+    167c:	02402021 	move	a0,s2
+    1680:	0c000646 	jal	1918 <setup_sigcontext>
+			1680: R_MIPS_26	.text
+    1684:	02602821 	move	a1,s3
+    1688:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:489
+    168c:	26040268 	addiu	a0,s0,616
+    1690:	02a02821 	move	a1,s5
+    1694:	0c000000 	jal	0 <copy_siginfo_to_user>
+			1694: R_MIPS_26	__copy_user
+    1698:	24060010 	li	a2,16
+    169c:	02268825 	or	s1,s1,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:490
+    16a0:	1620000c 	bnez	s1,16d4 <setup_frame+0x140>
+    16a4:	2402000b 	li	v0,11
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:503
+    16a8:	ae560028 	sw	s6,40(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:504
+    16ac:	ae40002c 	sw	zero,44(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:505
+    16b0:	ae530030 	sw	s3,48(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:506
+    16b4:	ae50008c 	sw	s0,140(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:507
+    16b8:	26020010 	addiu	v0,s0,16
+    16bc:	ae420094 	sw	v0,148(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:508
+    16c0:	8e820004 	lw	v0,4(s4)
+    16c4:	00000000 	nop
+    16c8:	ae42007c 	sw	v0,124(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:514
+    16cc:	080005ba 	j	16e8 <setup_frame+0x154>
+			16cc: R_MIPS_26	.text
+    16d0:	ae4200a0 	sw	v0,160(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:517
+    16d4:	16c20002 	bne	s6,v0,16e0 <setup_frame+0x14c>
+    16d8:	2404000b 	li	a0,11
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:518
+    16dc:	ae800004 	sw	zero,4(s4)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:519
+    16e0:	0c000000 	jal	0 <copy_siginfo_to_user>
+			16e0: R_MIPS_26	force_sig
+    16e4:	03802821 	move	a1,gp
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:520
+    16e8:	8fbf002c 	lw	ra,44(sp)
+    16ec:	8fb60028 	lw	s6,40(sp)
+    16f0:	8fb50024 	lw	s5,36(sp)
+    16f4:	8fb40020 	lw	s4,32(sp)
+    16f8:	8fb3001c 	lw	s3,28(sp)
+    16fc:	8fb20018 	lw	s2,24(sp)
+    1700:	8fb10014 	lw	s1,20(sp)
+    1704:	8fb00010 	lw	s0,16(sp)
+    1708:	03e00008 	jr	ra
+    170c:	27bd0030 	addiu	sp,sp,48
+
+00001710 <setup_rt_frame>:
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:524
+    1710:	27bdffd0 	addiu	sp,sp,-48
+    1714:	afbf0028 	sw	ra,40(sp)
+    1718:	afb50024 	sw	s5,36(sp)
+    171c:	afb40020 	sw	s4,32(sp)
+    1720:	afb3001c 	sw	s3,28(sp)
+    1724:	afb20018 	sw	s2,24(sp)
+    1728:	afb10014 	sw	s1,20(sp)
+    172c:	afb00010 	sw	s0,16(sp)
+    1730:	00809821 	move	s3,a0
+    1734:	00a09021 	move	s2,a1
+    1738:	00c0a821 	move	s5,a2
+    173c:	00e0a021 	move	s4,a3
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:526
+    1740:	00008821 	move	s1,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:444
+    1744:	8ca4008c 	lw	a0,140(a1)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:454
+    1748:	8e620000 	lw	v0,0(s3)
+    174c:	3c030800 	lui	v1,0x800
+    1750:	00431024 	and	v0,v0,v1
+    1754:	1040000d 	beqz	v0,178c <setup_rt_frame+0x7c>
+    1758:	2484ffe0 	addiu	a0,a0,-32
+/home/mips/linux-2.4.x/include/linux/sched.h:743
+/* True if we are on the alternate signal stack.  */
+
+static inline int on_sig_stack(unsigned long sp)
+{
+	return (sp - current->sas_ss_sp < current->sas_ss_size);
+    175c:	8f8203f8 	lw	v0,1016(gp)
+    1760:	00000000 	nop
+    1764:	00821023 	subu	v0,a0,v0
+    1768:	8f8303fc 	lw	v1,1020(gp)
+    176c:	00000000 	nop
+    1770:	0043102b 	sltu	v0,v0,v1
+/home/mips/linux-2.4.x/include/linux/sched.h:742
+    1774:	14400006 	bnez	v0,1790 <setup_rt_frame+0x80>
+    1778:	2483fcf0 	addiu	v1,a0,-784
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:455
+    177c:	8f8303f8 	lw	v1,1016(gp)
+    1780:	8f8203fc 	lw	v0,1020(gp)
+    1784:	00000000 	nop
+    1788:	00622021 	addu	a0,v1,v0
+    178c:	2483fcf0 	addiu	v1,a0,-784
+    1790:	2402fff8 	li	v0,-8
+    1794:	00628024 	and	s0,v1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:534
+    1798:	8e620000 	lw	v0,0(s3)
+    179c:	3c030400 	lui	v1,0x400
+    17a0:	00431024 	and	v0,v0,v1
+    17a4:	10400004 	beqz	v0,17b8 <setup_rt_frame+0xa8>
+    17a8:	3c022402 	lui	v0,0x2402
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:535
+    17ac:	8e620018 	lw	v0,24(s3)
+    17b0:	080005fc 	j	17f0 <setup_rt_frame+0xe0>
+			17b0: R_MIPS_26	.text
+    17b4:	ae420094 	sw	v0,148(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:544
+    17b8:	34421061 	ori	v0,v0,0x1061
+    17bc:	26040010 	addiu	a0,s0,16
+    17c0:	ae020010 	sw	v0,16(s0)
+    17c4:	00001021 	move	v0,zero
+    17c8:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:546
+    17cc:	2402000c 	li	v0,12
+    17d0:	ae020014 	sw	v0,20(s0)
+    17d4:	00001021 	move	v0,zero
+    17d8:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:547
+    17dc:	3c020000 	lui	v0,0x0
+			17dc: R_MIPS_HI16	_flush_cache_sigtramp
+    17e0:	8c420000 	lw	v0,0(v0)
+			17e0: R_MIPS_LO16	_flush_cache_sigtramp
+    17e4:	00000000 	nop
+    17e8:	0040f809 	jalr	v0
+    17ec:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:551
+    17f0:	8fa50040 	lw	a1,64(sp)
+    17f4:	0c000000 	jal	0 <copy_siginfo_to_user>
+			17f4: R_MIPS_26	copy_siginfo_to_user
+    17f8:	26040018 	addiu	a0,s0,24
+    17fc:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:554
+    1800:	00001021 	move	v0,zero
+    1804:	ae020098 	sw	v0,152(s0)
+    1808:	00001821 	move	v1,zero
+    180c:	02238825 	or	s1,s1,v1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:555
+    1810:	ae02009c 	sw	v0,156(s0)
+    1814:	00001021 	move	v0,zero
+    1818:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:557
+    181c:	8f8203f8 	lw	v0,1016(gp)
+    1820:	00000000 	nop
+    1824:	ae0200a0 	sw	v0,160(s0)
+    1828:	00001021 	move	v0,zero
+    182c:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/include/linux/sched.h:747
+	return (sp - current->sas_ss_sp < current->sas_ss_size);
+}
+
+static inline int sas_ss_flags(unsigned long sp)
+{
+    1830:	8e43008c 	lw	v1,140(s2)
+/home/mips/linux-2.4.x/include/linux/sched.h:748
+	return (current->sas_ss_size == 0 ? SS_DISABLE
+    1834:	8f8203fc 	lw	v0,1020(gp)
+    1838:	00000000 	nop
+    183c:	10400007 	beqz	v0,185c <setup_rt_frame+0x14c>
+    1840:	00000000 	nop
+/home/mips/linux-2.4.x/include/linux/sched.h:743
+    1844:	8f8203f8 	lw	v0,1016(gp)
+    1848:	00000000 	nop
+    184c:	00621023 	subu	v0,v1,v0
+    1850:	8f8303fc 	lw	v1,1020(gp)
+/home/mips/linux-2.4.x/include/linux/sched.h:742
+    1854:	08000618 	j	1860 <setup_rt_frame+0x150>
+			1854: R_MIPS_26	.text
+    1858:	0043102b 	sltu	v0,v0,v1
+    185c:	24020002 	li	v0,2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:559
+    1860:	ae0200a8 	sw	v0,168(s0)
+    1864:	00001021 	move	v0,zero
+    1868:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:561
+    186c:	8f8203fc 	lw	v0,1020(gp)
+    1870:	00000000 	nop
+    1874:	ae0200a4 	sw	v0,164(s0)
+    1878:	00001021 	move	v0,zero
+    187c:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:562
+    1880:	260500b0 	addiu	a1,s0,176
+    1884:	0c000646 	jal	1918 <setup_sigcontext>
+			1884: R_MIPS_26	.text
+    1888:	02402021 	move	a0,s2
+    188c:	02228825 	or	s1,s1,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:563
+    1890:	26040300 	addiu	a0,s0,768
+    1894:	02802821 	move	a1,s4
+    1898:	0c000000 	jal	0 <copy_siginfo_to_user>
+			1898: R_MIPS_26	__copy_user
+    189c:	24060010 	li	a2,16
+    18a0:	02268825 	or	s1,s1,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:565
+    18a4:	1620000e 	bnez	s1,18e0 <setup_rt_frame+0x1d0>
+    18a8:	2402000b 	li	v0,11
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:578
+    18ac:	ae550028 	sw	s5,40(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:579
+    18b0:	26020018 	addiu	v0,s0,24
+    18b4:	ae42002c 	sw	v0,44(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:580
+    18b8:	26020098 	addiu	v0,s0,152
+    18bc:	ae420030 	sw	v0,48(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:581
+    18c0:	ae50008c 	sw	s0,140(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:582
+    18c4:	26020010 	addiu	v0,s0,16
+    18c8:	ae420094 	sw	v0,148(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:583
+    18cc:	8e620004 	lw	v0,4(s3)
+    18d0:	00000000 	nop
+    18d4:	ae42007c 	sw	v0,124(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:589
+    18d8:	0800063d 	j	18f4 <setup_rt_frame+0x1e4>
+			18d8: R_MIPS_26	.text
+    18dc:	ae4200a0 	sw	v0,160(s2)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:592
+    18e0:	16a20002 	bne	s5,v0,18ec <setup_rt_frame+0x1dc>
+    18e4:	2404000b 	li	a0,11
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:593
+    18e8:	ae600004 	sw	zero,4(s3)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:594
+    18ec:	0c000000 	jal	0 <copy_siginfo_to_user>
+			18ec: R_MIPS_26	force_sig
+    18f0:	03802821 	move	a1,gp
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:595
+    18f4:	8fbf0028 	lw	ra,40(sp)
+    18f8:	8fb50024 	lw	s5,36(sp)
+    18fc:	8fb40020 	lw	s4,32(sp)
+    1900:	8fb3001c 	lw	s3,28(sp)
+    1904:	8fb20018 	lw	s2,24(sp)
+    1908:	8fb10014 	lw	s1,20(sp)
+    190c:	8fb00010 	lw	s0,16(sp)
+    1910:	03e00008 	jr	ra
+    1914:	27bd0030 	addiu	sp,sp,48
+
+00001918 <setup_sigcontext>:
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:382
+    1918:	27bdffe8 	addiu	sp,sp,-24
+    191c:	afbf0014 	sw	ra,20(sp)
+    1920:	afb00010 	sw	s0,16(sp)
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:387
+    1924:	8c8300a0 	lw	v1,160(a0)
+    1928:	00001021 	move	v0,zero
+    192c:	aca20008 	sw	v0,8(a1)
+    1930:	aca3000c 	sw	v1,12(a1)
+    1934:	00008021 	move	s0,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:388
+    1938:	8c8200a8 	lw	v0,168(a0)
+    193c:	00000000 	nop
+    1940:	aca20004 	sw	v0,4(a1)
+    1944:	00001021 	move	v0,zero
+    1948:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:394
+    194c:	00001021 	move	v0,zero
+    1950:	00001821 	move	v1,zero
+    1954:	aca20010 	sw	v0,16(a1)
+    1958:	aca30014 	sw	v1,20(a1)
+    195c:	00001021 	move	v0,zero
+    1960:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:395
+    1964:	8c83001c 	lw	v1,28(a0)
+    1968:	00001021 	move	v0,zero
+    196c:	aca20018 	sw	v0,24(a1)
+    1970:	aca3001c 	sw	v1,28(a1)
+    1974:	00001021 	move	v0,zero
+    1978:	02028025 	or	s0,s0,v0
+    197c:	8c830020 	lw	v1,32(a0)
+    1980:	00001021 	move	v0,zero
+    1984:	aca20020 	sw	v0,32(a1)
+    1988:	aca30024 	sw	v1,36(a1)
+    198c:	00001021 	move	v0,zero
+    1990:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:396
+    1994:	8c830024 	lw	v1,36(a0)
+    1998:	00001021 	move	v0,zero
+    199c:	aca20028 	sw	v0,40(a1)
+    19a0:	aca3002c 	sw	v1,44(a1)
+    19a4:	00001021 	move	v0,zero
+    19a8:	02028025 	or	s0,s0,v0
+    19ac:	8c830028 	lw	v1,40(a0)
+    19b0:	00001021 	move	v0,zero
+    19b4:	aca20030 	sw	v0,48(a1)
+    19b8:	aca30034 	sw	v1,52(a1)
+    19bc:	00001021 	move	v0,zero
+    19c0:	02028025 	or	s0,s0,v0
+    19c4:	8c83002c 	lw	v1,44(a0)
+    19c8:	00001021 	move	v0,zero
+    19cc:	aca20038 	sw	v0,56(a1)
+    19d0:	aca3003c 	sw	v1,60(a1)
+    19d4:	00001021 	move	v0,zero
+    19d8:	02028025 	or	s0,s0,v0
+    19dc:	8c830030 	lw	v1,48(a0)
+    19e0:	00001021 	move	v0,zero
+    19e4:	aca20040 	sw	v0,64(a1)
+    19e8:	aca30044 	sw	v1,68(a1)
+    19ec:	00001021 	move	v0,zero
+    19f0:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:397
+    19f4:	8c830034 	lw	v1,52(a0)
+    19f8:	00001021 	move	v0,zero
+    19fc:	aca20048 	sw	v0,72(a1)
+    1a00:	aca3004c 	sw	v1,76(a1)
+    1a04:	00001021 	move	v0,zero
+    1a08:	02028025 	or	s0,s0,v0
+    1a0c:	8c830038 	lw	v1,56(a0)
+    1a10:	00001021 	move	v0,zero
+    1a14:	aca20050 	sw	v0,80(a1)
+    1a18:	aca30054 	sw	v1,84(a1)
+    1a1c:	00001021 	move	v0,zero
+    1a20:	02028025 	or	s0,s0,v0
+    1a24:	8c83003c 	lw	v1,60(a0)
+    1a28:	00001021 	move	v0,zero
+    1a2c:	aca20058 	sw	v0,88(a1)
+    1a30:	aca3005c 	sw	v1,92(a1)
+    1a34:	00001021 	move	v0,zero
+    1a38:	02028025 	or	s0,s0,v0
+    1a3c:	8c830040 	lw	v1,64(a0)
+    1a40:	00001021 	move	v0,zero
+    1a44:	aca20060 	sw	v0,96(a1)
+    1a48:	aca30064 	sw	v1,100(a1)
+    1a4c:	00001021 	move	v0,zero
+    1a50:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:398
+    1a54:	8c830044 	lw	v1,68(a0)
+    1a58:	00001021 	move	v0,zero
+    1a5c:	aca20068 	sw	v0,104(a1)
+    1a60:	aca3006c 	sw	v1,108(a1)
+    1a64:	00001021 	move	v0,zero
+    1a68:	02028025 	or	s0,s0,v0
+    1a6c:	8c830048 	lw	v1,72(a0)
+    1a70:	00001021 	move	v0,zero
+    1a74:	aca20070 	sw	v0,112(a1)
+    1a78:	aca30074 	sw	v1,116(a1)
+    1a7c:	00001021 	move	v0,zero
+    1a80:	02028025 	or	s0,s0,v0
+    1a84:	8c83004c 	lw	v1,76(a0)
+    1a88:	00001021 	move	v0,zero
+    1a8c:	aca20078 	sw	v0,120(a1)
+    1a90:	aca3007c 	sw	v1,124(a1)
+    1a94:	00001021 	move	v0,zero
+    1a98:	02028025 	or	s0,s0,v0
+    1a9c:	8c830050 	lw	v1,80(a0)
+    1aa0:	00001021 	move	v0,zero
+    1aa4:	aca20080 	sw	v0,128(a1)
+    1aa8:	aca30084 	sw	v1,132(a1)
+    1aac:	00001021 	move	v0,zero
+    1ab0:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:399
+    1ab4:	8c830054 	lw	v1,84(a0)
+    1ab8:	00001021 	move	v0,zero
+    1abc:	aca20088 	sw	v0,136(a1)
+    1ac0:	aca3008c 	sw	v1,140(a1)
+    1ac4:	00001021 	move	v0,zero
+    1ac8:	02028025 	or	s0,s0,v0
+    1acc:	8c830058 	lw	v1,88(a0)
+    1ad0:	00001021 	move	v0,zero
+    1ad4:	aca20090 	sw	v0,144(a1)
+    1ad8:	aca30094 	sw	v1,148(a1)
+    1adc:	00001021 	move	v0,zero
+    1ae0:	02028025 	or	s0,s0,v0
+    1ae4:	8c83005c 	lw	v1,92(a0)
+    1ae8:	00001021 	move	v0,zero
+    1aec:	aca20098 	sw	v0,152(a1)
+    1af0:	aca3009c 	sw	v1,156(a1)
+    1af4:	00001021 	move	v0,zero
+    1af8:	02028025 	or	s0,s0,v0
+    1afc:	8c830060 	lw	v1,96(a0)
+    1b00:	00001021 	move	v0,zero
+    1b04:	aca200a0 	sw	v0,160(a1)
+    1b08:	aca300a4 	sw	v1,164(a1)
+    1b0c:	00001021 	move	v0,zero
+    1b10:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:400
+    1b14:	8c830064 	lw	v1,100(a0)
+    1b18:	00001021 	move	v0,zero
+    1b1c:	aca200a8 	sw	v0,168(a1)
+    1b20:	aca300ac 	sw	v1,172(a1)
+    1b24:	00001021 	move	v0,zero
+    1b28:	02028025 	or	s0,s0,v0
+    1b2c:	8c830068 	lw	v1,104(a0)
+    1b30:	00001021 	move	v0,zero
+    1b34:	aca200b0 	sw	v0,176(a1)
+    1b38:	aca300b4 	sw	v1,180(a1)
+    1b3c:	00001021 	move	v0,zero
+    1b40:	02028025 	or	s0,s0,v0
+    1b44:	8c83006c 	lw	v1,108(a0)
+    1b48:	00001021 	move	v0,zero
+    1b4c:	aca200b8 	sw	v0,184(a1)
+    1b50:	aca300bc 	sw	v1,188(a1)
+    1b54:	00001021 	move	v0,zero
+    1b58:	02028025 	or	s0,s0,v0
+    1b5c:	8c830070 	lw	v1,112(a0)
+    1b60:	00001021 	move	v0,zero
+    1b64:	aca200c0 	sw	v0,192(a1)
+    1b68:	aca300c4 	sw	v1,196(a1)
+    1b6c:	00001021 	move	v0,zero
+    1b70:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:401
+    1b74:	8c830074 	lw	v1,116(a0)
+    1b78:	00001021 	move	v0,zero
+    1b7c:	aca200c8 	sw	v0,200(a1)
+    1b80:	aca300cc 	sw	v1,204(a1)
+    1b84:	00001021 	move	v0,zero
+    1b88:	02028025 	or	s0,s0,v0
+    1b8c:	8c830078 	lw	v1,120(a0)
+    1b90:	00001021 	move	v0,zero
+    1b94:	aca200d0 	sw	v0,208(a1)
+    1b98:	aca300d4 	sw	v1,212(a1)
+    1b9c:	00001021 	move	v0,zero
+    1ba0:	02028025 	or	s0,s0,v0
+    1ba4:	8c83007c 	lw	v1,124(a0)
+    1ba8:	00001021 	move	v0,zero
+    1bac:	aca200d8 	sw	v0,216(a1)
+    1bb0:	aca300dc 	sw	v1,220(a1)
+    1bb4:	00001021 	move	v0,zero
+    1bb8:	02028025 	or	s0,s0,v0
+    1bbc:	8c830080 	lw	v1,128(a0)
+    1bc0:	00001021 	move	v0,zero
+    1bc4:	aca200e0 	sw	v0,224(a1)
+    1bc8:	aca300e4 	sw	v1,228(a1)
+    1bcc:	00001021 	move	v0,zero
+    1bd0:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:402
+    1bd4:	8c830084 	lw	v1,132(a0)
+    1bd8:	00001021 	move	v0,zero
+    1bdc:	aca200e8 	sw	v0,232(a1)
+    1be0:	aca300ec 	sw	v1,236(a1)
+    1be4:	00001021 	move	v0,zero
+    1be8:	02028025 	or	s0,s0,v0
+    1bec:	8c830088 	lw	v1,136(a0)
+    1bf0:	00001021 	move	v0,zero
+    1bf4:	aca200f0 	sw	v0,240(a1)
+    1bf8:	aca300f4 	sw	v1,244(a1)
+    1bfc:	00001021 	move	v0,zero
+    1c00:	02028025 	or	s0,s0,v0
+    1c04:	8c83008c 	lw	v1,140(a0)
+    1c08:	00001021 	move	v0,zero
+    1c0c:	aca200f8 	sw	v0,248(a1)
+    1c10:	aca300fc 	sw	v1,252(a1)
+    1c14:	00001021 	move	v0,zero
+    1c18:	02028025 	or	s0,s0,v0
+    1c1c:	8c830090 	lw	v1,144(a0)
+    1c20:	00001021 	move	v0,zero
+    1c24:	aca20100 	sw	v0,256(a1)
+    1c28:	aca30104 	sw	v1,260(a1)
+    1c2c:	00001021 	move	v0,zero
+    1c30:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:403
+    1c34:	8c830094 	lw	v1,148(a0)
+    1c38:	00001021 	move	v0,zero
+    1c3c:	aca20108 	sw	v0,264(a1)
+    1c40:	aca3010c 	sw	v1,268(a1)
+    1c44:	00001021 	move	v0,zero
+    1c48:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:406
+    1c4c:	8c83009c 	lw	v1,156(a0)
+    1c50:	00001021 	move	v0,zero
+    1c54:	aca20228 	sw	v0,552(a1)
+    1c58:	aca3022c 	sw	v1,556(a1)
+    1c5c:	00001021 	move	v0,zero
+    1c60:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:407
+    1c64:	8c830098 	lw	v1,152(a0)
+    1c68:	00001021 	move	v0,zero
+    1c6c:	aca20230 	sw	v0,560(a1)
+    1c70:	aca30234 	sw	v1,564(a1)
+    1c74:	00001021 	move	v0,zero
+    1c78:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:408
+    1c7c:	8c8200ac 	lw	v0,172(a0)
+    1c80:	00000000 	nop
+    1c84:	aca20238 	sw	v0,568(a1)
+    1c88:	00001021 	move	v0,zero
+    1c8c:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:409
+    1c90:	8c8200a4 	lw	v0,164(a0)
+    1c94:	00000000 	nop
+    1c98:	aca2023c 	sw	v0,572(a1)
+    1c9c:	00001021 	move	v0,zero
+    1ca0:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:411
+    1ca4:	3c020000 	lui	v0,0x0
+			1ca4: R_MIPS_HI16	last_task_used_math
+    1ca8:	8c420000 	lw	v0,0(v0)
+			1ca8: R_MIPS_LO16	last_task_used_math
+    1cac:	00000000 	nop
+    1cb0:	03821026 	xor	v0,gp,v0
+    1cb4:	2c430001 	sltiu	v1,v0,1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:412
+    1cb8:	aca30210 	sw	v1,528(a1)
+    1cbc:	00001021 	move	v0,zero
+    1cc0:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:413
+    1cc4:	9782023c 	lhu	v0,572(gp)
+    1cc8:	00000000 	nop
+    1ccc:	aca2021c 	sw	v0,540(a1)
+    1cd0:	00001021 	move	v0,zero
+    1cd4:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:415
+    1cd8:	9782023c 	lhu	v0,572(gp)
+    1cdc:	00000000 	nop
+    1ce0:	1040000e 	beqz	v0,1d1c <setup_sigcontext+0x404>
+    1ce4:	02001021 	move	v0,s0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:419
+    1ce8:	10600008 	beqz	v1,1d0c <setup_sigcontext+0x3f4>
+    1cec:	00000000 	nop
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:421
+    1cf0:	3c020000 	lui	v0,0x0
+			1cf0: R_MIPS_HI16	save_fp_context
+    1cf4:	8c420000 	lw	v0,0(v0)
+			1cf4: R_MIPS_LO16	save_fp_context
+    1cf8:	00000000 	nop
+    1cfc:	0040f809 	jalr	v0
+    1d00:	00a02021 	move	a0,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:422
+    1d04:	08000746 	j	1d18 <setup_sigcontext+0x400>
+			1d04: R_MIPS_26	.text
+    1d08:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:429
+    1d0c:	0c00074b 	jal	1d2c <save_thread_fp_context>
+			1d0c: R_MIPS_26	.text
+    1d10:	00a02021 	move	a0,a1
+    1d14:	02028025 	or	s0,s0,v0
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:433
+    1d18:	02001021 	move	v0,s0
+    1d1c:	8fbf0014 	lw	ra,20(sp)
+    1d20:	8fb00010 	lw	s0,16(sp)
+    1d24:	03e00008 	jr	ra
+    1d28:	27bd0018 	addiu	sp,sp,24
+
+00001d2c <save_thread_fp_context>:
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:217
+    1d2c:	27bdfff0 	addiu	sp,sp,-16
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:218
+    1d30:	27850298 	addiu	a1,gp,664
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:224
+    1d34:	8ca20000 	lw	v0,0(a1)
+    1d38:	8ca30004 	lw	v1,4(a1)
+    1d3c:	ac820110 	sw	v0,272(a0)
+    1d40:	ac830114 	sw	v1,276(a0)
+    1d44:	00001021 	move	v0,zero
+    1d48:	8ca60008 	lw	a2,8(a1)
+    1d4c:	8ca7000c 	lw	a3,12(a1)
+    1d50:	ac860118 	sw	a2,280(a0)
+    1d54:	ac87011c 	sw	a3,284(a0)
+    1d58:	00003021 	move	a2,zero
+    1d5c:	00461025 	or	v0,v0,a2
+    1d60:	8ca60010 	lw	a2,16(a1)
+    1d64:	8ca70014 	lw	a3,20(a1)
+    1d68:	ac860120 	sw	a2,288(a0)
+    1d6c:	ac870124 	sw	a3,292(a0)
+    1d70:	00003021 	move	a2,zero
+    1d74:	00461025 	or	v0,v0,a2
+    1d78:	8ca60018 	lw	a2,24(a1)
+    1d7c:	8ca7001c 	lw	a3,28(a1)
+    1d80:	ac860128 	sw	a2,296(a0)
+    1d84:	ac87012c 	sw	a3,300(a0)
+    1d88:	00003021 	move	a2,zero
+    1d8c:	00461025 	or	v0,v0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:225
+    1d90:	8ca60020 	lw	a2,32(a1)
+    1d94:	8ca70024 	lw	a3,36(a1)
+    1d98:	ac860130 	sw	a2,304(a0)
+    1d9c:	ac870134 	sw	a3,308(a0)
+    1da0:	00003021 	move	a2,zero
+    1da4:	00461025 	or	v0,v0,a2
+    1da8:	8ca60028 	lw	a2,40(a1)
+    1dac:	8ca7002c 	lw	a3,44(a1)
+    1db0:	ac860138 	sw	a2,312(a0)
+    1db4:	ac87013c 	sw	a3,316(a0)
+    1db8:	00003021 	move	a2,zero
+    1dbc:	00461025 	or	v0,v0,a2
+    1dc0:	8ca60030 	lw	a2,48(a1)
+    1dc4:	8ca70034 	lw	a3,52(a1)
+    1dc8:	ac860140 	sw	a2,320(a0)
+    1dcc:	ac870144 	sw	a3,324(a0)
+    1dd0:	00003021 	move	a2,zero
+    1dd4:	00461025 	or	v0,v0,a2
+    1dd8:	8ca60038 	lw	a2,56(a1)
+    1ddc:	8ca7003c 	lw	a3,60(a1)
+    1de0:	ac860148 	sw	a2,328(a0)
+    1de4:	ac87014c 	sw	a3,332(a0)
+    1de8:	00003021 	move	a2,zero
+    1dec:	00461025 	or	v0,v0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:226
+    1df0:	8ca60040 	lw	a2,64(a1)
+    1df4:	8ca70044 	lw	a3,68(a1)
+    1df8:	ac860150 	sw	a2,336(a0)
+    1dfc:	ac870154 	sw	a3,340(a0)
+    1e00:	00003021 	move	a2,zero
+    1e04:	00461025 	or	v0,v0,a2
+    1e08:	8ca60048 	lw	a2,72(a1)
+    1e0c:	8ca7004c 	lw	a3,76(a1)
+    1e10:	ac860158 	sw	a2,344(a0)
+    1e14:	ac87015c 	sw	a3,348(a0)
+    1e18:	00003021 	move	a2,zero
+    1e1c:	00461025 	or	v0,v0,a2
+    1e20:	8ca60050 	lw	a2,80(a1)
+    1e24:	8ca70054 	lw	a3,84(a1)
+    1e28:	ac860160 	sw	a2,352(a0)
+    1e2c:	ac870164 	sw	a3,356(a0)
+    1e30:	00003021 	move	a2,zero
+    1e34:	00461025 	or	v0,v0,a2
+    1e38:	8ca60058 	lw	a2,88(a1)
+    1e3c:	8ca7005c 	lw	a3,92(a1)
+    1e40:	ac860168 	sw	a2,360(a0)
+    1e44:	ac87016c 	sw	a3,364(a0)
+    1e48:	00003021 	move	a2,zero
+    1e4c:	00461025 	or	v0,v0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:227
+    1e50:	8ca60060 	lw	a2,96(a1)
+    1e54:	8ca70064 	lw	a3,100(a1)
+    1e58:	ac860170 	sw	a2,368(a0)
+    1e5c:	ac870174 	sw	a3,372(a0)
+    1e60:	00003021 	move	a2,zero
+    1e64:	00461025 	or	v0,v0,a2
+    1e68:	8ca60068 	lw	a2,104(a1)
+    1e6c:	8ca7006c 	lw	a3,108(a1)
+    1e70:	ac860178 	sw	a2,376(a0)
+    1e74:	ac87017c 	sw	a3,380(a0)
+    1e78:	00003021 	move	a2,zero
+    1e7c:	00461025 	or	v0,v0,a2
+    1e80:	8ca60070 	lw	a2,112(a1)
+    1e84:	8ca70074 	lw	a3,116(a1)
+    1e88:	ac860180 	sw	a2,384(a0)
+    1e8c:	ac870184 	sw	a3,388(a0)
+    1e90:	00003021 	move	a2,zero
+    1e94:	00461025 	or	v0,v0,a2
+    1e98:	8ca60078 	lw	a2,120(a1)
+    1e9c:	8ca7007c 	lw	a3,124(a1)
+    1ea0:	ac860188 	sw	a2,392(a0)
+    1ea4:	ac87018c 	sw	a3,396(a0)
+    1ea8:	00003021 	move	a2,zero
+    1eac:	00461025 	or	v0,v0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:228
+    1eb0:	8ca60080 	lw	a2,128(a1)
+    1eb4:	8ca70084 	lw	a3,132(a1)
+    1eb8:	ac860190 	sw	a2,400(a0)
+    1ebc:	ac870194 	sw	a3,404(a0)
+    1ec0:	00003021 	move	a2,zero
+    1ec4:	00461025 	or	v0,v0,a2
+    1ec8:	8ca60088 	lw	a2,136(a1)
+    1ecc:	8ca7008c 	lw	a3,140(a1)
+    1ed0:	ac860198 	sw	a2,408(a0)
+    1ed4:	ac87019c 	sw	a3,412(a0)
+    1ed8:	00003021 	move	a2,zero
+    1edc:	00461025 	or	v0,v0,a2
+    1ee0:	8ca60090 	lw	a2,144(a1)
+    1ee4:	8ca70094 	lw	a3,148(a1)
+    1ee8:	ac8601a0 	sw	a2,416(a0)
+    1eec:	ac8701a4 	sw	a3,420(a0)
+    1ef0:	00003021 	move	a2,zero
+    1ef4:	00461025 	or	v0,v0,a2
+    1ef8:	8ca60098 	lw	a2,152(a1)
+    1efc:	8ca7009c 	lw	a3,156(a1)
+    1f00:	ac8601a8 	sw	a2,424(a0)
+    1f04:	ac8701ac 	sw	a3,428(a0)
+    1f08:	00003021 	move	a2,zero
+    1f0c:	00461025 	or	v0,v0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:229
+    1f10:	8ca600a0 	lw	a2,160(a1)
+    1f14:	8ca700a4 	lw	a3,164(a1)
+    1f18:	ac8601b0 	sw	a2,432(a0)
+    1f1c:	ac8701b4 	sw	a3,436(a0)
+    1f20:	00003021 	move	a2,zero
+    1f24:	00461025 	or	v0,v0,a2
+    1f28:	8ca600a8 	lw	a2,168(a1)
+    1f2c:	8ca700ac 	lw	a3,172(a1)
+    1f30:	ac8601b8 	sw	a2,440(a0)
+    1f34:	ac8701bc 	sw	a3,444(a0)
+    1f38:	00003021 	move	a2,zero
+    1f3c:	00461025 	or	v0,v0,a2
+    1f40:	8ca600b0 	lw	a2,176(a1)
+    1f44:	8ca700b4 	lw	a3,180(a1)
+    1f48:	ac8601c0 	sw	a2,448(a0)
+    1f4c:	ac8701c4 	sw	a3,452(a0)
+    1f50:	00003021 	move	a2,zero
+    1f54:	00461025 	or	v0,v0,a2
+    1f58:	8ca600b8 	lw	a2,184(a1)
+    1f5c:	8ca700bc 	lw	a3,188(a1)
+    1f60:	ac8601c8 	sw	a2,456(a0)
+    1f64:	ac8701cc 	sw	a3,460(a0)
+    1f68:	00003021 	move	a2,zero
+    1f6c:	00461025 	or	v0,v0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:230
+    1f70:	8ca600c0 	lw	a2,192(a1)
+    1f74:	8ca700c4 	lw	a3,196(a1)
+    1f78:	ac8601d0 	sw	a2,464(a0)
+    1f7c:	ac8701d4 	sw	a3,468(a0)
+    1f80:	00003021 	move	a2,zero
+    1f84:	00461025 	or	v0,v0,a2
+    1f88:	8ca600c8 	lw	a2,200(a1)
+    1f8c:	8ca700cc 	lw	a3,204(a1)
+    1f90:	ac8601d8 	sw	a2,472(a0)
+    1f94:	ac8701dc 	sw	a3,476(a0)
+    1f98:	00003021 	move	a2,zero
+    1f9c:	00461025 	or	v0,v0,a2
+    1fa0:	8ca600d0 	lw	a2,208(a1)
+    1fa4:	8ca700d4 	lw	a3,212(a1)
+    1fa8:	ac8601e0 	sw	a2,480(a0)
+    1fac:	ac8701e4 	sw	a3,484(a0)
+    1fb0:	00003021 	move	a2,zero
+    1fb4:	00461025 	or	v0,v0,a2
+    1fb8:	8ca600d8 	lw	a2,216(a1)
+    1fbc:	8ca700dc 	lw	a3,220(a1)
+    1fc0:	ac8601e8 	sw	a2,488(a0)
+    1fc4:	ac8701ec 	sw	a3,492(a0)
+    1fc8:	00003021 	move	a2,zero
+    1fcc:	00461025 	or	v0,v0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:231
+    1fd0:	8ca600e0 	lw	a2,224(a1)
+    1fd4:	8ca700e4 	lw	a3,228(a1)
+    1fd8:	ac8601f0 	sw	a2,496(a0)
+    1fdc:	ac8701f4 	sw	a3,500(a0)
+    1fe0:	00003021 	move	a2,zero
+    1fe4:	00461025 	or	v0,v0,a2
+    1fe8:	8ca600e8 	lw	a2,232(a1)
+    1fec:	8ca700ec 	lw	a3,236(a1)
+    1ff0:	ac8601f8 	sw	a2,504(a0)
+    1ff4:	ac8701fc 	sw	a3,508(a0)
+    1ff8:	00003021 	move	a2,zero
+    1ffc:	00461025 	or	v0,v0,a2
+    2000:	8ca600f0 	lw	a2,240(a1)
+    2004:	8ca700f4 	lw	a3,244(a1)
+    2008:	ac860200 	sw	a2,512(a0)
+    200c:	ac870204 	sw	a3,516(a0)
+    2010:	00003021 	move	a2,zero
+    2014:	00461025 	or	v0,v0,a2
+    2018:	8ca600f8 	lw	a2,248(a1)
+    201c:	8ca700fc 	lw	a3,252(a1)
+    2020:	ac860208 	sw	a2,520(a0)
+    2024:	ac87020c 	sw	a3,524(a0)
+    2028:	00003021 	move	a2,zero
+    202c:	00461025 	or	v0,v0,a2
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:233
+    2030:	8f850398 	lw	a1,920(gp)
+    2034:	00000000 	nop
+    2038:	ac850214 	sw	a1,532(a0)
+    203c:	00002821 	move	a1,zero
+    2040:	00451025 	or	v0,v0,a1
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:236
+    2044:	03e00008 	jr	ra
+    2048:	27bd0010 	addiu	sp,sp,16
+    204c:	00000000 	nop
+Disassembly of section .data:
+Disassembly of section .reginfo:
+
+00000000 <.reginfo>:
+copy_siginfo_to_user():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:43
+   0:	f0ff7ffe 	0xf0ff7ffe
+	...
+Disassembly of section .fixup:
+
+00000000 <.fixup>:
+   0:	08000010 	j	40 <.fixup+0x40>
+			0: R_MIPS_26	.text
+   4:	2406fff2 	li	a2,-14
+   8:	08000014 	j	50 <.fixup+0x50>
+			8: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:46
+   c:	2402fff2 	li	v0,-14
+  10:	08000019 	j	64 <.fixup+0x64>
+			10: R_MIPS_26	.text
+  14:	2402fff2 	li	v0,-14
+  18:	0800001e 	j	78 <.fixup+0x78>
+			18: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:47
+  1c:	2402fff2 	li	v0,-14
+  20:	08000029 	j	a4 <.fixup+0xa4>
+			20: R_MIPS_26	.text
+  24:	2402fff2 	li	v0,-14
+  28:	0800002e 	j	b8 <.fixup+0xb8>
+			28: R_MIPS_26	.text
+  2c:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:56
+  30:	08000033 	j	cc <.fixup+0xcc>
+			30: R_MIPS_26	.text
+  34:	2402fff2 	li	v0,-14
+  38:	08000038 	j	e0 <.fixup+0xe0>
+			38: R_MIPS_26	.text
+  3c:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:57
+  40:	2403fff2 	li	v1,-14
+  44:	08000132 	j	4c8 <.fixup+0x4c8>
+			44: R_MIPS_26	.text
+  48:	00001021 	move	v0,zero
+  4c:	2403fff2 	li	v1,-14
+  50:	08000136 	j	4d8 <.fixup+0x4d8>
+			50: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:58
+  54:	00001021 	move	v0,zero
+  58:	2402fff2 	li	v0,-14
+  5c:	0800013a 	j	4e8 <.fixup+0x4e8>
+			5c: R_MIPS_26	.text
+  60:	00002021 	move	a0,zero
+  64:	2403fff2 	li	v1,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:60
+  68:	0800013d 	j	4f4 <.fixup+0x4f4>
+			68: R_MIPS_26	.text
+  6c:	00001021 	move	v0,zero
+  70:	08000156 	j	558 <.fixup+0x558>
+			70: R_MIPS_26	.text
+  74:	2402fff2 	li	v0,-14
+  78:	0800015b 	j	56c <.fixup+0x56c>
+			78: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:61
+  7c:	2402fff2 	li	v0,-14
+  80:	08000160 	j	580 <.fixup+0x580>
+			80: R_MIPS_26	.text
+  84:	2402fff2 	li	v0,-14
+  88:	08000163 	j	58c <.fixup+0x58c>
+			88: R_MIPS_26	.text
+  8c:	2402fff2 	li	v0,-14
+  90:	08000166 	j	598 <.fixup+0x598>
+			90: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:65
+  94:	2402fff2 	li	v0,-14
+  98:	08000169 	j	5a4 <.fixup+0x5a4>
+			98: R_MIPS_26	.text
+  9c:	2402fff2 	li	v0,-14
+  a0:	0800016e 	j	5b8 <.fixup+0x5b8>
+			a0: R_MIPS_26	.text
+  a4:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:66
+  a8:	2404fff2 	li	a0,-14
+  ac:	00001021 	move	v0,zero
+  b0:	0800018f 	j	63c <.fixup+0x63c>
+			b0: R_MIPS_26	.text
+  b4:	00001821 	move	v1,zero
+  b8:	2404fff2 	li	a0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:67
+  bc:	00001021 	move	v0,zero
+  c0:	08000194 	j	650 <.fixup+0x650>
+			c0: R_MIPS_26	.text
+  c4:	00001821 	move	v1,zero
+  c8:	2404fff2 	li	a0,-14
+  cc:	00001021 	move	v0,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:69
+  d0:	08000199 	j	664 <.fixup+0x664>
+			d0: R_MIPS_26	.text
+  d4:	00001821 	move	v1,zero
+  d8:	2404fff2 	li	a0,-14
+  dc:	00001021 	move	v0,zero
+  e0:	0800019e 	j	678 <.fixup+0x678>
+			e0: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:73
+  e4:	00001821 	move	v1,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:75
+  e8:	2404fff2 	li	a0,-14
+  ec:	00001021 	move	v0,zero
+  f0:	080001a3 	j	68c <.fixup+0x68c>
+			f0: R_MIPS_26	.text
+  f4:	00001821 	move	v1,zero
+  f8:	2404fff2 	li	a0,-14
+  fc:	00001021 	move	v0,zero
+ 100:	080001a8 	j	6a0 <.fixup+0x6a0>
+			100: R_MIPS_26	.text
+ 104:	00001821 	move	v1,zero
+ 108:	2404fff2 	li	a0,-14
+ 10c:	00001021 	move	v0,zero
+ 110:	080001ad 	j	6b4 <.fixup+0x6b4>
+			110: R_MIPS_26	.text
+ 114:	00001821 	move	v1,zero
+ 118:	2404fff2 	li	a0,-14
+_sys_sigsuspend():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:82
+ 11c:	00001021 	move	v0,zero
+ 120:	080001b2 	j	6c8 <.fixup+0x6c8>
+			120: R_MIPS_26	.text
+ 124:	00001821 	move	v1,zero
+ 128:	2404fff2 	li	a0,-14
+ 12c:	00001021 	move	v0,zero
+ 130:	080001b7 	j	6dc <.fixup+0x6dc>
+			130: R_MIPS_26	.text
+ 134:	00001821 	move	v1,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:86
+ 138:	2404fff2 	li	a0,-14
+ 13c:	00001021 	move	v0,zero
+ 140:	080001bc 	j	6f0 <.fixup+0x6f0>
+			140: R_MIPS_26	.text
+ 144:	00001821 	move	v1,zero
+ 148:	2404fff2 	li	a0,-14
+ 14c:	00001021 	move	v0,zero
+ 150:	080001c1 	j	704 <.fixup+0x704>
+			150: R_MIPS_26	.text
+/home/mips/linux-2.4.x/include/linux/signal.h:180
+}
+
+static inline void sigdelsetmask(sigset_t *set, unsigned long mask)
+{
+	set->sig[0] &= ~mask;
+ 154:	00001821 	move	v1,zero
+ 158:	2404fff2 	li	a0,-14
+ 15c:	00001021 	move	v0,zero
+ 160:	080001c6 	j	718 <.fixup+0x718>
+			160: R_MIPS_26	.text
+ 164:	00001821 	move	v1,zero
+ 168:	2404fff2 	li	a0,-14
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+ 16c:	00001021 	move	v0,zero
+ 170:	080001cb 	j	72c <.fixup+0x72c>
+			170: R_MIPS_26	.text
+ 174:	00001821 	move	v1,zero
+ 178:	2404fff2 	li	a0,-14
+ 17c:	00001021 	move	v0,zero
+ 180:	080001d0 	j	740 <.fixup+0x740>
+			180: R_MIPS_26	.text
+ 184:	00001821 	move	v1,zero
+ 188:	2404fff2 	li	a0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:91
+ 18c:	00001021 	move	v0,zero
+ 190:	080001d5 	j	754 <.fixup+0x754>
+			190: R_MIPS_26	.text
+ 194:	00001821 	move	v1,zero
+ 198:	2404fff2 	li	a0,-14
+ 19c:	00001021 	move	v0,zero
+ 1a0:	080001da 	j	768 <.fixup+0x768>
+			1a0: R_MIPS_26	.text
+ 1a4:	00001821 	move	v1,zero
+ 1a8:	2404fff2 	li	a0,-14
+ 1ac:	00001021 	move	v0,zero
+ 1b0:	080001df 	j	77c <restore_sigcontext+0x15c>
+			1b0: R_MIPS_26	.text
+ 1b4:	00001821 	move	v1,zero
+ 1b8:	2404fff2 	li	a0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:92
+ 1bc:	00001021 	move	v0,zero
+ 1c0:	080001e4 	j	790 <restore_sigcontext+0x170>
+			1c0: R_MIPS_26	.text
+ 1c4:	00001821 	move	v1,zero
+ 1c8:	2404fff2 	li	a0,-14
+ 1cc:	00001021 	move	v0,zero
+ 1d0:	080001e9 	j	7a4 <restore_sigcontext+0x184>
+			1d0: R_MIPS_26	.text
+ 1d4:	00001821 	move	v1,zero
+ 1d8:	2404fff2 	li	a0,-14
+ 1dc:	00001021 	move	v0,zero
+ 1e0:	080001ee 	j	7b8 <restore_sigcontext+0x198>
+			1e0: R_MIPS_26	.text
+ 1e4:	00001821 	move	v1,zero
+ 1e8:	2404fff2 	li	a0,-14
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ * Re-calculate pending state from the set of locally pending
+ * signals, globally pending signals, and blocked signals.
+ */
+static inline int has_pending_signals(sigset_t *signal, sigset_t *blocked)
+{
+ 1ec:	00001021 	move	v0,zero
+ 1f0:	080001f3 	j	7cc <restore_sigcontext+0x1ac>
+			1f0: R_MIPS_26	.text
+/home/mips/linux-2.4.x/include/linux/sched.h:715
+	unsigned long ready;
+	long i;
+
+	switch (_NSIG_WORDS) {
+	default:
+		for (i = _NSIG_WORDS, ready = 0; --i >= 0 ;)
+			ready |= signal->sig[i] &~ blocked->sig[i];
+		break;
+
+	case 4: ready  = signal->sig[3] &~ blocked->sig[3];
+ 1f4:	00001821 	move	v1,zero
+ 1f8:	2404fff2 	li	a0,-14
+ 1fc:	00001021 	move	v0,zero
+ 200:	080001f8 	j	7e0 <restore_sigcontext+0x1c0>
+			200: R_MIPS_26	.text
+ 204:	00001821 	move	v1,zero
+ 208:	2404fff2 	li	a0,-14
+/home/mips/linux-2.4.x/include/linux/sched.h:716
+		ready |= signal->sig[2] &~ blocked->sig[2];
+ 20c:	00001021 	move	v0,zero
+ 210:	080001fd 	j	7f4 <restore_sigcontext+0x1d4>
+			210: R_MIPS_26	.text
+ 214:	00001821 	move	v1,zero
+ 218:	2404fff2 	li	a0,-14
+ 21c:	00001021 	move	v0,zero
+ 220:	08000202 	j	808 <restore_sigcontext+0x1e8>
+			220: R_MIPS_26	.text
+ 224:	00001821 	move	v1,zero
+/home/mips/linux-2.4.x/include/linux/sched.h:717
+		ready |= signal->sig[1] &~ blocked->sig[1];
+ 228:	2404fff2 	li	a0,-14
+ 22c:	00001021 	move	v0,zero
+ 230:	08000207 	j	81c <restore_sigcontext+0x1fc>
+			230: R_MIPS_26	.text
+ 234:	00001821 	move	v1,zero
+ 238:	2404fff2 	li	a0,-14
+ 23c:	00001021 	move	v0,zero
+ 240:	0800020c 	j	830 <restore_sigcontext+0x210>
+			240: R_MIPS_26	.text
+/home/mips/linux-2.4.x/include/linux/sched.h:718
+		ready |= signal->sig[0] &~ blocked->sig[0];
+ 244:	00001821 	move	v1,zero
+ 248:	2404fff2 	li	a0,-14
+ 24c:	00001021 	move	v0,zero
+ 250:	08000211 	j	844 <restore_sigcontext+0x224>
+			250: R_MIPS_26	.text
+ 254:	00001821 	move	v1,zero
+ 258:	2404fff2 	li	a0,-14
+ 25c:	00001021 	move	v0,zero
+/home/mips/linux-2.4.x/include/linux/sched.h:726
+		break;
+
+	case 2: ready  = signal->sig[1] &~ blocked->sig[1];
+		ready |= signal->sig[0] &~ blocked->sig[0];
+		break;
+
+	case 1: ready  = signal->sig[0] &~ blocked->sig[0];
+	}
+ 260:	08000216 	j	858 <restore_sigcontext+0x238>
+			260: R_MIPS_26	.text
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ 264:	00001821 	move	v1,zero
+/home/mips/linux-2.4.x/include/asm/system.h:39
+
+extern __inline__ void
+__sti(void)
+{
+	__asm__ __volatile__(
+ 268:	2404fff2 	li	a0,-14
+ 26c:	00001021 	move	v0,zero
+ 270:	0800021b 	j	86c <restore_sigcontext+0x24c>
+			270: R_MIPS_26	.text
+ 274:	00001821 	move	v1,zero
+ 278:	2404fff2 	li	a0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:96
+ 27c:	00001021 	move	v0,zero
+ 280:	08000220 	j	880 <restore_sigcontext+0x260>
+			280: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:97
+ 284:	00001821 	move	v1,zero
+ 288:	2404fff2 	li	a0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:98
+ 28c:	00001021 	move	v0,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:99
+ 290:	08000225 	j	894 <restore_sigcontext+0x274>
+			290: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:100
+ 294:	00001821 	move	v1,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:101
+ 298:	2404fff2 	li	a0,-14
+ 29c:	00001021 	move	v0,zero
+ 2a0:	0800022a 	j	8a8 <restore_sigcontext+0x288>
+			2a0: R_MIPS_26	.text
+ 2a4:	00001821 	move	v1,zero
+ 2a8:	2404fff2 	li	a0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:104
+ 2ac:	00001021 	move	v0,zero
+ 2b0:	0800022f 	j	8bc <restore_sigcontext+0x29c>
+			2b0: R_MIPS_26	.text
+ 2b4:	00001821 	move	v1,zero
+ 2b8:	2404fff2 	li	a0,-14
+ 2bc:	00001021 	move	v0,zero
+ 2c0:	08000234 	j	8d0 <restore_sigcontext+0x2b0>
+			2c0: R_MIPS_26	.text
+ 2c4:	00001821 	move	v1,zero
+ 2c8:	2402fff2 	li	v0,-14
+ 2cc:	08000238 	j	8e0 <restore_sigcontext+0x2c0>
+			2cc: R_MIPS_26	.text
+ 2d0:	00002021 	move	a0,zero
+ 2d4:	2403fff2 	li	v1,-14
+ 2d8:	0800023b 	j	8ec <restore_sigcontext+0x2cc>
+			2d8: R_MIPS_26	.text
+ 2dc:	00001021 	move	v0,zero
+_sys_rt_sigsuspend():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:108
+ 2e0:	2402fff2 	li	v0,-14
+ 2e4:	00003021 	move	a2,zero
+ 2e8:	080004a3 	j	128c <restore_thread_fp_context+0x14>
+			2e8: R_MIPS_26	.text
+ 2ec:	00003821 	move	a3,zero
+ 2f0:	2405fff2 	li	a1,-14
+ 2f4:	00003021 	move	a2,zero
+ 2f8:	080004a8 	j	12a0 <restore_thread_fp_context+0x28>
+			2f8: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:114
+ 2fc:	00003821 	move	a3,zero
+ 300:	2405fff2 	li	a1,-14
+ 304:	00003021 	move	a2,zero
+ 308:	080004ae 	j	12b8 <restore_thread_fp_context+0x40>
+			308: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:118
+ 30c:	00003821 	move	a3,zero
+ 310:	2405fff2 	li	a1,-14
+ 314:	00003021 	move	a2,zero
+ 318:	080004b4 	j	12d0 <restore_thread_fp_context+0x58>
+			318: R_MIPS_26	.text
+ 31c:	00003821 	move	a3,zero
+ 320:	2405fff2 	li	a1,-14
+ 324:	00003021 	move	a2,zero
+/home/mips/linux-2.4.x/include/linux/signal.h:180
+}
+
+static inline void sigdelsetmask(sigset_t *set, unsigned long mask)
+{
+	set->sig[0] &= ~mask;
+ 328:	080004ba 	j	12e8 <restore_thread_fp_context+0x70>
+			328: R_MIPS_26	.text
+ 32c:	00003821 	move	a3,zero
+ 330:	2405fff2 	li	a1,-14
+ 334:	00003021 	move	a2,zero
+ 338:	080004c0 	j	1300 <restore_thread_fp_context+0x88>
+			338: R_MIPS_26	.text
+ 33c:	00003821 	move	a3,zero
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+ 340:	2405fff2 	li	a1,-14
+ 344:	00003021 	move	a2,zero
+ 348:	080004c6 	j	1318 <restore_thread_fp_context+0xa0>
+			348: R_MIPS_26	.text
+ 34c:	00003821 	move	a3,zero
+ 350:	2405fff2 	li	a1,-14
+ 354:	00003021 	move	a2,zero
+ 358:	080004cc 	j	1330 <restore_thread_fp_context+0xb8>
+			358: R_MIPS_26	.text
+ 35c:	00003821 	move	a3,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:123
+ 360:	2405fff2 	li	a1,-14
+ 364:	00003021 	move	a2,zero
+ 368:	080004d2 	j	1348 <restore_thread_fp_context+0xd0>
+			368: R_MIPS_26	.text
+ 36c:	00003821 	move	a3,zero
+ 370:	2405fff2 	li	a1,-14
+ 374:	00003021 	move	a2,zero
+ 378:	080004d8 	j	1360 <restore_thread_fp_context+0xe8>
+			378: R_MIPS_26	.text
+ 37c:	00003821 	move	a3,zero
+ 380:	2405fff2 	li	a1,-14
+ 384:	00003021 	move	a2,zero
+ 388:	080004de 	j	1378 <restore_thread_fp_context+0x100>
+			388: R_MIPS_26	.text
+ 38c:	00003821 	move	a3,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:124
+ 390:	2405fff2 	li	a1,-14
+ 394:	00003021 	move	a2,zero
+ 398:	080004e4 	j	1390 <restore_thread_fp_context+0x118>
+			398: R_MIPS_26	.text
+ 39c:	00003821 	move	a3,zero
+ 3a0:	2405fff2 	li	a1,-14
+ 3a4:	00003021 	move	a2,zero
+ 3a8:	080004ea 	j	13a8 <restore_thread_fp_context+0x130>
+			3a8: R_MIPS_26	.text
+ 3ac:	00003821 	move	a3,zero
+ 3b0:	2405fff2 	li	a1,-14
+ 3b4:	00003021 	move	a2,zero
+ 3b8:	080004f0 	j	13c0 <restore_thread_fp_context+0x148>
+			3b8: R_MIPS_26	.text
+ 3bc:	00003821 	move	a3,zero
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ * Re-calculate pending state from the set of locally pending
+ * signals, globally pending signals, and blocked signals.
+ */
+static inline int has_pending_signals(sigset_t *signal, sigset_t *blocked)
+{
+ 3c0:	2405fff2 	li	a1,-14
+ 3c4:	00003021 	move	a2,zero
+/home/mips/linux-2.4.x/include/linux/sched.h:715
+	unsigned long ready;
+	long i;
+
+	switch (_NSIG_WORDS) {
+	default:
+		for (i = _NSIG_WORDS, ready = 0; --i >= 0 ;)
+			ready |= signal->sig[i] &~ blocked->sig[i];
+		break;
+
+	case 4: ready  = signal->sig[3] &~ blocked->sig[3];
+ 3c8:	080004f6 	j	13d8 <restore_thread_fp_context+0x160>
+			3c8: R_MIPS_26	.text
+ 3cc:	00003821 	move	a3,zero
+ 3d0:	2405fff2 	li	a1,-14
+ 3d4:	00003021 	move	a2,zero
+ 3d8:	080004fc 	j	13f0 <restore_thread_fp_context+0x178>
+			3d8: R_MIPS_26	.text
+ 3dc:	00003821 	move	a3,zero
+/home/mips/linux-2.4.x/include/linux/sched.h:716
+		ready |= signal->sig[2] &~ blocked->sig[2];
+ 3e0:	2405fff2 	li	a1,-14
+ 3e4:	00003021 	move	a2,zero
+ 3e8:	08000502 	j	1408 <restore_thread_fp_context+0x190>
+			3e8: R_MIPS_26	.text
+ 3ec:	00003821 	move	a3,zero
+ 3f0:	2405fff2 	li	a1,-14
+ 3f4:	00003021 	move	a2,zero
+ 3f8:	08000508 	j	1420 <restore_thread_fp_context+0x1a8>
+			3f8: R_MIPS_26	.text
+/home/mips/linux-2.4.x/include/linux/sched.h:717
+		ready |= signal->sig[1] &~ blocked->sig[1];
+ 3fc:	00003821 	move	a3,zero
+ 400:	2405fff2 	li	a1,-14
+ 404:	00003021 	move	a2,zero
+ 408:	0800050e 	j	1438 <restore_thread_fp_context+0x1c0>
+			408: R_MIPS_26	.text
+ 40c:	00003821 	move	a3,zero
+ 410:	2405fff2 	li	a1,-14
+ 414:	00003021 	move	a2,zero
+/home/mips/linux-2.4.x/include/linux/sched.h:718
+		ready |= signal->sig[0] &~ blocked->sig[0];
+ 418:	08000514 	j	1450 <restore_thread_fp_context+0x1d8>
+			418: R_MIPS_26	.text
+ 41c:	00003821 	move	a3,zero
+ 420:	2405fff2 	li	a1,-14
+ 424:	00003021 	move	a2,zero
+ 428:	0800051a 	j	1468 <restore_thread_fp_context+0x1f0>
+			428: R_MIPS_26	.text
+ 42c:	00003821 	move	a3,zero
+ 430:	2405fff2 	li	a1,-14
+/home/mips/linux-2.4.x/include/linux/sched.h:726
+		break;
+
+	case 2: ready  = signal->sig[1] &~ blocked->sig[1];
+		ready |= signal->sig[0] &~ blocked->sig[0];
+		break;
+
+	case 1: ready  = signal->sig[0] &~ blocked->sig[0];
+	}
+ 434:	00003021 	move	a2,zero
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ 438:	08000520 	j	1480 <restore_thread_fp_context+0x208>
+			438: R_MIPS_26	.text
+/home/mips/linux-2.4.x/include/asm/system.h:39
+
+extern __inline__ void
+__sti(void)
+{
+	__asm__ __volatile__(
+ 43c:	00003821 	move	a3,zero
+ 440:	2405fff2 	li	a1,-14
+ 444:	00003021 	move	a2,zero
+ 448:	08000526 	j	1498 <restore_thread_fp_context+0x220>
+			448: R_MIPS_26	.text
+ 44c:	00003821 	move	a3,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:128
+ 450:	2405fff2 	li	a1,-14
+ 454:	00003021 	move	a2,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:129
+ 458:	0800052c 	j	14b0 <restore_thread_fp_context+0x238>
+			458: R_MIPS_26	.text
+ 45c:	00003821 	move	a3,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:130
+ 460:	2405fff2 	li	a1,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:131
+ 464:	00003021 	move	a2,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:132
+ 468:	08000532 	j	14c8 <restore_thread_fp_context+0x250>
+			468: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:133
+ 46c:	00003821 	move	a3,zero
+ 470:	2405fff2 	li	a1,-14
+ 474:	00003021 	move	a2,zero
+ 478:	08000538 	j	14e0 <restore_thread_fp_context+0x268>
+			478: R_MIPS_26	.text
+ 47c:	00003821 	move	a3,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:136
+ 480:	2405fff2 	li	a1,-14
+ 484:	00003021 	move	a2,zero
+ 488:	0800053e 	j	14f8 <restore_thread_fp_context+0x280>
+			488: R_MIPS_26	.text
+ 48c:	00003821 	move	a3,zero
+ 490:	2405fff2 	li	a1,-14
+sys_sigaction():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:140
+ 494:	00003021 	move	a2,zero
+ 498:	08000544 	j	1510 <restore_thread_fp_context+0x298>
+			498: R_MIPS_26	.text
+ 49c:	00003821 	move	a3,zero
+ 4a0:	2405fff2 	li	a1,-14
+ 4a4:	00003021 	move	a2,zero
+ 4a8:	0800054a 	j	1528 <restore_thread_fp_context+0x2b0>
+			4a8: R_MIPS_26	.text
+ 4ac:	00003821 	move	a3,zero
+ 4b0:	2405fff2 	li	a1,-14
+ 4b4:	00003021 	move	a2,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:145
+ 4b8:	08000550 	j	1540 <restore_thread_fp_context+0x2c8>
+			4b8: R_MIPS_26	.text
+ 4bc:	00003821 	move	a3,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:150
+ 4c0:	2405fff2 	li	a1,-14
+ 4c4:	00003021 	move	a2,zero
+ 4c8:	08000556 	j	1558 <restore_thread_fp_context+0x2e0>
+			4c8: R_MIPS_26	.text
+ 4cc:	00003821 	move	a3,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:151
+ 4d0:	2405fff2 	li	a1,-14
+ 4d4:	00003021 	move	a2,zero
+ 4d8:	0800055c 	j	1570 <restore_thread_fp_context+0x2f8>
+			4d8: R_MIPS_26	.text
+ 4dc:	00003821 	move	a3,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:152
+ 4e0:	2404fff2 	li	a0,-14
+ 4e4:	08000561 	j	1584 <restore_thread_fp_context+0x30c>
+			4e4: R_MIPS_26	.text
+ 4e8:	00001821 	move	v1,zero
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:153
+ 4ec:	08000594 	j	1650 <setup_frame+0xbc>
+			4ec: R_MIPS_26	.text
+ 4f0:	2402fff2 	li	v0,-14
+ 4f4:	08000598 	j	1660 <setup_frame+0xcc>
+			4f4: R_MIPS_26	.text
+ 4f8:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:154
+ 4fc:	080005f2 	j	17c8 <setup_rt_frame+0xb8>
+			4fc: R_MIPS_26	.text
+ 500:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/include/linux/signal.h:190
+}
+
+static inline void siginitset(sigset_t *set, unsigned long mask)
+{
+	set->sig[0] = mask;
+ 504:	080005f6 	j	17d8 <setup_rt_frame+0xc8>
+			504: R_MIPS_26	.text
+/home/mips/linux-2.4.x/include/linux/signal.h:193
+	switch (_NSIG_WORDS) {
+	default:
+		memset(&set->sig[1], 0, sizeof(long)*(_NSIG_WORDS-1));
+ 508:	2402fff2 	li	v0,-14
+ 50c:	08000603 	j	180c <setup_rt_frame+0xfc>
+			50c: R_MIPS_26	.text
+ 510:	2403fff2 	li	v1,-14
+ 514:	08000606 	j	1818 <setup_rt_frame+0x108>
+			514: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:160
+ 518:	2402fff2 	li	v0,-14
+ 51c:	0800060b 	j	182c <setup_rt_frame+0x11c>
+			51c: R_MIPS_26	.text
+ 520:	2402fff2 	li	v0,-14
+ 524:	0800061a 	j	1868 <setup_rt_frame+0x158>
+			524: R_MIPS_26	.text
+ 528:	2402fff2 	li	v0,-14
+ 52c:	0800061f 	j	187c <setup_rt_frame+0x16c>
+			52c: R_MIPS_26	.text
+ 530:	2402fff2 	li	v0,-14
+ 534:	0800064e 	j	1938 <setup_sigcontext+0x20>
+			534: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:162
+ 538:	2410fff2 	li	s0,-14
+ 53c:	08000652 	j	1948 <setup_sigcontext+0x30>
+			53c: R_MIPS_26	.text
+ 540:	2402fff2 	li	v0,-14
+ 544:	08000658 	j	1960 <setup_sigcontext+0x48>
+			544: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:165
+ 548:	2402fff2 	li	v0,-14
+ 54c:	0800065e 	j	1978 <setup_sigcontext+0x60>
+			54c: R_MIPS_26	.text
+ 550:	2402fff2 	li	v0,-14
+ 554:	08000664 	j	1990 <setup_sigcontext+0x78>
+			554: R_MIPS_26	.text
+ 558:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:166
+ 55c:	0800066a 	j	19a8 <setup_sigcontext+0x90>
+			55c: R_MIPS_26	.text
+ 560:	2402fff2 	li	v0,-14
+ 564:	08000670 	j	19c0 <setup_sigcontext+0xa8>
+			564: R_MIPS_26	.text
+ 568:	2402fff2 	li	v0,-14
+ 56c:	08000676 	j	19d8 <setup_sigcontext+0xc0>
+			56c: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:167
+ 570:	2402fff2 	li	v0,-14
+ 574:	0800067c 	j	19f0 <setup_sigcontext+0xd8>
+			574: R_MIPS_26	.text
+ 578:	2402fff2 	li	v0,-14
+ 57c:	08000682 	j	1a08 <setup_sigcontext+0xf0>
+			57c: R_MIPS_26	.text
+ 580:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:168
+ 584:	08000688 	j	1a20 <setup_sigcontext+0x108>
+			584: R_MIPS_26	.text
+ 588:	2402fff2 	li	v0,-14
+ 58c:	0800068e 	j	1a38 <setup_sigcontext+0x120>
+			58c: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:169
+ 590:	2402fff2 	li	v0,-14
+ 594:	08000694 	j	1a50 <setup_sigcontext+0x138>
+			594: R_MIPS_26	.text
+ 598:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:170
+ 59c:	0800069a 	j	1a68 <setup_sigcontext+0x150>
+			59c: R_MIPS_26	.text
+ 5a0:	2402fff2 	li	v0,-14
+ 5a4:	080006a0 	j	1a80 <setup_sigcontext+0x168>
+			5a4: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:171
+ 5a8:	2402fff2 	li	v0,-14
+ 5ac:	080006a6 	j	1a98 <setup_sigcontext+0x180>
+			5ac: R_MIPS_26	.text
+ 5b0:	2402fff2 	li	v0,-14
+ 5b4:	080006ac 	j	1ab0 <setup_sigcontext+0x198>
+			5b4: R_MIPS_26	.text
+ 5b8:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:172
+ 5bc:	080006b2 	j	1ac8 <setup_sigcontext+0x1b0>
+			5bc: R_MIPS_26	.text
+ 5c0:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:176
+ 5c4:	080006b8 	j	1ae0 <setup_sigcontext+0x1c8>
+			5c4: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:177
+ 5c8:	2402fff2 	li	v0,-14
+ 5cc:	080006be 	j	1af8 <setup_sigcontext+0x1e0>
+			5cc: R_MIPS_26	.text
+ 5d0:	2402fff2 	li	v0,-14
+ 5d4:	080006c4 	j	1b10 <setup_sigcontext+0x1f8>
+			5d4: R_MIPS_26	.text
+ 5d8:	2402fff2 	li	v0,-14
+ 5dc:	080006ca 	j	1b28 <setup_sigcontext+0x210>
+			5dc: R_MIPS_26	.text
+ 5e0:	2402fff2 	li	v0,-14
+sys_sigaltstack():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:180
+ 5e4:	080006d0 	j	1b40 <setup_sigcontext+0x228>
+			5e4: R_MIPS_26	.text
+ 5e8:	2402fff2 	li	v0,-14
+ 5ec:	080006d6 	j	1b58 <setup_sigcontext+0x240>
+			5ec: R_MIPS_26	.text
+ 5f0:	2402fff2 	li	v0,-14
+ 5f4:	080006dc 	j	1b70 <setup_sigcontext+0x258>
+			5f4: R_MIPS_26	.text
+ 5f8:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:185
+ 5fc:	080006e2 	j	1b88 <setup_sigcontext+0x270>
+			5fc: R_MIPS_26	.text
+ 600:	2402fff2 	li	v0,-14
+ 604:	080006e8 	j	1ba0 <setup_sigcontext+0x288>
+			604: R_MIPS_26	.text
+ 608:	2402fff2 	li	v0,-14
+ 60c:	080006ee 	j	1bb8 <setup_sigcontext+0x2a0>
+			60c: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:186
+ 610:	2402fff2 	li	v0,-14
+ 614:	080006f4 	j	1bd0 <setup_sigcontext+0x2b8>
+			614: R_MIPS_26	.text
+ 618:	2402fff2 	li	v0,-14
+ 61c:	080006fa 	j	1be8 <setup_sigcontext+0x2d0>
+			61c: R_MIPS_26	.text
+restore_sigcontext():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:239
+ 620:	2402fff2 	li	v0,-14
+ 624:	08000700 	j	1c00 <setup_sigcontext+0x2e8>
+			624: R_MIPS_26	.text
+ 628:	2402fff2 	li	v0,-14
+ 62c:	08000706 	j	1c18 <setup_sigcontext+0x300>
+			62c: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:244
+ 630:	2402fff2 	li	v0,-14
+ 634:	0800070c 	j	1c30 <setup_sigcontext+0x318>
+			634: R_MIPS_26	.text
+ 638:	2402fff2 	li	v0,-14
+ 63c:	08000712 	j	1c48 <setup_sigcontext+0x330>
+			63c: R_MIPS_26	.text
+ 640:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:246
+ 644:	08000718 	j	1c60 <setup_sigcontext+0x348>
+			644: R_MIPS_26	.text
+ 648:	2402fff2 	li	v0,-14
+ 64c:	0800071e 	j	1c78 <setup_sigcontext+0x360>
+			64c: R_MIPS_26	.text
+ 650:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:247
+ 654:	08000723 	j	1c8c <setup_sigcontext+0x374>
+			654: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:248
+ 658:	2402fff2 	li	v0,-14
+ 65c:	08000728 	j	1ca0 <setup_sigcontext+0x388>
+			65c: R_MIPS_26	.text
+ 660:	2402fff2 	li	v0,-14
+ 664:	08000730 	j	1cc0 <setup_sigcontext+0x3a8>
+			664: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:249
+ 668:	2402fff2 	li	v0,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:255
+ 66c:	08000735 	j	1cd4 <setup_sigcontext+0x3bc>
+			66c: R_MIPS_26	.text
+ 670:	2402fff2 	li	v0,-14
+ 674:	08000752 	j	1d48 <save_thread_fp_context+0x1c>
+			674: R_MIPS_26	.text
+ 678:	2402fff2 	li	v0,-14
+ 67c:	08000757 	j	1d5c <save_thread_fp_context+0x30>
+			67c: R_MIPS_26	.text
+ 680:	2406fff2 	li	a2,-14
+ 684:	0800075d 	j	1d74 <save_thread_fp_context+0x48>
+			684: R_MIPS_26	.text
+ 688:	2406fff2 	li	a2,-14
+ 68c:	08000763 	j	1d8c <save_thread_fp_context+0x60>
+			68c: R_MIPS_26	.text
+ 690:	2406fff2 	li	a2,-14
+ 694:	08000769 	j	1da4 <save_thread_fp_context+0x78>
+			694: R_MIPS_26	.text
+ 698:	2406fff2 	li	a2,-14
+ 69c:	0800076f 	j	1dbc <save_thread_fp_context+0x90>
+			69c: R_MIPS_26	.text
+ 6a0:	2406fff2 	li	a2,-14
+ 6a4:	08000775 	j	1dd4 <save_thread_fp_context+0xa8>
+			6a4: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:256
+ 6a8:	2406fff2 	li	a2,-14
+ 6ac:	0800077b 	j	1dec <save_thread_fp_context+0xc0>
+			6ac: R_MIPS_26	.text
+ 6b0:	2406fff2 	li	a2,-14
+ 6b4:	08000781 	j	1e04 <save_thread_fp_context+0xd8>
+			6b4: R_MIPS_26	.text
+ 6b8:	2406fff2 	li	a2,-14
+ 6bc:	08000787 	j	1e1c <save_thread_fp_context+0xf0>
+			6bc: R_MIPS_26	.text
+ 6c0:	2406fff2 	li	a2,-14
+ 6c4:	0800078d 	j	1e34 <save_thread_fp_context+0x108>
+			6c4: R_MIPS_26	.text
+ 6c8:	2406fff2 	li	a2,-14
+ 6cc:	08000793 	j	1e4c <save_thread_fp_context+0x120>
+			6cc: R_MIPS_26	.text
+ 6d0:	2406fff2 	li	a2,-14
+ 6d4:	08000799 	j	1e64 <save_thread_fp_context+0x138>
+			6d4: R_MIPS_26	.text
+ 6d8:	2406fff2 	li	a2,-14
+ 6dc:	0800079f 	j	1e7c <save_thread_fp_context+0x150>
+			6dc: R_MIPS_26	.text
+ 6e0:	2406fff2 	li	a2,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:257
+ 6e4:	080007a5 	j	1e94 <save_thread_fp_context+0x168>
+			6e4: R_MIPS_26	.text
+ 6e8:	2406fff2 	li	a2,-14
+ 6ec:	080007ab 	j	1eac <save_thread_fp_context+0x180>
+			6ec: R_MIPS_26	.text
+ 6f0:	2406fff2 	li	a2,-14
+ 6f4:	080007b1 	j	1ec4 <save_thread_fp_context+0x198>
+			6f4: R_MIPS_26	.text
+ 6f8:	2406fff2 	li	a2,-14
+ 6fc:	080007b7 	j	1edc <save_thread_fp_context+0x1b0>
+			6fc: R_MIPS_26	.text
+ 700:	2406fff2 	li	a2,-14
+ 704:	080007bd 	j	1ef4 <save_thread_fp_context+0x1c8>
+			704: R_MIPS_26	.text
+ 708:	2406fff2 	li	a2,-14
+ 70c:	080007c3 	j	1f0c <save_thread_fp_context+0x1e0>
+			70c: R_MIPS_26	.text
+ 710:	2406fff2 	li	a2,-14
+ 714:	080007c9 	j	1f24 <save_thread_fp_context+0x1f8>
+			714: R_MIPS_26	.text
+ 718:	2406fff2 	li	a2,-14
+ 71c:	080007cf 	j	1f3c <save_thread_fp_context+0x210>
+			71c: R_MIPS_26	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:258
+ 720:	2406fff2 	li	a2,-14
+ 724:	080007d5 	j	1f54 <save_thread_fp_context+0x228>
+			724: R_MIPS_26	.text
+ 728:	2406fff2 	li	a2,-14
+ 72c:	080007db 	j	1f6c <save_thread_fp_context+0x240>
+			72c: R_MIPS_26	.text
+ 730:	2406fff2 	li	a2,-14
+ 734:	080007e1 	j	1f84 <save_thread_fp_context+0x258>
+			734: R_MIPS_26	.text
+ 738:	2406fff2 	li	a2,-14
+ 73c:	080007e7 	j	1f9c <save_thread_fp_context+0x270>
+			73c: R_MIPS_26	.text
+ 740:	2406fff2 	li	a2,-14
+ 744:	080007ed 	j	1fb4 <save_thread_fp_context+0x288>
+			744: R_MIPS_26	.text
+ 748:	2406fff2 	li	a2,-14
+ 74c:	080007f3 	j	1fcc <save_thread_fp_context+0x2a0>
+			74c: R_MIPS_26	.text
+ 750:	2406fff2 	li	a2,-14
+ 754:	080007f9 	j	1fe4 <save_thread_fp_context+0x2b8>
+			754: R_MIPS_26	.text
+ 758:	2406fff2 	li	a2,-14
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:259
+ 75c:	080007ff 	j	1ffc <save_thread_fp_context+0x2d0>
+			75c: R_MIPS_26	.text
+ 760:	2406fff2 	li	a2,-14
+ 764:	08000805 	j	2014 <save_thread_fp_context+0x2e8>
+			764: R_MIPS_26	.text
+ 768:	2406fff2 	li	a2,-14
+ 76c:	0800080b 	j	202c <save_thread_fp_context+0x300>
+			76c: R_MIPS_26	.text
+ 770:	2406fff2 	li	a2,-14
+ 774:	08000810 	j	2040 <save_thread_fp_context+0x314>
+			774: R_MIPS_26	.text
+ 778:	2405fff2 	li	a1,-14
+Disassembly of section __ex_table:
+
+00000000 <__ex_table>:
+copy_siginfo_to_user():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:43
+   0:	00000038 	0x38
+			0: R_MIPS_32	.text
+   4:	00000000 	nop
+			4: R_MIPS_32	.fixup
+   8:	00000048 	0x48
+			8: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:46
+   c:	00000008 	jr	zero
+			c: R_MIPS_32	.fixup
+  10:	0000005c 	0x5c
+			10: R_MIPS_32	.text
+  14:	00000010 	mfhi	zero
+			14: R_MIPS_32	.fixup
+  18:	00000070 	0x70
+			18: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:47
+  1c:	00000018 	mult	zero,zero
+			1c: R_MIPS_32	.fixup
+  20:	0000009c 	0x9c
+			20: R_MIPS_32	.text
+  24:	00000020 	add	zero,zero,zero
+			24: R_MIPS_32	.fixup
+  28:	000000b0 	0xb0
+			28: R_MIPS_32	.text
+  2c:	00000028 	0x28
+			2c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:56
+  30:	000000c4 	0xc4
+			30: R_MIPS_32	.text
+  34:	00000030 	0x30
+			34: R_MIPS_32	.fixup
+  38:	000000d8 	0xd8
+			38: R_MIPS_32	.text
+  3c:	00000038 	0x38
+			3c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:57
+  40:	000004c0 	sll	zero,zero,0x13
+			40: R_MIPS_32	.text
+  44:	00000040 	sll	zero,zero,0x1
+			44: R_MIPS_32	.fixup
+  48:	000004d0 	0x4d0
+			48: R_MIPS_32	.text
+  4c:	0000004c 	syscall	0x1
+			4c: R_MIPS_32	.fixup
+  50:	000004e0 	0x4e0
+			50: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:58
+  54:	00000058 	0x58
+			54: R_MIPS_32	.fixup
+  58:	000004ec 	0x4ec
+			58: R_MIPS_32	.text
+  5c:	00000064 	0x64
+			5c: R_MIPS_32	.fixup
+  60:	00000550 	0x550
+			60: R_MIPS_32	.text
+  64:	00000070 	0x70
+			64: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:60
+  68:	00000564 	0x564
+			68: R_MIPS_32	.text
+  6c:	00000078 	0x78
+			6c: R_MIPS_32	.fixup
+  70:	00000578 	0x578
+			70: R_MIPS_32	.text
+  74:	00000080 	sll	zero,zero,0x2
+			74: R_MIPS_32	.fixup
+  78:	00000584 	0x584
+			78: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:61
+  7c:	00000088 	0x88
+			7c: R_MIPS_32	.fixup
+  80:	00000590 	0x590
+			80: R_MIPS_32	.text
+  84:	00000090 	0x90
+			84: R_MIPS_32	.fixup
+  88:	0000059c 	0x59c
+			88: R_MIPS_32	.text
+  8c:	00000098 	0x98
+			8c: R_MIPS_32	.fixup
+  90:	000005b0 	0x5b0
+			90: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:65
+  94:	000000a0 	0xa0
+			94: R_MIPS_32	.fixup
+  98:	00000630 	0x630
+			98: R_MIPS_32	.text
+  9c:	000000a8 	0xa8
+			9c: R_MIPS_32	.fixup
+  a0:	00000634 	0x634
+			a0: R_MIPS_32	.text
+  a4:	000000a8 	0xa8
+			a4: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:66
+  a8:	00000644 	0x644
+			a8: R_MIPS_32	.text
+  ac:	000000b8 	0xb8
+			ac: R_MIPS_32	.fixup
+  b0:	00000648 	0x648
+			b0: R_MIPS_32	.text
+  b4:	000000b8 	0xb8
+			b4: R_MIPS_32	.fixup
+  b8:	00000658 	0x658
+			b8: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:67
+  bc:	000000c8 	0xc8
+			bc: R_MIPS_32	.fixup
+  c0:	0000065c 	0x65c
+			c0: R_MIPS_32	.text
+  c4:	000000c8 	0xc8
+			c4: R_MIPS_32	.fixup
+  c8:	0000066c 	0x66c
+			c8: R_MIPS_32	.text
+  cc:	000000d8 	0xd8
+			cc: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:69
+  d0:	00000670 	0x670
+			d0: R_MIPS_32	.text
+  d4:	000000d8 	0xd8
+			d4: R_MIPS_32	.fixup
+  d8:	00000680 	sll	zero,zero,0x1a
+			d8: R_MIPS_32	.text
+  dc:	000000e8 	0xe8
+			dc: R_MIPS_32	.fixup
+  e0:	00000684 	0x684
+			e0: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:73
+  e4:	000000e8 	0xe8
+			e4: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:75
+  e8:	00000694 	0x694
+			e8: R_MIPS_32	.text
+  ec:	000000f8 	0xf8
+			ec: R_MIPS_32	.fixup
+  f0:	00000698 	0x698
+			f0: R_MIPS_32	.text
+  f4:	000000f8 	0xf8
+			f4: R_MIPS_32	.fixup
+  f8:	000006a8 	0x6a8
+			f8: R_MIPS_32	.text
+  fc:	00000108 	0x108
+			fc: R_MIPS_32	.fixup
+ 100:	000006ac 	0x6ac
+			100: R_MIPS_32	.text
+ 104:	00000108 	0x108
+			104: R_MIPS_32	.fixup
+ 108:	000006bc 	0x6bc
+			108: R_MIPS_32	.text
+ 10c:	00000118 	0x118
+			10c: R_MIPS_32	.fixup
+ 110:	000006c0 	sll	zero,zero,0x1b
+			110: R_MIPS_32	.text
+ 114:	00000118 	0x118
+			114: R_MIPS_32	.fixup
+ 118:	000006d0 	0x6d0
+			118: R_MIPS_32	.text
+_sys_sigsuspend():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:82
+ 11c:	00000128 	0x128
+			11c: R_MIPS_32	.fixup
+ 120:	000006d4 	0x6d4
+			120: R_MIPS_32	.text
+ 124:	00000128 	0x128
+			124: R_MIPS_32	.fixup
+ 128:	000006e4 	0x6e4
+			128: R_MIPS_32	.text
+ 12c:	00000138 	0x138
+			12c: R_MIPS_32	.fixup
+ 130:	000006e8 	0x6e8
+			130: R_MIPS_32	.text
+ 134:	00000138 	0x138
+			134: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:86
+ 138:	000006f8 	0x6f8
+			138: R_MIPS_32	.text
+ 13c:	00000148 	0x148
+			13c: R_MIPS_32	.fixup
+ 140:	000006fc 	0x6fc
+			140: R_MIPS_32	.text
+ 144:	00000148 	0x148
+			144: R_MIPS_32	.fixup
+ 148:	0000070c 	syscall	0x1c
+			148: R_MIPS_32	.text
+ 14c:	00000158 	0x158
+			14c: R_MIPS_32	.fixup
+ 150:	00000710 	0x710
+			150: R_MIPS_32	.text
+/home/mips/linux-2.4.x/include/linux/signal.h:180
+}
+
+static inline void sigdelsetmask(sigset_t *set, unsigned long mask)
+{
+	set->sig[0] &= ~mask;
+ 154:	00000158 	0x158
+			154: R_MIPS_32	.fixup
+ 158:	00000720 	0x720
+			158: R_MIPS_32	.text
+ 15c:	00000168 	0x168
+			15c: R_MIPS_32	.fixup
+ 160:	00000724 	0x724
+			160: R_MIPS_32	.text
+ 164:	00000168 	0x168
+			164: R_MIPS_32	.fixup
+ 168:	00000734 	0x734
+			168: R_MIPS_32	.text
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+ 16c:	00000178 	0x178
+			16c: R_MIPS_32	.fixup
+ 170:	00000738 	0x738
+			170: R_MIPS_32	.text
+ 174:	00000178 	0x178
+			174: R_MIPS_32	.fixup
+ 178:	00000748 	0x748
+			178: R_MIPS_32	.text
+ 17c:	00000188 	0x188
+			17c: R_MIPS_32	.fixup
+ 180:	0000074c 	syscall	0x1d
+			180: R_MIPS_32	.text
+ 184:	00000188 	0x188
+			184: R_MIPS_32	.fixup
+ 188:	0000075c 	0x75c
+			188: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:91
+ 18c:	00000198 	0x198
+			18c: R_MIPS_32	.fixup
+ 190:	00000760 	0x760
+			190: R_MIPS_32	.text
+ 194:	00000198 	0x198
+			194: R_MIPS_32	.fixup
+ 198:	00000770 	0x770
+			198: R_MIPS_32	.text
+ 19c:	000001a8 	0x1a8
+			19c: R_MIPS_32	.fixup
+ 1a0:	00000774 	0x774
+			1a0: R_MIPS_32	.text
+ 1a4:	000001a8 	0x1a8
+			1a4: R_MIPS_32	.fixup
+ 1a8:	00000784 	0x784
+			1a8: R_MIPS_32	.text
+ 1ac:	000001b8 	0x1b8
+			1ac: R_MIPS_32	.fixup
+ 1b0:	00000788 	0x788
+			1b0: R_MIPS_32	.text
+ 1b4:	000001b8 	0x1b8
+			1b4: R_MIPS_32	.fixup
+ 1b8:	00000798 	0x798
+			1b8: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:92
+ 1bc:	000001c8 	0x1c8
+			1bc: R_MIPS_32	.fixup
+ 1c0:	0000079c 	0x79c
+			1c0: R_MIPS_32	.text
+ 1c4:	000001c8 	0x1c8
+			1c4: R_MIPS_32	.fixup
+ 1c8:	000007ac 	0x7ac
+			1c8: R_MIPS_32	.text
+ 1cc:	000001d8 	0x1d8
+			1cc: R_MIPS_32	.fixup
+ 1d0:	000007b0 	0x7b0
+			1d0: R_MIPS_32	.text
+ 1d4:	000001d8 	0x1d8
+			1d4: R_MIPS_32	.fixup
+ 1d8:	000007c0 	sll	zero,zero,0x1f
+			1d8: R_MIPS_32	.text
+ 1dc:	000001e8 	0x1e8
+			1dc: R_MIPS_32	.fixup
+ 1e0:	000007c4 	0x7c4
+			1e0: R_MIPS_32	.text
+ 1e4:	000001e8 	0x1e8
+			1e4: R_MIPS_32	.fixup
+ 1e8:	000007d4 	0x7d4
+			1e8: R_MIPS_32	.text
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ * Re-calculate pending state from the set of locally pending
+ * signals, globally pending signals, and blocked signals.
+ */
+static inline int has_pending_signals(sigset_t *signal, sigset_t *blocked)
+{
+ 1ec:	000001f8 	0x1f8
+			1ec: R_MIPS_32	.fixup
+ 1f0:	000007d8 	0x7d8
+			1f0: R_MIPS_32	.text
+/home/mips/linux-2.4.x/include/linux/sched.h:715
+	unsigned long ready;
+	long i;
+
+	switch (_NSIG_WORDS) {
+	default:
+		for (i = _NSIG_WORDS, ready = 0; --i >= 0 ;)
+			ready |= signal->sig[i] &~ blocked->sig[i];
+		break;
+
+	case 4: ready  = signal->sig[3] &~ blocked->sig[3];
+ 1f4:	000001f8 	0x1f8
+			1f4: R_MIPS_32	.fixup
+ 1f8:	000007e8 	0x7e8
+			1f8: R_MIPS_32	.text
+ 1fc:	00000208 	0x208
+			1fc: R_MIPS_32	.fixup
+ 200:	000007ec 	0x7ec
+			200: R_MIPS_32	.text
+ 204:	00000208 	0x208
+			204: R_MIPS_32	.fixup
+ 208:	000007fc 	0x7fc
+			208: R_MIPS_32	.text
+/home/mips/linux-2.4.x/include/linux/sched.h:716
+		ready |= signal->sig[2] &~ blocked->sig[2];
+ 20c:	00000218 	0x218
+			20c: R_MIPS_32	.fixup
+ 210:	00000800 	sll	at,zero,0x0
+			210: R_MIPS_32	.text
+ 214:	00000218 	0x218
+			214: R_MIPS_32	.fixup
+ 218:	00000810 	mfhi	at
+			218: R_MIPS_32	.text
+ 21c:	00000228 	0x228
+			21c: R_MIPS_32	.fixup
+ 220:	00000814 	0x814
+			220: R_MIPS_32	.text
+ 224:	00000228 	0x228
+			224: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/include/linux/sched.h:717
+		ready |= signal->sig[1] &~ blocked->sig[1];
+ 228:	00000824 	and	at,zero,zero
+			228: R_MIPS_32	.text
+ 22c:	00000238 	0x238
+			22c: R_MIPS_32	.fixup
+ 230:	00000828 	0x828
+			230: R_MIPS_32	.text
+ 234:	00000238 	0x238
+			234: R_MIPS_32	.fixup
+ 238:	00000838 	0x838
+			238: R_MIPS_32	.text
+ 23c:	00000248 	0x248
+			23c: R_MIPS_32	.fixup
+ 240:	0000083c 	0x83c
+			240: R_MIPS_32	.text
+/home/mips/linux-2.4.x/include/linux/sched.h:718
+		ready |= signal->sig[0] &~ blocked->sig[0];
+ 244:	00000248 	0x248
+			244: R_MIPS_32	.fixup
+ 248:	0000084c 	syscall	0x21
+			248: R_MIPS_32	.text
+ 24c:	00000258 	0x258
+			24c: R_MIPS_32	.fixup
+ 250:	00000850 	0x850
+			250: R_MIPS_32	.text
+ 254:	00000258 	0x258
+			254: R_MIPS_32	.fixup
+ 258:	00000860 	0x860
+			258: R_MIPS_32	.text
+ 25c:	00000268 	0x268
+			25c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/include/linux/sched.h:726
+		break;
+
+	case 2: ready  = signal->sig[1] &~ blocked->sig[1];
+		ready |= signal->sig[0] &~ blocked->sig[0];
+		break;
+
+	case 1: ready  = signal->sig[0] &~ blocked->sig[0];
+	}
+ 260:	00000864 	0x864
+			260: R_MIPS_32	.text
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ 264:	00000268 	0x268
+			264: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/include/asm/system.h:39
+
+extern __inline__ void
+__sti(void)
+{
+	__asm__ __volatile__(
+ 268:	00000874 	0x874
+			268: R_MIPS_32	.text
+ 26c:	00000278 	0x278
+			26c: R_MIPS_32	.fixup
+ 270:	00000878 	0x878
+			270: R_MIPS_32	.text
+ 274:	00000278 	0x278
+			274: R_MIPS_32	.fixup
+ 278:	00000888 	0x888
+			278: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:96
+ 27c:	00000288 	0x288
+			27c: R_MIPS_32	.fixup
+ 280:	0000088c 	syscall	0x22
+			280: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:97
+ 284:	00000288 	0x288
+			284: R_MIPS_32	.fixup
+ 288:	0000089c 	0x89c
+			288: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:98
+ 28c:	00000298 	0x298
+			28c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:99
+ 290:	000008a0 	0x8a0
+			290: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:100
+ 294:	00000298 	0x298
+			294: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:101
+ 298:	000008b0 	0x8b0
+			298: R_MIPS_32	.text
+ 29c:	000002a8 	0x2a8
+			29c: R_MIPS_32	.fixup
+ 2a0:	000008b4 	0x8b4
+			2a0: R_MIPS_32	.text
+ 2a4:	000002a8 	0x2a8
+			2a4: R_MIPS_32	.fixup
+ 2a8:	000008c4 	0x8c4
+			2a8: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:104
+ 2ac:	000002b8 	0x2b8
+			2ac: R_MIPS_32	.fixup
+ 2b0:	000008c8 	0x8c8
+			2b0: R_MIPS_32	.text
+ 2b4:	000002b8 	0x2b8
+			2b4: R_MIPS_32	.fixup
+ 2b8:	000008d8 	0x8d8
+			2b8: R_MIPS_32	.text
+ 2bc:	000002c8 	0x2c8
+			2bc: R_MIPS_32	.fixup
+ 2c0:	000008e4 	0x8e4
+			2c0: R_MIPS_32	.text
+ 2c4:	000002d4 	0x2d4
+			2c4: R_MIPS_32	.fixup
+ 2c8:	00001280 	sll	v0,zero,0xa
+			2c8: R_MIPS_32	.text
+ 2cc:	000002e0 	0x2e0
+			2cc: R_MIPS_32	.fixup
+ 2d0:	00001284 	0x1284
+			2d0: R_MIPS_32	.text
+ 2d4:	000002e0 	0x2e0
+			2d4: R_MIPS_32	.fixup
+ 2d8:	00001294 	0x1294
+			2d8: R_MIPS_32	.text
+ 2dc:	000002f0 	0x2f0
+			2dc: R_MIPS_32	.fixup
+_sys_rt_sigsuspend():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:108
+ 2e0:	00001298 	0x1298
+			2e0: R_MIPS_32	.text
+ 2e4:	000002f0 	0x2f0
+			2e4: R_MIPS_32	.fixup
+ 2e8:	000012ac 	0x12ac
+			2e8: R_MIPS_32	.text
+ 2ec:	00000300 	sll	zero,zero,0xc
+			2ec: R_MIPS_32	.fixup
+ 2f0:	000012b0 	0x12b0
+			2f0: R_MIPS_32	.text
+ 2f4:	00000300 	sll	zero,zero,0xc
+			2f4: R_MIPS_32	.fixup
+ 2f8:	000012c4 	0x12c4
+			2f8: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:114
+ 2fc:	00000310 	0x310
+			2fc: R_MIPS_32	.fixup
+ 300:	000012c8 	0x12c8
+			300: R_MIPS_32	.text
+ 304:	00000310 	0x310
+			304: R_MIPS_32	.fixup
+ 308:	000012dc 	0x12dc
+			308: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:118
+ 30c:	00000320 	0x320
+			30c: R_MIPS_32	.fixup
+ 310:	000012e0 	0x12e0
+			310: R_MIPS_32	.text
+ 314:	00000320 	0x320
+			314: R_MIPS_32	.fixup
+ 318:	000012f4 	0x12f4
+			318: R_MIPS_32	.text
+ 31c:	00000330 	0x330
+			31c: R_MIPS_32	.fixup
+ 320:	000012f8 	0x12f8
+			320: R_MIPS_32	.text
+ 324:	00000330 	0x330
+			324: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/include/linux/signal.h:180
+}
+
+static inline void sigdelsetmask(sigset_t *set, unsigned long mask)
+{
+	set->sig[0] &= ~mask;
+ 328:	0000130c 	syscall	0x4c
+			328: R_MIPS_32	.text
+ 32c:	00000340 	sll	zero,zero,0xd
+			32c: R_MIPS_32	.fixup
+ 330:	00001310 	0x1310
+			330: R_MIPS_32	.text
+ 334:	00000340 	sll	zero,zero,0xd
+			334: R_MIPS_32	.fixup
+ 338:	00001324 	0x1324
+			338: R_MIPS_32	.text
+ 33c:	00000350 	0x350
+			33c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/include/asm/system.h:71
+
+extern __inline__ void
+__cli(void)
+{
+	__asm__ __volatile__(
+ 340:	00001328 	0x1328
+			340: R_MIPS_32	.text
+ 344:	00000350 	0x350
+			344: R_MIPS_32	.fixup
+ 348:	0000133c 	0x133c
+			348: R_MIPS_32	.text
+ 34c:	00000360 	0x360
+			34c: R_MIPS_32	.fixup
+ 350:	00001340 	sll	v0,zero,0xd
+			350: R_MIPS_32	.text
+ 354:	00000360 	0x360
+			354: R_MIPS_32	.fixup
+ 358:	00001354 	0x1354
+			358: R_MIPS_32	.text
+ 35c:	00000370 	0x370
+			35c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:123
+ 360:	00001358 	0x1358
+			360: R_MIPS_32	.text
+ 364:	00000370 	0x370
+			364: R_MIPS_32	.fixup
+ 368:	0000136c 	0x136c
+			368: R_MIPS_32	.text
+ 36c:	00000380 	sll	zero,zero,0xe
+			36c: R_MIPS_32	.fixup
+ 370:	00001370 	0x1370
+			370: R_MIPS_32	.text
+ 374:	00000380 	sll	zero,zero,0xe
+			374: R_MIPS_32	.fixup
+ 378:	00001384 	0x1384
+			378: R_MIPS_32	.text
+ 37c:	00000390 	0x390
+			37c: R_MIPS_32	.fixup
+ 380:	00001388 	0x1388
+			380: R_MIPS_32	.text
+ 384:	00000390 	0x390
+			384: R_MIPS_32	.fixup
+ 388:	0000139c 	0x139c
+			388: R_MIPS_32	.text
+ 38c:	000003a0 	0x3a0
+			38c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:124
+ 390:	000013a0 	0x13a0
+			390: R_MIPS_32	.text
+ 394:	000003a0 	0x3a0
+			394: R_MIPS_32	.fixup
+ 398:	000013b4 	0x13b4
+			398: R_MIPS_32	.text
+ 39c:	000003b0 	0x3b0
+			39c: R_MIPS_32	.fixup
+ 3a0:	000013b8 	0x13b8
+			3a0: R_MIPS_32	.text
+ 3a4:	000003b0 	0x3b0
+			3a4: R_MIPS_32	.fixup
+ 3a8:	000013cc 	syscall	0x4f
+			3a8: R_MIPS_32	.text
+ 3ac:	000003c0 	sll	zero,zero,0xf
+			3ac: R_MIPS_32	.fixup
+ 3b0:	000013d0 	0x13d0
+			3b0: R_MIPS_32	.text
+ 3b4:	000003c0 	sll	zero,zero,0xf
+			3b4: R_MIPS_32	.fixup
+ 3b8:	000013e4 	0x13e4
+			3b8: R_MIPS_32	.text
+ 3bc:	000003d0 	0x3d0
+			3bc: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ * Re-calculate pending state from the set of locally pending
+ * signals, globally pending signals, and blocked signals.
+ */
+static inline int has_pending_signals(sigset_t *signal, sigset_t *blocked)
+{
+ 3c0:	000013e8 	0x13e8
+			3c0: R_MIPS_32	.text
+ 3c4:	000003d0 	0x3d0
+			3c4: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/include/linux/sched.h:715
+	unsigned long ready;
+	long i;
+
+	switch (_NSIG_WORDS) {
+	default:
+		for (i = _NSIG_WORDS, ready = 0; --i >= 0 ;)
+			ready |= signal->sig[i] &~ blocked->sig[i];
+		break;
+
+	case 4: ready  = signal->sig[3] &~ blocked->sig[3];
+ 3c8:	000013fc 	0x13fc
+			3c8: R_MIPS_32	.text
+ 3cc:	000003e0 	0x3e0
+			3cc: R_MIPS_32	.fixup
+ 3d0:	00001400 	sll	v0,zero,0x10
+			3d0: R_MIPS_32	.text
+ 3d4:	000003e0 	0x3e0
+			3d4: R_MIPS_32	.fixup
+ 3d8:	00001414 	0x1414
+			3d8: R_MIPS_32	.text
+ 3dc:	000003f0 	0x3f0
+			3dc: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/include/linux/sched.h:716
+		ready |= signal->sig[2] &~ blocked->sig[2];
+ 3e0:	00001418 	0x1418
+			3e0: R_MIPS_32	.text
+ 3e4:	000003f0 	0x3f0
+			3e4: R_MIPS_32	.fixup
+ 3e8:	0000142c 	0x142c
+			3e8: R_MIPS_32	.text
+ 3ec:	00000400 	sll	zero,zero,0x10
+			3ec: R_MIPS_32	.fixup
+ 3f0:	00001430 	0x1430
+			3f0: R_MIPS_32	.text
+ 3f4:	00000400 	sll	zero,zero,0x10
+			3f4: R_MIPS_32	.fixup
+ 3f8:	00001444 	0x1444
+			3f8: R_MIPS_32	.text
+/home/mips/linux-2.4.x/include/linux/sched.h:717
+		ready |= signal->sig[1] &~ blocked->sig[1];
+ 3fc:	00000410 	0x410
+			3fc: R_MIPS_32	.fixup
+ 400:	00001448 	0x1448
+			400: R_MIPS_32	.text
+ 404:	00000410 	0x410
+			404: R_MIPS_32	.fixup
+ 408:	0000145c 	0x145c
+			408: R_MIPS_32	.text
+ 40c:	00000420 	0x420
+			40c: R_MIPS_32	.fixup
+ 410:	00001460 	0x1460
+			410: R_MIPS_32	.text
+ 414:	00000420 	0x420
+			414: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/include/linux/sched.h:718
+		ready |= signal->sig[0] &~ blocked->sig[0];
+ 418:	00001474 	0x1474
+			418: R_MIPS_32	.text
+ 41c:	00000430 	0x430
+			41c: R_MIPS_32	.fixup
+ 420:	00001478 	0x1478
+			420: R_MIPS_32	.text
+ 424:	00000430 	0x430
+			424: R_MIPS_32	.fixup
+ 428:	0000148c 	syscall	0x52
+			428: R_MIPS_32	.text
+ 42c:	00000440 	sll	zero,zero,0x11
+			42c: R_MIPS_32	.fixup
+ 430:	00001490 	0x1490
+			430: R_MIPS_32	.text
+/home/mips/linux-2.4.x/include/linux/sched.h:726
+		break;
+
+	case 2: ready  = signal->sig[1] &~ blocked->sig[1];
+		ready |= signal->sig[0] &~ blocked->sig[0];
+		break;
+
+	case 1: ready  = signal->sig[0] &~ blocked->sig[0];
+	}
+ 434:	00000440 	sll	zero,zero,0x11
+			434: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/include/linux/sched.h:705
+ 438:	000014a4 	0x14a4
+			438: R_MIPS_32	.text
+/home/mips/linux-2.4.x/include/asm/system.h:39
+
+extern __inline__ void
+__sti(void)
+{
+	__asm__ __volatile__(
+ 43c:	00000450 	0x450
+			43c: R_MIPS_32	.fixup
+ 440:	000014a8 	0x14a8
+			440: R_MIPS_32	.text
+ 444:	00000450 	0x450
+			444: R_MIPS_32	.fixup
+ 448:	000014bc 	0x14bc
+			448: R_MIPS_32	.text
+ 44c:	00000460 	0x460
+			44c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:128
+ 450:	000014c0 	sll	v0,zero,0x13
+			450: R_MIPS_32	.text
+ 454:	00000460 	0x460
+			454: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:129
+ 458:	000014d4 	0x14d4
+			458: R_MIPS_32	.text
+ 45c:	00000470 	0x470
+			45c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:130
+ 460:	000014d8 	0x14d8
+			460: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:131
+ 464:	00000470 	0x470
+			464: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:132
+ 468:	000014ec 	0x14ec
+			468: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:133
+ 46c:	00000480 	sll	zero,zero,0x12
+			46c: R_MIPS_32	.fixup
+ 470:	000014f0 	0x14f0
+			470: R_MIPS_32	.text
+ 474:	00000480 	sll	zero,zero,0x12
+			474: R_MIPS_32	.fixup
+ 478:	00001504 	0x1504
+			478: R_MIPS_32	.text
+ 47c:	00000490 	0x490
+			47c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:136
+ 480:	00001508 	0x1508
+			480: R_MIPS_32	.text
+ 484:	00000490 	0x490
+			484: R_MIPS_32	.fixup
+ 488:	0000151c 	0x151c
+			488: R_MIPS_32	.text
+ 48c:	000004a0 	0x4a0
+			48c: R_MIPS_32	.fixup
+ 490:	00001520 	0x1520
+			490: R_MIPS_32	.text
+sys_sigaction():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:140
+ 494:	000004a0 	0x4a0
+			494: R_MIPS_32	.fixup
+ 498:	00001534 	0x1534
+			498: R_MIPS_32	.text
+ 49c:	000004b0 	0x4b0
+			49c: R_MIPS_32	.fixup
+ 4a0:	00001538 	0x1538
+			4a0: R_MIPS_32	.text
+ 4a4:	000004b0 	0x4b0
+			4a4: R_MIPS_32	.fixup
+ 4a8:	0000154c 	syscall	0x55
+			4a8: R_MIPS_32	.text
+ 4ac:	000004c0 	sll	zero,zero,0x13
+			4ac: R_MIPS_32	.fixup
+ 4b0:	00001550 	0x1550
+			4b0: R_MIPS_32	.text
+ 4b4:	000004c0 	sll	zero,zero,0x13
+			4b4: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:145
+ 4b8:	00001564 	0x1564
+			4b8: R_MIPS_32	.text
+ 4bc:	000004d0 	0x4d0
+			4bc: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:150
+ 4c0:	00001568 	0x1568
+			4c0: R_MIPS_32	.text
+ 4c4:	000004d0 	0x4d0
+			4c4: R_MIPS_32	.fixup
+ 4c8:	0000157c 	0x157c
+			4c8: R_MIPS_32	.text
+ 4cc:	000004e0 	0x4e0
+			4cc: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:151
+ 4d0:	00001648 	0x1648
+			4d0: R_MIPS_32	.text
+ 4d4:	000004ec 	0x4ec
+			4d4: R_MIPS_32	.fixup
+ 4d8:	00001658 	0x1658
+			4d8: R_MIPS_32	.text
+ 4dc:	000004f4 	0x4f4
+			4dc: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:152
+ 4e0:	000017c0 	sll	v0,zero,0x1f
+			4e0: R_MIPS_32	.text
+ 4e4:	000004fc 	0x4fc
+			4e4: R_MIPS_32	.fixup
+ 4e8:	000017d0 	0x17d0
+			4e8: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:153
+ 4ec:	00000504 	0x504
+			4ec: R_MIPS_32	.fixup
+ 4f0:	00001804 	sllv	v1,zero,zero
+			4f0: R_MIPS_32	.text
+ 4f4:	0000050c 	syscall	0x14
+			4f4: R_MIPS_32	.fixup
+ 4f8:	00001810 	mfhi	v1
+			4f8: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:154
+ 4fc:	00000514 	0x514
+			4fc: R_MIPS_32	.fixup
+ 500:	00001824 	and	v1,zero,zero
+			500: R_MIPS_32	.text
+/home/mips/linux-2.4.x/include/linux/signal.h:190
+}
+
+static inline void siginitset(sigset_t *set, unsigned long mask)
+{
+	set->sig[0] = mask;
+ 504:	0000051c 	0x51c
+			504: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/include/linux/signal.h:193
+	switch (_NSIG_WORDS) {
+	default:
+		memset(&set->sig[1], 0, sizeof(long)*(_NSIG_WORDS-1));
+ 508:	00001860 	0x1860
+			508: R_MIPS_32	.text
+ 50c:	00000524 	0x524
+			50c: R_MIPS_32	.fixup
+ 510:	00001874 	0x1874
+			510: R_MIPS_32	.text
+ 514:	0000052c 	0x52c
+			514: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:160
+ 518:	0000192c 	0x192c
+			518: R_MIPS_32	.text
+ 51c:	00000534 	0x534
+			51c: R_MIPS_32	.fixup
+ 520:	00001930 	0x1930
+			520: R_MIPS_32	.text
+ 524:	00000534 	0x534
+			524: R_MIPS_32	.fixup
+ 528:	00001940 	sll	v1,zero,0x5
+			528: R_MIPS_32	.text
+ 52c:	0000053c 	0x53c
+			52c: R_MIPS_32	.fixup
+ 530:	00001954 	0x1954
+			530: R_MIPS_32	.text
+ 534:	00000544 	0x544
+			534: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:162
+ 538:	00001958 	0x1958
+			538: R_MIPS_32	.text
+ 53c:	00000544 	0x544
+			53c: R_MIPS_32	.fixup
+ 540:	0000196c 	0x196c
+			540: R_MIPS_32	.text
+ 544:	0000054c 	syscall	0x15
+			544: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:165
+ 548:	00001970 	0x1970
+			548: R_MIPS_32	.text
+ 54c:	0000054c 	syscall	0x15
+			54c: R_MIPS_32	.fixup
+ 550:	00001984 	0x1984
+			550: R_MIPS_32	.text
+ 554:	00000554 	0x554
+			554: R_MIPS_32	.fixup
+ 558:	00001988 	0x1988
+			558: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:166
+ 55c:	00000554 	0x554
+			55c: R_MIPS_32	.fixup
+ 560:	0000199c 	0x199c
+			560: R_MIPS_32	.text
+ 564:	0000055c 	0x55c
+			564: R_MIPS_32	.fixup
+ 568:	000019a0 	0x19a0
+			568: R_MIPS_32	.text
+ 56c:	0000055c 	0x55c
+			56c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:167
+ 570:	000019b4 	0x19b4
+			570: R_MIPS_32	.text
+ 574:	00000564 	0x564
+			574: R_MIPS_32	.fixup
+ 578:	000019b8 	0x19b8
+			578: R_MIPS_32	.text
+ 57c:	00000564 	0x564
+			57c: R_MIPS_32	.fixup
+ 580:	000019cc 	syscall	0x67
+			580: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:168
+ 584:	0000056c 	0x56c
+			584: R_MIPS_32	.fixup
+ 588:	000019d0 	0x19d0
+			588: R_MIPS_32	.text
+ 58c:	0000056c 	0x56c
+			58c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:169
+ 590:	000019e4 	0x19e4
+			590: R_MIPS_32	.text
+ 594:	00000574 	0x574
+			594: R_MIPS_32	.fixup
+ 598:	000019e8 	0x19e8
+			598: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:170
+ 59c:	00000574 	0x574
+			59c: R_MIPS_32	.fixup
+ 5a0:	000019fc 	0x19fc
+			5a0: R_MIPS_32	.text
+ 5a4:	0000057c 	0x57c
+			5a4: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:171
+ 5a8:	00001a00 	sll	v1,zero,0x8
+			5a8: R_MIPS_32	.text
+ 5ac:	0000057c 	0x57c
+			5ac: R_MIPS_32	.fixup
+ 5b0:	00001a14 	0x1a14
+			5b0: R_MIPS_32	.text
+ 5b4:	00000584 	0x584
+			5b4: R_MIPS_32	.fixup
+ 5b8:	00001a18 	0x1a18
+			5b8: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:172
+ 5bc:	00000584 	0x584
+			5bc: R_MIPS_32	.fixup
+ 5c0:	00001a2c 	0x1a2c
+			5c0: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:176
+ 5c4:	0000058c 	syscall	0x16
+			5c4: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:177
+ 5c8:	00001a30 	0x1a30
+			5c8: R_MIPS_32	.text
+ 5cc:	0000058c 	syscall	0x16
+			5cc: R_MIPS_32	.fixup
+ 5d0:	00001a44 	0x1a44
+			5d0: R_MIPS_32	.text
+ 5d4:	00000594 	0x594
+			5d4: R_MIPS_32	.fixup
+ 5d8:	00001a48 	0x1a48
+			5d8: R_MIPS_32	.text
+ 5dc:	00000594 	0x594
+			5dc: R_MIPS_32	.fixup
+ 5e0:	00001a5c 	0x1a5c
+			5e0: R_MIPS_32	.text
+sys_sigaltstack():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:180
+ 5e4:	0000059c 	0x59c
+			5e4: R_MIPS_32	.fixup
+ 5e8:	00001a60 	0x1a60
+			5e8: R_MIPS_32	.text
+ 5ec:	0000059c 	0x59c
+			5ec: R_MIPS_32	.fixup
+ 5f0:	00001a74 	0x1a74
+			5f0: R_MIPS_32	.text
+ 5f4:	000005a4 	0x5a4
+			5f4: R_MIPS_32	.fixup
+ 5f8:	00001a78 	0x1a78
+			5f8: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:185
+ 5fc:	000005a4 	0x5a4
+			5fc: R_MIPS_32	.fixup
+ 600:	00001a8c 	syscall	0x6a
+			600: R_MIPS_32	.text
+ 604:	000005ac 	0x5ac
+			604: R_MIPS_32	.fixup
+ 608:	00001a90 	0x1a90
+			608: R_MIPS_32	.text
+ 60c:	000005ac 	0x5ac
+			60c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:186
+ 610:	00001aa4 	0x1aa4
+			610: R_MIPS_32	.text
+ 614:	000005b4 	0x5b4
+			614: R_MIPS_32	.fixup
+ 618:	00001aa8 	0x1aa8
+			618: R_MIPS_32	.text
+ 61c:	000005b4 	0x5b4
+			61c: R_MIPS_32	.fixup
+restore_sigcontext():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:239
+ 620:	00001abc 	0x1abc
+			620: R_MIPS_32	.text
+ 624:	000005bc 	0x5bc
+			624: R_MIPS_32	.fixup
+ 628:	00001ac0 	sll	v1,zero,0xb
+			628: R_MIPS_32	.text
+ 62c:	000005bc 	0x5bc
+			62c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:244
+ 630:	00001ad4 	0x1ad4
+			630: R_MIPS_32	.text
+ 634:	000005c4 	0x5c4
+			634: R_MIPS_32	.fixup
+ 638:	00001ad8 	0x1ad8
+			638: R_MIPS_32	.text
+ 63c:	000005c4 	0x5c4
+			63c: R_MIPS_32	.fixup
+ 640:	00001aec 	0x1aec
+			640: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:246
+ 644:	000005cc 	syscall	0x17
+			644: R_MIPS_32	.fixup
+ 648:	00001af0 	0x1af0
+			648: R_MIPS_32	.text
+ 64c:	000005cc 	syscall	0x17
+			64c: R_MIPS_32	.fixup
+ 650:	00001b04 	0x1b04
+			650: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:247
+ 654:	000005d4 	0x5d4
+			654: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:248
+ 658:	00001b08 	0x1b08
+			658: R_MIPS_32	.text
+ 65c:	000005d4 	0x5d4
+			65c: R_MIPS_32	.fixup
+ 660:	00001b1c 	0x1b1c
+			660: R_MIPS_32	.text
+ 664:	000005dc 	0x5dc
+			664: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:249
+ 668:	00001b20 	0x1b20
+			668: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:255
+ 66c:	000005dc 	0x5dc
+			66c: R_MIPS_32	.fixup
+ 670:	00001b34 	0x1b34
+			670: R_MIPS_32	.text
+ 674:	000005e4 	0x5e4
+			674: R_MIPS_32	.fixup
+ 678:	00001b38 	0x1b38
+			678: R_MIPS_32	.text
+ 67c:	000005e4 	0x5e4
+			67c: R_MIPS_32	.fixup
+ 680:	00001b4c 	syscall	0x6d
+			680: R_MIPS_32	.text
+ 684:	000005ec 	0x5ec
+			684: R_MIPS_32	.fixup
+ 688:	00001b50 	0x1b50
+			688: R_MIPS_32	.text
+ 68c:	000005ec 	0x5ec
+			68c: R_MIPS_32	.fixup
+ 690:	00001b64 	0x1b64
+			690: R_MIPS_32	.text
+ 694:	000005f4 	0x5f4
+			694: R_MIPS_32	.fixup
+ 698:	00001b68 	0x1b68
+			698: R_MIPS_32	.text
+ 69c:	000005f4 	0x5f4
+			69c: R_MIPS_32	.fixup
+ 6a0:	00001b7c 	0x1b7c
+			6a0: R_MIPS_32	.text
+ 6a4:	000005fc 	0x5fc
+			6a4: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:256
+ 6a8:	00001b80 	sll	v1,zero,0xe
+			6a8: R_MIPS_32	.text
+ 6ac:	000005fc 	0x5fc
+			6ac: R_MIPS_32	.fixup
+ 6b0:	00001b94 	0x1b94
+			6b0: R_MIPS_32	.text
+ 6b4:	00000604 	0x604
+			6b4: R_MIPS_32	.fixup
+ 6b8:	00001b98 	0x1b98
+			6b8: R_MIPS_32	.text
+ 6bc:	00000604 	0x604
+			6bc: R_MIPS_32	.fixup
+ 6c0:	00001bac 	0x1bac
+			6c0: R_MIPS_32	.text
+ 6c4:	0000060c 	syscall	0x18
+			6c4: R_MIPS_32	.fixup
+ 6c8:	00001bb0 	0x1bb0
+			6c8: R_MIPS_32	.text
+ 6cc:	0000060c 	syscall	0x18
+			6cc: R_MIPS_32	.fixup
+ 6d0:	00001bc4 	0x1bc4
+			6d0: R_MIPS_32	.text
+ 6d4:	00000614 	0x614
+			6d4: R_MIPS_32	.fixup
+ 6d8:	00001bc8 	0x1bc8
+			6d8: R_MIPS_32	.text
+ 6dc:	00000614 	0x614
+			6dc: R_MIPS_32	.fixup
+ 6e0:	00001bdc 	0x1bdc
+			6e0: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:257
+ 6e4:	0000061c 	0x61c
+			6e4: R_MIPS_32	.fixup
+ 6e8:	00001be0 	0x1be0
+			6e8: R_MIPS_32	.text
+ 6ec:	0000061c 	0x61c
+			6ec: R_MIPS_32	.fixup
+ 6f0:	00001bf4 	0x1bf4
+			6f0: R_MIPS_32	.text
+ 6f4:	00000624 	0x624
+			6f4: R_MIPS_32	.fixup
+ 6f8:	00001bf8 	0x1bf8
+			6f8: R_MIPS_32	.text
+ 6fc:	00000624 	0x624
+			6fc: R_MIPS_32	.fixup
+ 700:	00001c0c 	syscall	0x70
+			700: R_MIPS_32	.text
+ 704:	0000062c 	0x62c
+			704: R_MIPS_32	.fixup
+ 708:	00001c10 	0x1c10
+			708: R_MIPS_32	.text
+ 70c:	0000062c 	0x62c
+			70c: R_MIPS_32	.fixup
+ 710:	00001c24 	0x1c24
+			710: R_MIPS_32	.text
+ 714:	00000634 	0x634
+			714: R_MIPS_32	.fixup
+ 718:	00001c28 	0x1c28
+			718: R_MIPS_32	.text
+ 71c:	00000634 	0x634
+			71c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:258
+ 720:	00001c3c 	0x1c3c
+			720: R_MIPS_32	.text
+ 724:	0000063c 	0x63c
+			724: R_MIPS_32	.fixup
+ 728:	00001c40 	sll	v1,zero,0x11
+			728: R_MIPS_32	.text
+ 72c:	0000063c 	0x63c
+			72c: R_MIPS_32	.fixup
+ 730:	00001c54 	0x1c54
+			730: R_MIPS_32	.text
+ 734:	00000644 	0x644
+			734: R_MIPS_32	.fixup
+ 738:	00001c58 	0x1c58
+			738: R_MIPS_32	.text
+ 73c:	00000644 	0x644
+			73c: R_MIPS_32	.fixup
+ 740:	00001c6c 	0x1c6c
+			740: R_MIPS_32	.text
+ 744:	0000064c 	syscall	0x19
+			744: R_MIPS_32	.fixup
+ 748:	00001c70 	0x1c70
+			748: R_MIPS_32	.text
+ 74c:	0000064c 	syscall	0x19
+			74c: R_MIPS_32	.fixup
+ 750:	00001c84 	0x1c84
+			750: R_MIPS_32	.text
+ 754:	00000654 	0x654
+			754: R_MIPS_32	.fixup
+ 758:	00001c98 	0x1c98
+			758: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:259
+ 75c:	0000065c 	0x65c
+			75c: R_MIPS_32	.fixup
+ 760:	00001cb8 	0x1cb8
+			760: R_MIPS_32	.text
+ 764:	00000664 	0x664
+			764: R_MIPS_32	.fixup
+ 768:	00001ccc 	syscall	0x73
+			768: R_MIPS_32	.text
+ 76c:	0000066c 	0x66c
+			76c: R_MIPS_32	.fixup
+ 770:	00001d3c 	0x1d3c
+			770: R_MIPS_32	.text
+ 774:	00000674 	0x674
+			774: R_MIPS_32	.fixup
+ 778:	00001d40 	sll	v1,zero,0x15
+			778: R_MIPS_32	.text
+ 77c:	00000674 	0x674
+			77c: R_MIPS_32	.fixup
+ 780:	00001d50 	0x1d50
+			780: R_MIPS_32	.text
+ 784:	0000067c 	0x67c
+			784: R_MIPS_32	.fixup
+ 788:	00001d54 	0x1d54
+			788: R_MIPS_32	.text
+ 78c:	0000067c 	0x67c
+			78c: R_MIPS_32	.fixup
+ 790:	00001d68 	0x1d68
+			790: R_MIPS_32	.text
+ 794:	00000684 	0x684
+			794: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:260
+ 798:	00001d6c 	0x1d6c
+			798: R_MIPS_32	.text
+ 79c:	00000684 	0x684
+			79c: R_MIPS_32	.fixup
+ 7a0:	00001d80 	sll	v1,zero,0x16
+			7a0: R_MIPS_32	.text
+ 7a4:	0000068c 	syscall	0x1a
+			7a4: R_MIPS_32	.fixup
+ 7a8:	00001d84 	0x1d84
+			7a8: R_MIPS_32	.text
+ 7ac:	0000068c 	syscall	0x1a
+			7ac: R_MIPS_32	.fixup
+ 7b0:	00001d98 	0x1d98
+			7b0: R_MIPS_32	.text
+ 7b4:	00000694 	0x694
+			7b4: R_MIPS_32	.fixup
+ 7b8:	00001d9c 	0x1d9c
+			7b8: R_MIPS_32	.text
+ 7bc:	00000694 	0x694
+			7bc: R_MIPS_32	.fixup
+ 7c0:	00001db0 	0x1db0
+			7c0: R_MIPS_32	.text
+ 7c4:	0000069c 	0x69c
+			7c4: R_MIPS_32	.fixup
+ 7c8:	00001db4 	0x1db4
+			7c8: R_MIPS_32	.text
+ 7cc:	0000069c 	0x69c
+			7cc: R_MIPS_32	.fixup
+ 7d0:	00001dc8 	0x1dc8
+			7d0: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:261
+ 7d4:	000006a4 	0x6a4
+			7d4: R_MIPS_32	.fixup
+ 7d8:	00001dcc 	syscall	0x77
+			7d8: R_MIPS_32	.text
+ 7dc:	000006a4 	0x6a4
+			7dc: R_MIPS_32	.fixup
+ 7e0:	00001de0 	0x1de0
+			7e0: R_MIPS_32	.text
+ 7e4:	000006ac 	0x6ac
+			7e4: R_MIPS_32	.fixup
+ 7e8:	00001de4 	0x1de4
+			7e8: R_MIPS_32	.text
+ 7ec:	000006ac 	0x6ac
+			7ec: R_MIPS_32	.fixup
+ 7f0:	00001df8 	0x1df8
+			7f0: R_MIPS_32	.text
+ 7f4:	000006b4 	0x6b4
+			7f4: R_MIPS_32	.fixup
+ 7f8:	00001dfc 	0x1dfc
+			7f8: R_MIPS_32	.text
+ 7fc:	000006b4 	0x6b4
+			7fc: R_MIPS_32	.fixup
+ 800:	00001e10 	0x1e10
+			800: R_MIPS_32	.text
+ 804:	000006bc 	0x6bc
+			804: R_MIPS_32	.fixup
+ 808:	00001e14 	0x1e14
+			808: R_MIPS_32	.text
+ 80c:	000006bc 	0x6bc
+			80c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:262
+ 810:	00001e28 	0x1e28
+			810: R_MIPS_32	.text
+ 814:	000006c4 	0x6c4
+			814: R_MIPS_32	.fixup
+ 818:	00001e2c 	0x1e2c
+			818: R_MIPS_32	.text
+ 81c:	000006c4 	0x6c4
+			81c: R_MIPS_32	.fixup
+ 820:	00001e40 	sll	v1,zero,0x19
+			820: R_MIPS_32	.text
+ 824:	000006cc 	syscall	0x1b
+			824: R_MIPS_32	.fixup
+ 828:	00001e44 	0x1e44
+			828: R_MIPS_32	.text
+ 82c:	000006cc 	syscall	0x1b
+			82c: R_MIPS_32	.fixup
+ 830:	00001e58 	0x1e58
+			830: R_MIPS_32	.text
+ 834:	000006d4 	0x6d4
+			834: R_MIPS_32	.fixup
+ 838:	00001e5c 	0x1e5c
+			838: R_MIPS_32	.text
+ 83c:	000006d4 	0x6d4
+			83c: R_MIPS_32	.fixup
+ 840:	00001e70 	0x1e70
+			840: R_MIPS_32	.text
+ 844:	000006dc 	0x6dc
+			844: R_MIPS_32	.fixup
+ 848:	00001e74 	0x1e74
+			848: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:263
+ 84c:	000006dc 	0x6dc
+			84c: R_MIPS_32	.fixup
+ 850:	00001e88 	0x1e88
+			850: R_MIPS_32	.text
+ 854:	000006e4 	0x6e4
+			854: R_MIPS_32	.fixup
+ 858:	00001e8c 	syscall	0x7a
+			858: R_MIPS_32	.text
+ 85c:	000006e4 	0x6e4
+			85c: R_MIPS_32	.fixup
+ 860:	00001ea0 	0x1ea0
+			860: R_MIPS_32	.text
+ 864:	000006ec 	0x6ec
+			864: R_MIPS_32	.fixup
+ 868:	00001ea4 	0x1ea4
+			868: R_MIPS_32	.text
+ 86c:	000006ec 	0x6ec
+			86c: R_MIPS_32	.fixup
+ 870:	00001eb8 	0x1eb8
+			870: R_MIPS_32	.text
+ 874:	000006f4 	0x6f4
+			874: R_MIPS_32	.fixup
+ 878:	00001ebc 	0x1ebc
+			878: R_MIPS_32	.text
+ 87c:	000006f4 	0x6f4
+			87c: R_MIPS_32	.fixup
+ 880:	00001ed0 	0x1ed0
+			880: R_MIPS_32	.text
+ 884:	000006fc 	0x6fc
+			884: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:264
+ 888:	00001ed4 	0x1ed4
+			888: R_MIPS_32	.text
+ 88c:	000006fc 	0x6fc
+			88c: R_MIPS_32	.fixup
+ 890:	00001ee8 	0x1ee8
+			890: R_MIPS_32	.text
+ 894:	00000704 	0x704
+			894: R_MIPS_32	.fixup
+ 898:	00001eec 	0x1eec
+			898: R_MIPS_32	.text
+ 89c:	00000704 	0x704
+			89c: R_MIPS_32	.fixup
+ 8a0:	00001f00 	sll	v1,zero,0x1c
+			8a0: R_MIPS_32	.text
+ 8a4:	0000070c 	syscall	0x1c
+			8a4: R_MIPS_32	.fixup
+ 8a8:	00001f04 	0x1f04
+			8a8: R_MIPS_32	.text
+ 8ac:	0000070c 	syscall	0x1c
+			8ac: R_MIPS_32	.fixup
+ 8b0:	00001f18 	0x1f18
+			8b0: R_MIPS_32	.text
+ 8b4:	00000714 	0x714
+			8b4: R_MIPS_32	.fixup
+ 8b8:	00001f1c 	0x1f1c
+			8b8: R_MIPS_32	.text
+ 8bc:	00000714 	0x714
+			8bc: R_MIPS_32	.fixup
+ 8c0:	00001f30 	0x1f30
+			8c0: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:265
+ 8c4:	0000071c 	0x71c
+			8c4: R_MIPS_32	.fixup
+ 8c8:	00001f34 	0x1f34
+			8c8: R_MIPS_32	.text
+ 8cc:	0000071c 	0x71c
+			8cc: R_MIPS_32	.fixup
+ 8d0:	00001f48 	0x1f48
+			8d0: R_MIPS_32	.text
+ 8d4:	00000724 	0x724
+			8d4: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:268
+ 8d8:	00001f4c 	syscall	0x7d
+			8d8: R_MIPS_32	.text
+ 8dc:	00000724 	0x724
+			8dc: R_MIPS_32	.fixup
+ 8e0:	00001f60 	0x1f60
+			8e0: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:269
+ 8e4:	0000072c 	0x72c
+			8e4: R_MIPS_32	.fixup
+ 8e8:	00001f64 	0x1f64
+			8e8: R_MIPS_32	.text
+ 8ec:	0000072c 	0x72c
+			8ec: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:271
+ 8f0:	00001f78 	0x1f78
+			8f0: R_MIPS_32	.text
+ 8f4:	00000734 	0x734
+			8f4: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:272
+ 8f8:	00001f7c 	0x1f7c
+			8f8: R_MIPS_32	.text
+ 8fc:	00000734 	0x734
+			8fc: R_MIPS_32	.fixup
+ 900:	00001f90 	0x1f90
+			900: R_MIPS_32	.text
+ 904:	0000073c 	0x73c
+			904: R_MIPS_32	.fixup
+ 908:	00001f94 	0x1f94
+			908: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:273
+ 90c:	0000073c 	0x73c
+			90c: R_MIPS_32	.fixup
+ 910:	00001fa8 	0x1fa8
+			910: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:276
+ 914:	00000744 	0x744
+			914: R_MIPS_32	.fixup
+ 918:	00001fac 	0x1fac
+			918: R_MIPS_32	.text
+ 91c:	00000744 	0x744
+			91c: R_MIPS_32	.fixup
+ 920:	00001fc0 	sll	v1,zero,0x1f
+			920: R_MIPS_32	.text
+ 924:	0000074c 	syscall	0x1d
+			924: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:278
+ 928:	00001fc4 	0x1fc4
+			928: R_MIPS_32	.text
+ 92c:	0000074c 	syscall	0x1d
+			92c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:279
+ 930:	00001fd8 	0x1fd8
+			930: R_MIPS_32	.text
+ 934:	00000754 	0x754
+			934: R_MIPS_32	.fixup
+ 938:	00001fdc 	0x1fdc
+			938: R_MIPS_32	.text
+ 93c:	00000754 	0x754
+			93c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:281
+ 940:	00001ff0 	0x1ff0
+			940: R_MIPS_32	.text
+ 944:	0000075c 	0x75c
+			944: R_MIPS_32	.fixup
+ 948:	00001ff4 	0x1ff4
+			948: R_MIPS_32	.text
+ 94c:	0000075c 	0x75c
+			94c: R_MIPS_32	.fixup
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:283
+ 950:	00002008 	0x2008
+			950: R_MIPS_32	.text
+ 954:	00000764 	0x764
+			954: R_MIPS_32	.fixup
+ 958:	0000200c 	syscall	0x80
+			958: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:288
+ 95c:	00000764 	0x764
+			95c: R_MIPS_32	.fixup
+ 960:	00002020 	add	a0,zero,zero
+			960: R_MIPS_32	.text
+ 964:	0000076c 	0x76c
+			964: R_MIPS_32	.fixup
+ 968:	00002024 	and	a0,zero,zero
+			968: R_MIPS_32	.text
+ 96c:	0000076c 	0x76c
+			96c: R_MIPS_32	.fixup
+sys_sigreturn():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:305
+ 970:	00002038 	0x2038
+			970: R_MIPS_32	.text
+ 974:	00000774 	0x774
+			974: R_MIPS_32	.fixup
+Disassembly of section .rodata:
+
+00000000 <.rodata>:
+copy_siginfo_to_user():
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:43
+   0:	00000ecc 	syscall	0x3b
+			0: R_MIPS_32	.text
+   4:	00000ecc 	syscall	0x3b
+			4: R_MIPS_32	.text
+   8:	00000ecc 	syscall	0x3b
+			8: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:46
+   c:	00000ecc 	syscall	0x3b
+			c: R_MIPS_32	.text
+  10:	00000ee4 	0xee4
+			10: R_MIPS_32	.text
+  14:	00000ecc 	syscall	0x3b
+			14: R_MIPS_32	.text
+  18:	00000ee4 	0xee4
+			18: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:47
+  1c:	00000ecc 	syscall	0x3b
+			1c: R_MIPS_32	.text
+  20:	00000ecc 	syscall	0x3b
+			20: R_MIPS_32	.text
+  24:	00000ecc 	syscall	0x3b
+			24: R_MIPS_32	.text
+  28:	00000ee4 	0xee4
+			28: R_MIPS_32	.text
+  2c:	00000ee4 	0xee4
+			2c: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:56
+  30:	00000ee4 	0xee4
+			30: R_MIPS_32	.text
+  34:	00000ee4 	0xee4
+			34: R_MIPS_32	.text
+  38:	00000ee4 	0xee4
+			38: R_MIPS_32	.text
+  3c:	00000cbc 	0xcbc
+			3c: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:57
+  40:	00000ee4 	0xee4
+			40: R_MIPS_32	.text
+  44:	00000cbc 	0xcbc
+			44: R_MIPS_32	.text
+  48:	00000ee4 	0xee4
+			48: R_MIPS_32	.text
+  4c:	00000ee4 	0xee4
+			4c: R_MIPS_32	.text
+  50:	00000e84 	0xe84
+			50: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:58
+  54:	00000e70 	0xe70
+			54: R_MIPS_32	.text
+  58:	00000cbc 	0xcbc
+			58: R_MIPS_32	.text
+  5c:	00000e70 	0xe70
+			5c: R_MIPS_32	.text
+  60:	00000e70 	0xe70
+			60: R_MIPS_32	.text
+  64:	00000ee4 	0xee4
+			64: R_MIPS_32	.text
+/home/mips/linux-2.4.x/arch/mipsnommu/kernel/signal.c:60
+  68:	00000ee4 	0xee4
+			68: R_MIPS_32	.text
+  6c:	00000ecc 	syscall	0x3b
+			6c: R_MIPS_32	.text
+  70:	00000ecc 	syscall	0x3b
+			70: R_MIPS_32	.text
+	...

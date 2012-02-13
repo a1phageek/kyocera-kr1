@@ -1,0 +1,131 @@
+pseudoicsd (Pseudo ICS daemon -- UPnP IGD) 
+Release Notes
+
+Rev.0.3
+
+Copyright (c) 2002 Wildlab - All Rights Reserved.
+
+This file contains information about pseudoicsd.
+
+
+About pseudoicsd
+-------------------------------------------
+Pseudoicsd is an UPnP device that emulates Microsoft ICS (Internet
+ connection sharing).
+You can play video and voice chat via Linux-router with this daemon.
+
+This program is built with the Universal Plug and Play (UPnP) Software
+ Development Kit (SDK) for Linux. Thank you very much.
+http://upnp.sourceforge.net/
+
+###	This program run on Linux 2.2.x only...
+	Cause ... see my dirty code	...			 ###
+
+
+
+Files in /pseudoicsd/
+-------------------------------------------
+Makefile
+sample_util.h
+sample_util.c		-- Includes utility functions used in the sample code
+ObjP.h
+Obj.h
+Obj.c				-- ObjectList library by Sakai Hiroaki. Thanks!
+IPConP.h
+IPCon.h
+IPCon.c				-- Get info from network interface
+PortMapP.h
+PortMap.h
+PortMap.c			-- Manage port-mapping list
+PseudoICSd.h
+PseudoICSd.c		-- Main program
+
+web/
+picsdesc.skl		-- skelton of description document
+picsinfoSCPD.xml	-- service description
+picsicfgSCPD.xml	-- service description
+picsconnSCPD.xml	-- service description
+
+
+Other files
+--------------------------------------------
+patch_ssdplib		-- Patch for original SDK to work with WinXP client
+patch_portfw		-- Patch for ip_masq_portfw.c to solve conflict port
+patch_ipmasq		-- "
+
+
+
+Build and Installation
+-------------------------------------------
+I.Patch to IP Masuerade code
+
+1) Apply patch(patch_ip_masq) to ip_masq.c 
+
+2) Apply patch(patch_ip_portfw) to ip_masq_portfw.c 
+
+3) Config kernel and make it
+   You have to set up this option as follows.
+   CONFIG_IP_MASQUERADE_IPPORTFW=y (NOT 'm')
+
+
+II.Patch to UPnP SDK
+
+1) Apply patch(patch_ssdplib) to original UPnP SDK.
+
+2) Follow the instructions in the UPnP SDK for Linux README file to 
+   build and install the UPnP SDK for Linux library and header files.
+
+
+III.Build application
+
+1) Copy this tar archive to upnpsdk-1.0.4/sample/.
+
+2) Extract archive.
+	tar -zxvf pseudoicsd-0.3.tar.gz
+
+3) Build applications 'pseudoicsd' by typing "make" in the 
+   upnpsdk-1.0.4/sample/pseudoicsd/ directory.
+
+4) Make directory /etc/pseudoicsd and move *.skl,*.xml into there.
+
+
+
+Configure Linux to Run Sample Applications
+------------------------------------------
+1) For the UPnP library to function correctly, Linux networking must be 
+   configured properly for multicasting.  To do this, type:
+
+        /sbin/route add -net 239.0.0.0 netmask 255.0.0.0 eth0
+
+   where 'eth0' is the network adapter that the UPnP library will use.  
+   Without this addition, device advertisements, event notifications,
+   and control point searches will not function.
+
+2) This application add/delete some rule to/from ipchain automatically.
+   And you have to make place-holder before start application as follows.
+
+		/sbin/ipchains -N upnp
+		/sbin/ipchains -I input -j upnp
+
+   You should to remove these rules after stop application.
+
+		/sbin/ipchains -D input -j upnp
+		/sbin/ipchains -X upnp
+
+
+Running the Sample Device Application on Linux
+----------------------------------------------
+1) On the system where the description files were installed as
+   described above, run the 'pseudoicsd' application,
+   specifying as arguments the name of external interface
+   (i.e., eth1, ppp0).
+   For the default description document values described above type:
+
+        './pseudoicsd eth1'
+
+   Note that the name of internal interface MUST match 'eth0'.
+
+2) Program will start running, and will print descriptive
+   information to the syslog whenever portmap control requests are
+   received from client computer.
+   To exit the application, type Ctrl-C.

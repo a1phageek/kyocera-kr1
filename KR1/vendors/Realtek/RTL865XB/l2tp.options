@@ -1,0 +1,20 @@
+name l2tp
+lock
+debug 
+#
+usepeerwins
+usepeerdns
+#
+noauth 
+#require-mschap-v2
+#require-mppe-128
+noccp 
+novj 
+novjccomp 
+nopcomp 
+noaccomp
+
+# LCP Control
+lcp-echo-failure        5
+lcp-echo-interval       5
+

@@ -1,0 +1,590 @@
+/*-
+ * Copyright (c) 2002-2004 Sam Leffler, Errno Consulting
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer,
+    without modification.
+ * 2. Redistributions in binary form must reproduce at minimum a disclaimer
+ *    similar to the "NO WARRANTY" disclaimer below ("Disclaimer") and any
+ *    redistribution must be conditioned upon including a substantially
+ *    similar Disclaimer requirement for further binary redistribution.
+ * 3. Neither the names of the above-listed copyright holders nor the names
+ *    of any contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * Alternatively, this software may be distributed under the terms of the
+ * GNU General Public License ("GPL") version 2 as published by the Free
+ * Software Foundation.
+ *
+ * NO WARRANTY
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF NONINFRINGEMENT, MERCHANTIBILITY
+ * AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+ * THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR SPECIAL, EXEMPLARY,
+ * OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+ * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
+ * THE POSSIBILITY OF SUCH DAMAGES.
+ *
+ * $Id: //depot/sw/releases/SuperG_Linux_AP/src/802_11/madwifi/madwifi/ath/if_athvar.h#4 $
+ */
+
+/*
+ * Defintions for the Atheros Wireless LAN controller driver.
+ */
+#ifndef _DEV_ATH_ATHVAR_H
+#define _DEV_ATH_ATHVAR_H
+
+#include "ah.h"
+#include "if_athioctl.h"
+#include "if_athrate.h"
+#include "if_athproto.h"
+
+#ifdef CONFIG_NET_WIRELESS
+#include <linux/wireless.h>
+#endif
+
+/*
+ * Deduce if tasklets are available.  If not then
+ * fall back to using the immediate work queue.
+ */
+#include <linux/interrupt.h>
+#ifdef DECLARE_TASKLET			/* native tasklets */
+#define tq_struct tasklet_struct
+#define ATH_INIT_TQUEUE(a,b,c)		tasklet_init((a),(b),(unsigned long)(c))
+#define ATH_SCHEDULE_TQUEUE(a,b)	tasklet_schedule((a))
+typedef unsigned long TQUEUE_ARG;
+#define mark_bh(a)
+#else					/* immediate work queue */
+#define ATH_INIT_TQUEUE(a,b,c)		INIT_TQUEUE(a,b,c)
+#define ATH_SCHEDULE_TQUEUE(a,b) do {		\
+	*(b) |= queue_task((a), &tq_immediate);	\
+} while(0)
+typedef void *TQUEUE_ARG;
+#define	tasklet_disable(t)	do { (void) t; local_bh_disable(); } while (0)
+#define	tasklet_enable(t)	do { (void) t; local_bh_enable(); } while (0)
+#endif /* !DECLARE_TASKLET */
+
+/*
+ * Guess how the interrupt handler should work.
+ */
+#if !defined(IRQ_NONE)
+typedef void irqreturn_t;
+#define	IRQ_NONE
+#define	IRQ_HANDLED
+#endif /* !defined(IRQ_NONE) */
+
+#ifndef SET_MODULE_OWNER
+#define	SET_MODULE_OWNER(dev) do {		\
+	dev->owner = THIS_MODULE;		\
+} while (0)
+#endif
+
+#ifndef SET_NETDEV_DEV
+#define	SET_NETDEV_DEV(ndev, pdev)
+#endif
+
+/*
+ * Deal with the sysctl handler api changing.
+ */
+#if LINUX_VERSION_CODE < KERNEL_VERSION(2,6,8)
+#define	ATH_SYSCTL_DECL(f, ctl, write, filp, buffer, lenp, ppos) \
+	f(ctl_table *ctl, int write, struct file *filp, void *buffer, \
+		size_t *lenp)
+#define	ATH_SYSCTL_PROC_DOINTVEC(ctl, write, filp, buffer, lenp, ppos) \
+	proc_dointvec(ctl, write, filp, buffer, lenp)
+#else /* LINUX_VERSION_CODE < KERNEL_VERSION(2,6,8) */
+#define	ATH_SYSCTL_DECL(f, ctl, write, filp, buffer, lenp, ppos) \
+	f(ctl_table *ctl, int write, struct file *filp, void *buffer,\
+		size_t *lenp, loff_t *ppos)
+#define	ATH_SYSCTL_PROC_DOINTVEC(ctl, write, filp, buffer, lenp, ppos) \
+	proc_dointvec(ctl, write, filp, buffer, lenp, ppos)
+#endif
+
+#define	ATH_TIMEOUT		1000
+
+/*
+ * Maximum acceptable MTU
+ * MAXFRAMEBODY - WEP - QOS - RSN/WPA:
+ * 2312 - 8 - 2 - 12 = 2290
+ */
+#define ATH_MAX_MTU     2290
+#define ATH_MIN_MTU     32  
+
+#define	ATH_RXBUF	40		/* number of RX buffers */
+#define	ATH_TXBUF	200		/* number of TX buffers */
+#define TAIL_DROP_COUNT 50             /* maximum number of queued frames allowed */
+
+/*
+ * The only case where we see skbuff chains is due to FF aggregation in
+ * the driver.
+ */
+#ifdef ATH_SUPERG_FF
+#define	ATH_TXDESC	2		/* number of descriptors per buffer */
+#else
+#define	ATH_TXDESC	1		/* number of descriptors per buffer */
+#endif
+
+#define	ATH_TXMAXTRY	11		/* max number of transmit attempts */
+
+
+/* driver-specific node state */
+struct ath_node {
+	struct ieee80211_node an_node;	/* base class */
+	u_int8_t	an_tx_mgtrate;	/* h/w rate for management/ctl frames */
+	u_int8_t	an_tx_mgtratesp;/* short preamble h/w rate for " " */
+	u_int32_t	an_avgrssi;	/* average rssi over all rx frames */
+	HAL_NODE_STATS	an_halstats;	/* rssi statistics used by hal */
+
+	/* superg fast-frames support */
+#ifdef ATH_SUPERG_FF
+	struct ath_buf	*an_tx_ffbuf[WME_NUM_AC];	/* buffer awaiting aggregation */
+#endif
+
+	/* variable-length rate control state follows */
+};
+#define	ATH_NODE(_n)	((struct ath_node *)(_n))
+
+#define ATH_RSSI_LPF_LEN	10
+#define ATH_RSSI_DUMMY_MARKER	0x127
+#define ATH_EP_MUL(x, mul)	((x) * (mul))
+#define ATH_RSSI_IN(x)		(ATH_EP_MUL((x), HAL_RSSI_EP_MULTIPLIER))
+#define ATH_LPF_RSSI(x, y, len) \
+    ((x != ATH_RSSI_DUMMY_MARKER) ? (((x) * ((len) - 1) + (y)) / (len)) : (y))
+#define ATH_RSSI_LPF(x, y) do {						\
+    if ((y) >= -20)							\
+    	x = ATH_LPF_RSSI((x), ATH_RSSI_IN((y)), ATH_RSSI_LPF_LEN);	\
+} while (0)
+
+struct ath_buf {
+	/* FFXXX: convert both list types to TAILQ to save a field? */
+	STAILQ_ENTRY(ath_buf)	bf_list;
+#ifdef ATH_SUPERG_FF
+	TAILQ_ENTRY(ath_buf)	bf_stagelist;	/* fast-frame staging list */
+#endif
+	struct ath_desc		*bf_desc;	/* virtual addr of desc */
+	dma_addr_t		bf_daddr;	/* physical addr of desc */
+	struct sk_buff		*bf_skb;	/* skbuff for buf */
+	dma_addr_t		bf_skbaddr;	/* physical addr of skb data */
+	struct ieee80211_node	*bf_node;	/* pointer to the node */
+#ifdef ATH_SUPERG_FF
+	/* XXX: combine this with bf_skbaddr if it ever changes to accomodate
+	 *      multiple segments.
+	 */
+	u_int32_t		bf_queueage; /* "age" of txq when this buffer placed on stageq */
+	u_int32_t		bf_numdesc;	/* number of descs used */
+	dma_addr_t		bf_skbaddrff[ATH_TXDESC-1]; /* extra addrs for ff */
+#endif
+};
+
+struct ath_hal;
+struct ath_desc;
+struct proc_dir_entry;
+
+/*
+ * Data transmit queue state.  One of these exists for each
+ * hardware transmit queue.  Packets sent to us from above
+ * are assigned to queues based on their priority.  Not all
+ * devices support a complete set of hardware transmit queues.
+ * For those devices the array sc_ac2q will map multiple
+ * priorities to fewer hardware queues (typically all to one
+ * hardware queue).
+ */
+struct ath_txq {
+	u_int			axq_qnum;	/* hardware q number */
+	u_int32_t		*axq_link;	/* link ptr in last TX desc */
+	STAILQ_HEAD(, ath_buf)	axq_q;		/* transmit queue */
+	spinlock_t		axq_lock;	/* lock on q and link */
+	u_int			axq_depth;	/* queue depth */
+	u_int32_t		axq_totalqueued; /* total ever queued */
+	u_int			axq_intrcnt;	/* count to determine if descriptor
+						 * should generate int on this txq.
+						 */
+	struct	ath_buf		*axq_linkbuf;	/* virtual address to the last buffer */
+	struct	ath_desc	*axq_lastdsWithCTS;	/* first desc of the last descriptor 
+							 * that contains CTS 
+							 */
+	struct	ath_desc	*axq_gatingds;	/* final desc of the gating desc 
+						 * that determines whether lastdsWithCTS has 
+						 * been DMA'ed or not
+						 */
+	
+#ifdef ATH_SUPERG_FF
+	TAILQ_HEAD(axq_headtype, ath_buf)	axq_stageq;
+						/* staging queue (fast-frame). borrow axq_lock. */
+#endif
+};
+
+#define ATH_TXQ_INTR_PERIOD		5  /* axq_intrcnt period for intr gen */
+#define	ATH_TXQ_LOCK_INIT(_tq)		spin_lock_init(&(_tq)->axq_lock)
+#define	ATH_TXQ_LOCK_DESTROY(_tq)	
+#define	ATH_TXQ_LOCK(_tq)		spin_lock(&(_tq)->axq_lock)
+#define	ATH_TXQ_UNLOCK(_tq)		spin_unlock(&(_tq)->axq_lock)
+#define	ATH_TXQ_LOCK_BH(_tq)		spin_lock_bh(&(_tq)->axq_lock)
+#define	ATH_TXQ_UNLOCK_BH(_tq)		spin_unlock_bh(&(_tq)->axq_lock)
+#define	ATH_TXQ_LOCK_ASSERT(_tq) \
+	KASSERT(spin_is_locked(&(_tq)->axq_lock), ("txq not locked!"))
+#define ATH_TXQ_INSERT_TAIL(_tq, _elm, _field) do { \
+	STAILQ_INSERT_TAIL( &(_tq)->axq_q, (_elm), _field); \
+	(_tq)->axq_depth++; \
+	(_tq)->axq_totalqueued++; \
+	(_tq)->axq_linkbuf = (_elm); \
+} while (0)
+#define ATH_TXQ_REMOVE_HEAD(_tq, _field) do { \
+	STAILQ_REMOVE_HEAD(&(_tq)->axq_q, _field); \
+	(_tq)->axq_depth--; \
+} while (0)
+
+#define	BSTUCK_THRESH	3	/* # of stuck beacons before resetting NB: this is a guess*/
+
+struct ath_softc {
+	struct net_device	sc_dev;		/* NB: must be first */
+	struct semaphore	sc_lock;	/* dev-level lock */
+	struct net_device_stats	sc_devstats;	/* device statistics */
+	struct ath_stats	sc_stats;	/* private statistics */
+	struct ieee80211com	sc_ic;		/* IEEE 802.11 common */
+	int			sc_debug;
+	void			(*sc_recv_mgmt)(struct ieee80211com *,
+					struct sk_buff *,
+					struct ieee80211_node *,
+					int, int, u_int32_t);
+	int			(*sc_newstate)(struct ieee80211com *,
+					enum ieee80211_state, int);
+	void 			(*sc_node_free)(struct ieee80211com *,
+					struct ieee80211_node *);
+	void			(*sc_node_copy)(struct ieee80211com *,
+					struct ieee80211_node *,
+					const struct ieee80211_node *);
+	void			(*sc_setdefantenna)(struct ath_softc *,
+					u_int);
+	struct ath_hal		*sc_ah;		/* Atheros HAL */
+	struct ath_ratectrl	*sc_rc;		/* tx rate control support */
+	unsigned int		sc_invalid : 1,	/* being detached */
+				sc_mrretry : 1,	/* multi-rate retry support */
+				sc_softled : 1,	/* enable LED gpio status */
+				sc_splitmic: 1,	/* split TKIP MIC keys */
+				sc_needmib : 1,	/* enable MIB stats intr */
+				sc_hasdiversity : 1,/* rx diversity available */
+#ifdef ATH_SUPERG_DYNTURBO
+				sc_dturbo : 1,	  /* dynamic turbo capable */
+				sc_dturbo_switch : 1,  /*  turbo switch mode */
+				sc_ignore_ar : 1,  /* gnore AR during transition */
+#endif
+				sc_diversity : 1; /* enable rx diversity */
+
+						/* rate tables */
+	const HAL_RATE_TABLE	*sc_rates[IEEE80211_MODE_MAX];
+	const HAL_RATE_TABLE	*sc_currates;	/* current rate table */
+#ifdef ATH_SUPERG_FF
+	u_int8_t		sc_prevdatarix; /* last used rate index for data */
+#endif
+	enum ieee80211_phymode	sc_curmode;	/* current phy mode */
+	HAL_CHANNEL		sc_curchan;	/* current h/w channel */
+	u_int8_t		sc_rixmap[256];	/* IEEE to h/w rate table ix */
+	u_int8_t		sc_hwmap[32];	/* h/w rate ix to IEEE table */
+	u_int8_t		sc_protrix;	/* protection rate index */
+	u_int8_t		sc_txantenna;	/* tx antenna (fixed or auto) */
+	HAL_INT			sc_imask;	/* interrupt mask copy */
+	u_int			sc_keymax;	/* size of key cache */
+	u_int8_t		sc_keymap[16];	/* bit map of key cache use */
+
+	u_int32_t		sc_beacons;
+	u_int16_t		sc_ledstate;
+	u_int16_t		sc_ledpin;	/* GPIO pin for LED */
+
+	void			*sc_bdev;	/* associated bus device */
+	struct ath_desc		*sc_desc;	/* TX/RX descriptors */
+	size_t			sc_desc_len;	/* size of TX/RX descriptors */
+	u_int16_t		sc_cachelsz;	/* cache line size */
+	dma_addr_t		sc_desc_daddr;	/* DMA (physical) address */
+
+	struct tq_struct	sc_fataltq;	/* fatal error intr tasklet */
+
+	int			sc_rxbufsize;	/* rx size based on mtu */
+	STAILQ_HEAD(, ath_buf)	sc_rxbuf;	/* receive buffer */
+	u_int32_t		*sc_rxlink;	/* link ptr in last RX desc */
+	struct tq_struct	sc_rxtq;	/* rx intr tasklet */
+	struct tq_struct	sc_rxorntq;	/* rxorn intr tasklet */
+	u_int8_t		sc_defant;	/* current default antenna */
+	u_int8_t		sc_rxotherant;	/* rx's on non-default antenna*/
+
+	STAILQ_HEAD(, ath_buf)	sc_txbuf;	/* tx buffer queue */
+	spinlock_t		sc_txbuflock;	/* txbuf lock */
+	u_int			sc_txqsetup;	/* h/w queues setup */
+	u_int			sc_txintrperiod;/* tx interrupt batching */
+	struct ath_txq		sc_txq[HAL_NUM_TX_QUEUES];
+	struct ath_txq		*sc_ac2q[WME_NUM_AC];	/* WME AC -> h/w qnum */ 
+	struct tq_struct	sc_txtq;	/* tx intr tasklet */
+
+	u_int			sc_bhalq;	/* HAL q for outgoing beacons */
+	struct tq_struct	sc_bstucktq;	/* beacon stuck intr tasklet */
+	u_int			sc_bmisscount;	/* missed beacon transmits */
+	struct ath_buf		*sc_bcbuf;	/* beacon buffer */
+	struct ath_buf		*sc_bufptr;	/* allocated buffer ptr */
+	struct tq_struct	sc_bmisstq;	/* bmiss intr tasklet */
+	enum {
+		OK,				/* no change needed */
+		UPDATE,				/* update pending */
+		COMMIT				/* beacon sent, commit change */
+	} sc_updateslot;			/* slot time update fsm */
+
+	struct timer_list	sc_cal_ch;	/* calibration timer */
+	struct timer_list	sc_scan_ch;	/* AP scan timer */
+#ifdef CONFIG_NET_WIRELESS
+	struct iw_statistics	sc_iwstats;	/* wireless statistics block */
+#endif
+#ifdef CONFIG_SYSCTL
+	struct ctl_table_header	*sc_sysctl_header;
+	struct ctl_table	*sc_sysctls;
+#endif
+
+#ifdef ATH_SUPERG_DYNTURBO
+	struct timer_list	sc_dturbo_switch_mode;	/* AP scan timer */
+	u_int32_t               sc_dturbo_tcount;     /* beacon intval count */
+	u_int32_t               sc_dturbo_bytes;      /* bandwidth stats */ 
+	u_int32_t               sc_dturbo_base_tmin;  /* min time in base */
+	u_int32_t               sc_dturbo_turbo_tmax; /* max time in turbo */
+	u_int32_t               sc_dturbo_bw_base;    /* bandwidth threshold */
+	u_int32_t               sc_dturbo_bw_turbo;   /* bandwidth threshold */
+#endif
+
+#ifdef ATH_PHYERR_DIAG
+	u_int32_t		sc_phyerr_cap;	      /* cap. flags for phyerr */
+	void			*sc_phyerr_state;     /* state used for phy err diagnostics */
+#endif
+#ifdef ATH_CAP_TPC_DIAG
+	u_int32_t		sc_tx99mode;	      /* tx99 mode  */
+	u_int32_t		sc_prefetch;	      /* prefetch   */
+	u_int32_t		sc_txpower;	      /* tx power   */
+	u_int32_t		sc_txrate;	      /* tx rate    */
+#endif
+// Added by Nick HO Start
+//*****************
+        int     rtl8650extPortNum; //loopback/extension port used.
+        int     rtl8650linkNum;//to save the link ID allocated from glue interface.
+//*****************/
+// Added End
+};
+
+#define	ATH_TXQ_SETUP(sc, i)	((sc)->sc_txqsetup & (1<<i))
+
+#define	ATH_TXBUF_LOCK_INIT(_sc)	spin_lock_init(&(_sc)->sc_txbuflock)
+#define	ATH_TXBUF_LOCK_DESTROY(_sc)
+#define	ATH_TXBUF_LOCK(_sc)		spin_lock(&(_sc)->sc_txbuflock)
+#define	ATH_TXBUF_UNLOCK(_sc)		spin_unlock(&(_sc)->sc_txbuflock)
+#define	ATH_TXBUF_LOCK_BH(_sc)		spin_lock_bh(&(_sc)->sc_txbuflock)
+#define	ATH_TXBUF_UNLOCK_BH(_sc)	spin_unlock_bh(&(_sc)->sc_txbuflock)
+#define	ATH_TXBUF_LOCK_ASSERT(_sc) \
+	KASSERT(spin_is_locked(&(_sc)->sc_txbuflock), ("txbuf not locked!"))
+
+#define	ATH_LOCK_INIT(_sc)		init_MUTEX(&(_sc)->sc_lock)
+#define	ATH_LOCK_DESTROY(_sc)
+#define	ATH_LOCK(_sc)			down(&(_sc)->sc_lock)
+#define	ATH_UNLOCK(_sc)			up(&(_sc)->sc_lock)
+
+int	ath_attach(u_int16_t, struct net_device *);
+int	ath_detach(struct net_device *);
+void	ath_resume(struct net_device *);
+void	ath_suspend(struct net_device *);
+void	ath_shutdown(struct net_device *);
+irqreturn_t ath_intr(int irq, void *dev_id, struct pt_regs *regs);
+#ifdef CONFIG_SYSCTL
+void	ath_sysctl_register(void);
+void	ath_sysctl_unregister(void);
+#endif /* CONFIG_SYSCTL */
+
+/*
+ * HAL definitions to comply with local coding convention.
+ */
+#define	ath_hal_reset(_ah, _opmode, _chan, _outdoor, _pstatus) \
+	((*(_ah)->ah_reset)((_ah), (_opmode), (_chan), (_outdoor), (_pstatus)))
+#define	ath_hal_getratetable(_ah, _mode) \
+	((*(_ah)->ah_getRateTable)((_ah), (_mode)))
+#define	ath_hal_getmac(_ah, _mac) \
+	((*(_ah)->ah_getMacAddress)((_ah), (_mac)))
+#define	ath_hal_setmac(_ah, _mac) \
+	((*(_ah)->ah_setMacAddress)((_ah), (_mac)))
+// Dino Chang 2005/02/28
+#define ath_hal_setdomain(_ah, _regdomain, _status) \
+        ((*(_ah)->ah_setRegulatoryDomain)((_ah), (_regdomain), (_status)))
+// Dino Chang
+#define	ath_hal_intrset(_ah, _mask) \
+	((*(_ah)->ah_setInterrupts)((_ah), (_mask)))
+#define	ath_hal_intrget(_ah) \
+	((*(_ah)->ah_getInterrupts)((_ah)))
+#define	ath_hal_intrpend(_ah) \
+	((*(_ah)->ah_isInterruptPending)((_ah)))
+#define	ath_hal_getisr(_ah, _pmask) \
+	((*(_ah)->ah_getPendingInterrupts)((_ah), (_pmask)))
+#define	ath_hal_updatetxtriglevel(_ah, _inc) \
+	((*(_ah)->ah_updateTxTrigLevel)((_ah), (_inc)))
+#define	ath_hal_setpower(_ah, _mode, _sleepduration) \
+	((*(_ah)->ah_setPowerMode)((_ah), (_mode), AH_TRUE, (_sleepduration)))
+#define	ath_hal_keycachesize(_ah) \
+	((*(_ah)->ah_getKeyCacheSize)((_ah)))
+#define	ath_hal_keyreset(_ah, _ix) \
+	((*(_ah)->ah_resetKeyCacheEntry)((_ah), (_ix)))
+#define	ath_hal_keyset(_ah, _ix, _pk, _mac) \
+	((*(_ah)->ah_setKeyCacheEntry)((_ah), (_ix), (_pk), (_mac), AH_FALSE))
+#define	ath_hal_keyisvalid(_ah, _ix) \
+	(((*(_ah)->ah_isKeyCacheEntryValid)((_ah), (_ix))))
+#define	ath_hal_keysetmac(_ah, _ix, _mac) \
+	((*(_ah)->ah_setKeyCacheEntryMac)((_ah), (_ix), (_mac)))
+#define	ath_hal_getrxfilter(_ah) \
+	((*(_ah)->ah_getRxFilter)((_ah)))
+#define	ath_hal_setrxfilter(_ah, _filter) \
+	((*(_ah)->ah_setRxFilter)((_ah), (_filter)))
+#define	ath_hal_setmcastfilter(_ah, _mfilt0, _mfilt1) \
+	((*(_ah)->ah_setMulticastFilter)((_ah), (_mfilt0), (_mfilt1)))
+#define	ath_hal_waitforbeacon(_ah, _bf) \
+	((*(_ah)->ah_waitForBeaconDone)((_ah), (_bf)->bf_daddr))
+#define	ath_hal_putrxbuf(_ah, _bufaddr) \
+	((*(_ah)->ah_setRxDP)((_ah), (_bufaddr)))
+#define	ath_hal_gettsf32(_ah) \
+	((*(_ah)->ah_getTsf32)((_ah)))
+#define	ath_hal_gettsf64(_ah) \
+	((*(_ah)->ah_getTsf64)((_ah)))
+#define	ath_hal_resettsf(_ah) \
+	((*(_ah)->ah_resetTsf)((_ah)))
+#define	ath_hal_rxena(_ah) \
+	((*(_ah)->ah_enableReceive)((_ah)))
+#define	ath_hal_numtxpending(_ah, _q) \
+	((*(_ah)->ah_numTxPending)((_ah), (_q)))
+#define	ath_hal_puttxbuf(_ah, _q, _bufaddr) \
+	((*(_ah)->ah_setTxDP)((_ah), (_q), (_bufaddr)))
+#define	ath_hal_gettxbuf(_ah, _q) \
+	((*(_ah)->ah_getTxDP)((_ah), (_q)))
+#define	ath_hal_getrxbuf(_ah) \
+	((*(_ah)->ah_getRxDP)((_ah)))
+#define	ath_hal_txstart(_ah, _q) \
+	((*(_ah)->ah_startTxDma)((_ah), (_q)))
+#define	ath_hal_setchannel(_ah, _chan) \
+	((*(_ah)->ah_setChannel)((_ah), (_chan)))
+#define	ath_hal_calibrate(_ah, _chan) \
+	((*(_ah)->ah_perCalibration)((_ah), (_chan)))
+#define	ath_hal_setledstate(_ah, _state) \
+	((*(_ah)->ah_setLedState)((_ah), (_state)))
+#define	ath_hal_beaconinit(_ah, _nextb, _bperiod) \
+	((*(_ah)->ah_beaconInit)((_ah), (_nextb), (_bperiod)))
+#define	ath_hal_beaconreset(_ah) \
+	((*(_ah)->ah_resetStationBeaconTimers)((_ah)))
+#define	ath_hal_beacontimers(_ah, _bs) \
+	((*(_ah)->ah_setStationBeaconTimers)((_ah), (_bs)))
+#define	ath_hal_setassocid(_ah, _bss, _associd) \
+	((*(_ah)->ah_writeAssocid)((_ah), (_bss), (_associd)))
+#define	ath_hal_phydisable(_ah) \
+	((*(_ah)->ah_phyDisable)((_ah)))
+#define	ath_hal_setopmode(_ah) \
+	((*(_ah)->ah_setPCUConfig)((_ah)))
+#define	ath_hal_stoptxdma(_ah, _qnum) \
+	((*(_ah)->ah_stopTxDma)((_ah), (_qnum)))
+#define	ath_hal_stoppcurecv(_ah) \
+	((*(_ah)->ah_stopPcuReceive)((_ah)))
+#define	ath_hal_startpcurecv(_ah) \
+	((*(_ah)->ah_startPcuReceive)((_ah)))
+#define	ath_hal_stopdmarecv(_ah) \
+	((*(_ah)->ah_stopDmaReceive)((_ah)))
+#define	ath_hal_getdiagstate(_ah, _id, _indata, _insize, _outdata, _outsize) \
+	((*(_ah)->ah_getDiagState)((_ah), (_id), \
+		(_indata), (_insize), (_outdata), (_outsize)))
+#define ath_hal_setTxQueueProps(_ah, _q, _qInfo) \
+	((*(_ah)->ah_setTxQueueProps)((_ah), (_q), (_qInfo)))
+#define	ath_hal_setuptxqueue(_ah, _type, _irq) \
+	((*(_ah)->ah_setupTxQueue)((_ah), (_type), (_irq)))
+#define	ath_hal_resettxqueue(_ah, _q) \
+	((*(_ah)->ah_resetTxQueue)((_ah), (_q)))
+#define	ath_hal_releasetxqueue(_ah, _q) \
+	((*(_ah)->ah_releaseTxQueue)((_ah), (_q)))
+#define	ath_hal_hasveol(_ah) \
+	((*(_ah)->ah_hasVEOL)((_ah)))
+#define	ath_hal_getrfgain(_ah) \
+	((*(_ah)->ah_getRfGain)((_ah)))
+#define	ath_hal_getdefantenna(_ah) \
+	((*(_ah)->ah_getDefAntenna)((_ah)))
+#define	ath_hal_setdefantenna(_ah, _ant) \
+	((*(_ah)->ah_setDefAntenna)((_ah), (_ant)))
+#define	ath_hal_rxmonitor(_ah, _arg) \
+	((*(_ah)->ah_rxMonitor)((_ah), (_arg)))
+#define	ath_hal_mibevent(_ah, _stats) \
+	((*(_ah)->ah_procMibEvent)((_ah), (_stats)))
+#define	ath_hal_setslottime(_ah, _us) \
+	((*(_ah)->ah_setSlotTime)((_ah), (_us)))
+#define	ath_hal_getslottime(_ah) \
+	((*(_ah)->ah_getSlotTime)((_ah)))
+#define	ath_hal_setacktimeout(_ah, _us) \
+	((*(_ah)->ah_setAckTimeout)((_ah), (_us)))
+#define	ath_hal_getacktimeout(_ah) \
+	((*(_ah)->ah_getAckTimeout)((_ah)))
+#define	ath_hal_setctstimeout(_ah, _us) \
+	((*(_ah)->ah_setCTSTimeout)((_ah), (_us)))
+#define	ath_hal_getctstimeout(_ah) \
+	((*(_ah)->ah_getCTSTimeout)((_ah)))
+#define	ath_hal_enablePhyDiag(_ah) \
+	((*(_ah)->ah_enablePhyErrDiag)((_ah)))
+#define	ath_hal_disablePhyDiag(_ah) \
+	((*(_ah)->ah_disablePhyErrDiag)((_ah)))
+#define	ath_hal_getcapability(_ah, _cap, _param, _result) \
+	((*(_ah)->ah_getCapability)((_ah), (_cap), (_param), (_result)))
+#define	ath_hal_setcapability(_ah, _cap, _param, _v, _status) \
+	((*(_ah)->ah_setCapability)((_ah), (_cap), (_param), (_v), (_status)))
+#define	ath_hal_ciphersupported(_ah, _cipher) \
+	(ath_hal_getcapability(_ah, HAL_CAP_CIPHER, _cipher, NULL) == HAL_OK)
+#define	ath_hal_fastframesupported(_ah) \
+	(ath_hal_getcapability(_ah, HAL_CAP_FASTFRAME, 0, NULL) == HAL_OK)
+#define ath_hal_burstsupported(_ah) \
+	(ath_hal_getcapability(_ah, HAL_CAP_BURST, 0, NULL) == HAL_OK)
+#define ath_hal_turboagsupported(_ah) \
+	(ath_hal_getwirelessmodes(_ah, ath_countrycode) & (HAL_MODE_108G|HAL_MODE_TURBO))
+#define	ath_hal_getregdomain(_ah, _prd) \
+	ath_hal_getcapability(_ah, HAL_CAP_REG_DMN, 0, (_prd))
+#define	ath_hal_getcountrycode(_ah, _pcc) \
+	(*(_pcc) = (_ah)->ah_countryCode)
+#define	ath_hal_tkipsplit(_ah) \
+	(ath_hal_getcapability(_ah, HAL_CAP_TKIP_SPLIT, 0, NULL) == HAL_OK)
+#define	ath_hal_hwphycounters(_ah) \
+	(ath_hal_getcapability(_ah, HAL_CAP_PHYCOUNTERS, 0, NULL) == HAL_OK)
+#define	ath_hal_hasdiversity(_ah) \
+	(ath_hal_getcapability(_ah, HAL_CAP_DIVERSITY, 0, NULL) == HAL_OK)
+#define	ath_hal_getdiversity(_ah) \
+	(ath_hal_getcapability(_ah, HAL_CAP_DIVERSITY, 1, NULL) == HAL_OK)
+#define	ath_hal_setdiversity(_ah, _v) \
+	ath_hal_setcapability(_ah, HAL_CAP_DIVERSITY, 1, _v, NULL)
+
+#define	ath_hal_setuprxdesc(_ah, _ds, _size, _intreq) \
+	((*(_ah)->ah_setupRxDesc)((_ah), (_ds), (_size), (_intreq)))
+#define	ath_hal_rxprocdesc(_ah, _ds, _dspa, _dsnext) \
+	((*(_ah)->ah_procRxDesc)((_ah), (_ds), (_dspa), (_dsnext)))
+#define	ath_hal_updateCTSForBursting(_ah, _ds, _prevds, _prevdsWithCTS, _gatingds,    \
+                                     _txOpLimit, _ctsDuration)			      \
+	((*(_ah)->ah_updateCTSForBursting)((_ah), (_ds), (_prevds), (_prevdsWithCTS), \
+	                                   (_gatingds), (_txOpLimit), (_ctsDuration)))
+#define	ath_hal_setuptxdesc(_ah, _ds, _plen, _hlen, _atype, _txpow, \
+		_txr0, _txtr0, _keyix, _ant, _flags, \
+		_rtsrate, _rtsdura) \
+	((*(_ah)->ah_setupTxDesc)((_ah), (_ds), (_plen), (_hlen), (_atype), \
+		(_txpow), (_txr0), (_txtr0), (_keyix), (_ant), \
+		(_flags), (_rtsrate), (_rtsdura)))
+#define	ath_hal_setupxtxdesc(_ah, _ds, \
+		_txr1, _txtr1, _txr2, _txtr2, _txr3, _txtr3) \
+	((*(_ah)->ah_setupXTxDesc)((_ah), (_ds), \
+		(_txr1), (_txtr1), (_txr2), (_txtr2), (_txr3), (_txtr3)))
+#define	ath_hal_filltxdesc(_ah, _ds, _l, _first, _last, _ds0) \
+	((*(_ah)->ah_fillTxDesc)((_ah), (_ds), (_l), (_first), (_last), (_ds0)))
+#define	ath_hal_txprocdesc(_ah, _ds) \
+	((*(_ah)->ah_procTxDesc)((_ah), (_ds)))
+#define ath_hal_gettxintrtxqs(_ah, _txqs) \
+	((*(_ah)->ah_getTxIntrQueue)((_ah), (_txqs)))
+
+#define ath_hal_gpioCfgOutput(_ah, _gpio) \
+        ((*(_ah)->ah_gpioCfgOutput)((_ah), (_gpio)))
+#define ath_hal_gpioset(_ah, _gpio, _b) \
+        ((*(_ah)->ah_gpioSet)((_ah), (_gpio), (_b)))
+
+#endif /* _DEV_ATH_ATHVAR_H */

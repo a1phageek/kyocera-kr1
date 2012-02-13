@@ -1,0 +1,20 @@
+lock
+plugin pppoe
+tty eth0
+noipdefault
+noauth
+nodetach
+#
+usepeerwins
+usepeerdns
+#
+mtu 1492 mru 1492
+noccp nopcomp  novjccomp
+user
+
+# persistent
+persist
+
+# LCP Control
+lcp-echo-failure        5
+lcp-echo-interval       30

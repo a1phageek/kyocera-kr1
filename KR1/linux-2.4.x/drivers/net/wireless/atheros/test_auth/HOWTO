@@ -1,0 +1,7 @@
+howto test standalone AP with WPA-PSK and no ethernet bridge:
+	sh setup.nobridge
+
+howto test with bridging enabled:
+	sh setup
+
+hostapd.conf file is read by hostapd when starting.

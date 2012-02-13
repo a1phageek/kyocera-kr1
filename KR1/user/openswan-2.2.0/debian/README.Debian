@@ -1,0 +1,22 @@
+openswan for Debian
+----------------------
+
+This package has been created from scratch with some ideas from the
+freeswan 1.3 package by Tommi Virtanen and the freeswan 1.5 package by
+Aaron Johnson merged in. Most of the code in debian/rules for creating the
+kernel-patch-freeswan package has been taken directly from Tommi Virtanen's
+package, but has been mostly rewritten to fit the needs of newer kernel
+versions (since version 1.9-1).
+
+After the decision of the FreeS/WAN project to cease the development of
+FreeS/WAN, we decided to switch over to the Openswan fork. This code base
+includes all the patches that had to be applied manually before, which makes
+packaging simple. Alexander List prepared the first preliminary openswan
+package based on my freeswan packaging, which I updated to the relevant parts
+of the current freeswan package.
+
+Note: This package depends on the in-kernel IPsec stack, which is available
+in the stock Debian kernel images (>=2.4.24 and 2.6.x). Additional kernel
+patches or kernel modules for older kernels are currently not supported.
+
+ -- Rene Mayrhofer <rmayr@debian.org>, Sun Mar 31 11:22:04 2004

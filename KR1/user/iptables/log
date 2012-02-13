@@ -1,0 +1,23 @@
+Extensions found:
+cc -Wall -Wunused -Iinclude/ -DIPTABLES_VERSION=\"1.2.7a\" -D__OPTIMIZE__ -DNO_SHARED_LIBS=1 -D_INIT=ipt_conntrack_init -c -o extensions/libipt_conntrack.o extensions/libipt_conntrack.c
+In file included from extensions/libipt_conntrack.c:14:
+include/linux/netfilter_ipv4/ipt_conntrack.h:28: `IP_CT_DIR_MAX' undeclared here (not in a function)
+include/linux/netfilter_ipv4/ipt_conntrack.h:29: `IP_CT_DIR_MAX' undeclared here (not in a function)
+include/linux/netfilter_ipv4/ipt_conntrack.h:29: `IP_CT_DIR_MAX' undeclared here (not in a function)
+extensions/libipt_conntrack.c: In function `parse_status':
+extensions/libipt_conntrack.c:103: `IPS_EXPECTED' undeclared (first use in this function)
+extensions/libipt_conntrack.c:103: (Each undeclared identifier is reported only once
+extensions/libipt_conntrack.c:103: for each function it appears in.)
+extensions/libipt_conntrack.c:105: `IPS_SEEN_REPLY' undeclared (first use in this function)
+extensions/libipt_conntrack.c:107: `IPS_ASSURED' undeclared (first use in this function)
+extensions/libipt_conntrack.c: In function `parse':
+extensions/libipt_conntrack.c:202: `IP_CT_DIR_ORIGINAL' undeclared (first use in this function)
+extensions/libipt_conntrack.c:259: `IP_CT_DIR_REPLY' undeclared (first use in this function)
+extensions/libipt_conntrack.c: In function `print_status':
+extensions/libipt_conntrack.c:364: `IPS_EXPECTED' undeclared (first use in this function)
+extensions/libipt_conntrack.c:368: `IPS_SEEN_REPLY' undeclared (first use in this function)
+extensions/libipt_conntrack.c:372: `IPS_ASSURED' undeclared (first use in this function)
+extensions/libipt_conntrack.c: In function `matchinfo_print':
+extensions/libipt_conntrack.c:420: `IP_CT_DIR_ORIGINAL' undeclared (first use in this function)
+extensions/libipt_conntrack.c:440: `IP_CT_DIR_REPLY' undeclared (first use in this function)
+make: *** [extensions/libipt_conntrack.o] Error 1

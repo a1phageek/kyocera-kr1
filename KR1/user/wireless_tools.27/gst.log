@@ -1,0 +1,18 @@
+/opt/toolchain_mips/bin/mips-linux-gcc -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -c iwlib.c
+rm -f libiw.a
+/opt/toolchain_mips/bin/mips-linux-ar cru libiw.a iwlib.o
+/opt/toolchain_mips/bin/mips-linux-ranlib libiw.a
+/opt/toolchain_mips/bin/mips-linux-gcc -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -c iwconfig.c
+/opt/toolchain_mips/bin/mips-linux-gcc  -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -o iwconfig iwconfig.o libiw.a 
+/opt/toolchain_mips/bin/mips-linux-gcc -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -c iwlist.c
+/opt/toolchain_mips/bin/mips-linux-gcc  -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -o iwlist iwlist.o libiw.a 
+/opt/toolchain_mips/bin/mips-linux-gcc -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -c iwpriv.c
+/opt/toolchain_mips/bin/mips-linux-gcc  -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -o iwpriv iwpriv.o libiw.a 
+/opt/toolchain_mips/bin/mips-linux-gcc -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -c iwspy.c
+/opt/toolchain_mips/bin/mips-linux-gcc  -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -o iwspy iwspy.o libiw.a 
+/opt/toolchain_mips/bin/mips-linux-gcc -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -c iwgetid.c
+/opt/toolchain_mips/bin/mips-linux-gcc  -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -o iwgetid iwgetid.o libiw.a 
+/opt/toolchain_mips/bin/mips-linux-gcc -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -c iwevent.c
+/opt/toolchain_mips/bin/mips-linux-gcc  -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -o iwevent iwevent.o libiw.a 
+/opt/toolchain_mips/bin/mips-linux-gcc -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -c ifrename.c
+/opt/toolchain_mips/bin/mips-linux-gcc  -Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow -Wpointer-arith -Wcast-qual -Winline -I. -MMD   -DWE_NOLIBM=y -o ifrename ifrename.o libiw.a 

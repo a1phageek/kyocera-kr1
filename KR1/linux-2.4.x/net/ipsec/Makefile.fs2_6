@@ -1,0 +1,143 @@
+# Makefile for KLIPS kernel code as a module    for 2.6 kernels
+#
+# Makefile for KLIPS kernel code as a module
+# Copyright (C) 1998, 1999, 2000,2001  Richard Guy Briggs.
+# Copyright (C) 2002-2004	Michael Richardson <mcr@freeswan.org>
+# 
+# This program is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; either version 2 of the License, or (at your
+# option) any later version.  See <http://www.fsf.org/copyleft/gpl.txt>.
+# 
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+# or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+# for more details.
+#
+# RCSID $Id: Makefile.fs2_6,v 1.1 2004/08/02 02:09:58 rupert Exp $
+#
+# Note! Dependencies are done automagically by 'make dep', which also
+# removes any old dependencies. DON'T put your own dependencies here
+# unless it's something special (ie not a .c file).
+#
+
+FREESWANSRCDIR=.
+KLIPS_TOP=.
+-include ${FREESWANSRCDIR}/Makefile.ver
+
+# always force it on
+CONFIG_KLIPS_ESP:=y
+CONFIG_KLIPS_IPIP:=y
+
+obj-$(CONFIG_KLIPS) := ipsec_init.o ipsec_sa.o ipsec_radij.o radij.o
+obj-$(CONFIG_KLIPS) += ipsec_life.o ipsec_proc.o
+obj-$(CONFIG_KLIPS) += ipsec_tunnel.o ipsec_xmit.o ipsec_rcv.o ipsec_ipip.o
+obj-$(CONFIG_KLIPS) += sysctl_net_ipsec.o 
+obj-$(CONFIG_KLIPS) += pfkey_v2.o pfkey_v2_parser.o pfkey_v2_ext_process.o 
+obj-$(CONFIG_KLIPS) += version.o
+obj-$(CONFIG_KLIPS_ESP)+= ipsec_esp.o
+obj-$(CONFIG_KLIPS_IPCOMP)+= ipsec_ipcomp.o
+obj-$(CONFIG_KLIPS_AUTH_HMAC_MD5) += ipsec_md5c.o
+obj-$(CONFIG_KLIPS_AUTH_HMAC_SHA1) += ipsec_sha1.o
+
+obj-$(CONFIG_KLIPS_ENC_3DES) += cbc_enc.o
+obj-$(CONFIG_KLIPS_ENC_3DES) += ecb_enc.o
+obj-$(CONFIG_KLIPS_ENC_3DES) += set_key.o
+
+ifeq ($(strip ${SUBARCH}),)
+SUBARCH:=${ARCH}
+endif
+
+ifeq (${SUBARCH},i386)
+obj-$(CONFIG_KLIPS_ENC_3DES) += dx86unix.o
+else
+obj-$(CONFIG_KLIPS_ENC_3DES) += des_enc.o
+endif
+
+
+obj-$(CONFIG_KLIPS_ENC_3DES) += cbc_enc.o
+#obj-$(CONFIG_KLIPS_ENC_3DES) += des_opts.o
+obj-$(CONFIG_KLIPS_ENC_3DES) += ecb_enc.o
+#obj-$(CONFIG_KLIPS_ENC_3DES) += fcrypt.o
+obj-$(CONFIG_KLIPS_ENC_3DES) += set_key.o
+
+ifeq ($(strip ${SUBARCH}),)
+SUBARCH:=${ARCH}
+endif
+
+ifeq (${SUBARCH},i386)
+obj-$(CONFIG_KLIPS_ENC_3DES) += dx86unix.o
+else
+obj-$(CONFIG_KLIPS_ENC_3DES) += des_enc.o
+endif
+
+obj-$(CONFIG_KLIPS) += satot.o
+obj-$(CONFIG_KLIPS) += addrtot.o
+obj-$(CONFIG_KLIPS) += ultot.o 
+obj-$(CONFIG_KLIPS) += addrtypeof.o
+obj-$(CONFIG_KLIPS) += anyaddr.o
+obj-$(CONFIG_KLIPS) += initaddr.o
+obj-$(CONFIG_KLIPS) += ultoa.o 
+obj-$(CONFIG_KLIPS) += addrtoa.o 
+obj-$(CONFIG_KLIPS) += subnettoa.o 
+obj-$(CONFIG_KLIPS) += subnetof.o 
+obj-$(CONFIG_KLIPS) += goodmask.o 
+obj-$(CONFIG_KLIPS) += datatot.o 
+obj-$(CONFIG_KLIPS) += rangetoa.o 
+obj-$(CONFIG_KLIPS) += prng.o 
+obj-$(CONFIG_KLIPS) += pfkey_v2_parse.o 
+obj-$(CONFIG_KLIPS) += pfkey_v2_build.o 
+obj-$(CONFIG_KLIPS) += pfkey_v2_debug.o 
+obj-$(CONFIG_KLIPS) += pfkey_v2_ext_bits.o 
+obj-$(CONFIG_KLIPS) += version.o
+
+# IPcomp stuff
+obj-$(CONFIG_KLIPS_IPCOMP) += ipcomp.o 
+
+obj-$(CONFIG_KLIPS_IPCOMP) += adler32.o
+obj-$(CONFIG_KLIPS_IPCOMP) += deflate.o
+obj-$(CONFIG_KLIPS_IPCOMP) += infblock.o
+obj-$(CONFIG_KLIPS_IPCOMP) += infcodes.o
+obj-$(CONFIG_KLIPS_IPCOMP) += inffast.o
+obj-$(CONFIG_KLIPS_IPCOMP) += inflate.o
+obj-$(CONFIG_KLIPS_IPCOMP) += inftrees.o
+obj-$(CONFIG_KLIPS_IPCOMP) += infutil.o
+obj-$(CONFIG_KLIPS_IPCOMP) += trees.o
+obj-$(CONFIG_KLIPS_IPCOMP) += zutil.o
+
+asm-obj-$(CONFIG_M586)          += match586.o
+asm-obj-$(CONFIG_M586TSC)       += match586.o
+asm-obj-$(CONFIG_M586MMX)       += match586.o
+asm-obj-$(CONFIG_M686)          += match686.o
+asm-obj-$(CONFIG_MPENTIUMIII)   += match686.o
+asm-obj-$(CONFIG_MPENTIUM4)     += match686.o
+asm-obj-$(CONFIG_MK6)           += match586.o
+asm-obj-$(CONFIG_MK7)           += match686.o
+asm-obj-$(CONFIG_MCRUSOE)       += match586.o
+asm-obj-$(CONFIG_MWINCHIPC6)    += match586.o
+asm-obj-$(CONFIG_MWINCHIP2)     += match686.o
+asm-obj-$(CONFIG_MWINCHIP3D)    += match686.o
+
+EXTRA_CFLAGS += -DIPCOMP_PREFIX
+
+#
+# $Log: Makefile.fs2_6,v $
+# Revision 1.1  2004/08/02 02:09:58  rupert
+# +: Add Freeswan IPSec 2.06
+#
+# Revision 1.3  2004/02/24 17:17:04  mcr
+# 	s/CONFIG_IPSEC/CONFIG_KLIPS/ as 26sec uses "CONFIG_IPSEC" to
+# 	turn it on/off as well.
+#
+# Revision 1.2  2004/02/22 06:50:42  mcr
+# 	kernel 2.6 port - merged with 2.4 code.
+#
+# Revision 1.1.2.1  2004/02/20 02:07:53  mcr
+# 	module configuration for KLIPS 2.6
+#
+#
+# Local Variables:
+# compile-command: "(cd ../../.. && source umlsetup.sh && make -C ${POOLSPACE} module/ipsec.o)"
+# End Variables:
+#
+

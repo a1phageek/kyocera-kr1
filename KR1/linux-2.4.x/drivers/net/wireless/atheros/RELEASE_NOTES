@@ -1,0 +1,114 @@
+*** Release SuperG-1_2 02/02/2005
+
+    This release updates hostapd and wpa_supplicant from 0.3.2 to 0.3.3.
+    There are small improvements in the driver, but no functionality changes.
+    This driver does not support power-save clients - that will be
+    in the next release.
+
+
+*** Release SuperG-1_1 12/23/2004
+
+    Second release of SuperG/turbo, adding Adaptive Radio (AR), Dynamic Turbo (DT),
+    numerous small improvements and bugfixes and a first release of WPA Authenticator
+    and Supplicant support.
+
+    Most of the improvements in this release are related to issues with operating
+    WMM, WPA, and SuperG features both individually as well as all at the same time.
+
+    Compile time driver configuration is needed to enable/disable new driver features.
+    These are located in a new file: madwifi/BuildCaps.inc.  The default values will
+    enable all the features.   Note that ATH_CAP_PHYERR_DIAG must be enabled for AR.
+
+
+*** Release SuperG-1_0 11/30/2004
+
+	Initial integration release of SuperG/turbo with SuperJ and WMM.
+	This is an early alpha that is stable but not fully tested.
+
+	Static Turbo may be manually enabled with these steps:
+	1. iwpriv ath0 mode [1|3]	// locks the nic to 11a or 11g, respectively
+	2. iwconfig ath0 freq 5210M	// pick an operating channel
+	3. iwpriv ath0 turbo 1		// turns on static turbo
+
+	Static Turbo may be automatically enabled when in Station mode
+	if ATH_SUPERG_SCAN was defined in net80211/if_athproto.h.
+	If the station is in the default auto select mode, or has been
+	set to that mode by "iwpriv ath0 mode 0", and if the driver was
+	compiled with ATH_SUPERG_SCAN, then the station will automatically enter turbo mode
+	if it scans an AP that is advertising turbo mode.
+
+	For Dynamic Turbo operation in either Station or AP mode,
+	the driver must be compiled with ATH_SUPERG_DYNTURBO enabled
+	in net80211/if_athproto.h.  The default value for this release
+	disables DYNTURBO.   You must specifically enable it before compiling.
+	When DYNTURBO is enabled, the driver will set abolt flags 
+	to 154(0x9A) which can be tested with "iwpriv ath0 get_abolt".
+	The abolt bit flags are defined in net80211/ieee80211_var.h.
+	Dynamic Turbo behavior can be
+
+	Known issues with this build:
+	1. wlan-to-lan packet bridging may be broken in AP mode.
+	2. With fast frames enabled large icmp ping messages may not be received correctly,
+	   although large tcp or udp datagrams are ok.
+	3. there may be driver bugs when associating if WMM and fast frames are not enabled.
+	4. Hostapd/WPA has not been tested with this driver and is not included in the release.
+	5. there is no support for radar detect, DFS, AR, or compression in this release.
+
+	Other changes:
+	1. the HAL build directory has been modified slightly so that the object files
+	   and .uu files are placed in ./hal/public.
+	2. RELEASE_NOTES (this file) are now the same for both the BASE release
+	   of the driver as well as releases that contain optional modules, e.g. ratectrl.
+
+*** Release SuperJ-1_2 11/09/2004
+
+	This release completes the integration of Fast Frames with WMM.
+	WMM is enabled by default, although active only when associated
+	with a WMM-enabled AP.
+	It is otherwise the same as the previous release.
+
+
+*** Release SuperJ-1_1 11/05/2004
+
+new functionality:
+	bursting and fast frames are enabled by default.
+	Netperf TCP performance on laptop is 32 Mbits/s on clean channel.
+
+	WMM is fully implemented but disabled by default because
+	it needs more testing with fast frames.
+
+	Sleep mode will properly power off the chip
+
+	In if_ath.c there is a small change - look for USE_HEADER_LEN_RESV -
+	which if enabled can improve performance on kernels that do not
+	allocate sufficient headroom in the skb buffers for an 802.11 header.
+	Kernels with this problem are forced to copy most transmit buffers
+	to a new skb unless USE_HEADER_LEN_RESV is defined.
+
+There are no changes to the build procedures.
+
+*******************************************************************************
+
+
+*** Release SuperJ-1_0 10/29/2004
+
+main new features: Atheros rate control, 2414 support
+
+Directories:   
+	hal - contains the closed source hal code
+	ratectrl - contains the closed source rate control code
+	madwifi - contains the open source driver code
+
+How to Build:
+
+	make
+	make install
+
+	This will build the hal+driver+rate control.
+	The script is appropriate for build/install on a standalone
+	Linux system, and must be modified for use in a cross-compile
+	or embedded environment.
+
+Known Bug:
+
+	The code to place the chip into sleep mode is disabled in this release.

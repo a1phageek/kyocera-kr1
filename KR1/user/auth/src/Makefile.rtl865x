@@ -1,0 +1,32 @@
+CFLAGS += -I../include -I./include -DCOMPACK_SIZE\
+	-D_ON_RTL8181_TARGET -DLIBNET_BIG_ENDIAN\
+	-DLIB1X_BIG_ENDIAN -D_DAEMON_SIDE -D_RTL_WPA_UNIX 
+
+AUTHEXEC = auth
+AUTHBIN = auth-$(WLANDRVPKG_VERSION).obj
+AUTHOBJS = auth.o \
+	1x_auth_pae.o 1x_bauth_sm.o 1x_common.o 1x_krc_sm.o \
+	1x_nal.o 1x_kxsm.o 1x_radius.o 1x_ptsm.o 1x_reauth_sm.o \
+	1x_cdsm.o 1x_config.o 1x_ioctl.o 1x_parser.o \
+	1x_kmsm_auth.o 1x_kmsm_supp.o 1x_kmsm_eapolkey.o \
+	1x_info_auth.o 1x_kmsm_hmac.o 1x_kmsm_prf.o 1x_kmsm_aes.o 1x_acct_sm.o 1x_md5c.o 1x_rc4.o libnet.o
+
+all: $(AUTHEXEC)
+
+$(AUTHEXEC): $(AUTHBIN)
+	cp $(AUTHBIN) $(AUTHEXEC)
+	chmod 755 $(AUTHEXEC)
+
+RTL8185_SRC=n
+ifeq ($(RTL8185_SRC),y)
+$(AUTHBIN): $(AUTHOBJS)
+	$(CC) $(LDFLAGS) -o $@ $(AUTHOBJS) $(LDLIBS$(LDLIBS-$(@)))
+endif
+
+romfs:
+	$(ROMFSINST) -e CONFIG_RTL8185       /bin/auth
+
+clean:
+	-rm -f $(AUTHEXEC) *.elf *.gdb *.o
+
+

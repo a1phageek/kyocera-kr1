@@ -1,0 +1,10 @@
+--- /usr/src/linux-2.6.0/net/Makefile	2004-01-22 08:34:58.917422536 -0800
++++ Makefile.net	2004-01-22 08:34:42.960848304 -0800
+@@ -38,6 +38,7 @@
+ obj-$(CONFIG_ECONET)		+= econet/
+ obj-$(CONFIG_VLAN_8021Q)	+= 8021q/
+ obj-$(CONFIG_IP_SCTP)		+= sctp/
++obj-$(CONFIG_WLAN)		+= net80211/
+ 
+ ifeq ($(CONFIG_NET),y)
+ obj-$(CONFIG_SYSCTL)		+= sysctl_net.o

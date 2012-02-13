@@ -1,0 +1,8 @@
+The authenticator and supplicant are obtained from
+the open source development site: http://hostap.epitest.fi/
+
+The Makefiles and configuration files have been edited
+for this Madwifi distribution environment.
+
+The directory "test_auth" contains some notes and scripts
+for a simple test of the authenticator with WPA-PSK.

@@ -1,0 +1,1098 @@
+---------------------
+PatchSet 3399 
+Date: 2003/07/15 08:15:03
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Document CONFIG_USE_BB_PWD_GRP
+
+Members: 
+	loginutils/Config.in:1.3->1.4 
+
+---------------------
+PatchSet 3400 
+Date: 2003/07/15 08:52:40
+Author: andersen
+Branch: HEAD
+Tag: busybox_1_00_pre1 
+Log:
+Update changelog and docs
+
+Members: 
+	Changelog:1.280->1.281 
+	docs/busybox.net/index.html:1.120->1.121 
+	docs/busybox.net/oldnews.html:1.13->1.14 
+	docs/busybox.net/screenshot.html:1.4->1.5 
+
+---------------------
+PatchSet 3401 
+Date: 2003/07/16 07:29:51
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Fixup problem unconditionally converting all hard links to symlinks.
+
+Members: 
+	archival/libunarchive/get_header_tar.c:1.18->1.19 
+
+---------------------
+PatchSet 3402 
+Date: 2003/07/16 08:31:14
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Update required kernel version and note that libc5 is no longer
+supported (it is unmaintained and lacks support for simple things
+such as stdint.h) and uClibc is a better choice these days anyways.
+
+Members: 
+	README:1.26->1.27 
+
+---------------------
+PatchSet 3403 
+Date: 2003/07/19 09:19:21
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Fixup some little error in the webpage.  Mention the Dell TrueMobile 1184.
+
+Members: 
+	docs/busybox.net/index.html:1.121->1.122 
+
+---------------------
+PatchSet 3404 
+Date: 2003/07/22 06:57:29
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Patch from Jeff Angielski <jeff@theptrgroup.com> recognizing
+his work on ftpput and ftpget.
+
+Members: 
+	AUTHORS:1.36->1.37 
+
+---------------------
+PatchSet 3405 
+Date: 2003/07/22 08:30:36
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Matteo Croce submitted a hdparm applet.
+
+Members: 
+	include/applets.h:1.99->1.100 
+	include/usage.h:1.157->1.158 
+	miscutils/Config.in:1.2->1.3 
+	miscutils/Makefile.in:1.5->1.6 
+	miscutils/hdparm.c:INITIAL->1.1 
+
+---------------------
+PatchSet 3406 
+Date: 2003/07/22 08:33:14
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Patch from Paul Mundt:
+
+    The current SC_x references automatically assume that everyone uses ttyS/tts
+    as their naming scheme for their serial ports. This isn't the case for quite
+    a few architectures, including sh, sh64, h8, arm, etc.
+
+Members: 
+	include/libbb.h:1.103->1.104 
+
+---------------------
+PatchSet 3407 
+Date: 2003/07/22 08:39:18
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Paul Mundt <lethal@linux-sh.org> writes:
+
+	Here's a bunch of fixes for the watchdog app in busybox. This does a
+	couple of things:
+
+		- configurable timer duration (userspace timer duration is
+		  usually configurable within the device drivers themselves).
+		- run as a daemon
+		- shutdown the device properly on SIGINT or SIGHUP
+		- clear the counter immediately instead of sleeping first
+
+	as well as updating the usage information. This has also been switched
+	over to getopt to deal with the optional timer duration specifier.
+
+	The changes themselves are harmless and isolated, and I've veried that
+	this works on sh and x86 without any problems.
+
+Members: 
+	include/usage.h:1.158->1.159 
+	miscutils/watchdog.c:1.6->1.7 
+
+---------------------
+PatchSet 3408 
+Date: 2003/07/22 08:50:18
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+mention stresslinux
+
+Members: 
+	docs/busybox.net/index.html:1.122->1.123 
+
+---------------------
+PatchSet 3409 
+Date: 2003/07/22 09:25:37
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Error out early if people try to build mount with nfs support
+using uClibc, but have not enabled UCLIBC_HAS_RPC...
+ -Erik
+
+Members: 
+	util-linux/mount.c:1.112->1.113 
+
+---------------------
+PatchSet 3410 
+Date: 2003/07/22 09:26:05
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Very minor rdate updates
+
+Members: 
+	include/applets.h:1.100->1.101 
+	include/usage.h:1.159->1.160 
+	util-linux/rdate.c:1.22->1.23 
+
+---------------------
+PatchSet 3411 
+Date: 2003/07/22 09:54:02
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Add a default clean target
+
+Members: 
+	tests/Makefile:1.4->1.5 
+
+---------------------
+PatchSet 3412 
+Date: 2003/07/22 09:55:12
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Update TODO list
+
+Members: 
+	TODO:1.85->1.86 
+
+---------------------
+PatchSet 3413 
+Date: 2003/07/22 09:56:01
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+A minor update for handling older gcc versions
+
+Members: 
+	Rules.mak:1.16->1.17 
+
+---------------------
+PatchSet 3414 
+Date: 2003/07/22 09:56:42
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Remove remaining libc5 support code
+
+Members: 
+	coreutils/chgrp.c:1.14->1.15 
+	coreutils/chown.c:1.22->1.23 
+	include/busybox.h:1.52->1.53 
+	include/libbb.h:1.104->1.105 
+	init/init.c:1.188->1.189 
+	init/reboot.c:1.28->1.29 
+	libbb/Makefile.in:1.23->1.24 
+	libbb/dirname.c:1.6->1.7(DEAD) 
+	libbb/interface.c:1.16->1.17 
+	libbb/libc5.c:1.6->1.7(DEAD) 
+	libbb/module_syscalls.c:1.12->1.13 
+	libbb/syscalls.c:1.11->1.12 
+	libpwdgrp/setgroups.c:1.3->1.4 
+	miscutils/adjtimex.c:1.4->1.5 
+	miscutils/dutmp.c:1.30->1.31 
+	miscutils/update.c:1.24->1.25 
+	modutils/insmod.c:1.98->1.99 
+	networking/ping.c:1.54->1.55 
+	networking/traceroute.c:1.11->1.12 
+	networking/wget.c:1.53->1.54 
+	shell/cmdedit.c:1.79->1.80 
+	sysklogd/klogd.c:1.15->1.16 
+	sysklogd/logread.c:1.11->1.12 
+	sysklogd/syslogd.c:1.97->1.98 
+	util-linux/dmesg.c:1.29->1.30 
+	util-linux/swaponoff.c:1.34->1.35 
+
+---------------------
+PatchSet 3415 
+Date: 2003/07/22 10:41:39
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Support reboot, halt, and poweroff independent of busybox init.
+Simplify and fixup some logic.
+ -Erik
+
+Members: 
+	init/Config.in:1.5->1.6 
+	init/halt.c:1.22->1.23 
+	init/init_shared.c:1.1->1.2 
+	init/init_shared.h:1.1->1.2 
+	init/poweroff.c:1.19->1.20 
+	init/reboot.c:1.29->1.30 
+
+---------------------
+PatchSet 3416 
+Date: 2003/07/22 10:48:56
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Patch from  Andrew Flegg:
+
+    Here's a pretty crude patch to reload /etc/inittab when init receives a
+    SIGHUP. The mailing list archives weren't entirely clear on whether or
+    not it should already happen, but didn't appear to be.
+
+    The patch:
+       * Adds a new function, reload_signal() which just calls
+	 parse_inittab() and run_actions(RESPAWN)
+
+       * Before entering the while (1) loop set up SIGHUP to call
+	 reload_signal()
+
+       * Modify new_init_action to skip the action if the same command
+	 already exists on the same terminal
+
+    This last bit means that changing already running entries is a bit
+    hairy as you can end up with, for example, two shells running on the
+    same virtual console. However, for solely adding/removing entries this patch
+    seems to work quite well.
+
+Members: 
+	init/init.c:1.189->1.190 
+
+---------------------
+PatchSet 3417 
+Date: 2003/07/22 10:59:28
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Patch from Terje Kvernes adding quite a lot of missing documentation
+
+Members: 
+	editors/Config.in:1.5->1.6 
+	loginutils/Config.in:1.4->1.5 
+	modutils/Config.in:1.6->1.7 
+	networking/Config.in:1.16->1.17 
+	procps/Config.in:1.5->1.6 
+	shell/Config.in:1.5->1.6 
+
+---------------------
+PatchSet 3418 
+Date: 2003/07/22 11:11:27
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Remove the update utility, that is only relevant to older 2.0.x kernels
+that are no longer supported.
+
+Members: 
+	docs/busybox_header.pod:1.10->1.11 
+	include/applets.h:1.101->1.102 
+	include/usage.h:1.160->1.161 
+	miscutils/Makefile.in:1.6->1.7 
+	miscutils/update.c:1.25->1.26(DEAD) 
+
+---------------------
+PatchSet 3419 
+Date: 2003/07/22 11:11:48
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Write some more docs
+
+Members: 
+	miscutils/Config.in:1.3->1.4 
+
+---------------------
+PatchSet 3420 
+Date: 2003/07/22 11:14:32
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Document CONFIG_ASH_CMDCMD
+
+Members: 
+	shell/Config.in:1.6->1.7 
+
+---------------------
+PatchSet 3421 
+Date: 2003/07/22 11:16:58
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Document CONFIG_FEATURE_INSMOD_LOADINKMEM
+
+Members: 
+	modutils/Config.in:1.7->1.8 
+
+---------------------
+PatchSet 3422 
+Date: 2003/07/22 11:18:17
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+There is no need to expose CONFIG_FEATURE_TRACEROUTE_SO_DEBUG
+
+Members: 
+	networking/Config.in:1.17->1.18 
+
+---------------------
+PatchSet 3423 
+Date: 2003/07/22 18:03:24
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+the word "only" is repeated for CONFIG_FEATURE_SHADOWPASSWDS
+
+Members: 
+	loginutils/Config.in:1.5->1.6 
+
+---------------------
+PatchSet 3424 
+Date: 2003/07/22 18:04:54
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+As vodz noticed, I screwed up reboot
+
+Members: 
+	init/reboot.c:1.30->1.31 
+
+---------------------
+PatchSet 3425 
+Date: 2003/07/22 18:14:10
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Several simplifications and indenting changes, per
+last_patch97 from vodz
+
+Members: 
+	init/init_shared.c:1.2->1.3 
+
+---------------------
+PatchSet 3426 
+Date: 2003/07/22 23:15:16
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+eliminate DOSTATIC, DODEBUG, etc and name them sensibly
+
+Members: 
+	Rules.mak:1.17->1.18 
+	coreutils/tr.c:1.35->1.36 
+	debian/config-deb:1.6->1.7 
+	debian/config-net-udeb:1.2->1.3 
+	debian/config-net-udeb-i386:1.3->1.4 
+	debian/config-static:1.9->1.10 
+	debian/config-udeb:1.13->1.14 
+	debian/config-udeb-i386:1.3->1.4 
+	debian/rules:1.23->1.24 
+	sysdeps/linux/Config.in:1.9->1.10 
+	sysklogd/syslogd.c:1.98->1.99 
+
+---------------------
+PatchSet 3427 
+Date: 2003/07/24 00:24:31
+Author: mjn3
+Branch: HEAD
+Tag: (none) 
+Log:
+Set the tm_isdst flag to -1 before calling mktime().  Otherwise, the current
+timezone setting is used for the new date.
+
+Members: 
+	coreutils/date.c:1.40->1.41 
+
+---------------------
+PatchSet 3428 
+Date: 2003/07/26 01:45:52
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Don't depend on CONFIG_LFS.  It is really a suggestion, not a requirement,
+since fdisk will work just fine on smaller disks w/o it.
+
+Members: 
+	util-linux/Config.in:1.6->1.7 
+
+---------------------
+PatchSet 3429 
+Date: 2003/07/26 07:24:25
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Patch from Thomas Gleixner to reap any zombie processes that are
+reparented to init...
+
+Members: 
+	init/init.c:1.190->1.191 
+
+---------------------
+PatchSet 3430 
+Date: 2003/07/26 08:41:56
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Rework kill / killall so it behaves itself, even when subjected
+to abuse.
+ -Erik
+
+Members: 
+	procps/kill.c:1.49->1.50 
+
+---------------------
+PatchSet 3431 
+Date: 2003/07/26 08:48:13
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Patch from Nick Fedchik to fixup paths in busybox/libpwdgrp
+which were not properly using the bb_path_*_file strings.
+
+Members: 
+	libpwdgrp/getgrgid.c:1.2->1.3 
+	libpwdgrp/getgrnam.c:1.2->1.3 
+	libpwdgrp/getpwnam.c:1.2->1.3 
+	libpwdgrp/getpwuid.c:1.4->1.5 
+	libpwdgrp/grent.c:1.2->1.3 
+	libpwdgrp/initgroups.c:1.4->1.5 
+	libpwdgrp/pwent.c:1.4->1.5 
+
+---------------------
+PatchSet 3432 
+Date: 2003/07/26 09:07:56
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Some additional description based on a patch from Terje Kvernes
+
+Members: 
+	miscutils/Config.in:1.4->1.5 
+
+---------------------
+PatchSet 3433 
+Date: 2003/07/26 09:16:10
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Patch from Christian Meyer:
+
+    The client gives up way too soon because timeout is set to 0 ...
+    There's a solution for that problem.
+
+Members: 
+	networking/tftp.c:1.18->1.19 
+
+---------------------
+PatchSet 3434 
+Date: 2003/07/26 09:20:46
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+The logger utility does not really depend on CONFIG_SYSLOGD,
+since it can also be used with other syslog daemons
+ -Erik
+
+Members: 
+	sysklogd/Config.in:1.2->1.3 
+
+---------------------
+PatchSet 3435 
+Date: 2003/07/26 10:10:35
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+cleanup and add long options
+
+Members: 
+	debianutils/start_stop_daemon.c:1.8->1.9 
+	init/start_stop_daemon.c:1.8->1.9 
+
+---------------------
+PatchSet 3436 
+Date: 2003/07/26 10:16:00
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Move start_stop_daemon to debianutils.
+Cleanup run_parts a bit and add long opts
+
+Members: 
+	debianutils/Config.in:1.3->1.4 
+	debianutils/Makefile.in:1.2->1.3 
+	debianutils/run_parts.c:1.4->1.5 
+	init/Config.in:1.6->1.7 
+	init/Makefile.in:1.6->1.7 
+	init/start_stop_daemon.c:1.9->1.10(DEAD) 
+
+---------------------
+PatchSet 3437 
+Date: 2003/07/26 10:27:02
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Allow people to use the full blown iproute2 programs with busybox ifupdown.
+
+Members: 
+	networking/Config.in:1.18->1.19 
+
+---------------------
+PatchSet 3438 
+Date: 2003/07/26 10:33:15
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+There should be only one instance of CONFIG_FEATURE_AUTOWIDTH
+
+Members: 
+	coreutils/Config.in:1.11->1.12 
+	util-linux/Config.in:1.7->1.8 
+
+---------------------
+PatchSet 3439 
+Date: 2003/07/28 07:35:32
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+James Petterson writes:
+
+I've found a possible bug in libbb/interface.c, in function
+if_readlist_proc(). This function calls get_name(), and passes
+as an argument 'name', a buffer of 16 bytes (IFNAMSIZ).  The
+function get_name(), however, may use more than 16 bytes,
+when it is searching for aliases. Even if you don't have an
+alias interface, you can run into trouble if the interface
+has received more than 99999999 bytes, in which case the
+space between the interface name and the rx stats
+disappears, as in the /proc/net/dev example below:
+ wan0.200:264573315  462080    ...
+In this case get_name() correctly identifies the interface name
+as "wan0.200", but to do that it uses 18 bytes of the 'name'
+buffer, which could lead to an unpredictable error.
+
+A simple solution would be to increase the size of the buffer:
+
+Members: 
+	libbb/interface.c:1.17->1.18 
+
+---------------------
+PatchSet 3440 
+Date: 2003/07/28 07:42:59
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Add a "search google" button
+
+Members: 
+	docs/busybox.net/index.html:1.123->1.124 
+
+---------------------
+PatchSet 3441 
+Date: 2003/07/28 08:40:34
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+last_patch95 from vodz:
+
+Hi.
+
+Last patch have new libbb function
+vfork_rexec() for can use daemon() to uClinux system.
+This patched daemons: syslog, klogd, inetd, crond.
+This not tested! I havn`t this systems.
+Also. Previous patch for feature request MD5 crypt password for
+httpd don`t sended to this mailist on 07/15/03
+(mailist have Pytom module problem?).
+The previous patch included, and have testing.
+
+
+--w
+vodz
+
+Members: 
+	include/libbb.h:1.105->1.106 
+	libbb/Makefile.in:1.24->1.25 
+	libbb/vfork_daemon_rexec.c:INITIAL->1.1 
+	miscutils/Config.in:1.5->1.6 
+	miscutils/crond.c:1.4->1.5 
+	networking/Config.in:1.19->1.20 
+	networking/Makefile.in:1.16->1.17 
+	networking/httpd.c:1.10->1.11 
+	networking/inetd.c:1.4->1.5 
+	sysklogd/klogd.c:1.16->1.17 
+	sysklogd/syslogd.c:1.99->1.100 
+
+---------------------
+PatchSet 3442 
+Date: 2003/07/28 08:42:19
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+last_patch98 from vodz:
+
+Denis,
+
+># ./busybox env - echo zzz
+>zzz
+># ./busybox echo -n zzz
+>zzz
+># ./busybox env - echo -n zzz
+>env: invalid option -- n
+>
+>       obviously, env tried to understand -n as env's option
+>       instead of blindly passing it to echo...
+>
+>BusyBox v1.00-pre1 (2003.07.16-07:53+0000) multi-call binary
+>
+>Usage: env [-iu] [-] [name=value]... [command]
+
+Ah, you found very old problem.
+Last patch also have:
+
+- multiple "-u unsetenv" support
+- GNU long option support
+- save errno after exec failed before bb_perror_msg()
+
+
+--w
+vodz
+
+Members: 
+	coreutils/env.c:1.7->1.8 
+
+---------------------
+PatchSet 3443 
+Date: 2003/07/28 09:31:56
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Update docs a bit
+
+Members: 
+	networking/Config.in:1.20->1.21 
+
+---------------------
+PatchSet 3444 
+Date: 2003/07/28 10:31:28
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Fixup bugs in last patch
+
+Members: 
+	miscutils/crond.c:1.5->1.6 
+	networking/inetd.c:1.5->1.6 
+	sysklogd/klogd.c:1.17->1.18 
+
+---------------------
+PatchSet 3445 
+Date: 2003/07/28 10:37:56
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Avoid shadowing built-in function `log'
+
+Members: 
+	miscutils/crond.c:1.6->1.7 
+
+---------------------
+PatchSet 3446 
+Date: 2003/07/28 10:56:34
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+This is synced from dash-0.4.17 and full ready for insert to new busybox
+version:
+ftp://ftp.simtreas.ru/pub/my/bb/new
+
+News:
+
+- code is smalest!
+- support ${var...} expr
+- used new very strongly steal controlling terminal
+
+Members: 
+	shell/ash.c:1.70->1.71 
+	shell/cmdedit.c:1.80->1.81 
+
+---------------------
+PatchSet 3447 
+Date: 2003/07/28 10:59:05
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Patch from vodz to update httpd usage
+
+Members: 
+	include/usage.h:1.161->1.162 
+
+---------------------
+PatchSet 3448 
+Date: 2003/07/28 11:13:03
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+A small update to the new docs.  Plenty more is needed...
+
+Members: 
+	docs/busybox.sgml:1.49->1.50 
+
+---------------------
+PatchSet 3449 
+Date: 2003/07/28 11:34:38
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+bump version to 1.0.0-pre2
+
+Members: 
+	Rules.mak:1.18->1.19 
+
+---------------------
+PatchSet 3450 
+Date: 2003/07/29 07:33:12
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Yang Xiaopeng writes:
+
+>I'm sure that no user process use old root now,  but when run "umount
+>/old_root", it says:
+>   umount: /old_root: Device or resource busy
+>
+>I have tried to remount /proc within the new root *after* chroot, but
+>get the same result.
+>
+>
+I found the problem, I said that no user process use old root when run
+my scripts, but
+I'm wrong, actually there is a '3' fd open the file
+"/old_root/dev/console". By adding
+debug message in init/init.c, I found the problem: when init restart(in
+exec_signal()),
+before open the new terminal device, there is still a file opened(I
+don't know which file it is), so the
+terminal device(stdin) get fd '1', and the first dup(0)(stdout) return
+'2', the second(stderr) return '3'.
+
+I attach a simple patch to solve this problem.
+
+Members: 
+	init/init.c:1.191->1.192 
+
+---------------------
+PatchSet 3451 
+Date: 2003/07/29 07:38:40
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Vladimir N. Oleynik writes:
+
+Last patch have synced form Manuel Nova III xxreadtoken() function,
+corrected (C) form dash debian/copyright, removed my small mistake
+with IFS_BROKEN (thanks by Herbert), and synced cmdedit.c from
+current CVS (removed libc5 support, your email correction, my (C) year
+corertion).
+
+Members: 
+	shell/ash.c:1.71->1.72 
+	shell/cmdedit.c:1.81->1.82 
+
+---------------------
+PatchSet 3452 
+Date: 2003/07/29 08:05:35
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Bruno Randolf writes:
+
+this patch fixes run_parts when it's called by ifupdown. 1) argv has to be a
+NULL terminated char* array, not just a string. 2) run_parts now explicitly
+sets the environment. this environment is populated from the
+/etc/network/interfaces config file and is needed by the scripts in
+/etc/network/if-pre-up.d/. when run-parts is called from the command line the
+environment is taken from the current process.
+
+
+Vladimir Oleynik then wrote:
+
+You can simplify this if use:
+
++       bb_xasprintf(&buf[0], "/etc/network/if-%s.d", opt);
++       buf[1] = NULL;
++
++       run_parts(&buf, 2, environ);
++       free(buf[0]);
+
+--w
+vodz
+
+Members: 
+	debianutils/run_parts.c:1.5->1.6 
+	include/libbb.h:1.106->1.107 
+	libbb/run_parts.c:1.8->1.9 
+	networking/ifupdown.c:1.26->1.27 
+
+---------------------
+PatchSet 3453 
+Date: 2003/07/29 08:15:17
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Fixup typo noticed by Nick Fedchik
+
+Members: 
+	shell/ash.c:1.72->1.73 
+
+---------------------
+PatchSet 3454 
+Date: 2003/07/29 08:37:39
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Match up interfaces
+
+Members: 
+	networking/ifupdown.c:1.27->1.28 
+
+---------------------
+PatchSet 3455 
+Date: 2003/07/29 08:45:05
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Set libbb dead last in the link order
+
+Members: 
+	Makefile:1.282->1.283 
+
+---------------------
+PatchSet 3456 
+Date: 2003/07/30 07:52:33
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Ronny L Nilsson writes:
+
+    If BusyBox was compiled with -DCONFIG_FEATURE_CLEAN_UP dmesg command
+    segfaults if invoked with the "-n" option. (Due to a free() of an
+    uninitialized pointer).
+
+Members: 
+	util-linux/dmesg.c:1.30->1.31 
+
+---------------------
+PatchSet 3457 
+Date: 2003/07/30 07:56:07
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Ronny L Nilsson writes:
+
+The login process should always timeout if user don't login sucessfully within
+reasonable time. Otherwise we're sensetive to a DOS attack by simply doing a
+bunch of simultaneous telnet connections (deploys all availible TTY's).
+
+This patch make login.c terminate the connection after  "TIMEOUT" seconds.
+
+Members: 
+	loginutils/login.c:1.11->1.12 
+
+---------------------
+PatchSet 3458 
+Date: 2003/07/30 08:16:39
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Christian Meyer provided this patch to fix more bugs with the tftp client
+
+Members: 
+	networking/tftp.c:1.19->1.20 
+
+---------------------
+PatchSet 3459 
+Date: 2003/07/30 08:57:06
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Vladimir N. Oleynik writes:
+
+    This moment have algoritmicaly problem, not overflow:
+    strcat(wrapped, wrapped) - may be looped.
+
+    Hand patch:
+
+    - else if (strstr(strcat(wrapped, wrapped), newmono))
+    + else {
+    +    safe_strncpy(wrapped + lenwrap, wrapped, lenwrap + 1);
+    +    if (strstr(wrapped, newmono))
+    +}
+
+    --w
+    vodz
+
+Members: 
+	libbb/obscure.c:1.3->1.4 
+
+---------------------
+PatchSet 3460 
+Date: 2003/07/30 09:22:53
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Eric Spakman writes:
+
+The recent changes in ifupdown where all calls to 'ip link set' and
+'ip addr set' are swapped give some problems with v4tunnels.
+For plain ipv4 and ipv6 interfaces it works correct, other methods
+not tried. The patch below change the behaviour back for v4tunnels
+only.
+
+Without the patch the following errors are shown:
+RTNETLINK answers: Network is down
+RTNETLINK answers: No route to host
+and the tunnel is not fully brought up
+
+With this patch all works as expected.
+
+Members: 
+	networking/ifupdown.c:1.28->1.29 
+
+---------------------
+PatchSet 3461 
+Date: 2003/07/30 09:29:56
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Do not require that the signal number be specified
+
+Members: 
+	debianutils/start_stop_daemon.c:1.9->1.10 
+
+---------------------
+PatchSet 3462 
+Date: 2003/07/30 09:40:37
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+last_patch100 from vodz updating fdisk to 2.12pre
+
+Members: 
+	util-linux/fdisk.c:1.7->1.8 
+
+---------------------
+PatchSet 3463 
+Date: 2003/07/30 09:55:59
+Author: andersen
+Branch: HEAD
+Tag: (none) 
+Log:
+Lars Ekman writes:
+
+When using "losetup" the device is always setup as Read-Only.
+
+(I have only tested with the -o flag, but looking at the code the
+ problem seems general)
+
+The problem is the "opt" variable in "losetup.c" that is reused in
+the "set_loop()" call. Clear it before the call and everything is OK;
+
+  opt = 0;         /* <-------- added line */
+  if (delete)
+    return del_loop (argv[optind]) ? EXIT_SUCCESS : EXIT_FAILURE;
+  else
+    return set_loop (argv[optind], argv[optind + 1], offset, &opt)
+      ? EXIT_FAILURE : EXIT_SUCCESS;
+}
+
+Best Regards,
+Lars Ekman
+
+Members: 
+	util-linux/losetup.c:1.2->1.3 
+

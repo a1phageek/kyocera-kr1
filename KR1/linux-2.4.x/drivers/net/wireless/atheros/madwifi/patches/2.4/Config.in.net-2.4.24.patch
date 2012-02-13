@@ -1,0 +1,11 @@
+--- /usr/src/linux-2.4.24/net/Config.in	2004-02-10 22:38:13.000000000 -0800
++++ Config.in.net	2004-02-09 11:10:18.000000000 -0800
+@@ -54,6 +54,8 @@
+ fi
+ tristate '802.1Q VLAN Support' CONFIG_VLAN_8021Q
+ 
++tristate '802.11 State machine' CONFIG_WLAN
++
+ comment ' '
+ tristate 'The IPX protocol' CONFIG_IPX
+ if [ "$CONFIG_IPX" != "n" ]; then

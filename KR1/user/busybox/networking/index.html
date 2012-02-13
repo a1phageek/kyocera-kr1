@@ -1,0 +1,282 @@
+<!--
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+<title>Realtek  Reference Design: Basic</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="style.css" media="screen">
+<script language="JavaScript" type="text/javascript" src="overlib.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+function wan_proto_change() {
+	if (document.forms[0].wan_proto.value == "pppoe") {
+		document.forms[0].pppoe_username.disabled = 0;
+		document.forms[0].pppoe_passwd.disabled = 0;
+		document.forms[0].pppoe_keepalive.disabled = 0;
+		document.forms[0].pppoe_demand.disabled = 0;
+		document.forms[0].pppoe_idletime.disabled = 0;
+		document.forms[0].pppoe_mru.disabled = 0;
+		document.forms[0].pppoe_mtu.disabled = 0;
+	} else {
+		document.forms[0].pppoe_username.disabled = 1;
+		document.forms[0].pppoe_passwd.disabled = 1;
+		document.forms[0].pppoe_keepalive.disabled = 1;
+		document.forms[0].pppoe_demand.disabled = 1;
+		document.forms[0].pppoe_idletime.disabled = 1;
+		document.forms[0].pppoe_mru.disabled = 1;
+		document.forms[0].pppoe_mtu.disabled = 1;
+	}
+}
+//-->
+</script>
+</head>
+
+<body onLoad="wan_proto_change();">
+<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td colspan="2" class="navbar"><map name="FPMap1">
+      <area href="index.asp" shape="rect" coords="0, 0, 100, 20" alt="Basic">
+      <area href="status.asp" shape="rect" coords="100, 0, 200, 20" alt="Status">
+      <area href="filter.asp" shape="rect" coords="200, 0, 300, 20" alt="Filters">
+      <area href="forward.asp" shape="rect" coords="300, 0, 400, 20" alt="Routing">
+      <area href="wireless.asp" shape="rect" coords="400, 0, 500, 20" alt="Wireless">
+      <area href="internal.asp" shape="rect" coords="500, 0, 600, 20" alt="Internal">
+    </map><img border="0" src="btn.gif" usemap="#FPMap1" alt="Navigation Bar"></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="edge"><img border="0" src="blur_new.jpg" alt=""></td>
+  </tr>
+  <tr>
+    <td><img border="0" src="logo_new.gif" alt=""></td>
+    <td width="100%" valign="top">
+	<br>
+	<span class="title">BASIC</span><br>
+	<span class="subtitle">This page allows you to configure the
+	basic operation of the router.</span>
+    </td>
+  </tr>
+</table>
+
+<form method="get" action="apply.cgi">
+
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <th width="310">
+	<a href="javascript:void(0);"
+	onMouseOver="return overlib('Shows the MAC address (also known as Ethernet address) of the LAN interface.');"
+	onMouseOut="return nd();">
+	LAN MAC Address:&nbsp;&nbsp;
+	</a>
+    </th>
+    <td>&nbsp;&nbsp;</td>
+    <td><% flash_get("lan_hwaddr"); %></td>
+  </tr>
+  <tr>
+    <th width="310">LAN IP Address:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="lan_ipaddr" value="<% flash_get("lan_ipaddr"); %>" size="15" maxlength="15"></td>
+  </tr>
+  <tr>
+    <th width="310">LAN Subnet Mask:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="lan_netmask" value="<% flash_get("lan_netmask"); %>" size="15" maxlength="15"></td>
+  </tr>
+</table>
+
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <th width="310">LAN DHCP Server:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td>
+	<select name="lan_proto">
+	  <option value="dhcp" <% flash_match("lan_proto", "dhcp", "selected"); %>>Enabled</option>
+	  <option value="static" <% flash_match("lan_proto", "static", "selected"); %>>Disabled</option>
+	</select>
+    </td>
+  </tr>
+  <tr>
+    <th width="310">LAN DHCP Starting IP Address:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="dhcp_start" value="<% flash_get("dhcp_start"); %>" size="15" maxlength="15"></td>
+  </tr>
+  <tr>
+    <th width="310">LAN DHCP Ending IP Address:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="dhcp_end" value="<% flash_get("dhcp_end"); %>" size="15" maxlength="15"></td>
+  </tr>
+  <tr>
+    <th width="310">LAN Spanning Tree Protocol:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td>
+	<select name="lan_stp">
+	  <option value="1" <% flash_match("lan_stp", "1", "selected"); %>>Enabled</option>
+	  <option value="0" <% flash_match("lan_stp", "0", "selected"); %>>Disabled</option>
+	</select>
+    </td>
+  </tr>  
+</table>
+
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <th width="310">WAN Host Name:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="wan_hostname" value="<% flash_get("wan_hostname"); %>"></td>
+  </tr>
+  <tr>
+    <th width="310">WAN Domain Name:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="wan_domain" value="<% flash_get("wan_domain"); %>"></td>
+  </tr>
+  <tr>
+    <th width="310">WAN MAC Address:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="wan_hwaddr" value="<% flash_get("wan_hwaddr"); %>" size="17" maxlength="17"></td>
+  </tr>
+  <tr>
+    <th width="310">WAN IP Address:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="wan_ipaddr" value="<% flash_get("wan_ipaddr"); %>" size="15" maxlength="15"></td>
+  </tr>
+  <tr>
+    <th width="310">WAN Subnet Mask:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="wan_netmask" value="<% flash_get("wan_netmask"); %>" size="15" maxlength="15"></td>
+  </tr>
+  <tr>
+    <th width="310">WAN Default Gateway:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="wan_gateway" value="<% flash_get("wan_gateway"); %>" size="15" maxlength="15"></td>
+  </tr>
+  <tr>
+    <th width="310" valign="top" rowspan="3"><input type="hidden" name="wan_dns" value="3">WAN DNS Servers:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="wan_dns0" value="<% flash_list("wan_dns", 0); %>" size="15" maxlength="15"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="wan_dns1" value="<% flash_list("wan_dns", 1); %>" size="15" maxlength="15"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="wan_dns2" value="<% flash_list("wan_dns", 2); %>" size="15" maxlength="15"></td>
+  </tr>
+  <tr>
+    <th width="310" valign="top" rowspan="3"><input type="hidden" name="wan_wins" value="3">WAN WINS Servers:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="wan_wins0" value="<% flash_list("wan_wins", 0); %>" size="15" maxlength="15"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="wan_wins1" value="<% flash_list("wan_wins", 1); %>" size="15" maxlength="15"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="wan_wins2" value="<% flash_list("wan_wins", 2); %>" size="15" maxlength="15"></td>
+  </tr>
+  <tr>
+    <th width="310">WAN Protocol:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td>
+	<select name="wan_proto" onChange="wan_proto_change();">
+	  <option value="dhcp" <% flash_match("wan_proto", "dhcp", "selected"); %>>DHCP</option>
+	  <option value="static" <% flash_match("wan_proto", "static", "selected"); %>>Static</option>
+	  <option value="pppoe" <% flash_match("wan_proto", "pppoe", "selected"); %>>PPPoE</option>
+	</select>
+    </td>
+  </tr>
+</table>
+
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <th width="310">PPPoE Username:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="pppoe_username" value="<% flash_get("pppoe_username"); %>"></td>
+  </tr>
+  <tr>
+    <th width="310">PPPoE Password:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="pppoe_passwd" value="<% flash_get("pppoe_passwd"); %>" type="password"></td>
+  </tr>
+  <tr>
+    <th width="310">PPPoE Keep Alive:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td>
+	<select name="pppoe_keepalive">
+	  <option value="1" <% flash_match("pppoe_keepalive", "1", "selected"); %>>Enabled</option>
+	  <option value="0" <% flash_match("pppoe_keepalive", "0", "selected"); %>>Disabled</option>
+	</select>
+    </td>
+  </tr>
+  <tr>
+    <th width="310">PPPoE Connect on Demand:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td>
+	<select name="pppoe_demand">
+	  <option value="1" <% flash_match("pppoe_demand", "1", "selected"); %>>Enabled</option>
+	  <option value="0" <% flash_match("pppoe_demand", "0", "selected"); %>>Disabled</option>
+	</select>
+    </td>
+  </tr>
+  <tr>
+    <th width="310">PPPoE Max Idle Time:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="pppoe_idletime" value="<% flash_get("pppoe_idletime"); %>" size="4" maxlength="4"></td>
+  </tr>
+  <tr>
+    <th width="310">PPPoE MRU:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="pppoe_mru" value="<% flash_get("pppoe_mru"); %>"></td>
+  </tr>
+  <tr>
+    <th width="310">PPPoE MTU:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="pppoe_mtu" value="<% flash_get("pppoe_mtu"); %>"></td>
+  </tr>
+</table>
+
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <th width="310">Router Username:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="http_username" value="<% flash_get("http_username"); %>"></td>
+  </tr>
+  <tr>
+    <th width="310">Router Password:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="http_passwd" value="<% flash_get("http_passwd"); %>" type="password"></td>
+  </tr>
+  <tr>
+    <th width="310">Router WAN Port:&nbsp;&nbsp;</th>
+    <td>&nbsp;&nbsp;</td>
+    <td><input name="http_wanport" value="<% flash_get("http_wanport"); %>" size="5" maxlength="5"></td>
+  </tr>
+</table>
+
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="310"></td>
+    <td>&nbsp;&nbsp;</td>
+    <td>
+	<input type="submit" name="action" value="Apply">
+	<input type="reset" name="action" value="Cancel">
+	<input type="submit" name="action" value="Restore Defaults">
+    </td>
+  </tr>
+</table>
+
+</form>
+
+<p class="label"></p>
+
+</body>
+</html>

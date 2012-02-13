@@ -1,0 +1,31 @@
+--- /usr/src/linux-2.6.0/drivers/net/wireless/Kconfig	2004-01-22 08:12:19.038155608 -0800
++++ Kconfig.drivers	2004-01-22 08:10:36.648721168 -0800
+@@ -292,6 +292,28 @@
+ 	 It has basic support for Linux wireless extensions and initial
+ 	 micro support for ethtool.
+ 
++config ATHEROS
++	tristate "Atheros cards"
++	depends on NET_RADIO && WLAN && EXPERIMENTAL
++	enable ATHEROS_HAL
++       ---help---
++	  Say Y here if you intend to attach an Atheros Cardbus or PCI
++	  wireless Ethernet networking card to your computer.  This
++	  driver support the standard Linux Wireless Extensions.
++
++	  You will also very likely also need the Wireless Tools in order to
++	  configure your card and that /etc/pcmcia/wireless.opts works:
++	  <http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html>.
++
++	  To compile this driver as a module, choose M here: the module will be
++	  called ath_pci.  If unsure, say N.
++
++# yes, this works even when no drivers are selected
++config ATHEROS_HAL
++	bool
++	depends on NET_RADIO && ATHEROS
++	default n
++
+ # yes, this works even when no drivers are selected
+ config NET_WIRELESS
+ 	bool

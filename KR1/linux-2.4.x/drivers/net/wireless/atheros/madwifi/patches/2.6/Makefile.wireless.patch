@@ -1,0 +1,9 @@
+--- /usr/src/linux-2.6.0/drivers/net/wireless/Makefile	2004-01-22 08:36:16.000000000 -0800
++++ Makefile.wireless	2004-01-22 08:46:09.000000000 -0800
+@@ -26,3 +26,6 @@
+ obj-$(CONFIG_PCMCIA_RAYCS)	+= ray_cs.o
+ obj-$(CONFIG_PCMCIA_ATMEL)      += atmel_cs.o atmel.o 
+ obj-$(CONFIG_PCMCIA_WL3501)	+= wl3501_cs.o
++
++obj-$(CONFIG_ATHEROS)		+= ath/
++obj-$(CONFIG_ATHEROS_HAL)	+= _ath_hal/

@@ -1,0 +1,27 @@
+#
+# Serial device configuration
+#
+# $Id: Config.in,v 1.1 2004/05/31 02:32:38 rupert Exp $
+#
+mainmenu_option next_comment
+comment 'Serial drivers'
+
+if [ "$CONFIG_ARM" = "y" ]; then
+  # I don't have this in my tree yet.
+  dep_tristate 'AT91RM9200 serial port support' CONFIG_SERIAL_AT91 $CONFIG_ARCH_AT91RM9200
+  dep_bool '  Console on AT91RM9200 serial port' CONFIG_SERIAL_AT91_CONSOLE $CONFIG_SERIAL_AT91
+
+fi
+
+if [ "$CONFIG_SERIAL_AT91" = "y" ]; then
+   define_bool CONFIG_SERIAL_CORE y
+else
+   if [ "$CONFIG_SERIAL_AT91" = "m" ]; then
+      define_bool CONFIG_SERIAL_CORE m
+   fi
+fi
+if [ "$CONFIG_SERIAL_AT91_CONSOLE" = "y" ]; then
+   define_bool CONFIG_SERIAL_CORE_CONSOLE y
+fi
+
+endmenu

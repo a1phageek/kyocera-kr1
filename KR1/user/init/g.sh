@@ -1,0 +1,1 @@
+mips-uclibc-gcc  -g  -msoft-float -save-temps -v -Dlinux -D__linux__ -Dunix -D__uClinux__ -DEMBED -fpic -fPIC -I/home/mips/uClinux-dist/lib/uClibc-0.9.15/include -I/home/mips/uClinux-dist/lib/libm -I/home/mips/uClinux-dist/lib/libcrypt_old -I/home/mips/uClinux-dist -fno-builtin -nostartfiles -I/home/mips/uClinux-dist/linux-2.4.x/include -DCONSOLE_BAUD_RATE=9600   -c  simpleinit.c

@@ -1,0 +1,935 @@
+make V=1 ARCH=mips CROSS_COMPILE=/opt/toolchain_mips/bin/mips-linux- -C linux-2.4.x  || exit 1
+make[1]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x'
+. scripts/mkversion > .tmpversion
+/opt/toolchain_mips/bin/mips-linux-gcc -D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1  -DUTS_MACHINE='"mips"' -DKBUILD_BASENAME=version -c -o init/version.o init/version.c
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  arch/mips/tools
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/tools'
+make[2]: `/home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm-mips/offset.h' is up to date.
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/tools'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  kernel
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/kernel'
+make all_targets
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/kernel'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/kernel'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/kernel'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  drivers
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers'
+make -C block
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/block'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/block'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/block'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/block'
+make -C cdrom
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/cdrom'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/cdrom'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/cdrom'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/cdrom'
+make -C char
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/char'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/char'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/char'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/char'
+make -C hotplug
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/hotplug'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/hotplug'
+/opt/toolchain_mips/bin/mips-linux-ld -r -o pci_hotplug.o pci_hotplug_core.o pci_hotplug_util.o
+rm -f vmlinux-obj.o
+/opt/toolchain_mips/bin/mips-linux-ld -m elf32btsmip  -r -o vmlinux-obj.o pci_hotplug.o
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/hotplug'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/hotplug'
+make -C media
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/media'
+make -C radio
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/media/radio'
+make all_targets
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/media/radio'
+make[5]: Nothing to be done for `all_targets'.
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/media/radio'
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/media/radio'
+make -C video
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/media/video'
+make all_targets
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/media/video'
+make[5]: Nothing to be done for `all_targets'.
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/media/video'
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/media/video'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/media'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/media'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/media'
+make -C misc
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/misc'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/misc'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/misc'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/misc'
+make -C net
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net'
+make -C re865x
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x'
+make -C cle
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/cle'
+make all_targets
+make[6]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/cle'
+make[6]: Nothing to be done for `all_targets'.
+make[6]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/cle'
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/cle'
+make -C crypto
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/crypto'
+make -C 865xb
+make[6]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/crypto/865xb'
+make all_targets
+make[7]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/crypto/865xb'
+make[7]: Nothing to be done for `all_targets'.
+make[7]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/crypto/865xb'
+make[6]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/crypto/865xb'
+make all_targets
+make[6]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/crypto'
+make[6]: Nothing to be done for `all_targets'.
+make[6]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/crypto'
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/crypto'
+make -C rtl865x
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/rtl865x'
+make all_targets
+make[6]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/rtl865x'
+make[6]: Nothing to be done for `all_targets'.
+make[6]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/rtl865x'
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x/rtl865x'
+make all_targets
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x'
+make[5]: Nothing to be done for `all_targets'.
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x'
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/re865x'
+make -C wireless
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/wireless'
+make -C rtl8185
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/wireless/rtl8185'
+make all_targets
+make[6]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/wireless/rtl8185'
+make[6]: Nothing to be done for `all_targets'.
+make[6]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/wireless/rtl8185'
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/wireless/rtl8185'
+make all_targets
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/wireless'
+make[5]: Nothing to be done for `all_targets'.
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/wireless'
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net/wireless'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/net'
+make -C parport
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/parport'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/parport'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/parport'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/parport'
+make -C pci
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/pci'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/pci'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/pci'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/pci'
+make -C scsi
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/scsi'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/scsi'
+/opt/toolchain_mips/bin/mips-linux-ld -r -o scsi_mod.o scsi.o hosts.o scsi_ioctl.o constants.o scsicam.o scsi_proc.o scsi_error.o scsi_obsolete.o scsi_queue.o scsi_lib.o scsi_merge.o scsi_dma.o scsi_scan.o scsi_syms.o
+/opt/toolchain_mips/bin/mips-linux-ld -r -o sd_mod.o sd.o
+rm -f scsidrv.o
+/opt/toolchain_mips/bin/mips-linux-ld -m elf32btsmip  -r -o scsidrv.o scsi_mod.o sd_mod.o sg.o
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/scsi'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/scsi'
+make -C serial
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/serial'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/serial'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/serial'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/serial'
+make -C sound
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/sound'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/sound'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/sound'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/sound'
+make -C usb
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/usb'
+make -C host
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/usb/host'
+make all_targets
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/usb/host'
+make[5]: Nothing to be done for `all_targets'.
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/usb/host'
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/usb/host'
+make -C storage
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/usb/storage'
+make all_targets
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/usb/storage'
+/opt/toolchain_mips/bin/mips-linux-ld -r -o usb-storage.o scsiglue.o protocol.o transport.o usb.o initializers.o debug.o sddr09.o sddr55.o dpcm.o
+rm -f storage.o
+/opt/toolchain_mips/bin/mips-linux-ld -m elf32btsmip  -r -o storage.o usb-storage.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/usb/storage'
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/usb/storage'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/usb'
+/opt/toolchain_mips/bin/mips-linux-ld -r -o usbcore.o usb.o usb-debug.o hub.o devio.o inode.o drivers.o devices.o hcd.o
+/opt/toolchain_mips/bin/mips-linux-gcc -D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1   -nostdinc -iwithprefix include -DKBUILD_BASENAME=ehci_hcd  -c -o host/ehci-hcd.o host/ehci-hcd.c
+/opt/toolchain_mips/bin/mips-linux-gcc -D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1   -nostdinc -iwithprefix include -DKBUILD_BASENAME=usb_ohci  -c -o host/usb-ohci.o host/usb-ohci.c
+rm -f usbdrv.o
+/opt/toolchain_mips/bin/mips-linux-ld -m elf32btsmip  -r -o usbdrv.o usbcore.o host/ehci-hcd.o host/usb-ohci.o printer.o storage/storage.o
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/usb'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers/usb'
+make all_targets
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/drivers'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  mm
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/mm'
+make all_targets
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/mm'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/mm'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/mm'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  fs
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs'
+make -C fat
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/fat'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/fat'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/fat'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/fat'
+make -C lockd
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/lockd'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/lockd'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/lockd'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/lockd'
+make -C msdos
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/msdos'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/msdos'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/msdos'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/msdos'
+make -C nfs
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/nfs'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/nfs'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/nfs'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/nfs'
+make -C nfsd
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/nfsd'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/nfsd'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/nfsd'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/nfsd'
+make -C nls
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/nls'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/nls'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/nls'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/nls'
+make -C ntfs
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/ntfs'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/ntfs'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/ntfs'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/ntfs'
+make -C partitions
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/partitions'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/partitions'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/partitions'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/partitions'
+make -C proc
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/proc'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/proc'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/proc'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/proc'
+make -C ramfs
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/ramfs'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/ramfs'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/ramfs'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/ramfs'
+make -C romfs
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/romfs'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/romfs'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/romfs'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/romfs'
+make -C vfat
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/vfat'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/vfat'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/vfat'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs/vfat'
+make all_targets
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/fs'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  net
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net'
+make -C 802
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/802'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/802'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/802'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/802'
+make -C core
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/core'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/core'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/core'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/core'
+make -C ethernet
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/ethernet'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/ethernet'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/ethernet'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/ethernet'
+make -C ipv4
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/ipv4'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/ipv4'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/ipv4'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/ipv4'
+make -C netlink
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/netlink'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/netlink'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/netlink'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/netlink'
+make -C packet
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/packet'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/packet'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/packet'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/packet'
+make -C sched
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/sched'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/sched'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/sched'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/sched'
+make -C sunrpc
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/sunrpc'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/sunrpc'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/sunrpc'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/sunrpc'
+make -C unix
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/unix'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/unix'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/unix'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net/unix'
+make all_targets
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/net'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  ipc
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/ipc'
+make all_targets
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/ipc'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/ipc'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/ipc'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  lib
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/lib'
+make -C zlib_deflate
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/lib/zlib_deflate'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/lib/zlib_deflate'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/lib/zlib_deflate'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/lib/zlib_deflate'
+make -C zlib_inflate
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/lib/zlib_inflate'
+make all_targets
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/lib/zlib_inflate'
+make[4]: Nothing to be done for `all_targets'.
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/lib/zlib_inflate'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/lib/zlib_inflate'
+make all_targets
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/lib'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/lib'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/lib'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  crypto
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/crypto'
+make all_targets
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/crypto'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/crypto'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/crypto'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  arch/mips/math-emu
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/math-emu'
+make all_targets
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/math-emu'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/math-emu'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/math-emu'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  arch/mips/pci
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/pci'
+make all_targets
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/pci'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/pci'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/pci'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  arch/mips/realtek/rtl865x
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/realtek/rtl865x'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/realtek/rtl865x'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  arch/mips/kernel
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/kernel'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/kernel'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  arch/mips/mm
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/mm'
+make all_targets
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/mm'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/mm'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/mm'
+make CFLAGS="-D__KERNEL__ -I/home/DI-624S/src/uClinux-dist/linux-2.4.x/include  -Wall -Wstrict-prototypes -Wno-trigraphs -O1 -gdwarf-2 -fno-strict-aliasing -fno-common -fomit-frame-pointer -I /home/DI-624S/src/uClinux-dist/linux-2.4.x/include/asm/gcc -G 0 -mno-abicalls -fno-pic -pipe  -finline-limit=100000 -mabi=32 -march=r3000 -mips1 -Wa,-32 -Wa,-march=r3000 -Wa,-mips1 " -C  arch/mips/lib
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/lib'
+make all_targets
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/lib'
+make[3]: Nothing to be done for `all_targets'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/lib'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x/arch/mips/lib'
+make[1]: Leaving directory `/home/DI-624S/src/uClinux-dist/linux-2.4.x'
+if [ -f linux-2.4.x/vmlinux ]; then \
+	ln -f linux-2.4.x/vmlinux linux-2.4.x/linux ; \
+fi
+for dir in  lib user ; do [ ! -d $dir ] || make V=1 ARCH=mips CROSS_COMPILE=/opt/toolchain_mips/bin/mips-linux- -C $dir || exit 1 ; done
+make[1]: Entering directory `/home/DI-624S/src/uClinux-dist/lib'
+for i in uClibc libnet libcrypt_old /home/DI-624S/src/uClinux-dist/prop ; do [ ! -d $i ] || make -C $i || exit $? ; done
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc'
++ ./extra/scripts/fix_includes.sh -k /home/DI-624S/src/uClinux-dist/linux-2.4.x -t mips
+Current kernel version is 2.4.26-uc0
+
+
+Using kernel headers from 2.4.26-uc0 for architecture 'mips'
+	provided in directory /home/DI-624S/src/uClinux-dist/linux-2.4.x
+
+
++ TOPDIR=.
++ CC=/opt/toolchain_mips/bin/mips-linux-gcc
++ /bin/sh extra/scripts/gen_bits_syscall_h.sh
++ cmp include/bits/sysnum.h include/bits/sysnum.h.new
++ rm -f include/bits/sysnum.h.new
+make -C libc/sysdeps/linux/common headers
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/sysdeps/linux/common'
+ln -fs ../libc/sysdeps/linux/common/fpu_control.h ../../../..//include/
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/sysdeps/linux/common'
+make -C libc/sysdeps/linux/mips headers
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/sysdeps/linux/mips'
+ln -fs ../libc/sysdeps/linux/mips/sgidefs.h ../../../..//include/
+ln -fs ../libc/sysdeps/linux/mips/fpu_control.h ../../../..//include/
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/sysdeps/linux/mips'
+make -C  ldso
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/ldso'
+ln -fs ../../include/elf.h include/
+ln -fs ../ldso/mips/boot1_arch.h include/
+ln -fs ../ldso/mips/ld_syscalls.h include/
+ln -fs ../ldso/mips/ld_sysdep.h include/
+make -C ldso;
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/ldso/ldso'
+/opt/toolchain_mips/bin/mips-linux-ld  -shared --warn-common --export-dynamic --sort-common -z combreloc --discard-locals --discard-all -e _dl_boot -soname=ld-uClibc.so.0 \
+-o ld-uClibc-0.9.26.so mips/resolve.o ldso.o /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/libgcc.a;
+install -d ../../lib
+install -m 755 ld-uClibc-0.9.26.so ../../lib
+ln -sf ld-uClibc-0.9.26.so ../../lib/ld-uClibc.so.0
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/ldso/ldso'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/ldso'
+make -C  libc
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc'
+make -C  misc
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc'
+make -C  assert
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/assert'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a __assert.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/assert'
+make -C  ctype
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/ctype'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a isalnum.o isalpha.o isascii.o iscntrl.o isdigit.o isgraph.o islower.o isprint.o ispunct.o isspace.o isupper.o isxdigit.o toascii.o tolower.o toupper.o isblank.o isxlower.o isxupper.o __C_ctype_b.o __C_ctype_tolower.o __C_ctype_toupper.o __ctype_b_loc.o __ctype_tolower_loc.o __ctype_toupper_loc.o __ctype_assert.o isctype.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/ctype'
+make -C  dirent
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/dirent'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a alphasort.o closedir.o dirfd.o opendir.o readdir.o rewinddir.o scandir.o seekdir.o telldir.o readdir64.o alphasort64.o scandir64.o readdir_r.o readdir64_r.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/dirent'
+make -C  file
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/file'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a lockf.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/file'
+make -C  fnmatch
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/fnmatch'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a fnmatch.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/fnmatch'
+make -C  internals
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/internals'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a __uClibc_main.o tempname.o errno.o __errno_location.o __h_errno_location.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/internals'
+make -C  mntent
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/mntent'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a mntent.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/mntent'
+make -C  syslog
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/syslog'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a syslog.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/syslog'
+make -C  time
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/time'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a adjtime.o ftime.o clock_gettime.o asctime.o asctime_r.o clock.o ctime.o ctime_r.o gmtime.o gmtime_r.o localtime.o localtime_r.o mktime.o strftime.o strptime.o tzset.o _time_t2tm.o __time_tm.o _time_mktime.o dysize.o timegm.o difftime.o  
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/time'
+make -C  utmp
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/utmp'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a utent.o wtent.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/utmp'
+make -C  sysvipc
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/sysvipc'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a semget.o semctl.o semop.o shmat.o shmctl.o shmdt.o shmget.o msgctl.o msgget.o msgrcv.o msgsnd.o ftok.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/sysvipc'
+make -C  statfs
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/statfs'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a statvfs.o fstatvfs.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/statfs'
+make -C  error
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/error'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a error.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/error'
+make -C  ttyent
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/ttyent'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a getttyent.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/ttyent'
+make -C  gnu
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/gnu'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a obstack.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/gnu'
+make -C  search
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/search'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a hsearch.o tsearch.o tfind.o tdelete.o twalk.o tdestroy.o lfind.o lsearch.o insque.o remque.o hcreate_r.o hdestroy_r.o hsearch_r.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/search'
+make -C  locale
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/locale'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a setlocale.o localeconv.o _locale_init.o nl_langinfo.o  
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/locale'
+make -C  regex
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/regex'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a regex.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/regex'
+make -C  pthread
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/pthread'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a no-tsd.o weaks.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/pthread'
+make -C  glob
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/glob'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a glob.o glob64.o glob-hooks.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc/glob'
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/misc'
+make -C  pwd_grp
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/pwd_grp'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../libc/libc.a fgetpwent_r.o fgetgrent_r.o fgetpwent.o fgetgrent.o getpwnam_r.o getgrnam_r.o getpwuid_r.o getgrgid_r.o getpwuid.o getgrgid.o getpwnam.o getgrnam.o getpw.o getpwent_r.o getgrent_r.o getpwent.o getgrent.o initgroups.o putpwent.o putgrent.o __parsepwent.o __parsegrent.o __pgsreader.o fgetspent_r.o fgetspent.o sgetspent_r.o getspnam_r.o getspnam.o getspent_r.o getspent.o sgetspent.o putspent.o __parsespent.o  lckpwdf.o
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/pwd_grp'
+make -C  stdio
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/stdio'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../libc/libc.a fclose.o fflush.o fopen.o freopen.o perror.o remove.o setbuf.o setvbuf.o fgetc.o fgets.o fputc.o fputs.o getc.o getchar.o gets.o putc.o putchar.o puts.o ungetc.o fread.o fwrite.o fgetpos.o fseek.o fsetpos.o ftell.o rewind.o clearerr.o feof.o ferror.o fileno.o fdopen.o getw.o putw.o setbuffer.o setlinebuf.o fcloseall.o fopen64.o freopen64.o ftello64.o fseeko64.o fsetpos64.o fgetpos64.o __fbufsize.o __freading.o __fwriting.o __freadable.o __fwritable.o __flbf.o __fpurge.o __fpending.o _flushlbf.o fopencookie.o fmemopen.o open_memstream.o __fsetlocking.o flockfile.o ftrylockfile.o funlockfile.o _stdio_fopen.o _stdio_fread.o _stdio_fwrite.o _stdio_adjpos.o _stdio_lseek.o _stdio_init.o _stdio_fsfopen.o _stdio_fdout.o _uintmaxtostr.o _stdio_strerror_r.o getdelim.o getline.o ctermid.o vsnprintf.o vdprintf.o vasprintf.o vprintf.o vsprintf.o fprintf.o  snprintf.o  dprintf.o  asprintf.o  printf.o  sprintf.o _store_inttype.o _load_inttype.o _ppfs_init.o _ppfs_prepargs.o _ppfs_setargs.o _ppfs_parsespec.o vfprintf.o register_printf_function.o parse_printf_format.o _fpmaxtostr.o scanf.o sscanf.o fscanf.o vscanf.o vsscanf.o vfscanf.o __scan_cookie.o __psfs_parse_spec.o __psfs_do_numeric.o popen.o tmpfile.o tmpnam.o tmpnam_r.o tempnam.o
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/stdio'
+make -C  string
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/string'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../libc/libc.a basename.o bcopy.o bzero.o dirname.o ffs.o memccpy.o memchr.o memcmp.o memcpy.o memmove.o mempcpy.o memrchr.o 	memset.o rawmemchr.o stpcpy.o stpncpy.o strcasecmp.o strcasestr.o strcat.o strchrnul.o strchr.o strcmp.o strcpy.o strcspn.o strdup.o strlen.o strncasecmp.o strncat.o strncmp.o strncpy.o strndup.o strnlen.o strpbrk.o strrchr.o strsep.o strspn.o strstr.o strtok.o strtok_r.o strerror.o _susv3_strerror_r.o _string_syserrmsgs.o _glibc_strerror_r.o _string_syssigmsgs.o sys_siglist.o strsignal.o psignal.o __xpg_basename.o strlcat.o strlcpy.o sys_errlist.o memmem.o 
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/string'
+make -C  termios
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/termios'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../libc/libc.a tcdrain.o tcflow.o tcflush.o tcsendbreak.o tcsetpgrp.o tcgetpgrp.o isatty.o cfgetospeed.o cfgetispeed.o cfsetospeed.o cfsetispeed.o cfmakeraw.o cfsetspeed.o tcgetattr.o tcgetsid.o tcsetattr.o ttyname.o
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/termios'
+make -C  inet
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/inet'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../libc/libc.a inet_aton.o inet_addr.o inet_ntoa.o inet_makeaddr.o inet_lnaof.o inet_netof.o encodeh.o decodeh.o encoded.o decoded.o lengthd.o encodeq.o decodeq.o lengthq.o encodea.o decodea.o encodep.o decodep.o formquery.o dnslookup.o resolveaddress.o opennameservers.o closenameservers.o resolvename.o gethostbyname.o res_init.o res_query.o gethostbyaddr.o read_etc_hosts_r.o get_hosts_byname_r.o get_hosts_byaddr_r.o gethostbyname2.o getnameinfo.o gethostent.o gethostbyname_r.o gethostbyname2_r.o gethostbyaddr_r.o res_comp.o ns_name.o accept.o bind.o connect.o getpeername.o getsockname.o getsockopt.o listen.o recv.o recvfrom.o recvmsg.o send.o sendmsg.o sendto.o setsockopt.o shutdown.o socket.o socketpair.o  getservice.o getproto.o hostid.o getnetent.o getnetbynm.o getnetbyad.o inet_net.o ntop.o herror.o if_nametoindex.o gai_strerror.o getaddrinfo.o in6_addr.o ether_addr.o ntohl.o
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/inet'
+make -C  signal
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/signal'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../libc/libc.a allocrtsig.o killpg.o raise.o sigaction.o sigaddset.o sigandset.o sigblock.o sigdelset.o sigempty.o sigfillset.o siggetmask.o sighold.o sigignore.o sigintr.o sigisempty.o sigismem.o sigjmp.o signal.o sigorset.o sigpause.o sigrelse.o sigset.o sigsetmask.o sigsetops.o sysv_signal.o sigwait.o
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/signal'
+make -C  stdlib
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/stdlib'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../libc/libc.a abs.o labs.o atoi.o atol.o strtol.o strtoul.o _stdlib_strto_l.o qsort.o bsearch.o llabs.o atoll.o strtoll.o strtoull.o _stdlib_strto_ll.o atof.o   strtod.o strtof.o strtold.o __strtofpmax.o __fp_range_check.o  atexit.o on_exit.o __exit_handler.o exit.o abort.o getenv.o mkdtemp.o mktemp.o realpath.o mkstemp.o mkstemp64.o rand.o random.o random_r.o setenv.o system.o div.o ldiv.o getpt.o ptsname.o grantpt.o unlockpt.o gcvt.o drand48-iter.o jrand48.o jrand48_r.o lrand48.o lrand48_r.o mrand48.o mrand48_r.o nrand48.o nrand48_r.o rand_r.o srand48.o srand48_r.o seed48.o seed48_r.o valloc.o drand48.o drand48_r.o erand48.o erand48_r.o
+make -C  malloc-standard
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/stdlib/malloc-standard'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../libc/libc.a malloc.o calloc.o realloc.o free.o memalign.o mallopt.o mallinfo.o
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/stdlib/malloc-standard'
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/stdlib'
+make -C  sysdeps
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/sysdeps'
+make -C  linux
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/sysdeps/linux'
+make -C common
+make[6]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/sysdeps/linux/common'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../../libc/libc.a waitpid.o getdnnm.o gethstnm.o getcwd.o ptrace.o mkfifo.o setegid.o wait.o getpagesize.o seteuid.o wait3.o setpgrp.o getdtablesize.o create_module.o cmsg_nxthdr.o longjmp.o open64.o ftruncate64.o mmap64.o truncate64.o getrlimit64.o setrlimit64.o creat64.o llseek.o pread_write.o _exit.o sync.o getdirname.o sendfile64.o xstatconv.o getdents.o getdents64.o vfork.o ulimit.o ntp_gettime.o sbrk.o  __libc_fork.o  __libc_read.o  __libc_write.o  __syscall_open.o  __libc_close.o  link.o  unlink.o  __syscall_execve.o  __syscall_chdir.o  time.o  __syscall_mknod.o  __syscall_chmod.o  __syscall_lchown.o  __libc_lseek.o  __libc_getpid.o  mount.o  umount.o  __syscall_setuid.o  __syscall_getuid.o  stime.o  alarm.o  __libc_pause.o  utime.o  utimes.o  access.o  nice.o  __syscall_kill.o  __syscall_rename.o  __syscall_mkdir.o  rmdir.o  dup.o  pipe.o  times.o  __syscall_setgid.o  __syscall_getgid.o  __syscall_geteuid.o  __syscall_getegid.o  acct.o  umount2.o  __syscall_ioctl.o  __syscall_fcntl.o  __syscall_setpgid.o  __syscall_umask.o  __syscall_chroot.o  __syscall_ustat.o  dup2.o  getppid.o  getpgrp.o  setsid.o  __syscall_sigaction.o  __syscall_setreuid.o  __syscall_setregid.o  __sigsuspend.o  sigpending.o  sethostname.o  __setrlimit.o  setrlimit.o  __getrlimit.o  getrusage.o  gettimeofday.o  settimeofday.o  __syscall_getgroups.o  __syscall_setgroups.o  select.o  symlink.o  readlink.o  uselib.o  swapon.o  _reboot.o  _mmap.o  munmap.o  truncate.o  ftruncate.o  __syscall_fchmod.o  __syscall_fchown.o  __syscall_getpriority.o  setpriority.o  __syscall_statfs.o  fstatfs.o  ioperm.o  __socketcall.o  _syslog.o  setitimer.o  getitimer.o  __syscall_stat.o  __syscall_lstat.o  __syscall_fstat.o  iopl.o  vhangup.o  __syscall_wait4.o  swapoff.o  sysinfo.o  __ipc.o  __libc_fsync.o  setdomainname.o  uname.o  modify_ldt.o  adjtimex.o  mprotect.o  __syscall_sigprocmask.o  init_module.o  delete_module.o  get_kernel_syms.o  quotactl.o  __syscall_getpgid.o  fchdir.o  bdflush.o  sysfs.o  personality.o  __syscall_setfsuid.o  __syscall_setfsgid.o  _newselect.o  __syscall_flock.o  __libc_msync.o  readv.o  writev.o  __syscall_getsid.o  fdatasync.o  _sysctl.o  mlock.o  munlock.o  mlockall.o  munlockall.o  __syscall_sched_setparam.o  __syscall_sched_getparam.o  __syscall_sched_setscheduler.o  __syscall_sched_getscheduler.o  sched_yield.o  sched_get_priority_max.o  sched_get_priority_min.o  __syscall_sched_rr_get_interval.o  __libc_nanosleep.o  mremap.o  __syscall_setresuid.o  __syscall_getresuid.o  query_module.o  poll.o  __syscall_setresgid.o  __syscall_getresgid.o  prctl.o  __syscall_rt_sigaction.o  __rt_sigprocmask.o  __rt_sigpending.o  __rt_sigtimedwait.o  __rt_sigsuspend.o  __syscall_chown.o  capget.o  capset.o  sigaltstack.o sendfile.o  __ugetrlimit.o  __syscall_stat64.o  __syscall_lstat64.o  __syscall_fstat64.o  pivot_root.o  madvise.o  __syscall_fcntl64.o
+make[6]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/sysdeps/linux/common'
+make -C mips
+make[6]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/sysdeps/linux/mips'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../../../libc/libc.a bsd-_setjmp.o bsd-setjmp.o setjmp.o clone.o fork.o syscall.o pipe.o  __longjmp.o brk.o vfork.o setjmp_aux.o _mmap.o __syscall_error.o cacheflush.o pread_write.o sysmips.o _test_and_set.o
+cp crt0.o crt1.o ../../../../lib/
+make[6]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/sysdeps/linux/mips'
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/sysdeps/linux'
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/sysdeps'
+make -C  unistd
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/unistd'
+/opt/toolchain_mips/bin/mips-linux-ar r ../../libc/libc.a sleep.o usleep.o getpass.o sysconf.o getlogin.o fpathconf.o confstr.o pathconf.o swab.o usershell.o getsubopt.o daemon.o getopt.o execl.o execv.o execle.o execlp.o execvp.o
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc/unistd'
+/opt/toolchain_mips/bin/mips-linux-ranlib libc.a
+install -d ../lib
+rm -f ../lib/libc.a
+install -m 644 libc.a ../lib
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc'
+make -C  libcrypt
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libcrypt'
+/opt/toolchain_mips/bin/mips-linux-ar r libcrypt.a crypt.o des.o md5.o
+install -d ../lib
+rm -f ../lib/libcrypt.a
+install -m 644 libcrypt.a ../lib
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libcrypt'
+make -C  libresolv
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libresolv'
+/opt/toolchain_mips/bin/mips-linux-ar r libresolv.a resolv.o
+install -d ../lib
+rm -f ../lib/libresolv.a
+install -m 644 libresolv.a ../lib
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libresolv'
+make -C  libnsl
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libnsl'
+/opt/toolchain_mips/bin/mips-linux-ar r libnsl.a nsl.o
+install -d ../lib
+rm -f ../lib/libnsl.a
+install -m 644 libnsl.a ../lib
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libnsl'
+make -C  libutil
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libutil'
+/opt/toolchain_mips/bin/mips-linux-ar r libutil.a login.o login_tty.o logout.o logwtmp.o openpty.o forkpty.o
+install -d ../lib
+rm -f ../lib/libutil.a
+install -m 644 libutil.a ../lib/
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libutil'
+make -C  libm
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libm'
+/opt/toolchain_mips/bin/mips-linux-ar r libm.a e_acos.o e_acosh.o e_asin.o e_atan2.o e_atanh.o e_cosh.o e_exp.o e_fmod.o e_gamma.o e_gamma_r.o e_hypot.o e_j0.o e_j1.o e_jn.o e_lgamma.o e_lgamma_r.o e_log.o e_log10.o e_pow.o e_remainder.o e_rem_pio2.o e_scalb.o e_sinh.o e_sqrt.o k_cos.o k_rem_pio2.o k_sin.o k_standard.o k_tan.o s_asinh.o s_atan.o s_cbrt.o s_ceil.o s_copysign.o s_cos.o s_erf.o s_expm1.o s_fabs.o s_finite.o s_floor.o s_frexp.o s_ilogb.o s_ldexp.o s_lib_version.o s_log1p.o s_logb.o s_matherr.o s_modf.o s_nextafter.o s_rint.o s_scalbn.o s_signgam.o s_significand.o s_sin.o s_tan.o s_tanh.o w_acos.o w_acosh.o w_asin.o w_atan2.o w_atanh.o w_cabs.o w_cosh.o w_drem.o w_exp.o w_fmod.o w_gamma.o w_gamma_r.o w_hypot.o w_j0.o w_j1.o w_jn.o w_lgamma.o w_lgamma_r.o w_log.o w_log10.o w_pow.o w_remainder.o w_scalb.o w_sinh.o w_sqrt.o w_sqrtf.o fpmacros.o nan.o s_ceilf.o s_floorf.o
++ install -d ../lib
++ rm -f ../lib/libm.a
++ install -m 644 libm.a ../lib
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libm'
+make -C  libpthread
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libpthread'
+make -C  linuxthreads
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libpthread/linuxthreads'
+/opt/toolchain_mips/bin/mips-linux-ar r ../libpthread.a attr.o cancel.o condvar.o errno.o events.o join.o lockfile.o manager.o mutex.o oldsemaphore.o pt-machine.o ptfork.o pthread.o ptlongjmp.o rwlock.o semaphore.o signals.o specific.o spinlock.o wrapsyscall.o
+make -C  sysdeps
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libpthread/linuxthreads/sysdeps'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libpthread/linuxthreads/sysdeps'
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libpthread/linuxthreads'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libpthread'
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libc'
+/opt/toolchain_mips/bin/mips-linux-ld  -shared --warn-common --warn-once -z combreloc  -soname=libc.so.0 -o libuClibc-0.9.26.so \
+	--whole-archive libc.a \
+	../libc/misc/internals/interp.o --no-whole-archive \
+	-init __uClibc_init /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/libgcc.a 
+install -d ../lib
+rm -f ../lib/libuClibc-0.9.26.so
+install -m 644 libuClibc-0.9.26.so ../lib
+ln -sf libuClibc-0.9.26.so ../lib/libc.so
+ln -sf libuClibc-0.9.26.so ../lib/libc.so.0
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libc'
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/ldso'
+make -C libdl;
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/ldso/libdl'
+/opt/toolchain_mips/bin/mips-linux-ar r libdl.a ../ldso/mips/resolve.o dlib.o
+/opt/toolchain_mips/bin/mips-linux-ar r libdl_pic.a dlib_pic.o
+install -d ../../lib
+rm -f ../../lib/libdl.a
+install -m 644 libdl.a ../../lib
+/opt/toolchain_mips/bin/mips-linux-ld  -shared --warn-common --warn-once -z combreloc -soname=libdl.so.0 \
+-o libdl-0.9.26.so --whole-archive libdl_pic.a \
+--no-whole-archive ../..//libc/misc/internals/interp.o \
+-L../..//lib -lc  /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/libgcc.a;
+install -d ../../lib
+rm -f ../../lib/libdl-0.9.26.so ../../lib/libdl.so.0
+install -m 644 libdl-0.9.26.so ../../lib
+ln -sf libdl-0.9.26.so ../../lib/libdl.so
+ln -sf libdl-0.9.26.so ../../lib/libdl.so.0
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/ldso/libdl'
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/ldso'
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libcrypt'
+/opt/toolchain_mips/bin/mips-linux-ar r libcrypt.a crypt.o des.o md5.o
+install -d ../lib
+rm -f ../lib/libcrypt.a
+install -m 644 libcrypt.a ../lib
+/opt/toolchain_mips/bin/mips-linux-ld  -shared --warn-common --warn-once -z combreloc -soname=libcrypt.so.0 \
+-o libcrypt-0.9.26.so --whole-archive libcrypt.a \
+--no-whole-archive ../libc/misc/internals/interp.o \
+-L../lib -lc  /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/libgcc.a;
+install -d ../lib
+rm -f ../lib/libcrypt-0.9.26.so ../lib/libcrypt.so.0
+install -m 644 libcrypt-0.9.26.so ../lib;
+ln -sf libcrypt-0.9.26.so ../lib/libcrypt.so
+ln -sf libcrypt-0.9.26.so ../lib/libcrypt.so.0
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libcrypt'
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libresolv'
+/opt/toolchain_mips/bin/mips-linux-ar r libresolv.a resolv.o
+install -d ../lib
+rm -f ../lib/libresolv.a
+install -m 644 libresolv.a ../lib
+/opt/toolchain_mips/bin/mips-linux-ld  -shared --warn-common --warn-once -z combreloc -soname=libresolv.so.0 \
+-o libresolv-0.9.26.so --whole-archive libresolv.a \
+--no-whole-archive ../libc/misc/internals/interp.o \
+-L../lib -lc  /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/libgcc.a;
+install -d ../lib
+rm -f ../lib/libresolv-0.9.26.so ../lib/libresolv.so.0
+install -m 644 libresolv-0.9.26.so ../lib
+ln -sf libresolv-0.9.26.so ../lib/libresolv.so
+ln -sf libresolv-0.9.26.so ../lib/libresolv.so.0
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libresolv'
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libnsl'
+/opt/toolchain_mips/bin/mips-linux-ar r libnsl.a nsl.o
+install -d ../lib
+rm -f ../lib/libnsl.a
+install -m 644 libnsl.a ../lib
+/opt/toolchain_mips/bin/mips-linux-ld  -shared --warn-common --warn-once -z combreloc -soname=libnsl.so.0 \
+-o libnsl-0.9.26.so --whole-archive libnsl.a \
+--no-whole-archive ../libc/misc/internals/interp.o \
+-L../lib -lc  /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/libgcc.a;
+install -d ../lib
+rm -f ../lib/libnsl-0.9.26.so ../lib/libnsl.so.0
+install -m 644 libnsl-0.9.26.so ../lib
+ln -sf libnsl-0.9.26.so ../lib/libnsl.so
+ln -sf libnsl-0.9.26.so ../lib/libnsl.so.0
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libnsl'
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libutil'
+/opt/toolchain_mips/bin/mips-linux-ar r libutil.a login.o login_tty.o logout.o logwtmp.o openpty.o forkpty.o
+install -d ../lib
+rm -f ../lib/libutil.a
+install -m 644 libutil.a ../lib/
+/opt/toolchain_mips/bin/mips-linux-ld  -shared --warn-common --warn-once -z combreloc -soname=libutil.so.0 \
+-o libutil-0.9.26.so --whole-archive libutil.a \
+--no-whole-archive ../libc/misc/internals/interp.o \
+-L../lib -lc  /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/libgcc.a;
+install -d ../lib
+rm -f ../lib/libutil-0.9.26.so ../lib/libutil.so.0
+install -m 644 libutil-0.9.26.so ../lib
+ln -sf libutil-0.9.26.so ../lib/libutil.so
+ln -sf libutil-0.9.26.so ../lib/libutil.so.0
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libutil'
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libm'
+/opt/toolchain_mips/bin/mips-linux-ar r libm.a e_acos.o e_acosh.o e_asin.o e_atan2.o e_atanh.o e_cosh.o e_exp.o e_fmod.o e_gamma.o e_gamma_r.o e_hypot.o e_j0.o e_j1.o e_jn.o e_lgamma.o e_lgamma_r.o e_log.o e_log10.o e_pow.o e_remainder.o e_rem_pio2.o e_scalb.o e_sinh.o e_sqrt.o k_cos.o k_rem_pio2.o k_sin.o k_standard.o k_tan.o s_asinh.o s_atan.o s_cbrt.o s_ceil.o s_copysign.o s_cos.o s_erf.o s_expm1.o s_fabs.o s_finite.o s_floor.o s_frexp.o s_ilogb.o s_ldexp.o s_lib_version.o s_log1p.o s_logb.o s_matherr.o s_modf.o s_nextafter.o s_rint.o s_scalbn.o s_signgam.o s_significand.o s_sin.o s_tan.o s_tanh.o w_acos.o w_acosh.o w_asin.o w_atan2.o w_atanh.o w_cabs.o w_cosh.o w_drem.o w_exp.o w_fmod.o w_gamma.o w_gamma_r.o w_hypot.o w_j0.o w_j1.o w_jn.o w_lgamma.o w_lgamma_r.o w_log.o w_log10.o w_pow.o w_remainder.o w_scalb.o w_sinh.o w_sqrt.o w_sqrtf.o fpmacros.o nan.o s_ceilf.o s_floorf.o
++ install -d ../lib
++ rm -f ../lib/libm.a
++ install -m 644 libm.a ../lib
++ /opt/toolchain_mips/bin/mips-linux-ld -shared --warn-common --warn-once -z combreloc -soname=libm.so.0 -o libm-0.9.26.so --whole-archive libm.a --no-whole-archive ../libc/misc/internals/interp.o -L../lib -lc /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/libgcc.a
++ install -d ../lib
++ rm -f ../lib/libm-0.9.26.so ../lib/libm.so.0
++ install -m 644 libm-0.9.26.so ../lib
++ ln -sf libm-0.9.26.so ../lib/libm.so
++ ln -sf libm-0.9.26.so ../lib/libm.so.0
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libm'
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libpthread'
+make -C  linuxthreads
+make[4]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libpthread/linuxthreads'
+/opt/toolchain_mips/bin/mips-linux-ar r ../libpthread.a attr.o cancel.o condvar.o errno.o events.o join.o lockfile.o manager.o mutex.o oldsemaphore.o pt-machine.o ptfork.o pthread.o ptlongjmp.o rwlock.o semaphore.o signals.o specific.o spinlock.o wrapsyscall.o
+make -C  sysdeps
+make[5]: Entering directory `/home/DI-624S/src/uClinux-dist/uClibc/libpthread/linuxthreads/sysdeps'
+make[5]: Nothing to be done for `all'.
+make[5]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libpthread/linuxthreads/sysdeps'
+make[4]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libpthread/linuxthreads'
+if [ -f libpthread.a ] ; then \
+	set -e; \
+	/opt/toolchain_mips/bin/mips-linux-ld  -shared --warn-common --warn-once -z combreloc -soname=libpthread.so.0 \
+		-o libpthread-0.9.26.so ../lib/crti.o    /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/crtbeginS.o --whole-archive libpthread.a \
+		--no-whole-archive ../libc/misc/internals/interp.o \
+		-L../lib -lc  /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/libgcc.a \
+		/opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/crtendS.o ../lib/crtn.o; \
+	install -d ../lib; \
+	rm -f ../lib/libpthread-0.9.26.so \
+		../lib/libpthread.so.0; \
+	install -m 644 libpthread-0.9.26.so ../lib; \
+	ln -sf libpthread-0.9.26.so \
+		../lib/libpthread.so; \
+	ln -sf libpthread-0.9.26.so \
+		../lib/libpthread.so.0; \
+fi;
+if [ -f libthread_db.a ] ; then \
+	set -e; \
+	/opt/toolchain_mips/bin/mips-linux-ld  -shared --warn-common --warn-once -z combreloc -soname=libthread_db.so.1 \
+		-o libthread_db-0.9.26.so ../lib/crti.o    /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/crtbeginS.o --whole-archive libthread_db.a \
+		--no-whole-archive ../libc/misc/internals/interp.o \
+		-L../lib -lc  /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/libgcc.a \
+		/opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/crtendS.o ../lib/crtn.o; \
+	install -d ../lib; \
+	rm -f ../lib/libthread_db-0.9.26.so \
+		../lib/libthread_db.so.0; \
+	install -m 644 libthread_db-0.9.26.so ../lib; \
+	ln -sf libthread_db-0.9.26.so \
+		../lib/libthread_db.so; \
+	ln -sf libthread_db-0.9.26.so \
+		../lib/libthread_db.so.1; \
+fi;
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc/libpthread'
+
+Finally finished compiling...
+
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/uClibc'
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/lib/libcrypt_old'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/lib/libcrypt_old'
+make[1]: Leaving directory `/home/DI-624S/src/uClinux-dist/lib'
+make[1]: Entering directory `/home/DI-624S/src/uClinux-dist/user'
+for i in /home/DI-624S/src/uClinux-dist/vendors/Realtek/RTL865XB/. IAPP auth busybox cle-shell dino dnrd-2.10 goahead-2.1.4 gpio hotplugd init l2tpd libupnp-1.2.1a noip-2.0.12 pppd pptp-client quickcam rw samba sash tools ; do  make -C $i || exit  ; done
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/vendors/Realtek/RTL865XB'
+make[2]: Nothing to be done for `clean'.
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/vendors/Realtek/RTL865XB'
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/user/IAPP'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/IAPP'
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/user/auth'
+for i in src ; do make -C $i -f Makefile.rtl865x || exit  ; done
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/user/auth/src'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/auth/src'
+make -C src/dlisten -f Makefile.rtl865x
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/user/auth/src/dlisten'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/auth/src/dlisten'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/auth'
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/user/busybox'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/busybox'
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/user/cle-shell'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/cle-shell'
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/user/dino'
+for i in tftpd ; do make -C $i || exit  ; done
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/user/dino/tftpd'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/dino/tftpd'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/dino'
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/user/dnrd-2.10'
+for x in src; do (cd $x && make ); done
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/user/dnrd-2.10/src'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/dnrd-2.10/src'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/dnrd-2.10'
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4'
+for x in LINUX; do (cd $x && make ); done
+make[3]: Entering directory `/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX'
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4'
+make[2]: Entering directory `/home/DI-624S/src/uClinux-dist/user/gpio'
+/opt/toolchain_mips/bin/mips-linux-gcc  -I/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/ -nostartfiles /home/DI-624S/src/uClinux-dist/lib/uClibc/lib/crt0.o -L/opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/ -L/home/DI-624S/src/uClinux-dist/lib/uClibc/lib -L/home/DI-624S/src/uClinux-dist/lib/libnet -L/home/DI-624S/src/uClinux-dist/lib/libdes -L/home/DI-624S/src/uClinux-dist/lib/libaes -L/home/DI-624S/src/uClinux-dist/lib/libpcap -L/home/DI-624S/src/uClinux-dist/lib/libssl -L/home/DI-624S/src/uClinux-dist/lib/libcrypt -L/home/DI-624S/src/uClinux-dist/lib/zlib -L/home/DI-624S/src/uClinux-dist/lib/libpng -L/home/DI-624S/src/uClinux-dist/lib/libjpeg -L/home/DI-624S/src/uClinux-dist/prop/libsnapgear++ -L/home/DI-624S/src/uClinux-dist/prop/libsnapgear -c gpio_main.c
+mips-linux-gcc: /home/DI-624S/src/uClinux-dist/lib/uClibc/lib/crt0.o: linker input file unused because linking not done
+/opt/toolchain_mips/bin/mips-linux-gcc  -I/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/ -nostartfiles /home/DI-624S/src/uClinux-dist/lib/uClibc/lib/crt0.o -L/opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3/ -L/home/DI-624S/src/uClinux-dist/lib/uClibc/lib -L/home/DI-624S/src/uClinux-dist/lib/libnet -L/home/DI-624S/src/uClinux-dist/lib/libdes -L/home/DI-624S/src/uClinux-dist/lib/libaes -L/home/DI-624S/src/uClinux-dist/lib/libpcap -L/home/DI-624S/src/uClinux-dist/lib/libssl -L/home/DI-624S/src/uClinux-dist/lib/libcrypt -L/home/DI-624S/src/uClinux-dist/lib/zlib -L/home/DI-624S/src/uClinux-dist/lib/libpng -L/home/DI-624S/src/uClinux-dist/lib/libjpeg -L/home/DI-624S/src/uClinux-dist/prop/libsnapgear++ -L/home/DI-624S/src/uClinux-dist/prop/libsnapgear -o gpio gpio_main.o  ../goahead-2.1.4/LINUX/cfgmgr.o -nodefaultlibs -lc /opt/toolchain_mips/usr/bin/../lib/gcc-lib/mips-linux-uclibc/3.3.3//libgcc.a
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x58): In function `cfgmgr_integrityCheck':
+/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `flashdrv_getCcfgImageAddr'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x9c):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:497: undefined reference to `flashdrv_getCcfgImageAddr'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0xdc):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:499: undefined reference to `flashdrv_getCcfgImageAddr'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x348): In function `cfgmgr_factoryDefault':
+/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:597: undefined reference to `flashdrv_getBoardInfoAddr'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x360):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:597: undefined reference to `bdinfo'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x368):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:597: undefined reference to `flashdrv_read'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x380):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:600: undefined reference to `flashdrv_getCcfgImageAddr'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x3a8):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:600: undefined reference to `flashdrv_updateImg'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x3c4):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:604: undefined reference to `flashdrv_getCcfgImageAddr'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x43c): In function `cfgmgr_init':
+/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:642: undefined reference to `flashdrv_init'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x4c8):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:654: undefined reference to `re865xIoctl'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x4e4):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:659: undefined reference to `flashdrv_getCcfgImageAddr'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x50c):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:659: undefined reference to `flashdrv_read'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x724): In function `cfgmgr_read':
+/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:762: undefined reference to `re865xIoctl'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x904): In function `cfgmgr_task':
+/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:846: undefined reference to `flashdrv_getCcfgImageAddr'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x9ac):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:867: undefined reference to `flashdrv_getBoardInfoAddr'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x9c4):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:867: undefined reference to `bdinfo'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x9cc):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:867: undefined reference to `flashdrv_read'
+../goahead-2.1.4/LINUX/cfgmgr.o(.text+0x9f4):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:870: undefined reference to `flashdrv_updateImg'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x8): In function `cfgmgr_computeChecksum':
+/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:459: undefined reference to `vlanCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0xc):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:460: undefined reference to `ifCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x10):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:465: undefined reference to `routeCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x14):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:465: undefined reference to `arpCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x18):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:467: undefined reference to `natCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x1c):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:465: undefined reference to `mgmtCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x20):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:465: undefined reference to `pppoeCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x24):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:467: undefined reference to `dhcpsCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x28):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:465: undefined reference to `dhcpcCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x2c):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:465: undefined reference to `dnsCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x30):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:471: undefined reference to `dmzCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x34):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:471: undefined reference to `logCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x38): In function `cfgmgr_integrityCheck':
+/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:488: undefined reference to `upnpCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x3c):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:488: undefined reference to `ddnsCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x40):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:488: undefined reference to `aclCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x44):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:488: undefined reference to `aclGlobalCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x48):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:488: undefined reference to `serverpCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x4c):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:488: undefined reference to `specialapCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x50):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:488: undefined reference to `tbldrvCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x54):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:488: undefined reference to `urlfilterCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x58):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `dosCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x5c):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `algCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x60):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `timeCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x64):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `wlanCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x68):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `udpblockCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x6c):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `routingCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x70):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `pptpCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x74):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `l2tpCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x78):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `qosCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x7c):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `pbnatCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x80):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `rateLimitCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x84):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `ratioQoSCfgFactoryDefaultFunction'
+../goahead-2.1.4/LINUX/cfgmgr.o(.data+0x88):/home/DI-624S/src/uClinux-dist/user/goahead-2.1.4/LINUX/cfgmgr.c:492: undefined reference to `naptCfgFactoryDefaultFunction'
+collect2: ld returned 1 exit status
+make[2]: *** [gpio] Error 1
+make[2]: Leaving directory `/home/DI-624S/src/uClinux-dist/user/gpio'
+make[1]: *** [all] Error 2
+make[1]: Leaving directory `/home/DI-624S/src/uClinux-dist/user'
+make: *** [subdirs] Error 1

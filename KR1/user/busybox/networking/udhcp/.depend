@@ -1,0 +1,228 @@
+arpping.o: arpping.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/time.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/if_ether.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/if_ether.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if_arp.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if_arp.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ dhcpd.h $(dep_dhcpd.h) \
+ arpping.h $(dep_arpping.h) \
+ common.h $(dep_common.h)
+dep_arpping.h += \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/if_ether.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/if_ether.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if_arp.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if_arp.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h)
+clientpacket.o: clientpacket.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/features.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/features.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netpacket/packet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netpacket/packet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/ethernet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/ethernet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/asm/types.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/asm/types.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_packet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_packet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_ether.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_ether.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h) \
+ dhcpd.h $(dep_dhcpd.h) \
+ options.h $(dep_options.h) \
+ dhcpc.h $(dep_dhcpc.h) \
+ common.h $(dep_common.h)
+common.o: common.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/signal.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/signal.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ common.h $(dep_common.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/udhcp/syslog.h)
+dep_common.h += \
+ version.h $(dep_version.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/udhcp/syslog.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/syslog.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/syslog.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/udhcp/debug.h)
+dep_debug.h += \
+ libbb_udhcp.h $(dep_libbb_udhcp.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/syslog.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/syslog.h)
+dhcpc.o: dhcpc.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/time.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/file.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/file.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/getopt.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/getopt.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/signal.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/signal.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ dhcpd.h $(dep_dhcpd.h) \
+ dhcpc.h $(dep_dhcpc.h) \
+ options.h $(dep_options.h) \
+ clientpacket.h $(dep_clientpacket.h) \
+ script.h $(dep_script.h) \
+ socket.h $(dep_socket.h) \
+ common.h $(dep_common.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/install/no/usr.h)
+dhcpd.o: dhcpd.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/wait.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/wait.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netdb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netdb.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/signal.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/signal.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/time.h) \
+ dhcpd.h $(dep_dhcpd.h) \
+ arpping.h $(dep_arpping.h) \
+ socket.h $(dep_socket.h) \
+ options.h $(dep_options.h) \
+ files.h $(dep_files.h) \
+ serverpacket.h $(dep_serverpacket.h) \
+ common.h $(dep_common.h)
+dep_dhcpd.h += \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/ip.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/ip.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/udp.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/udp.h) \
+ leases.h $(dep_leases.h)
+dumpleases.o: dumpleases.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/wait.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/wait.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netdb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netdb.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/getopt.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/getopt.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h) \
+ leases.h $(dep_leases.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/busybox.h)
+files.o: files.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/ctype.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/ctype.h) \
+ dhcpd.h $(dep_dhcpd.h) \
+ files.h $(dep_files.h) \
+ options.h $(dep_options.h) \
+ common.h $(dep_common.h)
+frontend.o: frontend.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h)
+leases.o: leases.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ dhcpd.h $(dep_dhcpd.h) \
+ files.h $(dep_files.h) \
+ options.h $(dep_options.h) \
+ arpping.h $(dep_arpping.h) \
+ common.h $(dep_common.h)
+dep_libbb_udhcp.h += \
+ /home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/user/busybox/include/libbb.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/udhcp/syslog.h) \
+   $(wildcard /home/EVDO/RTL8651B/evdo-KR1/user/busybox/config/feature/udhcp/debug.h) \
+ version.h $(dep_version.h)
+options.o: options.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ dhcpd.h $(dep_dhcpd.h) \
+ files.h $(dep_files.h) \
+ options.h $(dep_options.h) \
+ common.h $(dep_common.h)
+dep_options.h += \
+ packet.h $(dep_packet.h)
+packet.o: packet.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/types.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/types.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/features.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/features.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netpacket/packet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netpacket/packet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/ethernet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/ethernet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/asm/types.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/asm/types.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_packet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_packet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_ether.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_ether.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ dhcpd.h $(dep_dhcpd.h) \
+ options.h $(dep_options.h) \
+ common.h $(dep_common.h)
+dep_packet.h += \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/udp.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/udp.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/ip.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/ip.h)
+pidfile.o: pidfile.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/types.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/types.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/stat.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/stat.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/fcntl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ debug.h $(dep_debug.h)
+script.o: script.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdio.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/stdlib.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/types.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/types.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/wait.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/wait.h) \
+ options.h $(dep_options.h) \
+ dhcpd.h $(dep_dhcpd.h) \
+ dhcpc.h $(dep_dhcpc.h) \
+ options.h $(dep_options.h) \
+ common.h $(dep_common.h)
+serverpacket.o: serverpacket.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/time.h) \
+ dhcpd.h $(dep_dhcpd.h) \
+ options.h $(dep_options.h) \
+ common.h $(dep_common.h)
+socket.o: socket.c \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/types.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/types.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/socket.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/sys/ioctl.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netinet/in.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/unistd.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/string.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/arpa/inet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/if.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/errno.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/features.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/features.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netpacket/packet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/netpacket/packet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/ethernet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/net/ethernet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/asm/types.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/asm/types.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_packet.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_packet.h) \
+ /home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_ether.h $(dep_/home/EVDO/RTL8651B/evdo-KR1/uClibc/include/linux/if_ether.h) \
+ common.h $(dep_common.h)
